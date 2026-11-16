@@ -143,7 +143,7 @@
   function build(sb) {
     var saved = safe(function () { return JSON.parse(localStorage.getItem('hrm-nav-groups') || '{}'); }, {});
     var html = '<a class="sb-brand" href="' + ROOT + 'index.html" title="Thư viện màn hình">' +
-      '<img alt="PMC HRM" src="' + ROOT + 'shared/logo.png"><span><b>PMC HRM</b><small>Quản trị Nhân sự</small></span></a>' +
+      '<img alt="HRM" src="' + ROOT + 'shared/logo.png" style="height:34px"><span><b>HRM</b><small>Quản trị Nhân sự</small></span></a>' +
       '<div class="sb-scroll"><nav aria-label="Menu chính">';
     MENU.forEach(function (g, gi) {
       var hasActive = g[2].some(isActive);

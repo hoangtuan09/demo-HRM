@@ -142,7 +142,7 @@
       '<main class="relative pt-16 w-full min-h-screen bg-surface px-space-lg py-space-lg"><div class="flex flex-col w-full space-y-space-lg">' +
       pageHead() + stats() + filters() + table() + toolbar() +
       '</div></main>';
-    document.title = (P.title || 'HRM') + ' — PMC HRM';
+    document.title = (P.title || 'HRM') + ' — HRM';
   }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', render); else render();
 })();
