@@ -13,3 +13,11 @@ div:has(> .state-pill) { flex-wrap: wrap !important; overflow: visible !importan
 
 /* 3) Bảng: không cho chữ bị bẻ từng ký tự khi cột quá hẹp */
 main table th, main table td { overflow-wrap: break-word; word-break: normal; }
+
+/* 4) Nút quay về thư viện cho trang không có menu (đăng nhập, hồ sơ nhân sự) */
+.hrm-back {
+  position: fixed; top: 6px; left: 12px; z-index: 99999; display: inline-flex; align-items: center; gap: 4px;
+  padding: 4px 12px; border-radius: 999px; background: #fff; color: #1967B2; text-decoration: none;
+  font: 600 12px/1.4 'Be Vietnam Pro', system-ui, sans-serif; border: 1px solid #E2E8F0; box-shadow: 0 2px 8px rgba(15,23,42,.12);
+}
+.hrm-back:hover { background: #E8F1FA; border-color: #1967B2; }
