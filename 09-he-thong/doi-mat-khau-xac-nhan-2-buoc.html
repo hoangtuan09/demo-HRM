@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+
+<html lang="vi"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Modal Đổi mật khẩu xác nhận - HRM Enterprise</title>
+<!-- Google Fonts: Be Vietnam Pro -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS v3 with Plugins -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Configuration -->
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Be Vietnam Pro"', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              DEFAULT: '#1967B2',
+              hover: '#124E88',
+              tint: '#E8F1FA',
+              light: '#F0F6FC'
+            },
+            neutral: {
+              dark: '#0F172A',
+              muted: '#475569',
+              subtle: '#94A3B8',
+              border: '#E2E8F0',
+              surface: '#FFFFFF',
+              appBg: '#F5F7FA'
+            },
+            semantic: {
+              danger: '#DC2626',
+              dangerBg: '#FEF2F2',
+              dangerBorder: '#FECACA',
+              success: '#16A34A',
+              successBg: '#F0FDF4'
+            }
+          },
+          boxShadow: {
+            modal: '0 20px 25px -5px rgba(15, 23, 42, 0.15), 0 8px 10px -6px rgba(15, 23, 42, 0.1)',
+            activeCard: '0 12px 28px -4px rgba(25, 103, 178, 0.18)'
+          }
+        }
+      }
+    }
+  </script>
+<!-- BEGIN: Custom Styles -->
+<style data-purpose="base-layout">
+    body {
+      font-family: 'Be Vietnam Pro', sans-serif;
+      color: #0F172A;
+      background-color: #F5F7FA;
+    }
+    /* Hide scrollbar for tabs navigation if overflowing */
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+  </style>
+<style data-purpose="modal-animations">
+    .transition-modal {
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .badge-ring {
+      box-shadow: 0 0 0 4px #E8F1FA;
+    }
+  </style>
+<!-- END: Custom Styles -->
+<link rel="stylesheet" href="../shared/nav.css"/><link rel="stylesheet" href="../shared/fix.css"/></head>
+<body class="min-h-screen overflow-x-hidden relative bg-[#F5F7FA]">
+<!-- BEGIN: HRM Dashboard Background (Simulated & Dimmed) -->
+<div aria-hidden="true" class="fixed inset-0 pointer-events-none select-none filter blur-[5px] scale-[1.01] opacity-75 z-0">
+<!-- Background Top Navigation Bar -->
+<header class="h-14 bg-white border-b border-neutral-border px-6 flex items-center justify-between">
+<div class="flex items-center space-x-6">
+<!-- PMC Brand Logo -->
+<img alt="PMC Logo" class="h-8 object-contain" src="../shared/img/img-43.jpg"/>
+<nav class="hidden md:flex items-center space-x-4 text-sm font-medium text-neutral-muted">
+<span class="hover:text-brand cursor-pointer">Tổng quan</span>
+<span class="text-neutral-subtle">/</span>
+<span class="hover:text-brand cursor-pointer">Cài đặt hệ thống</span>
+<span class="text-neutral-subtle">/</span>
+<span class="text-brand font-semibold">Bảo mật tài khoản</span>
+</nav>
+</div>
+<div class="flex items-center space-x-4">
+<div class="w-64 h-8 bg-slate-100 rounded-md border border-neutral-border flex items-center px-3 text-xs text-neutral-subtle">
+          Tìm kiếm nhân viên, chứng từ...
+        </div>
+<div class="w-8 h-8 rounded-full bg-slate-200"></div>
+</div>
+</header>
+<div class="flex">
+<!-- Background Sidebar -->
+<aside id="app-sidebar" data-mode="flow" data-old-w="240"></aside>
+<!-- Background Content Area -->
+<main class="flex-1 p-8 space-y-6">
+<div class="grid grid-cols-4 gap-5">
+<div class="bg-white p-5 rounded-lg border border-neutral-border space-y-2">
+<span class="text-xs text-neutral-subtle uppercase font-semibold">Tổng nhân sự</span>
+<div class="text-2xl font-bold text-neutral-dark">1,248</div>
+<div class="text-xs text-semantic-success font-medium">+3.2% so với tháng trước</div>
+</div>
+<div class="bg-white p-5 rounded-lg border border-neutral-border space-y-2">
+<span class="text-xs text-neutral-subtle uppercase font-semibold">Tỷ lệ đi làm</span>
+<div class="text-2xl font-bold text-neutral-dark">98.4%</div>
+<div class="text-xs text-neutral-muted">Hôm nay: 1,228 có mặt</div>
+</div>
+<div class="bg-white p-5 rounded-lg border border-neutral-border space-y-2">
+<span class="text-xs text-neutral-subtle uppercase font-semibold">Phiếu duyệt lương</span>
+<div class="text-2xl font-bold text-neutral-dark">12</div>
+<div class="text-xs text-amber-600 font-medium">Cần ký duyệt gấp</div>
+</div>
+<div class="bg-white p-5 rounded-lg border border-neutral-border space-y-2">
+<span class="text-xs text-neutral-subtle uppercase font-semibold">Bảo mật cấp 2</span>
+<div class="text-2xl font-bold text-brand">Đang bật</div>
+<div class="text-xs text-neutral-subtle">Cập nhật 45 ngày trước</div>
+</div>
+</div>
+<div class="bg-white p-6 rounded-lg border border-neutral-border h-96">
+<div class="h-8 bg-slate-100 rounded w-1/3 mb-4"></div>
+<div class="h-64 bg-slate-50 rounded border border-dashed border-neutral-border"></div>
+</div>
+</main>
+</div>
+</div>
+<!-- END: HRM Dashboard Background -->
+<!-- BEGIN: Backdrop Overlay (40% Slate-900 with Blur) -->
+<div class="fixed inset-0 bg-[#0F172A]/45 backdrop-blur-[6px] z-10"></div>
+<!-- END: Backdrop Overlay -->
+<!-- BEGIN: Main Interactive Stage -->
+<div class="relative z-20 min-h-screen flex flex-col justify-between p-4 sm:p-6 lg:p-8">
+<!-- BEGIN: Top Control Bar / Viewport State Switcher -->
+<header class="w-full max-w-5xl mx-auto mb-4 bg-white/95 backdrop-blur-md px-4 py-2.5 rounded-xl border border-neutral-border/90 shadow-sm flex flex-wrap items-center justify-between gap-3 text-xs" data-purpose="demo-controller">
+<div class="flex items-center space-x-2.5">
+<span class="inline-flex items-center px-2 py-0.5 rounded text-[11px] font-semibold bg-brand-tint text-brand">
+          HRM Enterprise Security
+        </span>
+<span class="font-medium text-neutral-dark hidden sm:inline">Mô phỏng luồng 2 bước:</span>
+<span class="text-neutral-muted hidden md:inline">Secondary Transaction Password</span>
+</div>
+<!-- Control Action Tabs -->
+<div class="flex items-center gap-1.5 overflow-x-auto no-scrollbar py-0.5" id="view-mode-controls">
+<button class="px-3 py-1.5 rounded-md font-medium transition-colors bg-brand text-white shadow-xs" id="btn-mode-step1" onclick="setViewState('step1')" type="button">
+          Bước 1: Nhập mật khẩu mới
+        </button>
+<button class="px-3 py-1.5 rounded-md font-medium text-neutral-muted hover:text-neutral-dark hover:bg-slate-100 transition-colors" id="btn-mode-step2-error" onclick="setViewState('step2-error')" type="button">
+          Bước 2: Có lỗi không khớp
+        </button>
+<button class="px-3 py-1.5 rounded-md font-medium text-neutral-muted hover:text-neutral-dark hover:bg-slate-100 transition-colors" id="btn-mode-step2-success" onclick="setViewState('step2-success')" type="button">
+          Bước 2: Hợp lệ / Hoàn tất
+        </button>
+<button class="px-3 py-1.5 rounded-md font-medium text-neutral-muted hover:text-neutral-dark hover:bg-slate-100 transition-colors flex items-center gap-1" id="btn-mode-side" onclick="setViewState('side-by-side')" type="button">
+<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M9 17V7m0 10a2 2 0 01-2 2H5a2 2 0 01-2-2V7a2 2 0 012-2h2a2 2 0 012 2m0 10a2 2 0 002 2h2a2 2 0 002-2M9 7a2 2 0 012-2h2a2 2 0 012 2m0 10V7m0 10a2 2 0 002 2h2a2 2 0 002-2V7a2 2 0 00-2-2h-2a2 2 0 00-2 2" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+          Xem cả 2 bước (Side-by-side)
+        </button>
+</div>
+</header>
+<!-- END: Top Control Bar -->
+<!-- BEGIN: Centered Container For Modals -->
+<main class="flex-1 flex items-center justify-center w-full py-4">
+<div class="w-full max-w-5xl flex flex-wrap items-center justify-center gap-6 transition-all duration-300" id="modal-container">
+<!-- ========================================================= -->
+<!-- CARD 1: BƯỚC 1 - THIẾT LẬP MẬT KHẨU XÁC NHẬN MỚI        -->
+<!-- ========================================================= -->
+<section class="w-full max-w-[450px] bg-white rounded-xl shadow-modal border border-neutral-border flex flex-col overflow-hidden transition-all duration-300" data-purpose="modal-step-1" id="card-step-1">
+<!-- Step Stepper Header -->
+<div class="px-6 pt-5 pb-3 border-b border-slate-100 bg-slate-50/60">
+<div class="flex items-center justify-between">
+<!-- Stepper Indicator -->
+<div class="flex items-center space-x-2 text-xs font-semibold">
+<div class="flex items-center text-brand">
+<span class="w-5 h-5 rounded-full bg-brand text-white flex items-center justify-center text-[11px] mr-1.5 shadow-sm">1</span>
+<span>Bước 1: Mật khẩu mới</span>
+</div>
+<div class="w-6 h-[1.5px] bg-slate-300"></div>
+<div class="flex items-center text-neutral-subtle font-normal">
+<span class="w-5 h-5 rounded-full bg-slate-200 text-neutral-muted flex items-center justify-center text-[11px] mr-1.5">2</span>
+<span>Bước 2: Xác nhận</span>
+</div>
+</div>
+<!-- Close Dialog Icon Button -->
+<button aria-label="Đóng cửa sổ" class="text-neutral-subtle hover:text-neutral-dark rounded-md p-1 transition-colors hover:bg-slate-100" type="button">
+<svg class="w-5 h-5" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M6 18L18 6M6 6l12 12" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</button>
+</div>
+</div>
+<!-- Modal Body Content -->
+<div class="p-6 space-y-4">
+<!-- Header with Security Shield Icon -->
+<div class="flex items-start gap-3.5">
+<div class="w-11 h-11 rounded-lg bg-brand-tint flex items-center justify-center text-brand shrink-0 ring-4 ring-brand-light">
+<!-- Shield Lock Icon -->
+<svg class="w-6 h-6" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</div>
+<div>
+<h2 class="text-lg font-bold text-neutral-dark tracking-tight leading-snug">Đổi mật khẩu xác nhận</h2>
+<p class="text-xs text-neutral-muted mt-1 leading-relaxed">
+                  Mật khẩu xác nhận dùng để phê duyệt các thao tác quan trọng (<span class="text-neutral-dark font-medium">duyệt bảng lương</span>, <span class="text-neutral-dark font-medium">ký duyệt hồ sơ nhân sự</span>).
+                </p>
+</div>
+</div>
+<!-- Pale Blue Info Callout -->
+<div class="bg-brand-tint/60 border border-brand/20 rounded-lg p-3 flex items-start gap-2.5 text-xs text-brand leading-relaxed">
+<svg class="w-4 h-4 shrink-0 mt-0.5 text-brand" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+<div>
+<strong class="font-semibold text-brand">Lưu ý quan trọng:</strong> Mật khẩu xác nhận độc lập hoàn toàn với mật khẩu đăng nhập hệ thống nhằm tăng cường an toàn nghiệp vụ.
+              </div>
+</div>
+<!-- Form: Mật khẩu xác nhận mới -->
+<form class="space-y-3.5 pt-1" onsubmit="event.preventDefault(); goToStep2();">
+<div>
+<div class="flex items-center justify-between mb-1.5">
+<label class="block text-xs font-semibold text-neutral-dark" for="input-step1-password">
+                    Mật khẩu xác nhận mới <span class="text-semantic-danger">*</span>
+</label>
+<span class="text-[11px] text-neutral-subtle font-normal">Cấp độ: Giao dịch cấp 2</span>
+</div>
+<!-- Input Group with Lock Icon and Eye Toggle -->
+<div class="relative rounded-lg shadow-xs">
+<div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-neutral-subtle">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</div>
+<input class="block w-full pl-10 pr-10 py-2.5 text-sm text-neutral-dark placeholder-neutral-subtle rounded-lg border border-neutral-border focus:ring-2 focus:ring-brand focus:border-brand transition-all bg-white" id="input-step1-password" placeholder="Nhập mật khẩu xác nhận mới" type="password" value="PmcSecure@2026"/>
+<button aria-label="Ẩn hoặc hiện mật khẩu" class="absolute inset-y-0 right-0 pr-3.5 flex items-center text-neutral-subtle hover:text-neutral-dark focus:outline-none" onclick="togglePasswordVisibility('input-step1-password', this)" type="button">
+<svg class="w-4 h-4 eye-open" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path><path d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</button>
+</div>
+</div>
+<!-- Security Tips / Rules Card -->
+<div class="bg-slate-50 border border-neutral-border/80 rounded-lg p-3 text-xs space-y-2">
+<div class="font-medium text-neutral-dark flex items-center gap-1.5">
+<svg class="w-3.5 h-3.5 text-brand" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+                  Tiêu chuẩn mật khẩu xác nhận:
+                </div>
+<ul class="text-[11px] text-neutral-muted space-y-1.5 pl-4 list-disc">
+<li class="text-neutral-dark font-medium">Tối thiểu 6 ký tự số hoặc chữ</li>
+<li>Không được trùng với mật khẩu đăng nhập cổng HRM</li>
+<li>Nên kết hợp chữ in hoa, chữ thường hoặc số để bảo vệ an toàn</li>
+</ul>
+</div>
+<!-- Footer Buttons -->
+<div class="pt-3 flex items-center justify-end space-x-3 border-t border-slate-100">
+<button class="px-4 py-2 text-xs font-semibold text-neutral-muted bg-white border border-neutral-border rounded-lg hover:bg-slate-50 hover:text-neutral-dark focus:outline-none transition-colors" type="button">
+                  Thoát
+                </button>
+<button class="px-4 py-2 text-xs font-semibold text-white bg-brand rounded-lg hover:bg-brand-hover focus:ring-2 focus:ring-offset-1 focus:ring-brand shadow-xs flex items-center gap-1.5 transition-colors" onclick="goToStep2()" type="button">
+<span>Tiếp tục xác nhận</span>
+<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</button>
+</div>
+</form>
+</div>
+</section>
+<!-- END: CARD 1 -->
+<!-- ========================================================= -->
+<!-- CARD 2: BƯỚC 2 - NHẬP LẠI VÀ XÁC NHẬN MẬT KHẨU MỚI        -->
+<!-- ========================================================= -->
+<section class="w-full max-w-[450px] bg-white rounded-xl shadow-modal border border-neutral-border flex flex-col overflow-hidden transition-all duration-300" data-purpose="modal-step-2" id="card-step-2">
+<!-- Step Stepper Header -->
+<div class="px-6 pt-5 pb-3 border-b border-slate-100 bg-slate-50/60">
+<div class="flex items-center justify-between">
+<!-- Stepper Indicator (Step 1 Finished, Step 2 Active) -->
+<div class="flex items-center space-x-2 text-xs font-semibold">
+<div class="flex items-center text-semantic-success cursor-pointer" onclick="setViewState('step1')" title="Bấm để quay lại bước 1">
+<span class="w-5 h-5 rounded-full bg-semantic-success text-white flex items-center justify-center text-[10px] mr-1.5 shadow-sm">✓</span>
+<span>Bước 1: Mật khẩu mới</span>
+</div>
+<div class="w-6 h-[1.5px] bg-semantic-success"></div>
+<div class="flex items-center text-brand">
+<span class="w-5 h-5 rounded-full bg-brand text-white flex items-center justify-center text-[11px] mr-1.5 shadow-sm">2</span>
+<span>Bước 2: Xác nhận</span>
+</div>
+</div>
+<!-- Close Dialog Icon Button -->
+<button aria-label="Đóng cửa sổ" class="text-neutral-subtle hover:text-neutral-dark rounded-md p-1 transition-colors hover:bg-slate-100" type="button">
+<svg class="w-5 h-5" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M6 18L18 6M6 6l12 12" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</button>
+</div>
+</div>
+<!-- Modal Body Content -->
+<div class="p-6 space-y-4">
+<!-- Header with Key/Alert Badge -->
+<div class="flex items-start gap-3.5">
+<div class="w-11 h-11 rounded-lg bg-brand-tint flex items-center justify-center text-brand shrink-0 ring-4 ring-brand-light">
+<!-- Check Key Badge -->
+<svg class="w-6 h-6" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M15 7a2 2 0 012 2m4 0a6 6 0 01-7.743 5.743L11 17H9v2H7v2H4a1 1 0 01-1-1v-2.586a1 1 0 01.293-.707l5.964-5.964A6 6 0 1121 9z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</div>
+<div>
+<h2 class="text-lg font-bold text-neutral-dark tracking-tight leading-snug">Xác nhận đổi mật khẩu xác nhận</h2>
+<p class="text-xs text-neutral-muted mt-1 leading-relaxed">
+                  Vui lòng nhập lại chính xác mật khẩu xác nhận vừa tạo để hoàn tất lưu thiết lập vào tài khoản.
+                </p>
+</div>
+</div>
+<!-- Value Confirmation Badge -->
+<div class="bg-slate-50 border border-neutral-border rounded-lg px-3.5 py-2.5 flex items-center justify-between text-xs">
+<div class="text-neutral-muted">
+                Mật khẩu vừa nhập: <span class="font-mono font-medium text-neutral-dark ml-1">PmcSecure@2026</span>
+</div>
+<button class="text-brand hover:underline font-medium text-[11px]" onclick="setViewState('step1')" type="button">
+                Sửa lại
+              </button>
+</div>
+<!-- Form: Nhắc lại mật khẩu xác nhận -->
+<form class="space-y-3.5" onsubmit="event.preventDefault(); simulateSubmit();">
+<div>
+<div class="flex items-center justify-between mb-1.5">
+<label class="block text-xs font-semibold text-neutral-dark" for="input-step2-repeat">
+                    Nhắc lại mật khẩu xác nhận mới <span class="text-semantic-danger">*</span>
+</label>
+<span class="text-[11px] font-medium text-semantic-danger" id="label-status">Chưa khớp dữ liệu</span>
+</div>
+<!-- Repeat Password Input with Error Styling (by default in error showcase state) -->
+<div class="relative rounded-lg shadow-xs">
+<div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-neutral-subtle" id="step2-icon-wrap">
+<svg class="w-4 h-4 text-semantic-danger" fill="none" id="step2-input-icon" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</div>
+<input class="block w-full pl-10 pr-10 py-2.5 text-sm font-medium rounded-lg border border-semantic-danger text-semantic-danger bg-semantic-dangerBg/40 focus:ring-2 focus:ring-semantic-danger focus:border-semantic-danger transition-all" id="input-step2-repeat" oninput="validateMatch()" placeholder="Nhập lại mật khẩu để xác nhận" type="password" value="PmcSecure@2025"/>
+<button aria-label="Ẩn hoặc hiện mật khẩu xác nhận" class="absolute inset-y-0 right-0 pr-3.5 flex items-center text-neutral-subtle hover:text-neutral-dark focus:outline-none" onclick="togglePasswordVisibility('input-step2-repeat', this)" type="button">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path><path d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</button>
+</div>
+<!-- Error Message Banner Box -->
+<div class="mt-2 text-xs text-semantic-danger flex items-center gap-1.5 px-3 py-2 bg-semantic-dangerBg border border-semantic-dangerBorder rounded-lg font-medium" id="box-error-message">
+<svg class="w-4 h-4 shrink-0" fill="currentColor" viewbox="0 0 20 20">
+<path clip-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0118 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" fill-rule="evenodd"></path>
+</svg>
+<span>Mật khẩu xác nhận không khớp với mật khẩu mới</span>
+</div>
+<!-- Success Box (Hidden in error preview) -->
+<div class="hidden mt-2 text-xs text-semantic-success flex items-center gap-1.5 px-3 py-2 bg-semantic-successBg border border-emerald-200 rounded-lg font-medium" id="box-success-message">
+<svg class="w-4 h-4 shrink-0 text-semantic-success" fill="currentColor" viewbox="0 0 20 20">
+<path clip-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" fill-rule="evenodd"></path>
+</svg>
+<span>Mật khẩu xác nhận trùng khớp hoàn toàn</span>
+</div>
+</div>
+<!-- Quick Helper Suggestion -->
+<p class="text-[11px] text-neutral-muted leading-tight">
+                Mẹo: Bạn có thể bấm nút <strong class="text-neutral-dark cursor-pointer underline" onclick="fillExactMatch()">"Điền mật khẩu đúng"</strong> để kiểm tra trạng thái thành công.
+              </p>
+<!-- Footer Buttons -->
+<div class="pt-3 flex items-center justify-end space-x-3 border-t border-slate-100">
+<button class="px-4 py-2 text-xs font-semibold text-neutral-muted bg-white border border-neutral-border rounded-lg hover:bg-slate-50 hover:text-neutral-dark focus:outline-none transition-colors" onclick="setViewState('step1')" type="button">
+                  Quay lại
+                </button>
+<button class="px-4 py-2 text-xs font-semibold text-white bg-brand rounded-lg hover:bg-brand-hover focus:ring-2 focus:ring-offset-1 focus:ring-brand shadow-xs flex items-center gap-1.5 transition-colors disabled:opacity-50" id="btn-submit-step2" onclick="simulateSubmit()" type="button">
+<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+<span>Đổi mật khẩu</span>
+</button>
+</div>
+</form>
+</div>
+</section>
+<!-- END: CARD 2 -->
+</div>
+</main>
+<!-- END: Centered Container -->
+<!-- BEGIN: Footer Security Note -->
+<footer class="w-full text-center text-xs text-white/80 py-2">
+<div class="inline-flex items-center gap-1.5 bg-slate-900/60 backdrop-blur-sm px-3.5 py-1 rounded-full border border-white/10">
+<svg class="w-3.5 h-3.5 text-emerald-400" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+        Hệ thống chứng thực nghiệp vụ 2 lớp PMC HRM Enterprise • Tiêu chuẩn an toàn dữ liệu ISO 27001
+      </div>
+</footer>
+<!-- END: Footer Security Note -->
+</div>
+<!-- END: Main Interactive Stage -->
+<!-- BEGIN: Interactive Logic JS -->
+<script data-purpose="dialog-interactivity">
+    const cardStep1 = document.getElementById('card-step-1');
+    const cardStep2 = document.getElementById('card-step-2');
+    const modalContainer = document.getElementById('modal-container');
+    
+    const inputStep1 = document.getElementById('input-step1-password');
+    const inputStep2 = document.getElementById('input-step2-repeat');
+    const boxError = document.getElementById('box-error-message');
+    const boxSuccess = document.getElementById('box-success-message');
+    const labelStatus = document.getElementById('label-status');
+    const step2InputIcon = document.getElementById('step2-input-icon');
+    const btnSubmitStep2 = document.getElementById('btn-submit-step2');
+
+    const controlButtons = {
+      'step1': document.getElementById('btn-mode-step1'),
+      'step2-error': document.getElementById('btn-mode-step2-error'),
+      'step2-success': document.getElementById('btn-mode-step2-success'),
+      'side-by-side': document.getElementById('btn-mode-side')
+    };
+
+    /**
+     * Switch view state dynamically
+     * @param {'step1' | 'step2-error' | 'step2-success' | 'side-by-side'} state
+     */
+    function setViewState(state) {
+      // Update top button active styling
+      Object.keys(controlButtons).forEach(key => {
+        if (key === state) {
+          controlButtons[key].className = "px-3 py-1.5 rounded-md font-medium transition-colors bg-brand text-white shadow-xs";
+        } else {
+          controlButtons[key].className = "px-3 py-1.5 rounded-md font-medium text-neutral-muted hover:text-neutral-dark hover:bg-slate-100 transition-colors";
+        }
+      });
+
+      if (state === 'step1') {
+        cardStep1.classList.remove('hidden');
+        cardStep2.classList.add('hidden');
+        modalContainer.classList.remove('max-w-5xl');
+        modalContainer.classList.add('max-w-[450px]');
+      } else if (state === 'step2-error') {
+        cardStep1.classList.add('hidden');
+        cardStep2.classList.remove('hidden');
+        modalContainer.classList.remove('max-w-5xl');
+        modalContainer.classList.add('max-w-[450px]');
+        // set mismatch password
+        inputStep2.value = "PmcSecure@2025";
+        validateMatch();
+      } else if (state === 'step2-success') {
+        cardStep1.classList.add('hidden');
+        cardStep2.classList.remove('hidden');
+        modalContainer.classList.remove('max-w-5xl');
+        modalContainer.classList.add('max-w-[450px]');
+        // set matching password
+        inputStep2.value = inputStep1.value;
+        validateMatch();
+      } else if (state === 'side-by-side') {
+        cardStep1.classList.remove('hidden');
+        cardStep2.classList.remove('hidden');
+        modalContainer.classList.remove('max-w-[450px]');
+        modalContainer.classList.add('max-w-5xl');
+      }
+    }
+
+    /**
+     * Advance from step 1 to step 2
+     */
+    function goToStep2() {
+      setViewState('step2-error');
+    }
+
+    /**
+     * Validate matching of repeat password against step 1 password
+     */
+    function validateMatch() {
+      const p1 = inputStep1.value;
+      const p2 = inputStep2.value;
+
+      if (!p2 || p1 !== p2) {
+        // Error state
+        inputStep2.className = "block w-full pl-10 pr-10 py-2.5 text-sm font-medium rounded-lg border border-semantic-danger text-semantic-danger bg-semantic-dangerBg/40 focus:ring-2 focus:ring-semantic-danger focus:border-semantic-danger transition-all";
+        boxError.classList.remove('hidden');
+        boxSuccess.classList.add('hidden');
+        labelStatus.textContent = "Chưa khớp dữ liệu";
+        labelStatus.className = "text-[11px] font-medium text-semantic-danger";
+        btnSubmitStep2.classList.remove('bg-semantic-success');
+        btnSubmitStep2.classList.add('bg-brand');
+        
+        step2InputIcon.className = "w-4 h-4 text-semantic-danger";
+        step2InputIcon.innerHTML = `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/>`;
+      } else {
+        // Success match state
+        inputStep2.className = "block w-full pl-10 pr-10 py-2.5 text-sm font-medium rounded-lg border border-semantic-success text-neutral-dark bg-semantic-successBg/40 focus:ring-2 focus:ring-semantic-success focus:border-semantic-success transition-all";
+        boxError.classList.add('hidden');
+        boxSuccess.classList.remove('hidden');
+        labelStatus.textContent = "Khớp mật khẩu";
+        labelStatus.className = "text-[11px] font-medium text-semantic-success";
+        
+        step2InputIcon.className = "w-4 h-4 text-semantic-success";
+        step2InputIcon.innerHTML = `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>`;
+      }
+    }
+
+    /**
+     * Helper to fill exact password match
+     */
+    function fillExactMatch() {
+      inputStep2.value = inputStep1.value;
+      validateMatch();
+    }
+
+    /**
+     * Toggle password visibility between text and password
+     */
+    function togglePasswordVisibility(inputId, button) {
+      const input = document.getElementById(inputId);
+      if (!input) return;
+      
+      const isPassword = input.type === 'password';
+      input.type = isPassword ? 'text' : 'password';
+
+      // Toggle Icon
+      if (isPassword) {
+        button.innerHTML = `
+          <svg class="w-4 h-4 text-brand" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.875 18.825A10.05 10.05 0 0112 19c-4.478 0-8.268-2.943-9.543-7a9.97 9.97 0 011.563-3.029m5.858.908a3 3 0 114.243 4.243M9.878 9.878l4.242 4.242M9.88 9.88l-3.29-3.29m7.532 7.532l3.29 3.29M3 3l18 18"/>
+          </svg>
+        `;
+      } else {
+        button.innerHTML = `
+          <svg class="w-4 h-4 text-neutral-subtle" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>
+          </svg>
+        `;
+      }
+    }
+
+    /**
+     * Simulate completion toast/alert
+     */
+    function simulateSubmit() {
+      if (inputStep1.value !== inputStep2.value) {
+        validateMatch();
+        inputStep2.focus();
+        return;
+      }
+      alert("✓ Thành công! Đã thiết lập mật khẩu xác nhận cấp 2 cho tài khoản quản trị.");
+    }
+
+    // Initialize with Step 1 as primary default preview
+    setViewState('step1');
+  </script>
+<!-- END: Interactive Logic JS -->
+<script src="../shared/nav.js"></script></body></html>

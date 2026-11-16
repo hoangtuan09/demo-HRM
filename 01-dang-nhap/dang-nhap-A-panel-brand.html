@@ -1,0 +1,618 @@
+<!DOCTYPE html><html lang="vi"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Đăng nhập - Hệ thống Quản trị Nhân sự HRM</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&amp;display=swap" rel="stylesheet">
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Be Vietnam Pro"', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              DEFAULT: '#1967B2',
+              hover: '#124E88',
+              light: '#E8F1FA',
+              subtle: '#F4F8FD',
+            },
+            surface: {
+              DEFAULT: '#FFFFFF',
+              app: '#F5F7FA',
+            },
+            content: {
+              primary: '#0F172A',
+              secondary: '#475569',
+              muted: '#94A3B8',
+            },
+            border: '#E2E8F0',
+            danger: {
+              DEFAULT: '#DC2626',
+              light: '#FEE2E2',
+              border: '#FECACA',
+            },
+            success: '#16A34A',
+            warning: '#F59E0B',
+            info: '#0EA5E9',
+          },
+          borderRadius: {
+            DEFAULT: '8px',
+          },
+          boxShadow: {
+            card: '0 4px 24px -2px rgba(15, 23, 42, 0.08), 0 2px 8px -1px rgba(15, 23, 42, 0.04)',
+            soft: '0 2px 8px rgba(15, 23, 42, 0.06)',
+            focused: '0 0 0 3px rgba(25, 103, 178, 0.15)',
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    body {
+      font-family: 'Be Vietnam Pro', sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+    .brand-gradient {
+      background: linear-gradient(135deg, #1967B2 0%, #124E88 100%);
+    }
+    .captcha-noise {
+      background-color: #f1f5f9;
+      background-image: radial-gradient(#cbd5e1 1px, transparent 1px), radial-gradient(#94a3b8 1px, #f1f5f9 1px);
+      background-size: 8px 8px;
+      background-position: 0 0, 4px 4px;
+    }
+    .skew-text {
+      transform: skew(-6deg) rotate(-2deg);
+      letter-spacing: 0.25em;
+    }
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+  </style>
+<link rel="stylesheet" href="../shared/fix.css"/></head>
+<body class="bg-surface-app text-content-primary antialiased min-h-screen">
+<div class="flex flex-col lg:flex-row min-h-screen w-full">
+<!-- LEFT PANEL: Brand & Illustration (55% on lg screens, top banner on mobile) -->
+<div class="brand-gradient lg:w-[55%] w-full flex flex-col justify-between p-6 sm:p-10 lg:p-14 text-white relative overflow-hidden shrink-0">
+<!-- Background Ambient Geometric Vector Motifs -->
+<div class="absolute inset-0 pointer-events-none opacity-10">
+<svg class="w-full h-full object-cover" fill="none" viewBox="0 0 800 800" xmlns="http://www.w3.org/2000/svg">
+<circle cx="150" cy="180" r="40" stroke="white" stroke-width="2"></circle>
+<circle cx="350" cy="180" r="40" stroke="white" stroke-width="2"></circle>
+<circle cx="250" cy="340" r="50" stroke="white" stroke-width="2.5"></circle>
+<circle cx="450" cy="340" r="40" stroke="white" stroke-width="2"></circle>
+<circle cx="200" cy="520" r="35" stroke="white" stroke-width="2"></circle>
+<circle cx="380" cy="520" r="35" stroke="white" stroke-width="2"></circle>
+<path d="M150 220 L150 280 L250 280 L250 290" stroke="white" stroke-dasharray="4 4" stroke-width="2"></path>
+<path d="M350 220 L350 280 L250 280" stroke="white" stroke-dasharray="4 4" stroke-width="2"></path>
+<path d="M250 390 L250 460 L200 460 L200 485" stroke="white" stroke-width="2"></path>
+<path d="M250 460 L380 460 L380 485" stroke="white" stroke-width="2"></path>
+<path d="M450 380 L450 460 L380 460" stroke="white" stroke-dasharray="4 4" stroke-width="2"></path>
+<circle cx="650" cy="200" r="180" stroke="white" stroke-dasharray="6 6" stroke-width="1.5"></circle>
+<circle cx="650" cy="200" r="260" stroke="white" stroke-width="1"></circle>
+<circle cx="100" cy="700" r="220" stroke="white" stroke-width="1.5"></circle>
+</svg>
+</div>
+<!-- Top Header / Logo Lockup -->
+<div class="relative z-10 flex items-center justify-between lg:justify-start">
+<div class="flex items-center space-x-3"><div class="h-10 px-2 py-1 rounded-lg bg-white flex items-center justify-center shadow-md"><img src="../shared/img/img-11.png" alt="PMC Logo" class="h-7 w-auto object-contain"></div><div class="flex flex-col"><span class="text-xl font-bold tracking-tight text-white leading-tight">HRM</span><span class="text-xs text-blue-100 font-medium tracking-wider uppercase opacity-90">Enterprise Platform</span></div></div>
+<span class="lg:hidden text-xs bg-white/15 px-3 py-1 rounded-full font-medium text-white/90 backdrop-blur-sm">v3.4.2</span>
+</div>
+<!-- Center Copy & HR Modules Showcase -->
+<div class="relative z-10 my-8 lg:my-auto max-w-xl">
+<div class="inline-flex items-center space-x-2 px-3 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/15 text-xs font-medium text-blue-50 mb-6">
+<span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+<span>Hệ thống Quản trị Nhân sự Toàn diện</span>
+</div>
+<h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white leading-[1.2] mb-4">HỆ THÔNG QUẢN TRỊ NHÂN SỰ THÔNG MINH</h1>
+<p class="text-blue-100 text-sm sm:text-base leading-relaxed mb-8 max-w-lg font-normal">
+          Quản lý nhân sự, chấm công, bảng lương tự động và quy trình tuyển dụng trên một nền tảng tập trung, an toàn và tinh gọn.
+        </p>
+<!-- Feature Grid Mini Badges -->
+<div class="grid grid-cols-2 gap-3 sm:gap-4 max-w-md">
+<div class="flex items-center space-x-3 p-3 rounded-lg bg-white/10 backdrop-blur-sm border border-white/10">
+<div class="w-8 h-8 rounded-md bg-white/20 flex items-center justify-center shrink-0">
+<svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</div>
+<div>
+<p class="text-xs font-semibold text-white">Hồ sơ 360°</p>
+<p class="text-[11px] text-blue-200">Đầy đủ vòng đời nhân sự</p>
+</div>
+</div>
+<div class="flex items-center space-x-3 p-3 rounded-lg bg-white/10 backdrop-blur-sm border border-white/10">
+<div class="w-8 h-8 rounded-md bg-white/20 flex items-center justify-center shrink-0">
+<svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</div>
+<div>
+<p class="text-xs font-semibold text-white">Chấm công &amp; Phân ca</p>
+<p class="text-[11px] text-blue-200">Linh hoạt theo ca kíp</p>
+</div>
+</div>
+<div class="flex items-center space-x-3 p-3 rounded-lg bg-white/10 backdrop-blur-sm border border-white/10">
+<div class="w-8 h-8 rounded-md bg-white/20 flex items-center justify-center shrink-0">
+<svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</div>
+<div>
+<p class="text-xs font-semibold text-white">Tính lương tự động</p>
+<p class="text-[11px] text-blue-200">Chính xác &amp; bảo mật</p>
+</div>
+</div>
+<div class="flex items-center space-x-3 p-3 rounded-lg bg-white/10 backdrop-blur-sm border border-white/10">
+<div class="w-8 h-8 rounded-md bg-white/20 flex items-center justify-center shrink-0">
+<svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</div>
+<div>
+<p class="text-xs font-semibold text-white">Bảo mật đa tầng</p>
+<p class="text-[11px] text-blue-200">Chuẩn phân quyền role-based</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Bottom Panel Footer -->
+<div class="relative z-10 pt-4 border-t border-white/15 flex flex-col sm:flex-row sm:items-center justify-between text-xs text-blue-100 gap-2">
+<p>© 2026 PMC. Bản quyền thuộc về PMC.</p>
+<div class="flex items-center space-x-4">
+<a class="hover:text-white transition-colors" href="#">Điều khoản dịch vụ</a>
+<span class="opacity-40">•</span>
+<a class="hover:text-white transition-colors" href="#">Chính sách bảo mật</a>
+<span class="opacity-40">•</span>
+<a class="hover:text-white transition-colors" href="#">Hỗ trợ</a>
+</div>
+</div>
+</div>
+<!-- RIGHT PANEL: Login Form Card & Interactive State Switcher -->
+<div class="lg:w-[45%] w-full flex flex-col items-center justify-center p-4 sm:p-8 lg:p-10 bg-surface-app">
+<!-- Interactive State Switcher / Preview Pills Bar -->
+<div class="w-full max-w-[430px] mb-3">
+<div class="flex items-center justify-between px-1 mb-1.5">
+<span class="text-[11px] font-semibold tracking-wide uppercase text-content-secondary flex items-center gap-1.5">
+<span class="w-1.5 h-1.5 rounded-full bg-brand"></span>
+            Xem trước trạng thái UI (Interactive Demo):
+          </span>
+<span class="text-[10px] text-content-muted">Nhấn để kiểm tra</span>
+</div>
+<div class="flex items-center gap-1.5 overflow-x-auto no-scrollbar py-1 px-1 -mx-1 text-xs">
+<button class="state-pill px-2.5 py-1 rounded-full text-xs font-medium whitespace-nowrap transition-all border border-brand bg-brand text-white shadow-sm" data-state-pill="normal" onclick="applyState('normal')" type="button">
+            Mặc định
+          </button>
+<button class="state-pill px-2.5 py-1 rounded-full text-xs font-medium whitespace-nowrap transition-all border border-border bg-white text-content-secondary hover:bg-slate-50" data-state-pill="wrong_password" onclick="applyState('wrong_password')" type="button">
+            Sai mật khẩu
+          </button>
+<button class="state-pill px-2.5 py-1 rounded-full text-xs font-medium whitespace-nowrap transition-all border border-border bg-white text-content-secondary hover:bg-slate-50" data-state-pill="invalid_format" onclick="applyState('invalid_format')" type="button">
+            Sai định dạng
+          </button>
+<button class="state-pill px-2.5 py-1 rounded-full text-xs font-medium whitespace-nowrap transition-all border border-border bg-white text-content-secondary hover:bg-slate-50" data-state-pill="wrong_captcha" onclick="applyState('wrong_captcha')" type="button">
+            Sai Captcha
+          </button>
+<button class="state-pill px-2.5 py-1 rounded-full text-xs font-medium whitespace-nowrap transition-all border border-border bg-white text-content-secondary hover:bg-slate-50" data-state-pill="loading" onclick="applyState('loading')" type="button">
+            Đang xác thực
+          </button>
+</div>
+</div>
+<!-- Main Login Card -->
+<div class="w-full max-w-[430px] bg-white rounded-xl shadow-card border border-border p-6 sm:p-8 transition-all" id="loginCard">
+<!-- Header Section -->
+<div class="mb-5">
+<div class="lg:hidden flex items-center space-x-2.5 mb-4">
+<div class="w-8 h-8 rounded bg-brand flex items-center justify-center text-white font-bold text-sm">H</div>
+<span class="font-bold text-lg text-content-primary">HRM Core</span>
+</div>
+<h2 class="text-2xl font-bold text-content-primary tracking-tight">Đăng nhập</h2>
+<p class="text-sm text-content-secondary mt-1">Vui lòng nhập thông tin tài khoản để tiếp tục</p>
+</div>
+<!-- Dynamic Inline Alert Banner (Hidden on normal, populated on errors) -->
+<div class="hidden mb-4 p-3.5 rounded-lg bg-danger-light border border-danger-border flex items-start space-x-3 transition-all duration-200" id="alertBanner" role="alert">
+<svg class="w-5 h-5 text-danger shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+<div class="flex-1">
+<p class="text-xs font-semibold text-danger leading-tight" id="alertTitle">Đăng nhập không thành công</p>
+<p class="text-xs text-danger/90 mt-0.5 leading-relaxed" id="alertMessage">Tài khoản hoặc mật khẩu không chính xác. Bạn còn 4 lần thử trước khi tạm khóa tài khoản.</p>
+</div>
+<button aria-label="Đóng cảnh báo" class="text-danger hover:opacity-75 focus:outline-none" onclick="dismissAlert()" type="button">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path d="M6 18L18 6M6 6l12 12" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</button>
+</div>
+<!-- Login Form -->
+<form class="space-y-4" id="loginForm" onsubmit="handleFormSubmit(event)">
+<!-- Field: Username / Account -->
+<div id="groupUsername">
+<label class="block text-xs font-semibold text-content-primary mb-1.5" for="username">
+              Tài khoản <span class="text-danger">*</span>
+</label>
+<div class="relative rounded-lg shadow-sm">
+<div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-content-muted">
+<!-- User Line Icon -->
+<svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</div>
+<input class="block w-full pl-9 pr-9 py-2.5 text-sm bg-white border border-border rounded-lg text-content-primary placeholder-content-muted focus:outline-none focus:border-brand focus:ring-2 focus:ring-brand/20 transition duration-150 disabled:bg-slate-100 disabled:cursor-not-allowed" id="username" name="username" placeholder="Nhập tài khoản hoặc email công vụ (@pmc.vn)" required="" type="text" value="nguyen.van.an@pmc.vn">
+<div class="hidden absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none text-danger" id="usernameErrorIcon">
+<svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+<path clip-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" fill-rule="evenodd"></path>
+</svg>
+</div>
+</div>
+<!-- Username Error Message -->
+<p class="hidden mt-1 text-[11px] font-medium text-danger flex items-center gap-1" id="usernameErrorText">
+<svg class="w-3.5 h-3.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+<span>Định dạng tài khoản không hợp lệ. Vui lòng nhập email công ty (@pmc.vn) hoặc mã nhân viên (NVxxxxx).</span>
+</p>
+</div>
+<!-- Field: Password -->
+<div id="groupPassword">
+<div class="flex items-center justify-between mb-1.5">
+<label class="block text-xs font-semibold text-content-primary" for="password">
+                Mật khẩu <span class="text-danger">*</span>
+</label>
+</div>
+<div class="relative rounded-lg shadow-sm">
+<div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-content-muted">
+<!-- Lock Line Icon -->
+<svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</div>
+<input class="block w-full pl-9 pr-10 py-2.5 text-sm bg-white border border-border rounded-lg text-content-primary placeholder-content-muted focus:outline-none focus:border-brand focus:ring-2 focus:ring-brand/20 transition duration-150 disabled:bg-slate-100 disabled:cursor-not-allowed" id="password" name="password" placeholder="Nhập mật khẩu" required="" type="password" value="Pmc@2026Password">
+<button aria-label="Ẩn hiện mật khẩu" class="absolute inset-y-0 right-0 pr-3 flex items-center text-content-muted hover:text-content-secondary focus:outline-none" id="togglePassword" onclick="togglePasswordVisibility()" type="button">
+<!-- Eye Line Icon -->
+<svg class="h-4 w-4" fill="none" id="eyeIconOpen" stroke="currentColor" viewBox="0 0 24 24">
+<path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+<path d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+<svg class="h-4 w-4 hidden" fill="none" id="eyeIconClosed" stroke="currentColor" viewBox="0 0 24 24">
+<path d="M13.875 18.825A10.05 10.05 0 0112 19c-4.478 0-8.268-2.943-9.543-7a9.97 9.97 0 011.563-3.029m5.858.908a3 3 0 114.243 4.243M9.878 9.878l4.242 4.242M9.88 9.88l-3.29-3.29m7.532 7.532l3.29 3.29M3 3l18 18" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</button>
+</div>
+<!-- Password Error Helper Text -->
+<p class="hidden mt-1 text-[11px] font-medium text-danger flex items-center gap-1" id="passwordErrorText">
+<svg class="w-3.5 h-3.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+<span>Mật khẩu không chính xác. Phân biệt chữ hoa, chữ thường và ký tự số.</span>
+</p>
+</div>
+<!-- Captcha Row -->
+<div id="groupCaptcha">
+<label class="block text-xs font-semibold text-content-primary mb-1.5">
+              Mã xác nhận (Captcha) <span class="text-danger">*</span>
+</label>
+<div class="grid grid-cols-12 gap-2">
+<!-- Captcha Image Display & Refresh -->
+<div class="col-span-5 flex items-center rounded-lg border border-border overflow-hidden bg-slate-50">
+<div class="flex-1 h-[42px] captcha-noise flex items-center justify-center select-none font-mono font-bold text-base text-slate-700 italic skew-text border-r border-border/80 px-2 tracking-widest" id="captchaDisplay">
+                  8K9M2
+                </div>
+<button aria-label="Đổi mã captcha khác" class="w-9 h-[42px] flex items-center justify-center text-content-secondary hover:text-brand hover:bg-slate-100 transition-colors focus:outline-none" id="btnRefreshCaptcha" onclick="refreshCaptcha()" title="Đổi mã khác" type="button">
+<svg class="w-4 h-4 transition-transform duration-300" fill="none" id="refreshIcon" stroke="currentColor" viewBox="0 0 24 24">
+<path d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</button>
+</div>
+<!-- Captcha Input -->
+<div class="col-span-7">
+<input class="block w-full px-3 py-2.5 text-sm uppercase bg-white border border-border rounded-lg text-content-primary placeholder-content-muted focus:outline-none focus:border-brand focus:ring-2 focus:ring-brand/20 transition duration-150 font-medium disabled:bg-slate-100 disabled:cursor-not-allowed" id="captcha" maxlength="6" name="captcha" placeholder="Nhập mã xác nhận" required="" type="text" value="8K9M2">
+</div>
+</div>
+<!-- Captcha Error Helper Text -->
+<p class="hidden mt-1 text-[11px] font-medium text-danger flex items-center gap-1" id="captchaErrorText">
+<svg class="w-3.5 h-3.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+<span>Mã bảo vệ không trùng khớp. Vui lòng thử lại.</span>
+</p>
+</div>
+<!-- Remember Me & Forgot Password Row -->
+<div class="flex items-center justify-between pt-1">
+<label class="flex items-center space-x-2 cursor-pointer select-none">
+<input checked="" class="w-4 h-4 rounded text-brand border-border focus:ring-brand/30 focus:ring-offset-0 transition cursor-pointer" id="rememberMe" type="checkbox">
+<span class="text-xs text-content-secondary font-medium select-none">Ghi nhớ đăng nhập</span>
+</label>
+<a class="text-xs font-semibold text-brand hover:text-brand-hover hover:underline transition-colors" href="#">
+              Quên mật khẩu?
+            </a>
+</div>
+<!-- Submit Button with Loading State Support -->
+<div class="pt-2">
+<button class="w-full h-11 bg-brand hover:bg-brand-hover active:bg-[#0f4070] text-white font-medium text-sm rounded-lg shadow-sm hover:shadow transition duration-150 flex items-center justify-center space-x-2 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand disabled:opacity-75 disabled:cursor-not-allowed" id="submitBtn" type="submit">
+<!-- Idle State -->
+<span class="flex items-center space-x-2" id="btnTextIdle">
+<span>Đăng nhập</span>
+<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path d="M14 5l7 7m0 0l-7 7m7-7H3" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</span>
+<!-- Loading State (hidden by default) -->
+<span class="hidden items-center space-x-2" id="btnTextLoading">
+<svg class="animate-spin -ml-1 mr-2 h-4 w-4 text-white" fill="none" viewBox="0 0 24 24">
+<circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+<path class="opacity-75" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" fill="currentColor"></path>
+</svg>
+<span>Đang xác thực thông tin...</span>
+</span>
+</button>
+</div>
+</form>
+<!-- SSO or IT Helpdesk Hint -->
+<div class="mt-6 pt-5 border-t border-border text-center">
+<p class="text-xs text-content-muted">
+            Gặp sự cố khi đăng nhập? Liên hệ <a class="text-brand font-medium hover:underline" href="#">Bộ phận CNTT</a> (Hotline: 1900 6868)
+          </p>
+</div>
+<!-- Security Badge -->
+<div class="mt-4 flex items-center justify-center space-x-1.5 text-[11px] text-content-muted">
+<svg class="w-3.5 h-3.5 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+<span>Bảo mật kết nối SSL 256-bit chuẩn Doanh nghiệp</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Interactive Logic & State Handler Script -->
+<script>
+    // State management and elements
+    const alertBanner = document.getElementById('alertBanner');
+    const alertTitle = document.getElementById('alertTitle');
+    const alertMessage = document.getElementById('alertMessage');
+
+    const usernameInput = document.getElementById('username');
+    const usernameErrorIcon = document.getElementById('usernameErrorIcon');
+    const usernameErrorText = document.getElementById('usernameErrorText');
+
+    const passwordInput = document.getElementById('password');
+    const passwordErrorText = document.getElementById('passwordErrorText');
+
+    const captchaInput = document.getElementById('captcha');
+    const captchaDisplay = document.getElementById('captchaDisplay');
+    const captchaErrorText = document.getElementById('captchaErrorText');
+
+    const submitBtn = document.getElementById('submitBtn');
+    const btnTextIdle = document.getElementById('btnTextIdle');
+    const btnTextLoading = document.getElementById('btnTextLoading');
+
+    let currentCaptchaCode = "8K9M2";
+
+    // Random Captcha Generator
+    function generateCaptcha() {
+      const chars = "23456789ABCDEFGHJKLMNPQRSTUVWXYZ";
+      let code = "";
+      for (let i = 0; i < 5; i++) {
+        code += chars.charAt(Math.floor(Math.random() * chars.length));
+      }
+      return code;
+    }
+
+    function refreshCaptcha() {
+      const icon = document.getElementById('refreshIcon');
+      if (icon) icon.classList.add('rotate-180');
+      setTimeout(() => {
+        if (icon) icon.classList.remove('rotate-180');
+      }, 300);
+
+      currentCaptchaCode = generateCaptcha();
+      captchaDisplay.textContent = currentCaptchaCode;
+      if (captchaInput.value !== '') {
+        captchaInput.value = currentCaptchaCode;
+      }
+    }
+
+    // Toggle Password Visibility
+    function togglePasswordVisibility() {
+      const eyeOpen = document.getElementById('eyeIconOpen');
+      const eyeClosed = document.getElementById('eyeIconClosed');
+      if (passwordInput.type === 'password') {
+        passwordInput.type = 'text';
+        eyeOpen.classList.add('hidden');
+        eyeClosed.classList.remove('hidden');
+      } else {
+        passwordInput.type = 'password';
+        eyeOpen.classList.remove('hidden');
+        eyeClosed.classList.add('hidden');
+      }
+    }
+
+    function dismissAlert() {
+      alertBanner.classList.add('hidden');
+    }
+
+    // Reset all errors to pristine
+    function resetValidationUI() {
+      // Alert Banner
+      alertBanner.classList.add('hidden');
+
+      // Username
+      usernameInput.classList.remove('border-danger', 'focus:border-danger', 'focus:ring-danger/20');
+      usernameInput.classList.add('border-border');
+      usernameErrorIcon.classList.add('hidden');
+      usernameErrorText.classList.add('hidden');
+
+      // Password
+      passwordInput.classList.remove('border-danger', 'focus:border-danger', 'focus:ring-danger/20');
+      passwordInput.classList.add('border-border');
+      passwordErrorText.classList.add('hidden');
+
+      // Captcha
+      captchaInput.classList.remove('border-danger', 'focus:border-danger', 'focus:ring-danger/20');
+      captchaInput.classList.add('border-border');
+      captchaErrorText.classList.add('hidden');
+
+      // Button & form disabled state
+      submitBtn.disabled = false;
+      usernameInput.disabled = false;
+      passwordInput.disabled = false;
+      captchaInput.disabled = false;
+      btnTextIdle.classList.remove('hidden');
+      btnTextIdle.classList.add('flex');
+      btnTextLoading.classList.add('hidden');
+      btnTextLoading.classList.remove('flex');
+    }
+
+    // Pill active styling
+    function updatePillStyles(activeState) {
+      document.querySelectorAll('.state-pill').forEach(pill => {
+        if (pill.getAttribute('data-state-pill') === activeState) {
+          pill.className = "state-pill px-2.5 py-1 rounded-full text-xs font-medium whitespace-nowrap transition-all border border-brand bg-brand text-white shadow-sm";
+        } else {
+          pill.className = "state-pill px-2.5 py-1 rounded-full text-xs font-medium whitespace-nowrap transition-all border border-border bg-white text-content-secondary hover:bg-slate-50";
+        }
+      });
+    }
+
+    // Main State Applier for quick inspection
+    function applyState(stateName) {
+      resetValidationUI();
+      updatePillStyles(stateName);
+
+      switch(stateName) {
+        case 'normal':
+          usernameInput.value = 'nguyen.van.an@pmc.vn';
+          passwordInput.value = 'Pmc@2026Password';
+          captchaInput.value = currentCaptchaCode;
+          break;
+
+        case 'wrong_password':
+          usernameInput.value = 'nguyen.van.an@pmc.vn';
+          passwordInput.value = 'MatKhauSai123';
+          captchaInput.value = currentCaptchaCode;
+
+          // Alert banner
+          alertTitle.textContent = "Đăng nhập không thành công";
+          alertMessage.textContent = "Tài khoản hoặc mật khẩu không chính xác. Bạn còn 4 lần thử trước khi tạm khóa tài khoản.";
+          alertBanner.classList.remove('hidden');
+
+          // Password field red
+          passwordInput.classList.remove('border-border');
+          passwordInput.classList.add('border-danger', 'focus:border-danger', 'focus:ring-danger/20');
+          passwordErrorText.classList.remove('hidden');
+          passwordInput.focus();
+          break;
+
+        case 'invalid_format':
+          usernameInput.value = 'an.nguyen_hrm';
+          passwordInput.value = 'Pmc@2026Password';
+          captchaInput.value = currentCaptchaCode;
+
+          // Alert banner
+          alertTitle.textContent = "Thông tin không hợp lệ";
+          alertMessage.textContent = "Vui lòng kiểm tra lại định dạng tài khoản đăng nhập trước khi tiếp tục.";
+          alertBanner.classList.remove('hidden');
+
+          // Username field red
+          usernameInput.classList.remove('border-border');
+          usernameInput.classList.add('border-danger', 'focus:border-danger', 'focus:ring-danger/20');
+          usernameErrorIcon.classList.remove('hidden');
+          usernameErrorText.classList.remove('hidden');
+          usernameInput.focus();
+          break;
+
+        case 'wrong_captcha':
+          usernameInput.value = 'nguyen.van.an@pmc.vn';
+          passwordInput.value = 'Pmc@2026Password';
+          captchaInput.value = '99999';
+
+          // Alert banner
+          alertTitle.textContent = "Mã xác thực không chính xác";
+          alertMessage.textContent = "Mã Captcha đã nhập không trùng khớp với hình ảnh xác thực bên cạnh.";
+          alertBanner.classList.remove('hidden');
+
+          // Captcha field red
+          captchaInput.classList.remove('border-border');
+          captchaInput.classList.add('border-danger', 'focus:border-danger', 'focus:ring-danger/20');
+          captchaErrorText.classList.remove('hidden');
+          captchaInput.focus();
+          break;
+
+        case 'loading':
+          submitBtn.disabled = true;
+          usernameInput.disabled = true;
+          passwordInput.disabled = true;
+          captchaInput.disabled = true;
+          btnTextIdle.classList.add('hidden');
+          btnTextIdle.classList.remove('flex');
+          btnTextLoading.classList.remove('hidden');
+          btnTextLoading.classList.add('flex');
+          break;
+      }
+    }
+
+    // Form Submission with realistic validation flow
+    function handleFormSubmit(e) {
+      e.preventDefault();
+      resetValidationUI();
+
+      const userVal = usernameInput.value.trim();
+      const passVal = passwordInput.value;
+      const captchaVal = captchaInput.value.trim().toUpperCase();
+
+      // Show Loading State for authentic experience
+      applyState('loading');
+      updatePillStyles('loading');
+
+      setTimeout(() => {
+        // Step 1: Format check
+        const isEmailFormat = userVal.includes('@');
+        const isStaffId = /^NV\d{4,8}$/i.test(userVal);
+
+        if (!isEmailFormat && !isStaffId) {
+          applyState('invalid_format');
+          return;
+        }
+
+        // Step 2: Captcha check
+        if (captchaVal !== currentCaptchaCode) {
+          applyState('wrong_captcha');
+          return;
+        }
+
+        // Step 3: Password simulation
+        if (passVal === 'sai' || passVal.length < 6) {
+          applyState('wrong_password');
+          return;
+        }
+
+        // Success state demonstration
+        resetValidationUI();
+        updatePillStyles('normal');
+        alertBanner.className = "mb-4 p-3.5 rounded-lg bg-emerald-50 border border-emerald-200 flex items-start space-x-3 transition-all";
+        alertBanner.innerHTML = `
+          <svg class="w-5 h-5 text-emerald-600 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg>
+          <div class="flex-1">
+            <p class="text-xs font-semibold text-emerald-800 leading-tight">Đăng nhập thành công</p>
+            <p class="text-xs text-emerald-700 mt-0.5">Hệ thống đang chuyển hướng tới Bảng điều khiển Quản trị HRM Core...</p>
+          </div>
+        `;
+        alertBanner.classList.remove('hidden');
+      }, 1300);
+    }
+  </script>
+
+
+
+
+</body></html>

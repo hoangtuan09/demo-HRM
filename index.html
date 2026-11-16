@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Thư viện giao diện HRM</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<style>
+:root{--p:#1967B2;--pd:#124E88;--tint:#E8F1FA;--bg:#F5F7FA;--tx:#0F172A;--mut:#64748B;--bd:#E2E8F0}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;font-family:'Be Vietnam Pro',system-ui,sans-serif;background:var(--bg);color:var(--tx);line-height:1.45}
+header.top{position:sticky;top:0;z-index:10;background:#fff;border-bottom:1px solid var(--bd);box-shadow:0 1px 8px rgba(0,0,0,.04)}
+.bar{max-width:1320px;margin:0 auto;padding:12px 24px;display:flex;align-items:center;gap:20px;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:inherit}.brand img{height:36px;display:block}
+.brand b{display:block;font-size:17px;color:var(--pd)}.brand small{color:var(--mut);font-size:12px}
+.search{flex:1 1 280px;max-width:460px;margin-left:auto}
+.search input{width:100%;height:40px;border:1px solid var(--bd);border-radius:10px;padding:0 14px;font:inherit;font-size:14px;background:#F8FAFC;outline:none}
+.search input:focus{border-color:var(--p);background:#fff;box-shadow:0 0 0 3px rgba(25,103,178,.15)}
+.chips{max-width:1320px;margin:0 auto;padding:0 24px 12px;display:flex;gap:8px;flex-wrap:wrap}
+.chip{border:1px solid var(--bd);background:#fff;color:#475569;border-radius:999px;padding:5px 12px;font:inherit;font-size:13px;cursor:pointer;text-decoration:none}
+.chip:hover{border-color:var(--p);color:var(--p)}
+main{max-width:1320px;margin:0 auto;padding:24px}
+h2{font-size:15px;letter-spacing:.04em;text-transform:uppercase;color:var(--p);margin:30px 0 14px;display:flex;align-items:center;gap:10px;scroll-margin-top:130px}
+h2 span{background:var(--tint);color:var(--p);border-radius:999px;padding:1px 10px;font-size:12px;letter-spacing:0}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:18px}
+.card{display:flex;flex-direction:column;background:#fff;border:1px solid var(--bd);border-radius:12px;overflow:hidden;text-decoration:none;color:inherit;transition:transform .12s,box-shadow .12s,border-color .12s}
+.card:hover{transform:translateY(-2px);border-color:var(--p);box-shadow:0 8px 24px rgba(25,103,178,.14)}
+.thumb{aspect-ratio:16/10;background:linear-gradient(135deg,#EEF4FB,#F8FAFC);overflow:hidden;display:flex;align-items:center;justify-content:center;color:#94A3B8;font-size:13px;border-bottom:1px solid var(--bd)}
+.thumb img{width:100%;height:100%;object-fit:cover;object-position:top left;display:block}
+.meta{padding:12px 14px}.meta b{display:block;font-size:14px;font-weight:600}.meta small{color:var(--mut);font-size:11.5px;word-break:break-all}
+.empty{display:none;text-align:center;color:var(--mut);padding:60px 0}
+footer{text-align:center;color:var(--mut);font-size:12px;padding:28px 0 40px}
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="bar">
+    <a class="brand" href="./"><img src="shared/logo.png" alt="PMC"/><span><b>Thư viện giao diện HRM</b><small id="count"></small></span></a>
+    <div class="search"><input id="q" type="search" placeholder="Tìm màn hình… (vd: lương, nghỉ phép, báo cáo)" autocomplete="off"/></div>
+  </div>
+  <div class="chips" id="chips"></div>
+</header>
+<main id="root"></main>
+<div class="empty" id="empty">Không tìm thấy màn hình phù hợp.</div>
+<footer>Thiết kế bằng Google Stitch · màu chủ đạo #1967B2 · font Be Vietnam Pro</footer>
+<script>
+var DATA = [{"g":"Đăng nhập","t":"Đăng nhập — bản A (có panel thương hiệu)","h":"01-dang-nhap/dang-nhap-A-panel-brand.html","p":"01-dang-nhap/dang-nhap-A-panel-brand.png"},{"g":"Đăng nhập","t":"Đăng nhập — bản B (gọn)","h":"01-dang-nhap/dang-nhap-B-gon.html","p":"01-dang-nhap/dang-nhap-B-gon.png"},{"g":"Đăng nhập","t":"Đăng nhập — bản C","h":"01-dang-nhap/dang-nhap-C.html","p":""},{"g":"Dashboard","t":"Tổng quan","h":"02-dashboard/tong-quan-A.html","p":"02-dashboard/tong-quan-A.png"},{"g":"Dashboard","t":"Trang chủ — bản B","h":"02-dashboard/trang-chu-dashboard-B.html","p":"02-dashboard/trang-chu-dashboard-B.png"},{"g":"Nhân sự \u0026 Xét duyệt","t":"Cơ cấu tổ chức","h":"03-nhan-su/co-cau-to-chuc.html","p":"03-nhan-su/co-cau-to-chuc.png"},{"g":"Nhân sự \u0026 Xét duyệt","t":"Danh sách nhân sự","h":"03-nhan-su/danh-sach-nhan-su.html","p":"03-nhan-su/danh-sach-nhan-su.png"},{"g":"Nhân sự \u0026 Xét duyệt","t":"Quyết định nhân sự","h":"03-nhan-su/danh-sach-quyet-dinh.html","p":"03-nhan-su/danh-sach-quyet-dinh.png"},{"g":"Nhân sự \u0026 Xét duyệt","t":"Định biên nhân sự","h":"03-nhan-su/dinh-bien-nhan-su.html","p":"03-nhan-su/dinh-bien-nhan-su.png"},{"g":"Nhân sự \u0026 Xét duyệt","t":"Hợp đồng lao động","h":"03-nhan-su/hop-dong-lao-dong.html","p":"03-nhan-su/hop-dong-lao-dong.png"},{"g":"Nhân sự \u0026 Xét duyệt","t":"Hồ sơ nhân sự — bản A (Lý lịch)","h":"03-nhan-su/ho-so-nhan-su-A-ly-lich.html","p":"03-nhan-su/ho-so-nhan-su-A-ly-lich.png"},{"g":"Nhân sự \u0026 Xét duyệt","t":"Hồ sơ nhân sự — bản B (tab dọc tương tác)","h":"03-nhan-su/ho-so-nhan-su-B-tab-doc-tuong-tac.html","p":"03-nhan-su/ho-so-nhan-su-B-tab-doc-tuong-tac.png"},{"g":"Nhân sự \u0026 Xét duyệt","t":"Hồ sơ nhân sự — bản C (all-in-one)","h":"03-nhan-su/ho-so-nhan-su-C-all-in-one.html","p":"03-nhan-su/ho-so-nhan-su-C-all-in-one.png"},{"g":"Nhân sự \u0026 Xét duyệt","t":"Nghỉ sinh – Thai sản","h":"03-nhan-su/nghi-sinh-thai-san.html","p":"03-nhan-su/nghi-sinh-thai-san.png"},{"g":"Nhân sự \u0026 Xét duyệt","t":"Nghỉ việc \u0026 bàn giao","h":"03-nhan-su/nghi-viec-ban-giao.html","p":"03-nhan-su/nghi-viec-ban-giao.png"},{"g":"Nhân sự \u0026 Xét duyệt","t":"Sơ đồ tổ chức","h":"03-nhan-su/so-do-to-chuc.html","p":"03-nhan-su/so-do-to-chuc.png"},{"g":"Nhân sự \u0026 Xét duyệt","t":"Thông tin đơn vị","h":"03-nhan-su/thong-tin-don-vi.html","p":"03-nhan-su/thong-tin-don-vi.png"},{"g":"Nhân sự \u0026 Xét duyệt","t":"Thử thách – Thử việc","h":"03-nhan-su/thu-thach-thu-viec.html","p":"03-nhan-su/thu-thach-thu-viec.png"},{"g":"Nhân sự \u0026 Xét duyệt","t":"Tra cứu đề nghị","h":"03-nhan-su/tra-cuu-de-nghi.html","p":"03-nhan-su/tra-cuu-de-nghi.png"},{"g":"Nhân sự \u0026 Xét duyệt","t":"Xét duyệt đổi ca","h":"03-nhan-su/xet-duyet-doi-ca.html","p":"03-nhan-su/xet-duyet-doi-ca.png"},{"g":"Nhân sự \u0026 Xét duyệt","t":"Xét duyệt quan hệ nhân sự","h":"03-nhan-su/xet-duyet-quan-he-nhan-su.html","p":"03-nhan-su/xet-duyet-quan-he-nhan-su.png"},{"g":"Nhân sự \u0026 Xét duyệt","t":"Xét duyệt thông tin nhân sự","h":"03-nhan-su/xet-duyet-thong-tin-nhan-su.html","p":"03-nhan-su/xet-duyet-thong-tin-nhan-su.png"},{"g":"Chấm công","t":"Chấm công thủ công","h":"04-cham-cong/cham-cong-thu-cong.html","p":"04-cham-cong/cham-cong-thu-cong.png"},{"g":"Chấm công","t":"Đăng ký nghỉ phép","h":"04-cham-cong/dang-ky-nghi-phep.html","p":"04-cham-cong/dang-ky-nghi-phep.png"},{"g":"Chấm công","t":"Gán ca làm việc","h":"04-cham-cong/gan-ca-lam-viec.html","p":"04-cham-cong/gan-ca-lam-viec.png"},{"g":"Chấm công","t":"Gán địa điểm làm việc","h":"04-cham-cong/gan-dia-diem-lam-viec.html","p":"04-cham-cong/gan-dia-diem-lam-viec.png"},{"g":"Chấm công","t":"Làm thêm giờ (OT)","h":"04-cham-cong/lam-them-gio-ot.html","p":"04-cham-cong/lam-them-gio-ot.png"},{"g":"Chấm công","t":"Phân ca","h":"04-cham-cong/phan-ca.html","p":"04-cham-cong/phan-ca.png"},{"g":"Tiền lương","t":"Bảng tính lương tháng","h":"05-luong/bang-tinh-luong-thang.html","p":"05-luong/bang-tinh-luong-thang.png"},{"g":"Tiền lương","t":"Giảm trừ gia cảnh","h":"05-luong/giam-tru-gia-canh.html","p":"05-luong/giam-tru-gia-canh.png"},{"g":"Tiền lương","t":"In phiếu lương","h":"05-luong/in-phieu-luong.html","p":"05-luong/in-phieu-luong.png"},{"g":"Tiền lương","t":"Tham số lương","h":"05-luong/tham-so-luong.html","p":"05-luong/tham-so-luong.png"},{"g":"Tiền lương","t":"Thông tin lương","h":"05-luong/thong-tin-luong-ngach-bac.html","p":"05-luong/thong-tin-luong-ngach-bac.png"},{"g":"Tiền lương","t":"Tổng hợp chi phí","h":"05-luong/tong-hop-chi-phi.html","p":"05-luong/tong-hop-chi-phi.png"},{"g":"Tuyển dụng \u0026 Đào tạo","t":"Đăng ký đào tạo","h":"06-tuyen-dung-dao-tao/dang-ky-xet-duyet-dao-tao.html","p":"06-tuyen-dung-dao-tao/dang-ky-xet-duyet-dao-tao.png"},{"g":"Tuyển dụng \u0026 Đào tạo","t":"Hồ sơ ứng viên","h":"06-tuyen-dung-dao-tao/ho-so-ung-vien-pipeline.html","p":"06-tuyen-dung-dao-tao/ho-so-ung-vien-pipeline.png"},{"g":"Tuyển dụng \u0026 Đào tạo","t":"Kế hoạch tuyển dụng","h":"06-tuyen-dung-dao-tao/ke-hoach-tuyen-dung.html","p":"06-tuyen-dung-dao-tao/ke-hoach-tuyen-dung.png"},{"g":"Tuyển dụng \u0026 Đào tạo","t":"Khung đào tạo theo chức danh","h":"06-tuyen-dung-dao-tao/khung-dao-tao-theo-chuc-danh.html","p":"06-tuyen-dung-dao-tao/khung-dao-tao-theo-chuc-danh.png"},{"g":"Tuyển dụng \u0026 Đào tạo","t":"Lịch đào tạo","h":"06-tuyen-dung-dao-tao/lich-dao-tao.html","p":"06-tuyen-dung-dao-tao/lich-dao-tao.png"},{"g":"Tuyển dụng \u0026 Đào tạo","t":"Lớp đào tạo","h":"06-tuyen-dung-dao-tao/lop-dao-tao.html","p":"06-tuyen-dung-dao-tao/lop-dao-tao.png"},{"g":"Tuyển dụng \u0026 Đào tạo","t":"Thông báo chiêu sinh","h":"06-tuyen-dung-dao-tao/thong-bao-chieu-sinh.html","p":"06-tuyen-dung-dao-tao/thong-bao-chieu-sinh.png"},{"g":"Báo cáo","t":"Bảo hiểm xã hội","h":"07-bao-cao/bao-hiem-xa-hoi.html","p":"07-bao-cao/bao-hiem-xa-hoi.png"},{"g":"Báo cáo","t":"Chuyển khoản / Tiền mặt","h":"07-bao-cao/chuyen-khoan-tien-mat.html","p":"07-bao-cao/chuyen-khoan-tien-mat.png"},{"g":"Báo cáo","t":"Diễn biến nhân sự","h":"07-bao-cao/dien-bien-nhan-su.html","p":"07-bao-cao/dien-bien-nhan-su.png"},{"g":"Báo cáo","t":"Hết hạn hợp đồng","h":"07-bao-cao/het-han-hop-dong.html","p":"07-bao-cao/het-han-hop-dong.png"},{"g":"Báo cáo","t":"Nhân sự mới","h":"07-bao-cao/nhan-su-moi.html","p":"07-bao-cao/nhan-su-moi.png"},{"g":"Báo cáo","t":"Nhân sự nghỉ việc","h":"07-bao-cao/nhan-su-nghi-viec.html","p":"07-bao-cao/nhan-su-nghi-viec.png"},{"g":"Báo cáo","t":"Sinh nhật","h":"07-bao-cao/sinh-nhat.html","p":"07-bao-cao/sinh-nhat.png"},{"g":"Báo cáo","t":"Thống kê tỷ lệ nhân sự","h":"07-bao-cao/thong-ke-ty-le-nhan-su.html","p":"07-bao-cao/thong-ke-ty-le-nhan-su.png"},{"g":"Báo cáo","t":"Biểu thuế TNCN (Mẫu 1)","h":"07-bao-cao/thue-tncn-mau-1.html","p":"07-bao-cao/thue-tncn-mau-1.png"},{"g":"Báo cáo","t":"Tổng hợp lương tháng","h":"07-bao-cao/tong-hop-luong-thang.html","p":"07-bao-cao/tong-hop-luong-thang.png"},{"g":"Danh mục","t":"Ca làm việc","h":"08-danh-muc/ca-lam-viec.html","p":"08-danh-muc/ca-lam-viec.png"},{"g":"Danh mục","t":"Chức danh","h":"08-danh-muc/chuc-danh.html","p":"08-danh-muc/chuc-danh.png"},{"g":"Danh mục","t":"Chức vụ","h":"08-danh-muc/chuc-vu.html","p":"08-danh-muc/chuc-vu.png"},{"g":"Danh mục","t":"Địa điểm làm việc","h":"08-danh-muc/dia-diem-lam-viec.html","p":"08-danh-muc/dia-diem-lam-viec.png"},{"g":"Danh mục","t":"Địa lý hành chính","h":"08-danh-muc/dia-ly-hanh-chinh.html","p":"08-danh-muc/dia-ly-hanh-chinh.png"},{"g":"Danh mục","t":"Loại làm thêm","h":"08-danh-muc/loai-lam-them.html","p":"08-danh-muc/loai-lam-them.png"},{"g":"Danh mục","t":"Loại nghỉ","h":"08-danh-muc/loai-nghi.html","p":"08-danh-muc/loai-nghi.png"},{"g":"Danh mục","t":"Loại quyết định","h":"08-danh-muc/loai-quyet-dinh.html","p":"08-danh-muc/loai-quyet-dinh.png"},{"g":"Danh mục","t":"Ngạch bậc lương","h":"08-danh-muc/ngach-bac-luong.html","p":"08-danh-muc/ngach-bac-luong.png"},{"g":"Danh mục","t":"Tham số nhóm chức vụ","h":"08-danh-muc/tham-so-nhom-chuc-vu.html","p":"08-danh-muc/tham-so-nhom-chuc-vu.png"},{"g":"Hệ thống","t":"Cấu hình hệ thống","h":"09-he-thong/cau-hinh-he-thong.html","p":"09-he-thong/cau-hinh-he-thong.png"},{"g":"Hệ thống","t":"Đổi mật khẩu","h":"09-he-thong/doi-mat-khau.html","p":"09-he-thong/doi-mat-khau.png"},{"g":"Hệ thống","t":"Đổi mật khẩu — bản B (trên nền dashboard)","h":"09-he-thong/doi-mat-khau-B-tren-nen-dashboard.html","p":"09-he-thong/doi-mat-khau-B-tren-nen-dashboard.png"},{"g":"Hệ thống","t":"Đổi mật khẩu xác nhận (2 bước)","h":"09-he-thong/doi-mat-khau-xac-nhan-2-buoc.html","p":"09-he-thong/doi-mat-khau-xac-nhan-2-buoc.png"},{"g":"Hệ thống","t":"Nhập dữ liệu Excel","h":"09-he-thong/nhap-du-lieu-excel.html","p":"09-he-thong/nhap-du-lieu-excel.png"},{"g":"Hệ thống","t":"Nhật ký đăng nhập","h":"09-he-thong/nhat-ky-dang-nhap.html","p":"09-he-thong/nhat-ky-dang-nhap.png"},{"g":"Hệ thống","t":"Phân quyền người dùng","h":"09-he-thong/phan-quyen-nguoi-dung.html","p":"09-he-thong/phan-quyen-nguoi-dung.png"},{"g":"Hệ thống","t":"Quản lý thông báo","h":"09-he-thong/quan-ly-thong-bao.html","p":"09-he-thong/quan-ly-thong-bao.png"}];
+function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/"/g,'&quot;')}
+function norm(s){return s.normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/đ/g,'d').replace(/Đ/g,'D').toLowerCase()}
+var groups=[]; DATA.forEach(function(d){ if(groups.indexOf(d.g)<0) groups.push(d.g) });
+var chips=document.getElementById('chips');
+groups.forEach(function(g,i){ chips.insertAdjacentHTML('beforeend','<a class="chip" href="#g'+i+'">'+esc(g)+'</a>') });
+function render(q){
+  var nq=norm(q||''), html='', shown=0;
+  groups.forEach(function(g,i){
+    var items=DATA.filter(function(d){ return d.g===g && (!nq || norm(d.t+' '+d.h+' '+d.g).indexOf(nq)>=0) });
+    if(!items.length) return; shown+=items.length;
+    html+='<h2 id="g'+i+'">'+esc(g)+'<span>'+items.length+'</span></h2><div class="grid">';
+    items.forEach(function(d){
+      html+='<a class="card" href="'+esc(d.h)+'"><div class="thumb">'+(d.p?'<img loading="lazy" alt="" src="'+esc(d.p)+'" onerror="this.parentNode.textContent=\'Chưa có ảnh xem trước\'">':'Chưa có ảnh xem trước')+'</div><div class="meta"><b>'+esc(d.t)+'</b><small>'+esc(d.h)+'</small></div></a>';
+    });
+    html+='</div>';
+  });
+  document.getElementById('root').innerHTML=html;
+  document.getElementById('empty').style.display=shown?'none':'block';
+  document.getElementById('count').textContent=DATA.length+' màn hình'+(nq?' · '+shown+' kết quả':'');
+}
+document.getElementById('q').addEventListener('input',function(e){render(e.target.value)});
+render('');
+</script>
+</body>
+</html>

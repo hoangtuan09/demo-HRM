@@ -1,0 +1,1218 @@
+<!DOCTYPE html>
+
+<html lang="vi"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Hồ sơ nhân sự - Editor 13 Tab Dọc Tương tác - HRM Core</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Be Vietnam Pro"', 'sans-serif'],
+          },
+          colors: {
+            primary: {
+              DEFAULT: '#1967B2',
+              hover: '#124E88',
+              light: '#E8F1FA',
+              50: '#F0F6FC',
+              100: '#E8F1FA',
+              600: '#1967B2',
+              700: '#124E88'
+            },
+            app: '#F5F7FA',
+            surface: '#FFFFFF',
+            heading: '#0F172A',
+            body: '#334155',
+            muted: '#64748B',
+            border: '#E2E8F0',
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    body {
+      font-family: 'Be Vietnam Pro', sans-serif;
+      background-color: #0b1320;
+      color: #0F172A;
+    }
+    /* Custom scrollbar */
+    ::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #F1F5F9;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #CBD5E1;
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #94A3B8;
+    }
+    .tab-pane {
+      display: none;
+      animation: fadeIn 0.2s ease-in-out;
+    }
+    .tab-pane.active {
+      display: block;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(4px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+<link rel="stylesheet" href="../shared/fix.css"/></head>
+<body class="min-h-screen flex items-center justify-center p-3 md:p-6 bg-slate-900/60 backdrop-blur-sm">
+<!-- MODAL CONTAINER (Desktop 1440px max, full enterprise modal) -->
+<div class="w-full max-w-[1380px] h-[92vh] max-h-[960px] bg-white rounded-xl shadow-2xl flex flex-col overflow-hidden border border-slate-200">
+<!-- MODAL HEADER -->
+<header class="h-14 px-6 border-b border-border bg-white flex items-center justify-between flex-shrink-0 z-20">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-lg bg-primary-light flex items-center justify-center text-primary">
+<svg class="w-5 h-5" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</div>
+<div>
+<h1 class="text-base font-bold tracking-wide uppercase text-heading flex items-center gap-2">
+            HỒ SƠ NHÂN SỰ
+            <span class="text-xs px-2 py-0.5 rounded-full font-semibold bg-emerald-50 text-emerald-700 border border-emerald-200">Đang hoạt động</span>
+</h1>
+</div>
+<div class="hidden sm:flex items-center gap-2 pl-4 ml-4 border-l border-slate-200 text-xs text-muted">
+<span>Mã NV: <strong class="text-slate-800 font-semibold">NV0001</strong></span>
+<span class="text-slate-300">•</span>
+<span>Nguyễn Văn An</span>
+<span class="text-slate-300">•</span>
+<span>Trưởng phòng Kỹ thuật</span>
+</div>
+</div>
+<!-- Action & Close -->
+<div class="flex items-center gap-2">
+<span class="text-xs text-slate-400 bg-slate-100 px-2 py-1 rounded hidden md:inline-block">Phím tắt: Esc để thoát</span>
+<button class="w-8 h-8 rounded-lg flex items-center justify-center text-slate-400 hover:text-slate-700 hover:bg-slate-100 transition-colors" title="Đóng">
+<svg class="w-5 h-5" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M6 18L18 6M6 6l12 12" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</button>
+</div>
+</header>
+<!-- MODAL BODY: LEFT VERTICAL TAB RAIL + RIGHT CONTENT AREA -->
+<div class="flex-1 flex overflow-hidden">
+<!-- LEFT VERTICAL TAB RAIL (approx 200px) -->
+<aside class="w-[200px] flex-shrink-0 bg-[#F8FAFC] border-r border-border p-2.5 flex flex-col justify-between overflow-y-auto">
+<nav class="space-y-1" id="tabNav">
+<div class="px-2.5 py-1 text-[11px] font-bold uppercase tracking-wider text-slate-400">Danh mục hồ sơ</div>
+<!-- Tab 1: Lý lịch (Active) -->
+<button class="tab-btn w-full text-left px-3 py-2 rounded-lg text-[13px] font-semibold flex items-center justify-between transition-all bg-primary-light text-primary border-l-4 border-primary shadow-xs" data-tab="tab-ly-lich">
+<span class="flex items-center gap-2 truncate">
+<svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M10 6H5a2 2 0 00-2 2v9a2 2 0 002 2h14a2 2 0 002-2V8a2 2 0 00-2-2h-5m-4 0V5a2 2 0 114 0v1m-4 0a2 2 0 104 0m-5 8a2 2 0 100-4 2 2 0 000 4zm0 0c1.306 0 2.417.835 2.83 2M9 14a3.001 3.001 0 00-2.83 2M15 11h3m-3 4h2" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+              Lý lịch
+            </span>
+<span class="tab-indicator w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0"></span>
+</button>
+<!-- Tab 2: VBCCCN -->
+<button class="tab-btn w-full text-left px-3 py-2 rounded-lg text-[13px] font-medium text-slate-600 hover:text-slate-900 hover:bg-slate-200/60 transition-all flex items-center justify-between" data-tab="tab-vbcccn">
+<span class="flex items-center gap-2 truncate">
+<svg class="w-4 h-4 flex-shrink-0 text-slate-400" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M12 14l9-5-9-5-9 5 9 5z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+<path d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+              VBCCCN
+            </span>
+<span class="text-[11px] px-1.5 py-0.2 bg-slate-200 text-slate-600 rounded">2</span>
+</button>
+<!-- Tab 3: Thông tin -->
+<button class="tab-btn w-full text-left px-3 py-2 rounded-lg text-[13px] font-medium text-slate-600 hover:text-slate-900 hover:bg-slate-200/60 transition-all flex items-center justify-between" data-tab="tab-thong-tin">
+<span class="flex items-center gap-2 truncate">
+<svg class="w-4 h-4 flex-shrink-0 text-slate-400" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+              Thông tin
+            </span>
+</button>
+<!-- Tab 4: Bảo hiểm -->
+<button class="tab-btn w-full text-left px-3 py-2 rounded-lg text-[13px] font-medium text-slate-600 hover:text-slate-900 hover:bg-slate-200/60 transition-all flex items-center justify-between" data-tab="tab-bao-hiem">
+<span class="flex items-center gap-2 truncate">
+<svg class="w-4 h-4 flex-shrink-0 text-slate-400" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+              Bảo hiểm
+            </span>
+</button>
+<!-- Tab 5: Chuyên ngành -->
+<button class="tab-btn w-full text-left px-3 py-2 rounded-lg text-[13px] font-medium text-slate-600 hover:text-slate-900 hover:bg-slate-200/60 transition-all flex items-center justify-between" data-tab="tab-chuyen-nganh">
+<span class="flex items-center gap-2 truncate">
+<svg class="w-4 h-4 flex-shrink-0 text-slate-400" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+              Chuyên ngành
+            </span>
+</button>
+<!-- Tab 6: Quan hệ gia đình -->
+<button class="tab-btn w-full text-left px-3 py-2 rounded-lg text-[13px] font-medium text-slate-600 hover:text-slate-900 hover:bg-slate-200/60 transition-all flex items-center justify-between" data-tab="tab-gia-dinh">
+<span class="flex items-center gap-2 truncate">
+<svg class="w-4 h-4 flex-shrink-0 text-slate-400" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+              Quan hệ gia đình
+            </span>
+<span class="text-[11px] px-1.5 py-0.2 bg-slate-200 text-slate-600 rounded">3</span>
+</button>
+<!-- Tab 7: Quá trình lương (Quyền lương) -->
+<button class="tab-btn w-full text-left px-3 py-2 rounded-lg text-[13px] font-medium text-slate-600 hover:text-slate-900 hover:bg-slate-200/60 transition-all flex items-center justify-between group" data-tab="tab-luong">
+<span class="flex items-center gap-2 truncate">
+<svg class="w-4 h-4 flex-shrink-0 text-amber-500" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+              Quá trình lương
+            </span>
+<span class="text-[10px] text-amber-600 bg-amber-50 border border-amber-200 px-1 rounded">🔒</span>
+</button>
+<!-- Tab 8: Quá trình công tác -->
+<button class="tab-btn w-full text-left px-3 py-2 rounded-lg text-[13px] font-medium text-slate-600 hover:text-slate-900 hover:bg-slate-200/60 transition-all flex items-center justify-between" data-tab="tab-cong-tac">
+<span class="flex items-center gap-2 truncate">
+<svg class="w-4 h-4 flex-shrink-0 text-slate-400" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+              Quá trình công tác
+            </span>
+</button>
+<!-- Tab 9: Khen thưởng -->
+<button class="tab-btn w-full text-left px-3 py-2 rounded-lg text-[13px] font-medium text-slate-600 hover:text-slate-900 hover:bg-slate-200/60 transition-all flex items-center justify-between" data-tab="tab-khen-thuong">
+<span class="flex items-center gap-2 truncate">
+<svg class="w-4 h-4 flex-shrink-0 text-slate-400" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+              Khen thưởng
+            </span>
+</button>
+<!-- Tab 10: Kỷ luật -->
+<button class="tab-btn w-full text-left px-3 py-2 rounded-lg text-[13px] font-medium text-slate-600 hover:text-slate-900 hover:bg-slate-200/60 transition-all flex items-center justify-between" data-tab="tab-ky-luat">
+<span class="flex items-center gap-2 truncate">
+<svg class="w-4 h-4 flex-shrink-0 text-slate-400" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+              Kỷ luật
+            </span>
+</button>
+<!-- Tab 11: Kiêm nhiệm -->
+<button class="tab-btn w-full text-left px-3 py-2 rounded-lg text-[13px] font-medium text-slate-600 hover:text-slate-900 hover:bg-slate-200/60 transition-all flex items-center justify-between" data-tab="tab-kiem-nhiem">
+<span class="flex items-center gap-2 truncate">
+<svg class="w-4 h-4 flex-shrink-0 text-slate-400" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+              Kiêm nhiệm
+            </span>
+</button>
+<!-- Tab 12: Thử thách -->
+<button class="tab-btn w-full text-left px-3 py-2 rounded-lg text-[13px] font-medium text-slate-600 hover:text-slate-900 hover:bg-slate-200/60 transition-all flex items-center justify-between" data-tab="tab-thu-thach">
+<span class="flex items-center gap-2 truncate">
+<svg class="w-4 h-4 flex-shrink-0 text-slate-400" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+              Thử thách
+            </span>
+</button>
+<!-- Tab 13: Hồ sơ đính kèm -->
+<button class="tab-btn w-full text-left px-3 py-2 rounded-lg text-[13px] font-medium text-slate-600 hover:text-slate-900 hover:bg-slate-200/60 transition-all flex items-center justify-between" data-tab="tab-dinh-kem">
+<span class="flex items-center gap-2 truncate">
+<svg class="w-4 h-4 flex-shrink-0 text-slate-400" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M15.172 7l-6.586 6.586a2 2 0 102.828 2.828l6.414-6.586a4 4 0 00-5.656-5.656l-6.415 6.585a6 6 0 108.486 8.486L20.5 13" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+              Hồ sơ đính kèm
+            </span>
+<span class="text-[11px] px-1.5 py-0.2 bg-slate-200 text-slate-600 rounded">4</span>
+</button>
+</nav>
+<div class="pt-3 border-t border-slate-200/80 px-1 text-[11px] text-slate-400 text-center">
+          13 phân hệ quản lý
+        </div>
+</aside>
+<!-- RIGHT SCROLLABLE CONTENT -->
+<main class="flex-1 overflow-y-auto bg-white p-5 md:p-7">
+<!-- PANE 1: LÝ LỊCH -->
+<div class="tab-pane active" id="tab-ly-lich">
+<div class="flex items-center justify-between pb-4 mb-5 border-b border-slate-100">
+<div>
+<h2 class="text-lg font-bold text-heading flex items-center gap-2">
+<span class="w-2.5 h-2.5 rounded-full bg-primary inline-block"></span>
+                Thông tin Lý lịch Nhân sự
+              </h2>
+<p class="text-xs text-muted mt-0.5">Các thông tin định danh cá nhân, nhân thân, nơi cư trú và cơ sở pháp lý</p>
+</div>
+<div class="flex items-center gap-2">
+<span class="text-xs text-slate-500 font-medium">Trạng thái hồ sơ:</span>
+<span class="inline-flex items-center px-2 py-0.5 rounded text-xs font-semibold bg-emerald-50 text-emerald-700 border border-emerald-200">
+                ● Đầy đủ giấy tờ
+              </span>
+</div>
+</div>
+<form class="space-y-5 text-sm" onsubmit="event.preventDefault();">
+<div class="grid grid-cols-12 gap-x-4 gap-y-3.5 items-start">
+<div class="col-span-12 lg:col-span-9 grid grid-cols-12 gap-x-3.5 gap-y-3.5">
+<div class="col-span-12 sm:col-span-3">
+<label class="block text-[13px] font-medium text-slate-700 mb-1">
+                    Mã <span class="text-red-500">*</span>
+</label>
+<div class="flex items-center gap-1">
+<div class="relative flex-1">
+<input class="w-full h-[38px] px-3 bg-slate-100 border border-border rounded-lg text-slate-700 font-semibold focus:outline-none cursor-not-allowed" readonly="" type="text" value="NV0001"/>
+<span class="absolute right-2.5 top-2.5 text-slate-400">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</span>
+</div>
+<div class="relative group">
+<button class="h-[38px] w-9 flex items-center justify-center rounded-lg border border-border bg-white hover:bg-slate-50 text-slate-600 transition-colors" title="Tuỳ chọn mã nhân sự" type="button">
+<svg class="w-4 h-4" fill="currentColor" viewbox="0 0 20 20">
+<path d="M10 6a2 2 0 110-4 2 2 0 010 4zM10 12a2 2 0 110-4 2 2 0 010 4zM10 18a2 2 0 110-4 2 2 0 010 4z"></path>
+</svg>
+</button>
+<div class="hidden group-hover:block absolute left-0 sm:left-auto sm:right-0 mt-1 w-44 bg-white rounded-lg shadow-lg border border-border py-1 z-30 text-xs">
+<a class="block px-3 py-1.5 text-slate-700 hover:bg-slate-50" href="#">Quy tắc đặt mã</a>
+<a class="block px-3 py-1.5 text-primary hover:bg-primary-light font-medium" href="#">Đổi mã nhân sự</a>
+</div>
+</div>
+</div>
+</div>
+<div class="col-span-12 sm:col-span-4">
+<label class="block text-[13px] font-medium text-slate-700 mb-1">
+                    Họ đệm <span class="text-red-500">*</span>
+</label>
+<input class="w-full h-[38px] px-3 border border-border rounded-lg text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all" placeholder="Nhập họ và tên đệm..." type="text" value="Nguyễn Văn"/>
+</div>
+<div class="col-span-12 sm:col-span-3">
+<label class="block text-[13px] font-medium text-slate-700 mb-1">
+                    Tên <span class="text-red-500">*</span>
+</label>
+<input class="w-full h-[38px] px-3 border border-border rounded-lg text-slate-800 font-medium placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all" placeholder="Nhập tên..." type="text" value="An"/>
+</div>
+<div class="col-span-12 sm:col-span-2">
+<label class="block text-[13px] font-medium text-slate-700 mb-1">
+                    Giới tính
+                  </label>
+<select class="w-full h-[38px] px-2.5 border border-border rounded-lg text-slate-800 bg-white focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all">
+<option selected="" value="Nam">Nam</option>
+<option value="Nữ">Nữ</option>
+</select>
+</div>
+<div class="col-span-12 sm:col-span-4">
+<label class="block text-[13px] font-medium text-slate-700 mb-1">
+                    Ngày sinh
+                  </label>
+<div class="relative">
+<input class="w-full h-[38px] pl-3 pr-9 border border-border rounded-lg text-slate-800 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all" placeholder="__/__/____" type="text" value="15/08/1988"/>
+<span class="absolute right-3 top-2.5 text-slate-400 pointer-events-none">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</span>
+</div>
+</div>
+<div class="col-span-12 sm:col-span-8">
+<label class="block text-[13px] font-medium text-slate-700 mb-1">
+                    Nơi sinh
+                  </label>
+<input class="w-full h-[38px] px-3 border border-border rounded-lg text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all" placeholder="Nhập nơi sinh theo giấy khai sinh..." type="text" value="Bệnh viện Phụ sản Hà Nội, TP. Hà Nội"/>
+</div>
+<div class="col-span-12">
+<label class="block text-[13px] font-medium text-slate-700 mb-1">
+                    Nguyên quán
+                  </label>
+<input class="w-full h-[38px] px-3 border border-border rounded-lg text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all" placeholder="Nhập nguyên quán theo CCCD / giấy khai sinh..." type="text" value="Xã Dịch Vọng Hậu, Huyện Từ Liêm, TP. Hà Nội"/>
+</div>
+</div>
+<!-- AVATAR UPLOADER -->
+<div class="col-span-12 lg:col-span-3 flex flex-col items-center justify-center p-3.5 bg-slate-50 border border-slate-200/80 rounded-xl">
+<label class="block text-[12px] font-semibold text-slate-600 mb-2">Ảnh chân dung (3x4)</label>
+<div class="relative w-[100px] h-[100px] rounded-full ring-4 ring-primary/25 shadow-md overflow-hidden bg-slate-200 group">
+<div class="w-full h-full bg-gradient-to-tr from-primary to-blue-400 flex items-center justify-center text-white text-2xl font-bold tracking-wider">
+                    AN
+                  </div>
+<div class="absolute inset-0 bg-slate-900/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center cursor-pointer">
+<svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+<path d="M15 13a3 3 0 11-6 0 3 3 0 016 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</div>
+<span class="absolute bottom-1 right-1 w-6 h-6 bg-primary text-white rounded-full flex items-center justify-center shadow">
+<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</span>
+</div>
+<button class="mt-2.5 px-3 py-1 bg-white hover:bg-slate-100 border border-border text-slate-700 text-xs font-medium rounded-md shadow-xs flex items-center gap-1.5 transition-colors" type="button">
+<svg class="w-3.5 h-3.5 text-primary" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+                  Chọn ảnh
+                </button>
+<span class="text-[10px] text-slate-400 mt-1">PNG, JPG tối đa 2MB</span>
+</div>
+</div>
+<hr class="border-slate-100 my-1"/>
+<!-- SECTION 2: ĐỊA CHỈ CƯ TRÚ & LIÊN HỆ -->
+<div>
+<div class="text-[12px] font-bold uppercase tracking-wider text-primary mb-2.5 flex items-center gap-2">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+<path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+                Địa chỉ cư trú &amp; Liên hệ
+              </div>
+<div class="grid grid-cols-12 gap-x-3.5 gap-y-3.5">
+<div class="col-span-12 md:col-span-6">
+<label class="block text-[13px] font-medium text-slate-700 mb-1">
+                    Địa chỉ thường trú
+                  </label>
+<input class="w-full h-[38px] px-3 border border-border rounded-lg text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all" placeholder="Số nhà, tên đường, thôn xóm..." type="text" value="Số 25, Ngõ 120 Hoàng Quốc Việt"/>
+</div>
+<div class="col-span-12 sm:col-span-6 md:col-span-3">
+<label class="block text-[13px] font-medium text-slate-700 mb-1">
+                    Tỉnh/Thành phố
+                  </label>
+<select class="w-full h-[38px] px-2.5 border border-border rounded-lg text-slate-800 bg-white focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all">
+<option selected="" value="Hà Nội">Thành phố Hà Nội</option>
+<option value="Hồ Chí Minh">Thành phố Hồ Chí Minh</option>
+<option value="Đà Nẵng">Thành phố Đà Nẵng</option>
+<option value="Hải Phòng">Thành phố Hải Phòng</option>
+</select>
+</div>
+<div class="col-span-12 sm:col-span-6 md:col-span-3">
+<label class="block text-[13px] font-medium text-slate-700 mb-1">
+                    Phường/Xã
+                  </label>
+<select class="w-full h-[38px] px-2.5 border border-border rounded-lg text-slate-800 bg-white focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all">
+<option selected="" value="Nghĩa Đô">Phường Nghĩa Đô (Q. Cầu Giấy)</option>
+<option value="Dịch Vọng">Phường Dịch Vọng</option>
+<option value="Quan Hoa">Phường Quan Hoa</option>
+</select>
+</div>
+<div class="col-span-12 md:col-span-6">
+<div class="flex items-center justify-between mb-1">
+<label class="block text-[13px] font-medium text-slate-700">
+                      Địa chỉ liên lạc
+                    </label>
+<label class="inline-flex items-center gap-1.5 text-xs text-slate-600 cursor-pointer">
+<input class="w-3.5 h-3.5 rounded text-primary border-slate-300 focus:ring-primary" type="checkbox"/>
+<span>Giống ĐCTT</span>
+</label>
+</div>
+<div class="relative">
+<input class="w-full h-[38px] px-3 border border-red-500 rounded-lg text-slate-800 placeholder-slate-400 bg-red-50/20 focus:outline-none focus:ring-2 focus:ring-red-400/20 focus:border-red-500 transition-all" placeholder="Nhập địa chỉ tạm trú hiện tại..." type="text"/>
+<span class="absolute right-3 top-2.5 text-red-500">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</span>
+</div>
+<p class="text-[11px] text-red-500 mt-1 flex items-center gap-1 font-medium">
+<svg class="w-3 h-3" fill="currentColor" viewbox="0 0 20 20">
+<path clip-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" fill-rule="evenodd"></path>
+</svg>
+                    Trường bắt buộc - Vui lòng nhập địa chỉ liên lạc
+                  </p>
+</div>
+<div class="col-span-12 sm:col-span-6 md:col-span-3">
+<label class="block text-[13px] font-medium text-slate-700 mb-1">
+                    Điện thoại <span class="text-red-500">*</span>
+<span class="text-[11px] text-primary font-normal float-right">Đang chỉnh sửa</span>
+</label>
+<div class="relative">
+<input class="w-full h-[38px] pl-3 pr-8 border-2 border-primary ring-4 ring-primary/15 rounded-lg text-slate-900 font-medium focus:outline-none bg-white transition-all" placeholder="Số điện thoại..." type="text" value="0901 234 567"/>
+<span class="absolute right-2.5 top-2.5 text-primary">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</span>
+</div>
+</div>
+<div class="col-span-12 sm:col-span-6 md:col-span-3">
+<label class="block text-[13px] font-medium text-slate-700 mb-1">
+                    Email
+                  </label>
+<input class="w-full h-[38px] px-3 border border-border rounded-lg text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all" placeholder="email@pmc.vn" type="email" value="an.nguyen@pmc.vn"/>
+</div>
+</div>
+</div>
+<!-- SECTION 3: NHÂN THÂN & CHÍNH SÁCH XÃ HỘI -->
+<div class="pt-1">
+<div class="grid grid-cols-12 gap-x-3.5 gap-y-3.5 items-center">
+<div class="col-span-12 sm:col-span-3">
+<label class="block text-[13px] font-medium text-slate-700 mb-1">Dân tộc</label>
+<select class="w-full h-[38px] px-2.5 border border-border rounded-lg text-slate-800 bg-white focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary">
+<option selected="" value="Kinh">Kinh</option>
+<option value="Tày">Tày</option>
+<option value="Thái">Thái</option>
+<option value="Mường">Mường</option>
+<option value="Khác">Khác</option>
+</select>
+</div>
+<div class="col-span-12 sm:col-span-3">
+<label class="block text-[13px] font-medium text-slate-700 mb-1">Tôn giáo</label>
+<select class="w-full h-[38px] px-2.5 border border-border rounded-lg text-slate-800 bg-white focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary">
+<option selected="" value="Không">Không</option>
+<option value="Phật giáo">Phật giáo</option>
+<option value="Công giáo">Công giáo</option>
+<option value="Tin Lành">Tin Lành</option>
+</select>
+</div>
+<div class="col-span-12 sm:col-span-6 flex flex-wrap items-center gap-x-5 gap-y-2 pt-5">
+<label class="inline-flex items-center gap-2 text-[13px] text-slate-700 cursor-pointer">
+<input checked="" class="w-4 h-4 rounded text-primary border-slate-300 focus:ring-primary" type="checkbox"/>
+<span>Lập gia đình</span>
+</label>
+<label class="inline-flex items-center gap-2 text-[13px] text-slate-700 cursor-pointer">
+<input checked="" class="w-4 h-4 rounded text-primary border-slate-300 focus:ring-primary" type="checkbox"/>
+<span>Hoàn thành NVQS</span>
+</label>
+<label class="inline-flex items-center gap-2 text-[13px] text-slate-700 cursor-pointer">
+<input class="w-4 h-4 rounded text-primary border-slate-300 focus:ring-primary" type="checkbox"/>
+<span>Gia đình Liệt sĩ</span>
+</label>
+</div>
+</div>
+</div>
+<hr class="border-slate-100 my-1"/>
+<!-- SECTION 4: GIẤY TỜ PHÁP LÝ & TRÌNH ĐỘ HỌC VẤN -->
+<div>
+<div class="text-[12px] font-bold uppercase tracking-wider text-primary mb-2.5 flex items-center gap-2">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M10 6H5a2 2 0 00-2 2v9a2 2 0 002 2h14a2 2 0 002-2V8a2 2 0 00-2-2h-5m-4 0V5a2 2 0 114 0v1m-4 0a2 2 0 104 0m-5 8a2 2 0 100-4 2 2 0 000 4zm0 0c1.306 0 2.417.835 2.83 2M9 14a3.001 3.001 0 00-2.83 2M15 11h3m-3 4h2" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+                Giấy tờ pháp lý &amp; Trình độ học vấn
+              </div>
+<div class="grid grid-cols-12 gap-x-3.5 gap-y-3.5">
+<div class="col-span-12 sm:col-span-4">
+<label class="block text-[13px] font-medium text-slate-700 mb-1">
+                    Căn cước công dân
+                  </label>
+<input class="w-full h-[38px] px-3 border border-border rounded-lg text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary" placeholder="12 chữ số CCCD..." type="text" value="001088012345"/>
+</div>
+<div class="col-span-12 sm:col-span-3">
+<label class="block text-[13px] font-medium text-slate-700 mb-1">
+                    Ngày cấp
+                  </label>
+<div class="relative">
+<input class="w-full h-[38px] pl-3 pr-8 border border-border rounded-lg text-slate-800 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary" placeholder="__/__/____" type="text" value="12/04/2021"/>
+<span class="absolute right-2.5 top-2.5 text-slate-400">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</span>
+</div>
+</div>
+<div class="col-span-12 sm:col-span-5">
+<label class="block text-[13px] font-medium text-slate-700 mb-1">
+                    Nơi cấp
+                  </label>
+<select class="w-full h-[38px] px-2.5 border border-border rounded-lg text-slate-800 bg-white focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary truncate">
+<option selected="" value="Cục Cảnh sát quản lý hành chính về trật tự xã hội">Cục Cảnh sát quản lý hành chính về trật tự xã hội</option>
+<option value="Bộ Công an">Bộ Công an</option>
+<option value="Công an TP. Hà Nội">Công an TP. Hà Nội</option>
+</select>
+</div>
+<div class="col-span-12 sm:col-span-3">
+<label class="block text-[13px] font-medium text-slate-700 mb-1">Trình độ văn hóa</label>
+<input class="w-full h-[38px] px-3 border border-border rounded-lg text-slate-800 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary" placeholder="Ví dụ: 12/12..." type="text" value="12/12"/>
+</div>
+<div class="col-span-12 sm:col-span-3">
+<label class="block text-[13px] font-medium text-slate-700 mb-1">Trình độ học vấn</label>
+<select class="w-full h-[38px] px-2.5 border border-border rounded-lg text-slate-800 bg-white focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary">
+<option value="Tiến sĩ">Tiến sĩ</option>
+<option value="Thạc sĩ">Thạc sĩ</option>
+<option selected="" value="Đại học">Đại học</option>
+<option value="Cao đẳng">Cao đẳng</option>
+<option value="Trung cấp">Trung cấp</option>
+</select>
+</div>
+<div class="col-span-12 sm:col-span-3">
+<label class="block text-[13px] font-medium text-slate-700 mb-1">Chính trị</label>
+<select class="w-full h-[38px] px-2.5 border border-border rounded-lg text-slate-800 bg-white focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary">
+<option value="Sơ cấp">Sơ cấp</option>
+<option selected="" value="Trung cấp">Trung cấp</option>
+<option value="Cao cấp">Cao cấp</option>
+<option value="Chưa qua đào tạo">Chưa qua đào tạo</option>
+</select>
+</div>
+<div class="col-span-12 sm:col-span-3">
+<label class="block text-[13px] font-medium text-slate-700 mb-1">Ngoại ngữ</label>
+<select class="w-full h-[38px] px-2.5 border border-border rounded-lg text-slate-800 bg-white focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary">
+<option selected="" value="Tiếng Anh (B2 / IELTS 6.5)">Tiếng Anh (B2 / IELTS 6.5)</option>
+<option value="Tiếng Trung (HSK)">Tiếng Trung</option>
+<option value="Tiếng Nhật (N2/N3)">Tiếng Nhật</option>
+<option value="Khác">Khác</option>
+</select>
+</div>
+<div class="col-span-12 sm:col-span-6">
+<label class="block text-[13px] font-medium text-slate-700 mb-1">Tin học</label>
+<input class="w-full h-[38px] px-3 border border-border rounded-lg text-slate-800 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary" placeholder="Chứng chỉ tin học / kỹ năng phần mềm..." type="text" value="MOS Master, Chuyên sâu CNTT"/>
+</div>
+<div class="col-span-12 sm:col-span-6 flex items-center pt-5">
+<label class="inline-flex items-center gap-2 text-[13px] text-slate-700 cursor-pointer">
+<input class="w-4 h-4 rounded text-primary border-slate-300 focus:ring-primary" type="checkbox"/>
+<span class="font-medium">Người nước ngoài (Foreign employee)</span>
+</label>
+</div>
+</div>
+</div>
+<hr class="border-slate-100 my-1"/>
+<!-- SECTION 5: GROUP "ĐOÀN / ĐẢNG" -->
+<div class="bg-slate-50/80 border border-slate-200/90 rounded-xl p-4">
+<div class="text-[12px] font-bold uppercase tracking-wider text-primary mb-3 flex items-center gap-2">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M3 21v-4m0 0V5a2 2 0 012-2h6.5l1 1H21l-3 6 3 6h-8.5l-1-1H5a2 2 0 00-2 2zm9-13.5V9" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+                Tổ chức chính trị: Đoàn / Đảng
+              </div>
+<!-- Đoàn viên Block -->
+<div class="grid grid-cols-12 gap-x-3.5 gap-y-3 pb-3 mb-3 border-b border-slate-200/60 items-center">
+<div class="col-span-12 sm:col-span-3">
+<label class="inline-flex items-center gap-2 text-[13px] font-semibold text-slate-800 cursor-pointer">
+<input checked="" class="w-4 h-4 rounded text-primary border-slate-300 focus:ring-primary" type="checkbox"/>
+<span>Đoàn viên TNCS</span>
+</label>
+</div>
+<div class="col-span-12 sm:col-span-3">
+<label class="block text-[12px] font-medium text-slate-600 mb-1">Ngày vào Đoàn</label>
+<div class="relative">
+<input class="w-full h-[36px] pl-3 pr-8 border border-border rounded-lg text-slate-800 bg-white text-xs focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary" placeholder="__/__/____" type="text" value="26/03/2004"/>
+<span class="absolute right-2.5 top-2 text-slate-400">
+<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</span>
+</div>
+</div>
+<div class="col-span-12 sm:col-span-6">
+<label class="block text-[12px] font-medium text-slate-600 mb-1">Nơi kết nạp Đoàn</label>
+<input class="w-full h-[36px] px-3 border border-border rounded-lg text-slate-800 bg-white text-xs focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary" placeholder="Tổ chức / Chi đoàn kết nạp..." type="text" value="Đoàn trường THPT Chuyên Hà Nội - Amsterdam"/>
+</div>
+</div>
+<!-- Đảng viên Block -->
+<div class="grid grid-cols-12 gap-x-3.5 gap-y-3 items-start">
+<div class="col-span-12 sm:col-span-12 md:col-span-2 pt-2">
+<label class="inline-flex items-center gap-2 text-[13px] font-semibold text-slate-800 cursor-pointer">
+<input checked="" class="w-4 h-4 rounded text-primary border-slate-300 focus:ring-primary" type="checkbox"/>
+<span>Đảng viên</span>
+</label>
+</div>
+<div class="col-span-12 sm:col-span-6 md:col-span-2">
+<label class="block text-[12px] font-medium text-slate-600 mb-1">Ngày vào Đảng</label>
+<div class="relative">
+<input class="w-full h-[36px] pl-3 pr-8 border border-border rounded-lg text-slate-800 bg-white text-xs focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary" placeholder="__/__/____" type="text" value="03/02/2014"/>
+<span class="absolute right-2 top-2 text-slate-400">
+<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</span>
+</div>
+</div>
+<div class="col-span-12 sm:col-span-6 md:col-span-2">
+<label class="block text-[12px] font-medium text-slate-600 mb-1">Ngày chính thức</label>
+<div class="relative">
+<input class="w-full h-[36px] pl-3 pr-8 border border-border rounded-lg text-slate-800 bg-white text-xs focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary" placeholder="__/__/____" type="text" value="03/02/2015"/>
+<span class="absolute right-2 top-2 text-slate-400">
+<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</span>
+</div>
+</div>
+<div class="col-span-12 sm:col-span-6 md:col-span-3">
+<label class="block text-[12px] font-medium text-slate-600 mb-1">Nơi kết nạp Đảng</label>
+<input class="w-full h-[36px] px-3 border border-border rounded-lg text-slate-800 bg-white text-xs focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary" placeholder="Nơi kết nạp Đảng..." type="text" value="Chi bộ Khoa CNTT - ĐH Bách Khoa HN"/>
+</div>
+<div class="col-span-12 sm:col-span-6 md:col-span-3">
+<label class="block text-[12px] font-medium text-slate-600 mb-1">Nơi sinh hoạt Đảng</label>
+<input class="w-full h-[36px] px-3 border border-border rounded-lg text-slate-800 bg-white text-xs focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary" placeholder="Chi bộ hiện đang sinh hoạt..." type="text" value="Chi bộ Khối Văn phòng PMC"/>
+</div>
+</div>
+</div>
+</form>
+</div>
+<!-- PANE 2: VBCCCN -->
+<div class="tab-pane" id="tab-vbcccn">
+<div class="flex items-center justify-between pb-4 mb-5 border-b border-slate-100">
+<div>
+<h2 class="text-lg font-bold text-heading flex items-center gap-2">
+<span class="w-2.5 h-2.5 rounded-full bg-primary inline-block"></span>
+                Văn bằng &amp; Chứng chỉ Chuyên ngành (VBCCCN)
+              </h2>
+<p class="text-xs text-muted mt-0.5">Quản lý danh sách văn bằng cử nhân, thạc sĩ, chứng chỉ nghề nghiệp quốc tế</p>
+</div>
+<button class="h-9 px-3.5 bg-primary text-white text-xs font-semibold rounded-lg flex items-center gap-1.5 hover:bg-primary-hover shadow-xs transition-colors">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M12 4v16m8-8H4" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+              Thêm bằng cấp mới
+            </button>
+</div>
+<div class="border border-border rounded-lg overflow-hidden mb-6">
+<table class="w-full text-left text-xs">
+<thead class="bg-slate-50 border-b border-border text-slate-600 font-semibold uppercase">
+<tr>
+<th class="py-3 px-4">Loại bằng / CC</th>
+<th class="py-3 px-4">Chuyên ngành</th>
+<th class="py-3 px-4">Trường / Tổ chức cấp</th>
+<th class="py-3 px-4">Năm TN</th>
+<th class="py-3 px-4">Xếp loại</th>
+<th class="py-3 px-4 text-center">Tệp scan</th>
+<th class="py-3 px-4 text-right">Thao tác</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-border text-slate-700">
+<tr class="hover:bg-slate-50/70">
+<td class="py-3 px-4 font-semibold text-slate-900">Bằng Đại học</td>
+<td class="py-3 px-4">Khoa học Máy tính</td>
+<td class="py-3 px-4">Đại học Bách Khoa Hà Nội</td>
+<td class="py-3 px-4">2010</td>
+<td class="py-3 px-4"><span class="px-2 py-0.5 rounded text-[11px] font-semibold bg-emerald-50 text-emerald-700 border border-emerald-200">Giỏi</span></td>
+<td class="py-3 px-4 text-center">
+<span class="text-primary hover:underline cursor-pointer font-medium">Bang_DH_BK.pdf</span>
+</td>
+<td class="py-3 px-4 text-right">
+<button class="text-slate-500 hover:text-primary font-medium mr-2">Sửa</button>
+<button class="text-red-500 hover:text-red-700 font-medium">Xoá</button>
+</td>
+</tr>
+<tr class="hover:bg-slate-50/70">
+<td class="py-3 px-4 font-semibold text-slate-900">Chứng chỉ Quốc tế</td>
+<td class="py-3 px-4">PMP - Quản lý Dự án Chuyên nghiệp</td>
+<td class="py-3 px-4">PMI Institute (Hoa Kỳ)</td>
+<td class="py-3 px-4">2020</td>
+<td class="py-3 px-4"><span class="px-2 py-0.5 rounded text-[11px] font-semibold bg-blue-50 text-blue-700 border border-blue-200">Đạt</span></td>
+<td class="py-3 px-4 text-center">
+<span class="text-primary hover:underline cursor-pointer font-medium">PMP_Cert_2020.pdf</span>
+</td>
+<td class="py-3 px-4 text-right">
+<button class="text-slate-500 hover:text-primary font-medium mr-2">Sửa</button>
+<button class="text-red-500 hover:text-red-700 font-medium">Xoá</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<!-- PANE 3: THÔNG TIN (HỢP ĐỒNG & VỊ TRÍ) -->
+<div class="tab-pane" id="tab-thong-tin">
+<div class="flex items-center justify-between pb-4 mb-5 border-b border-slate-100">
+<div>
+<h2 class="text-lg font-bold text-heading flex items-center gap-2">
+<span class="w-2.5 h-2.5 rounded-full bg-primary inline-block"></span>
+                Thông tin Hợp đồng &amp; Công việc
+              </h2>
+<p class="text-xs text-muted mt-0.5">Thông tin tuyển dụng, loại hình lao động, chức danh và phòng ban</p>
+</div>
+<span class="text-xs px-2.5 py-1 rounded bg-blue-50 text-primary border border-primary/20 font-medium">Phòng Kỹ thuật &amp; Công nghệ</span>
+</div>
+<div class="grid grid-cols-12 gap-4 text-sm">
+<div class="col-span-12 sm:col-span-4">
+<label class="block text-xs font-medium text-slate-700 mb-1">Loại hợp đồng</label>
+<select class="w-full h-10 px-3 border border-border rounded-lg text-slate-800 bg-white">
+<option>HĐ Không xác định thời hạn</option>
+<option>HĐ Xác định thời hạn (1-3 năm)</option>
+<option>Hợp đồng thử việc</option>
+</select>
+</div>
+<div class="col-span-12 sm:col-span-4">
+<label class="block text-xs font-medium text-slate-700 mb-1">Số hợp đồng</label>
+<input class="w-full h-10 px-3 border border-border rounded-lg text-slate-800" type="text" value="HĐLD-2021/045-PMC"/>
+</div>
+<div class="col-span-12 sm:col-span-4">
+<label class="block text-xs font-medium text-slate-700 mb-1">Ngày ký hợp đồng</label>
+<input class="w-full h-10 px-3 border border-border rounded-lg text-slate-800" type="text" value="01/01/2021"/>
+</div>
+<div class="col-span-12 sm:col-span-4">
+<label class="block text-xs font-medium text-slate-700 mb-1">Chức danh</label>
+<input class="w-full h-10 px-3 border border-border rounded-lg text-slate-800 font-semibold" type="text" value="Trưởng phòng Kỹ thuật"/>
+</div>
+<div class="col-span-12 sm:col-span-4">
+<label class="block text-xs font-medium text-slate-700 mb-1">Phòng ban</label>
+<input class="w-full h-10 px-3 border border-border rounded-lg text-slate-800" type="text" value="Ban Kỹ thuật Công nghệ (TECH)"/>
+</div>
+<div class="col-span-12 sm:col-span-4">
+<label class="block text-xs font-medium text-slate-700 mb-1">Địa điểm làm việc</label>
+<input class="w-full h-10 px-3 border border-border rounded-lg text-slate-800" type="text" value="Trụ sở Hà Nội - Tòa nhà PMC"/>
+</div>
+</div>
+</div>
+<!-- PANE 4: BẢO HIỂM -->
+<div class="tab-pane" id="tab-bao-hiem">
+<div class="flex items-center justify-between pb-4 mb-5 border-b border-slate-100">
+<div>
+<h2 class="text-lg font-bold text-heading flex items-center gap-2">
+<span class="w-2.5 h-2.5 rounded-full bg-primary inline-block"></span>
+                Chế độ Bảo hiểm Xã hội (BHXH - BHYT - BHTN)
+              </h2>
+<p class="text-xs text-muted mt-0.5">Dữ liệu đóng nộp bảo hiểm và cơ sở khám chữa bệnh đăng ký</p>
+</div>
+<span class="text-xs font-semibold px-2 py-1 rounded bg-emerald-50 text-emerald-700 border border-emerald-200">Đang tham gia</span>
+</div>
+<div class="grid grid-cols-12 gap-4 text-sm">
+<div class="col-span-12 sm:col-span-4">
+<label class="block text-xs font-medium text-slate-700 mb-1">Mã số BHXH</label>
+<input class="w-full h-10 px-3 border border-border rounded-lg text-slate-800 font-semibold" type="text" value="0115089221"/>
+</div>
+<div class="col-span-12 sm:col-span-4">
+<label class="block text-xs font-medium text-slate-700 mb-1">Số thẻ BHYT</label>
+<input class="w-full h-10 px-3 border border-border rounded-lg text-slate-800" type="text" value="DN4010115089221"/>
+</div>
+<div class="col-span-12 sm:col-span-4">
+<label class="block text-xs font-medium text-slate-700 mb-1">Nơi KCB ban đầu</label>
+<input class="w-full h-10 px-3 border border-border rounded-lg text-slate-800" type="text" value="Bệnh viện E Hà Nội (Mã: 01-014)"/>
+</div>
+<div class="col-span-12 sm:col-span-4">
+<label class="block text-xs font-medium text-slate-700 mb-1">Mức lương đóng BHXH</label>
+<input class="w-full h-10 px-3 border border-border rounded-lg text-slate-800 font-semibold text-primary" type="text" value="28,500,000 VND"/>
+</div>
+<div class="col-span-12 sm:col-span-4">
+<label class="block text-xs font-medium text-slate-700 mb-1">Thời gian bắt đầu tham gia</label>
+<input class="w-full h-10 px-3 border border-border rounded-lg text-slate-800" type="text" value="01/03/2012"/>
+</div>
+<div class="col-span-12 sm:col-span-4">
+<label class="block text-xs font-medium text-slate-700 mb-1">Tổng thời gian đóng</label>
+<input class="w-full h-10 px-3 bg-slate-50 border border-border rounded-lg text-slate-700" readonly="" type="text" value="12 năm 8 tháng"/>
+</div>
+</div>
+</div>
+<!-- PANE 5: CHUYÊN NGÀNH -->
+<div class="tab-pane" id="tab-chuyen-nganh">
+<div class="flex items-center justify-between pb-4 mb-5 border-b border-slate-100">
+<div>
+<h2 class="text-lg font-bold text-heading flex items-center gap-2">
+<span class="w-2.5 h-2.5 rounded-full bg-primary inline-block"></span>
+                Chuyên ngành &amp; Kỹ năng Nghiệp vụ
+              </h2>
+<p class="text-xs text-muted mt-0.5">Khung năng lực chuyên môn, kỹ năng trọng tâm và định hướng phát triển</p>
+</div>
+</div>
+<div class="grid grid-cols-12 gap-4 text-sm">
+<div class="col-span-12 sm:col-span-6">
+<label class="block text-xs font-medium text-slate-700 mb-1">Nhóm nghiệp vụ chính</label>
+<input class="w-full h-10 px-3 border border-border rounded-lg text-slate-800" type="text" value="Kiến trúc Hệ thống Enterprise &amp; Cloud Computing"/>
+</div>
+<div class="col-span-12 sm:col-span-6">
+<label class="block text-xs font-medium text-slate-700 mb-1">Bậc kỹ năng chuyên môn</label>
+<select class="w-full h-10 px-3 border border-border rounded-lg text-slate-800 bg-white">
+<option>Cấp 5 - Chuyên gia cao cấp (Principal)</option>
+<option>Cấp 4 - Chuyên gia (Senior)</option>
+</select>
+</div>
+<div class="col-span-12">
+<label class="block text-xs font-medium text-slate-700 mb-1">Mô tả thế mạnh nghiệp vụ</label>
+<textarea class="w-full p-3 border border-border rounded-lg text-slate-800 text-xs leading-relaxed" rows="4">Có 14 năm kinh nghiệm phân tích thiết kế hệ thống lớn, quản trị hạ tầng High-Availability, xây dựng pipeline CI/CD và kiến trúc giải pháp Cloud cho ngân hàng, tập đoàn viễn thông.</textarea>
+</div>
+</div>
+</div>
+<!-- PANE 6: QUAN HỆ GIA ĐÌNH -->
+<div class="tab-pane" id="tab-gia-dinh">
+<div class="flex items-center justify-between pb-4 mb-5 border-b border-slate-100">
+<div>
+<h2 class="text-lg font-bold text-heading flex items-center gap-2">
+<span class="w-2.5 h-2.5 rounded-full bg-primary inline-block"></span>
+                Quan hệ Gia đình &amp; Người phụ thuộc
+              </h2>
+<p class="text-xs text-muted mt-0.5">Khai báo người thân và hồ sơ giảm trừ gia cảnh thuế TNCN</p>
+</div>
+<button class="h-9 px-3.5 bg-primary text-white text-xs font-semibold rounded-lg flex items-center gap-1.5 hover:bg-primary-hover shadow-xs transition-colors">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M12 4v16m8-8H4" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+              Thêm thân nhân
+            </button>
+</div>
+<div class="border border-border rounded-lg overflow-hidden">
+<table class="w-full text-left text-xs">
+<thead class="bg-slate-50 border-b border-border text-slate-600 font-semibold uppercase">
+<tr>
+<th class="py-3 px-4">Họ và tên</th>
+<th class="py-3 px-4">Mối quan hệ</th>
+<th class="py-3 px-4">Năm sinh</th>
+<th class="py-3 px-4">CCCD / Khai sinh</th>
+<th class="py-3 px-4 text-center">Giảm trừ gia cảnh</th>
+<th class="py-3 px-4 text-right">Thao tác</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-border text-slate-700">
+<tr class="hover:bg-slate-50/70">
+<td class="py-3 px-4 font-semibold text-slate-900">Trần Mai Hương</td>
+<td class="py-3 px-4">Vợ</td>
+<td class="py-3 px-4">1990</td>
+<td class="py-3 px-4">001190009876</td>
+<td class="py-3 px-4 text-center"><span class="text-slate-400">Không</span></td>
+<td class="py-3 px-4 text-right">
+<button class="text-slate-500 hover:text-primary font-medium mr-2">Sửa</button>
+<button class="text-red-500 hover:text-red-700 font-medium">Xoá</button>
+</td>
+</tr>
+<tr class="hover:bg-slate-50/70">
+<td class="py-3 px-4 font-semibold text-slate-900">Nguyễn An Nhiên</td>
+<td class="py-3 px-4">Con đẻ</td>
+<td class="py-3 px-4">2017</td>
+<td class="py-3 px-4">001217001234</td>
+<td class="py-3 px-4 text-center"><span class="px-2 py-0.5 rounded text-[11px] font-semibold bg-emerald-50 text-emerald-700 border border-emerald-200">Đang giảm trừ</span></td>
+<td class="py-3 px-4 text-right">
+<button class="text-slate-500 hover:text-primary font-medium mr-2">Sửa</button>
+<button class="text-red-500 hover:text-red-700 font-medium">Xoá</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<!-- PANE 7: QUÁ TRÌNH LƯƠNG -->
+<div class="tab-pane" id="tab-luong">
+<div class="flex items-center justify-between pb-4 mb-5 border-b border-slate-100">
+<div>
+<h2 class="text-lg font-bold text-heading flex items-center gap-2">
+<span class="w-2.5 h-2.5 rounded-full bg-primary inline-block"></span>
+                Quá trình Lương &amp; Phụ cấp (Phân quyền bảo mật)
+              </h2>
+<p class="text-xs text-muted mt-0.5">Lịch sử nâng lương, các quyết định điều chỉnh ngạch bậc và hệ số</p>
+</div>
+<div class="flex items-center gap-2">
+<span class="text-xs text-amber-700 bg-amber-50 border border-amber-200 px-2.5 py-1 rounded font-medium flex items-center gap-1">
+                🔒 Quyền HR Admin
+              </span>
+</div>
+</div>
+<div class="border border-border rounded-lg overflow-hidden">
+<table class="w-full text-left text-xs">
+<thead class="bg-slate-50 border-b border-border text-slate-600 font-semibold uppercase">
+<tr>
+<th class="py-3 px-4">Quyết định số</th>
+<th class="py-3 px-4">Từ ngày</th>
+<th class="py-3 px-4">Mức lương cơ bản</th>
+<th class="py-3 px-4">Phụ cấp chức vụ</th>
+<th class="py-3 px-4">Tổng thu nhập</th>
+<th class="py-3 px-4">Người duyệt</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-border text-slate-700">
+<tr class="hover:bg-slate-50/70 font-medium">
+<td class="py-3 px-4 text-primary font-bold">QĐ-L2023/11</td>
+<td class="py-3 px-4">01/01/2023</td>
+<td class="py-3 px-4">35,000,000 đ</td>
+<td class="py-3 px-4">10,000,000 đ</td>
+<td class="py-3 px-4 font-bold text-slate-900">45,000,000 đ</td>
+<td class="py-3 px-4">TGĐ Trần Hải Nam</td>
+</tr>
+<tr class="hover:bg-slate-50/70">
+<td class="py-3 px-4 text-slate-700">QĐ-L2021/08</td>
+<td class="py-3 px-4">01/08/2021</td>
+<td class="py-3 px-4">28,000,000 đ</td>
+<td class="py-3 px-4">7,000,000 đ</td>
+<td class="py-3 px-4 font-semibold text-slate-800">35,000,000 đ</td>
+<td class="py-3 px-4">TGĐ Trần Hải Nam</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<!-- PANE 8: QUÁ TRÌNH CÔNG TÁC -->
+<div class="tab-pane" id="tab-cong-tac">
+<div class="flex items-center justify-between pb-4 mb-5 border-b border-slate-100">
+<div>
+<h2 class="text-lg font-bold text-heading flex items-center gap-2">
+<span class="w-2.5 h-2.5 rounded-full bg-primary inline-block"></span>
+                Quá trình Công tác &amp; Bổ nhiệm
+              </h2>
+<p class="text-xs text-muted mt-0.5">Lịch sử chuyển đổi vị trí công tác, điều động và các mốc thăng tiến nội bộ</p>
+</div>
+<button class="h-9 px-3.5 bg-primary text-white text-xs font-semibold rounded-lg flex items-center gap-1.5 hover:bg-primary-hover shadow-xs transition-colors">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M12 4v16m8-8H4" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+              Ghi nhận mốc mới
+            </button>
+</div>
+<div class="relative border-l-2 border-primary/20 ml-4 space-y-6 pl-6 py-2">
+<div class="relative">
+<span class="absolute -left-[31px] top-1 w-3.5 h-3.5 rounded-full bg-primary ring-4 ring-white"></span>
+<div class="text-xs text-primary font-bold">01/01/2023 - Nay</div>
+<h4 class="text-sm font-semibold text-slate-800 mt-0.5">Trưởng phòng Kỹ thuật &amp; Hạ tầng</h4>
+<p class="text-xs text-muted mt-0.5">Phòng Ban Kỹ thuật Công nghệ PMC. Chịu trách nhiệm toàn bộ hệ thống số hóa tập đoàn.</p>
+</div>
+<div class="relative">
+<span class="absolute -left-[31px] top-1 w-3.5 h-3.5 rounded-full bg-slate-300 ring-4 ring-white"></span>
+<div class="text-xs text-slate-500 font-semibold">15/06/2020 - 31/12/2022</div>
+<h4 class="text-sm font-semibold text-slate-800 mt-0.5">Phó phòng Kỹ thuật</h4>
+<p class="text-xs text-muted mt-0.5">Phụ trách mảng DevOps và bảo mật hệ thống thông tin.</p>
+</div>
+<div class="relative">
+<span class="absolute -left-[31px] top-1 w-3.5 h-3.5 rounded-full bg-slate-300 ring-4 ring-white"></span>
+<div class="text-xs text-slate-500 font-semibold">01/01/2018 - 14/06/2020</div>
+<h4 class="text-sm font-semibold text-slate-800 mt-0.5">Kỹ sư Kiến trúc phần mềm (Lead Architect)</h4>
+<p class="text-xs text-muted mt-0.5">Gia nhập công ty, dẫn dắt đội core engine kiến trúc microservices.</p>
+</div>
+</div>
+</div>
+<!-- PANE 9: KHEN THƯỞNG -->
+<div class="tab-pane" id="tab-khen-thuong">
+<div class="flex items-center justify-between pb-4 mb-5 border-b border-slate-100">
+<div>
+<h2 class="text-lg font-bold text-heading flex items-center gap-2">
+<span class="w-2.5 h-2.5 rounded-full bg-primary inline-block"></span>
+                Khen thưởng &amp; Thành tích
+              </h2>
+<p class="text-xs text-muted mt-0.5">Ghi nhận các giải thưởng cá nhân, danh hiệu thi đua xuất sắc</p>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<div class="p-4 rounded-xl border border-border bg-slate-50/60 flex items-start gap-3">
+<div class="w-10 h-10 rounded-lg bg-amber-100 text-amber-700 flex items-center justify-center flex-shrink-0">
+<svg class="w-6 h-6" fill="currentColor" viewbox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+</div>
+<div>
+<h4 class="text-sm font-semibold text-slate-800">Cá nhân Xuất sắc Toàn diện Năm 2023</h4>
+<p class="text-xs text-slate-500 mt-0.5">QĐ khen thưởng HĐQT số KT-2023/12 · Kèm tiền thưởng 20,000,000 đ</p>
+<span class="inline-block mt-2 text-[11px] font-medium text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200">Cấp Tập đoàn</span>
+</div>
+</div>
+<div class="p-4 rounded-xl border border-border bg-slate-50/60 flex items-start gap-3">
+<div class="w-10 h-10 rounded-lg bg-blue-100 text-primary flex items-center justify-center flex-shrink-0">
+<svg class="w-6 h-6" fill="currentColor" viewbox="0 0 20 20"><path clip-rule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" fill-rule="evenodd"></path></svg>
+</div>
+<div>
+<h4 class="text-sm font-semibold text-slate-800">Sáng kiến Cải tiến Kỹ thuật Tiêu biểu</h4>
+<p class="text-xs text-slate-500 mt-0.5">Dự án chuyển đổi hạ tầng đám mây Hybrid Cloud tiết kiệm 1.2 tỷ chi phí vận hành.</p>
+<span class="inline-block mt-2 text-[11px] font-medium text-blue-700 bg-blue-50 px-2 py-0.5 rounded border border-blue-200">Cấp Cơ sở</span>
+</div>
+</div>
+</div>
+</div>
+<!-- PANE 10: KỶ LUẬT -->
+<div class="tab-pane" id="tab-ky-luat">
+<div class="flex items-center justify-between pb-4 mb-5 border-b border-slate-100">
+<div>
+<h2 class="text-lg font-bold text-heading flex items-center gap-2">
+<span class="w-2.5 h-2.5 rounded-full bg-primary inline-block"></span>
+                Kỷ luật &amp; Xử lý Vi phạm
+              </h2>
+<p class="text-xs text-muted mt-0.5">Hồ sơ theo dõi kỷ luật lao động, khiển trách hoặc cảnh cáo</p>
+</div>
+</div>
+<div class="p-6 text-center border-2 border-dashed border-slate-200 rounded-xl bg-slate-50">
+<div class="w-12 h-12 rounded-full bg-emerald-100 text-emerald-600 mx-auto flex items-center justify-center mb-2">
+<svg class="w-6 h-6" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</div>
+<h4 class="text-sm font-semibold text-slate-800">Không có bản ghi kỷ luật nào</h4>
+<p class="text-xs text-slate-500 mt-1 max-w-sm mx-auto">Nhân sự chấp hành nghiêm túc quy định lao động và đạo đức nghề nghiệp.</p>
+</div>
+</div>
+<!-- PANE 11: KIÊM NHIỆM -->
+<div class="tab-pane" id="tab-kiem-nhiem">
+<div class="flex items-center justify-between pb-4 mb-5 border-b border-slate-100">
+<div>
+<h2 class="text-lg font-bold text-heading flex items-center gap-2">
+<span class="w-2.5 h-2.5 rounded-full bg-primary inline-block"></span>
+                Vị trí &amp; Chức danh Kiêm nhiệm
+              </h2>
+<p class="text-xs text-muted mt-0.5">Các nhiệm vụ song hành tại các đơn vị thành viên, hội đồng chuyên môn</p>
+</div>
+<button class="h-9 px-3.5 bg-primary text-white text-xs font-semibold rounded-lg flex items-center gap-1.5 hover:bg-primary-hover shadow-xs transition-colors">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M12 4v16m8-8H4" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+              Thêm kiêm nhiệm
+            </button>
+</div>
+<div class="border border-border rounded-lg overflow-hidden">
+<table class="w-full text-left text-xs">
+<thead class="bg-slate-50 border-b border-border text-slate-600 font-semibold uppercase">
+<tr>
+<th class="py-3 px-4">Đơn vị kiêm nhiệm</th>
+<th class="py-3 px-4">Vị trí đảm nhiệm</th>
+<th class="py-3 px-4">Thời gian</th>
+<th class="py-3 px-4">Tỷ lệ công việc</th>
+<th class="py-3 px-4 text-right">Trạng thái</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-border text-slate-700">
+<tr class="hover:bg-slate-50/70">
+<td class="py-3 px-4 font-semibold text-slate-900">Ban Bảo mật &amp; Tuân thủ ISO 27001</td>
+<td class="py-3 px-4">Phó Chủ nhiệm Hội đồng An toàn thông tin</td>
+<td class="py-3 px-4">01/2023 - Nay</td>
+<td class="py-3 px-4">25% FTE</td>
+<td class="py-3 px-4 text-right"><span class="px-2 py-0.5 rounded text-[11px] font-semibold bg-emerald-50 text-emerald-700 border border-emerald-200">Đang kiêm nhiệm</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<!-- PANE 12: THỬ THÁCH -->
+<div class="tab-pane" id="tab-thu-thach">
+<div class="flex items-center justify-between pb-4 mb-5 border-b border-slate-100">
+<div>
+<h2 class="text-lg font-bold text-heading flex items-center gap-2">
+<span class="w-2.5 h-2.5 rounded-full bg-primary inline-block"></span>
+                Giai đoạn Thử thách &amp; Đánh giá Tập sự
+              </h2>
+<p class="text-xs text-muted mt-0.5">Theo dõi thời gian thử việc, KPI thử thách quy hoạch cán bộ nguồn</p>
+</div>
+<span class="px-2.5 py-1 rounded bg-slate-100 text-slate-700 font-medium text-xs">Đã hoàn thành 100%</span>
+</div>
+<div class="p-4 border border-border rounded-xl bg-slate-50/50 space-y-3">
+<div class="flex items-center justify-between text-xs font-semibold">
+<span class="text-slate-700">Thử thách bổ nhiệm Trưởng phòng (Giai đoạn 6 tháng)</span>
+<span class="text-emerald-600">Đạt xuất sắc: 96/100 điểm KPI</span>
+</div>
+<div class="w-full bg-slate-200 h-2 rounded-full overflow-hidden">
+<div class="bg-emerald-500 h-full w-full"></div>
+</div>
+<p class="text-xs text-slate-600">Người đánh giá trực tiếp: Giám đốc Khối Công nghệ - Đã có quyết định chuẩn y bổ nhiệm chính thức.</p>
+</div>
+</div>
+<!-- PANE 13: HỒ SƠ ĐÍNH KÈM -->
+<div class="tab-pane" id="tab-dinh-kem">
+<div class="flex items-center justify-between pb-4 mb-5 border-b border-slate-100">
+<div>
+<h2 class="text-lg font-bold text-heading flex items-center gap-2">
+<span class="w-2.5 h-2.5 rounded-full bg-primary inline-block"></span>
+                Tài liệu &amp; Hồ sơ Đính kèm (4 tệp)
+              </h2>
+<p class="text-xs text-muted mt-0.5">Bản scan hợp đồng, sơ yếu lý lịch tư pháp, giấy khám sức khỏe và văn bằng</p>
+</div>
+<button class="h-9 px-3.5 bg-primary text-white text-xs font-semibold rounded-lg flex items-center gap-1.5 hover:bg-primary-hover shadow-xs transition-colors">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+              Tải lên tệp mới
+            </button>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-3.5">
+<div class="p-3.5 border border-border rounded-xl flex items-center justify-between hover:bg-slate-50">
+<div class="flex items-center gap-3">
+<div class="w-9 h-9 rounded-lg bg-red-50 text-red-600 flex items-center justify-center font-bold text-xs">PDF</div>
+<div>
+<h4 class="text-xs font-semibold text-slate-800">HDLD_VoThoiHan_NV0001.pdf</h4>
+<p class="text-[11px] text-slate-400">2.4 MB · Tải lên: 12/01/2021</p>
+</div>
+</div>
+<button class="text-primary hover:underline text-xs font-semibold">Tải về</button>
+</div>
+<div class="p-3.5 border border-border rounded-xl flex items-center justify-between hover:bg-slate-50">
+<div class="flex items-center gap-3">
+<div class="w-9 h-9 rounded-lg bg-red-50 text-red-600 flex items-center justify-center font-bold text-xs">PDF</div>
+<div>
+<h4 class="text-xs font-semibold text-slate-800">CCCD_2Mat_NguyenVanAn.pdf</h4>
+<p class="text-[11px] text-slate-400">1.1 MB · Tải lên: 15/04/2021</p>
+</div>
+</div>
+<button class="text-primary hover:underline text-xs font-semibold">Tải về</button>
+</div>
+<div class="p-3.5 border border-border rounded-xl flex items-center justify-between hover:bg-slate-50">
+<div class="flex items-center gap-3">
+<div class="w-9 h-9 rounded-lg bg-blue-50 text-primary flex items-center justify-center font-bold text-xs">DOC</div>
+<div>
+<h4 class="text-xs font-semibold text-slate-800">SoYeuLyLich_XacThuc2024.docx</h4>
+<p class="text-[11px] text-slate-400">840 KB · Tải lên: 05/01/2024</p>
+</div>
+</div>
+<button class="text-primary hover:underline text-xs font-semibold">Tải về</button>
+</div>
+<div class="p-3.5 border border-border rounded-xl flex items-center justify-between hover:bg-slate-50">
+<div class="flex items-center gap-3">
+<div class="w-9 h-9 rounded-lg bg-emerald-50 text-emerald-600 flex items-center justify-center font-bold text-xs">IMG</div>
+<div>
+<h4 class="text-xs font-semibold text-slate-800">GiayKhamSucKhoe_BVE_2024.jpg</h4>
+<p class="text-[11px] text-slate-400">3.2 MB · Tải lên: 20/02/2024</p>
+</div>
+</div>
+<button class="text-primary hover:underline text-xs font-semibold">Tải về</button>
+</div>
+</div>
+</div>
+</main>
+</div>
+<!-- FIXED FOOTER -->
+<footer class="h-14 px-6 border-t border-border bg-white flex items-center justify-between flex-shrink-0 z-20 shadow-xs">
+<div class="flex items-center gap-2 text-xs text-muted">
+<span class="w-5 h-5 rounded-full bg-slate-100 flex items-center justify-center text-slate-500 flex-shrink-0">
+<svg class="w-3.5 h-3.5" fill="currentColor" viewbox="0 0 20 20">
+<path clip-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" fill-rule="evenodd"></path>
+</svg>
+</span>
+<span>Người chỉnh sửa: <strong class="text-slate-700 font-semibold">Nguyễn Văn An</strong> · 13/11/2026</span>
+</div>
+<div class="flex items-center gap-2.5">
+<button class="h-10 px-5 text-xs font-semibold text-slate-600 hover:text-slate-800 hover:bg-slate-100 rounded-lg transition-colors" type="button">
+          Thoát
+        </button>
+<button class="h-10 px-5 text-xs font-semibold text-slate-700 hover:text-slate-900 bg-white hover:bg-slate-50 border border-border rounded-lg shadow-xs flex items-center gap-2 transition-colors" type="button">
+<svg class="w-4 h-4 text-slate-500" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+          Xem in
+        </button>
+<button class="h-10 px-6 text-xs font-semibold text-white bg-primary hover:bg-primary-hover rounded-lg shadow-sm flex items-center gap-2 transition-colors" type="button">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M8 7H5a2 2 0 00-2 2v9a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-3m-1 4l-3 3m0 0l-3-3m3 3V4" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+          Lưu dữ liệu
+        </button>
+</div>
+</footer>
+</div>
+<!-- JAVASCRIPT ĐIỀU HƯỚNG TƯƠNG TÁC 13 TAB -->
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const tabButtons = document.querySelectorAll('.tab-btn');
+      const tabPanes = document.querySelectorAll('.tab-pane');
+
+      tabButtons.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          e.preventDefault();
+          const targetId = btn.getAttribute('data-tab');
+
+          // Reset all tabs to inactive style
+          tabButtons.forEach(b => {
+            b.classList.remove('bg-primary-light', 'text-primary', 'border-l-4', 'border-primary', 'shadow-xs', 'font-semibold');
+            b.classList.add('text-slate-600', 'font-medium');
+            
+            // Icon color revert
+            const icon = b.querySelector('svg');
+            if (icon && !icon.classList.contains('text-amber-500')) {
+              icon.classList.remove('text-primary');
+              icon.classList.add('text-slate-400');
+            }
+
+            // Remove indicator dot if existing
+            const dot = b.querySelector('.tab-indicator');
+            if (dot) dot.remove();
+          });
+
+          // Set active state for clicked tab
+          btn.classList.add('bg-primary-light', 'text-primary', 'border-l-4', 'border-primary', 'shadow-xs', 'font-semibold');
+          btn.classList.remove('text-slate-600', 'font-medium', 'hover:bg-slate-200/60');
+          
+          const activeIcon = btn.querySelector('svg');
+          if (activeIcon && !activeIcon.classList.contains('text-amber-500')) {
+            activeIcon.classList.add('text-primary');
+            activeIcon.classList.remove('text-slate-400');
+          }
+
+          // Add active dot if no badge exists
+          if (!btn.querySelector('.tab-indicator') && !btn.querySelector('.bg-slate-200') && !btn.querySelector('.bg-amber-50')) {
+            const dot = document.createElement('span');
+            dot.className = 'tab-indicator w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0';
+            btn.appendChild(dot);
+          }
+
+          // Show corresponding pane with animation
+          tabPanes.forEach(pane => {
+            pane.classList.remove('active');
+          });
+
+          const targetPane = document.getElementById(targetId);
+          if (targetPane) {
+            targetPane.classList.add('active');
+          }
+        });
+      });
+    });
+  </script>
+</body></html>

@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+
+<html lang="vi"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Đổi Mật Khẩu - Hệ Thống Quản Trị Nhân Sự PMC</title>
+<!-- Google Fonts: Be Vietnam Pro -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS v3 -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Configuration -->
+<script data-purpose="tailwind-config">
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Be Vietnam Pro"', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              DEFAULT: '#1967B2',
+              hover: '#124E88',
+              light: '#E8F1FA',
+              bg: '#F5F7FA',
+            },
+            neutral: {
+              heading: '#0F172A',
+              body: '#475569',
+              muted: '#94A3B8',
+              border: '#E2E8F0',
+            },
+            status: {
+              success: '#16A34A',
+              warning: '#F59E0B',
+              danger: '#DC2626',
+              info: '#0EA5E9',
+            }
+          },
+          boxShadow: {
+            modal: '0 20px 25px -5px rgba(15, 23, 42, 0.1), 0 8px 10px -6px rgba(15, 23, 42, 0.05)',
+          },
+          borderRadius: {
+            'custom': '8px',
+          }
+        }
+      }
+    }
+  </script>
+<!-- Typography & Layout Styles -->
+<style data-purpose="custom-typography">
+    body {
+      font-family: 'Be Vietnam Pro', sans-serif;
+      color: #0F172A;
+      background-color: #F5F7FA;
+    }
+    input::placeholder {
+      color: #94A3B8;
+    }
+  </style>
+<style data-purpose="animations">
+    @keyframes pulse-subtle {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.85; }
+    }
+    .animate-pulse-subtle {
+      animation: pulse-subtle 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+    }
+  </style>
+<link rel="stylesheet" href="../shared/nav.css"/><link rel="stylesheet" href="../shared/fix.css"/></head>
+<body class="relative min-h-screen overflow-x-hidden select-none bg-[#F5F7FA]">
+<!-- BEGIN: HRM Dashboard Background -->
+<!-- This section simulates an authentic Enterprise HRM system underneath the modal -->
+<div aria-hidden="true" class="min-h-screen flex flex-col" data-purpose="hrm-dashboard-background">
+<!-- Top Bar Header -->
+<header class="h-16 bg-white border-b border-neutral-border flex items-center justify-between px-6 z-0">
+<div class="flex items-center space-x-6">
+<!-- PMC Brand Logo -->
+<div class="flex items-center">
+<img alt="PMC Logo" class="h-9 w-auto object-contain" src="../shared/img/img-11.png"/>
+</div>
+<!-- Breadcrumb Navigation -->
+<nav class="hidden md:flex items-center space-x-2 text-xs text-neutral-body">
+<span class="hover:text-brand cursor-pointer">Trang chủ</span>
+<span>/</span>
+<span class="hover:text-brand cursor-pointer">Quản lý tài khoản</span>
+<span>/</span>
+<span class="font-medium text-brand">Đổi mật khẩu</span>
+</nav>
+</div>
+<!-- Header Search & User Profile -->
+<div class="flex items-center space-x-4">
+<div class="relative hidden sm:block w-72">
+<span class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none text-neutral-muted">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</span>
+<input class="w-full pl-9 pr-3 py-1.5 text-xs bg-gray-50 border border-neutral-border rounded-custom text-neutral-heading focus:outline-none" disabled="" placeholder="Tìm kiếm nhân viên, phòng ban..." type="text"/>
+</div>
+<!-- Notification Bell -->
+<button class="relative p-2 text-neutral-body hover:text-brand rounded-custom" disabled="">
+<svg class="w-5 h-5" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+<span class="absolute top-1 right-1 w-2 h-2 bg-status-danger rounded-full ring-2 ring-white"></span>
+</button>
+<!-- User Information -->
+<div class="flex items-center space-x-3 pl-3 border-l border-neutral-border">
+<div class="w-9 h-9 rounded-full bg-brand-light text-brand font-semibold text-xs flex items-center justify-center border border-brand/20">
+            NA
+          </div>
+<div class="hidden lg:block text-left">
+<div class="text-xs font-semibold text-neutral-heading leading-tight">Nguyễn Văn An</div>
+<div class="text-[11px] text-neutral-body">Quản trị viên hệ thống</div>
+</div>
+</div>
+</div>
+</header>
+<!-- Main Workspace with Sidebar -->
+<div class="flex flex-1 overflow-hidden">
+<!-- Left Navigation Sidebar -->
+<aside id="app-sidebar" data-mode="flow" data-old-w="240"></aside>
+<!-- Main Dashboard Content Grid -->
+<main class="flex-1 p-6 space-y-6 overflow-hidden">
+<!-- KPI Stats Cards -->
+<div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+<div class="bg-white p-4 rounded-custom border border-neutral-border shadow-sm">
+<span class="text-xs text-neutral-body">Tổng nhân sự</span>
+<div class="text-xl font-bold text-neutral-heading mt-1">1,248</div>
+<span class="text-[11px] text-status-success font-medium">↑ +3.2% so với tháng trước</span>
+</div>
+<div class="bg-white p-4 rounded-custom border border-neutral-border shadow-sm">
+<span class="text-xs text-neutral-body">Đi làm hôm nay</span>
+<div class="text-xl font-bold text-neutral-heading mt-1">98.4%</div>
+<span class="text-[11px] text-neutral-body">1,228 / 1,248 nhân sự</span>
+</div>
+<div class="bg-white p-4 rounded-custom border border-neutral-border shadow-sm">
+<span class="text-xs text-neutral-body">Đơn chờ duyệt</span>
+<div class="text-xl font-bold text-status-warning mt-1">12</div>
+<span class="text-[11px] text-neutral-body">8 nghỉ phép, 4 giải trình</span>
+</div>
+<div class="bg-white p-4 rounded-custom border border-neutral-border shadow-sm">
+<span class="text-xs text-neutral-body">Tình trạng bảo mật</span>
+<div class="text-xl font-bold text-status-danger mt-1">Yêu cầu đổi mật khẩu</div>
+<span class="text-[11px] text-status-danger">Hết hạn sau 2 ngày</span>
+</div>
+</div>
+<!-- Sample Mocked Table -->
+<div class="bg-white rounded-custom border border-neutral-border p-4 shadow-sm">
+<div class="h-6 w-48 bg-slate-200 rounded mb-4"></div>
+<div class="space-y-3">
+<div class="h-10 bg-slate-100 rounded"></div>
+<div class="h-10 bg-slate-50 rounded"></div>
+<div class="h-10 bg-slate-50 rounded"></div>
+<div class="h-10 bg-slate-50 rounded"></div>
+</div>
+</div>
+</main>
+</div>
+</div>
+<!-- END: HRM Dashboard Background -->
+<!-- BEGIN: Interactive Demo State Switcher Floating Panel -->
+<!-- Allows evaluator to toggle between Error, Match, and Loading states seamlessly -->
+<aside class="fixed top-3 right-4 z-50 bg-white/95 backdrop-blur-sm border border-neutral-border p-2 rounded-custom shadow-lg flex items-center space-x-2 text-xs" data-purpose="demo-state-controller">
+<span class="text-[11px] font-semibold text-neutral-body uppercase tracking-wider pl-1">Trạng thái:</span>
+<button class="px-2.5 py-1 rounded text-white bg-status-danger font-medium shadow-sm transition-all" id="btn-state-error" onclick="setDemoState('error')" type="button">
+      Lỗi không khớp
+    </button>
+<button class="px-2.5 py-1 rounded text-neutral-body hover:bg-slate-100 font-medium transition-all" id="btn-state-success" onclick="setDemoState('success')" type="button">
+      Hợp lệ / Khớp
+    </button>
+<button class="px-2.5 py-1 rounded text-neutral-body hover:bg-slate-100 font-medium transition-all" id="btn-state-loading" onclick="setDemoState('loading')" type="button">
+      Đang lưu
+    </button>
+</aside>
+<!-- END: Interactive Demo State Switcher Floating Panel -->
+<!-- BEGIN: Modal Backdrop Overlay -->
+<div class="fixed inset-0 z-40 bg-[#0F172A]/45 backdrop-blur-[6px] transition-opacity flex items-center justify-center p-4 sm:p-6 overflow-y-auto" data-purpose="modal-backdrop">
+<!-- BEGIN: Change Password Modal Dialog -->
+<section aria-labelledby="modal-title" aria-modal="true" class="w-full max-w-[460px] bg-white rounded-xl shadow-modal border border-neutral-border overflow-hidden my-auto transform transition-all duration-200" data-purpose="change-password-modal" role="dialog">
+<!-- Modal Header -->
+<header class="px-6 py-5 border-b border-neutral-border flex items-start justify-between">
+<div class="flex items-start space-x-3.5">
+<!-- Icon Badge -->
+<div class="w-11 h-11 rounded-custom bg-brand-light flex items-center justify-center flex-shrink-0 text-brand mt-0.5">
+<svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
+<path d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</div>
+<!-- Title & Subtitle -->
+<div>
+<h2 class="text-lg font-semibold text-neutral-heading tracking-tight" id="modal-title">Đổi mật khẩu</h2>
+<p class="text-[13px] text-neutral-body mt-0.5 leading-relaxed">
+              Để tăng cường bảo mật, hãy đặt mật khẩu mạnh và không chia sẻ cho người khác.
+            </p>
+</div>
+</div>
+<!-- Close Button (×) -->
+<button aria-label="Đóng cửa sổ" class="text-neutral-muted hover:text-neutral-heading p-1.5 rounded-custom hover:bg-slate-100 transition-colors -mr-1" type="button">
+<svg class="w-5 h-5" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M6 18L18 6M6 6l12 12" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</button>
+</header>
+<!-- Modal Body (Form) -->
+<form class="p-6 space-y-4" id="change-password-form" onsubmit="event.preventDefault();">
+<!-- Field 1: Mật khẩu hiện tại -->
+<div class="space-y-1.5" data-purpose="current-password-field">
+<div class="flex items-center justify-between">
+<label class="block text-xs font-medium text-neutral-heading" for="current-password">
+              Mật khẩu hiện tại <span class="text-status-danger">*</span>
+</label>
+</div>
+<div class="relative rounded-custom shadow-xs">
+<!-- Left Lock Icon -->
+<div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-neutral-muted">
+<svg class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
+<path d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</div>
+<input class="block w-full pl-9 pr-10 py-2.5 text-xs text-neutral-heading rounded-custom border border-neutral-border focus:border-brand focus:ring-1 focus:ring-brand outline-none transition" id="current-password" name="current-password" placeholder="Nhập mật khẩu hiện tại" required="" type="password" value="AdminPmc2023@"/>
+<!-- Right Eye Toggle Icon -->
+<button aria-label="Hiển thị mật khẩu hiện tại" class="absolute inset-y-0 right-0 pr-3 flex items-center text-neutral-muted hover:text-neutral-body focus:outline-none" onclick="togglePasswordVisibility('current-password', this)" tabindex="-1" type="button">
+<svg class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
+<path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" stroke-linecap="round" stroke-linejoin="round"></path>
+<path d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</button>
+</div>
+<div class="text-right">
+<a class="text-[11px] font-medium text-brand hover:text-brand-hover hover:underline" href="#">Quên mật khẩu hiện tại?</a>
+</div>
+</div>
+<!-- Field 2: Mật khẩu mới -->
+<div class="space-y-1.5" data-purpose="new-password-field">
+<label class="block text-xs font-medium text-neutral-heading" for="new-password">
+            Mật khẩu mới <span class="text-status-danger">*</span>
+</label>
+<div class="relative rounded-custom shadow-xs">
+<div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-neutral-muted">
+<svg class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
+<path d="M15 7a2 2 0 012 2m4 0a6 6 0 01-7.743 5.743L11 17H9v2H7v2H4a1 1 0 01-1-1v-2.586a1 1 0 01.293-.707l5.964-5.964A6 6 0 1121 9z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</div>
+<input class="block w-full pl-9 pr-10 py-2.5 text-xs text-neutral-heading rounded-custom border border-neutral-border focus:border-brand focus:ring-1 focus:ring-brand outline-none transition" id="new-password" name="new-password" oninput="handlePasswordInput(this.value)" placeholder="Nhập mật khẩu mới" required="" type="text" value="PmcAdmin@2026"/>
+<button aria-label="Ẩn mật khẩu mới" class="absolute inset-y-0 right-0 pr-3 flex items-center text-brand focus:outline-none" onclick="togglePasswordVisibility('new-password', this)" tabindex="-1" type="button">
+<svg class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
+<path d="M13.875 18.825A10.05 10.05 0 0112 19c-4.478 0-8.268-2.943-9.543-7a9.97 9.97 0 011.563-3.029m5.858.908a3 3 0 114.243 4.243M9.878 9.878l4.242 4.242M9.88 9.88l-3.29-3.29m7.532 7.532l3.29 3.29M3 3l18 18" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</button>
+</div>
+<!-- Password Strength Meter -->
+<div class="pt-1.5 space-y-1.5" data-purpose="strength-meter">
+<!-- 4-segment visual indicator -->
+<div class="grid grid-cols-4 gap-1.5" id="strength-bars">
+<div class="h-1 rounded-full bg-status-success transition-all duration-300"></div>
+<div class="h-1 rounded-full bg-status-success transition-all duration-300"></div>
+<div class="h-1 rounded-full bg-status-success transition-all duration-300"></div>
+<div class="h-1 rounded-full bg-status-success transition-all duration-300"></div>
+</div>
+<div class="flex items-center justify-between text-xs">
+<span class="text-neutral-body text-[11px]">Độ mạnh mật khẩu:</span>
+<span class="inline-flex items-center space-x-1 font-semibold text-status-success text-xs" id="strength-label">
+<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.5" viewbox="0 0 24 24">
+<path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span>Mạnh</span>
+</span>
+</div>
+</div>
+<!-- Password Requirements Checklist -->
+<div class="p-2.5 bg-slate-50 border border-slate-100 rounded-custom grid grid-cols-1 sm:grid-cols-2 gap-1.5 text-[11px] text-neutral-body" data-purpose="password-checklist">
+<div class="flex items-center space-x-1.5 text-status-success" id="req-length">
+<svg class="w-3.5 h-3.5 flex-shrink-0" fill="currentColor" viewbox="0 0 20 20">
+<path clip-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" fill-rule="evenodd"></path>
+</svg>
+<span>Ít nhất 8 ký tự</span>
+</div>
+<div class="flex items-center space-x-1.5 text-status-success" id="req-case">
+<svg class="w-3.5 h-3.5 flex-shrink-0" fill="currentColor" viewbox="0 0 20 20">
+<path clip-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" fill-rule="evenodd"></path>
+</svg>
+<span>Chữ hoa và chữ thường</span>
+</div>
+<div class="flex items-center space-x-1.5 text-status-success" id="req-num">
+<svg class="w-3.5 h-3.5 flex-shrink-0" fill="currentColor" viewbox="0 0 20 20">
+<path clip-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" fill-rule="evenodd"></path>
+</svg>
+<span>Ít nhất 1 chữ số</span>
+</div>
+<div class="flex items-center space-x-1.5 text-status-success" id="req-special">
+<svg class="w-3.5 h-3.5 flex-shrink-0" fill="currentColor" viewbox="0 0 20 20">
+<path clip-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" fill-rule="evenodd"></path>
+</svg>
+<span>Ký tự đặc biệt (!@#$%^&amp;*)</span>
+</div>
+</div>
+</div>
+<!-- Field 3: Xác nhận mật khẩu mới (Demonstrates Error State by Default) -->
+<div class="space-y-1.5" data-purpose="confirm-password-field">
+<label class="block text-xs font-medium text-neutral-heading" for="confirm-password">
+            Xác nhận mật khẩu mới <span class="text-status-danger">*</span>
+</label>
+<div class="relative rounded-custom shadow-xs">
+<div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-status-danger" id="confirm-icon-lock">
+<svg class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
+<path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</div>
+<!-- Default has mismatched password "PmcAdmin@2025" vs "PmcAdmin@2026" -->
+<input class="block w-full pl-9 pr-10 py-2.5 text-xs text-neutral-heading rounded-custom outline-none transition border-[1.5px] border-status-danger bg-red-50/40 text-neutral-heading focus:ring-1 focus:ring-status-danger focus:border-status-danger" id="confirm-password" name="confirm-password" oninput="validateMatch()" placeholder="Nhập lại mật khẩu mới" required="" type="text" value="PmcAdmin@2025"/>
+<button aria-label="Ẩn mật khẩu xác nhận" class="absolute inset-y-0 right-0 pr-3 flex items-center text-status-danger focus:outline-none" id="confirm-eye-btn" onclick="togglePasswordVisibility('confirm-password', this)" tabindex="-1" type="button">
+<svg class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
+<path d="M13.875 18.825A10.05 10.05 0 0112 19c-4.478 0-8.268-2.943-9.543-7a9.97 9.97 0 011.563-3.029m5.858.908a3 3 0 114.243 4.243M9.878 9.878l4.242 4.242M9.88 9.88l-3.29-3.29m7.532 7.532l3.29 3.29M3 3l18 18" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</button>
+</div>
+<!-- Inline Error Helper Message -->
+<div class="flex items-center space-x-1.5 text-status-danger text-xs pt-0.5" id="confirm-error-message">
+<svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
+<path d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span class="text-[12px] font-medium leading-none">Mật khẩu xác nhận không khớp với mật khẩu mới</span>
+</div>
+</div>
+</form>
+<!-- Modal Footer -->
+<footer class="px-6 py-4 bg-slate-50 border-t border-neutral-border flex items-center justify-end space-x-3">
+<!-- Button Secondary: Hủy -->
+<button class="px-4 py-2.5 rounded-custom border border-neutral-border bg-white text-xs font-medium text-neutral-body hover:bg-slate-100 hover:text-neutral-heading active:bg-slate-200 transition focus:outline-none focus:ring-2 focus:ring-slate-300" type="button">
+          Huỷ
+        </button>
+<!-- Button Primary: Đổi mật khẩu -->
+<button class="px-5 py-2.5 rounded-custom bg-brand hover:bg-brand-hover active:bg-[#0f3d6c] text-white text-xs font-medium shadow-sm transition flex items-center space-x-2 focus:outline-none focus:ring-2 focus:ring-brand focus:ring-offset-1" id="btn-submit" type="submit">
+<!-- Regular Icon State -->
+<svg class="w-4 h-4" fill="none" id="submit-icon" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
+<path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<!-- Loading Spinner (Hidden by default) -->
+<svg class="w-4 h-4 animate-spin hidden" fill="none" id="submit-spinner" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+<path class="opacity-75" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" fill="currentColor"></path>
+</svg>
+<span id="submit-text">Đổi mật khẩu</span>
+</button>
+</footer>
+</section>
+<!-- END: Change Password Modal Dialog -->
+</div>
+<!-- END: Modal Backdrop Overlay -->
+<!-- BEGIN: Interactive Client-Side JavaScript -->
+<script data-purpose="modal-interactivity">
+    // Toggle Password Visibility (Eye / Eye-off)
+    function togglePasswordVisibility(inputId, btn) {
+      const input = document.getElementById(inputId);
+      const isPassword = input.type === 'password';
+      input.type = isPassword ? 'text' : 'password';
+
+      if (isPassword) {
+        // Show Eye-off icon
+        btn.innerHTML = `
+          <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M13.875 18.825A10.05 10.05 0 0112 19c-4.478 0-8.268-2.943-9.543-7a9.97 9.97 0 011.563-3.029m5.858.908a3 3 0 114.243 4.243M9.878 9.878l4.242 4.242M9.88 9.88l-3.29-3.29m7.532 7.532l3.29 3.29M3 3l18 18"/>
+          </svg>
+        `;
+        btn.setAttribute('aria-label', 'Ẩn mật khẩu');
+      } else {
+        // Show Eye icon
+        btn.innerHTML = `
+          <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+            <path stroke-linecap="round" stroke-linejoin="round" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>
+          </svg>
+        `;
+        btn.setAttribute('aria-label', 'Hiển thị mật khẩu');
+      }
+    }
+
+    // Dynamic Live Password Strength Evaluator
+    function handlePasswordInput(val) {
+      const hasLength = val.length >= 8;
+      const hasUpperLower = /[a-z]/.test(val) && /[A-Z]/.test(val);
+      const hasNumber = /[0-9]/.test(val);
+      const hasSpecial = /[!@#$%^&*(),.?":{}|<>]/.test(val);
+
+      updateChecklist('req-length', hasLength);
+      updateChecklist('req-case', hasUpperLower);
+      updateChecklist('req-num', hasNumber);
+      updateChecklist('req-special', hasSpecial);
+
+      const score = [hasLength, hasUpperLower, hasNumber, hasSpecial].filter(Boolean).length;
+      const bars = document.getElementById('strength-bars').children;
+      const label = document.getElementById('strength-label');
+
+      // Clear bar colors
+      for (let i = 0; i < 4; i++) {
+        bars[i].className = 'h-1 rounded-full transition-all duration-300 bg-slate-200';
+      }
+
+      if (score === 0) {
+        label.innerHTML = `<span class="text-neutral-muted">Chưa nhập</span>`;
+      } else if (score <= 2) {
+        bars[0].className = 'h-1 rounded-full transition-all duration-300 bg-status-danger';
+        if (score === 2) bars[1].className = 'h-1 rounded-full transition-all duration-300 bg-status-danger';
+        label.innerHTML = `<span class="text-status-danger font-semibold">Yếu</span>`;
+      } else if (score === 3) {
+        for (let i = 0; i < 3; i++) bars[i].className = 'h-1 rounded-full transition-all duration-300 bg-status-warning';
+        label.innerHTML = `<span class="text-status-warning font-semibold">Trung bình</span>`;
+      } else {
+        for (let i = 0; i < 4; i++) bars[i].className = 'h-1 rounded-full transition-all duration-300 bg-status-success';
+        label.innerHTML = `
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
+          </svg>
+          <span>Mạnh</span>
+        `;
+      }
+
+      validateMatch();
+    }
+
+    function updateChecklist(elementId, passed) {
+      const el = document.getElementById(elementId);
+      if (!el) return;
+      if (passed) {
+        el.className = "flex items-center space-x-1.5 text-status-success";
+        el.querySelector('svg').outerHTML = `
+          <svg class="w-3.5 h-3.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+          </svg>
+        `;
+      } else {
+        el.className = "flex items-center space-x-1.5 text-neutral-muted";
+        el.querySelector('svg').outerHTML = `
+          <svg class="w-3.5 h-3.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+            <circle cx="12" cy="12" r="9"/>
+          </svg>
+        `;
+      }
+    }
+
+    // Confirm password match validator
+    function validateMatch() {
+      const newPass = document.getElementById('new-password').value;
+      const confirmPass = document.getElementById('confirm-password').value;
+      const confirmInput = document.getElementById('confirm-password');
+      const errorMsg = document.getElementById('confirm-error-message');
+      const iconLock = document.getElementById('confirm-icon-lock');
+      const eyeBtn = document.getElementById('confirm-eye-btn');
+
+      if (!confirmPass) {
+        // Empty state
+        confirmInput.className = "block w-full pl-9 pr-10 py-2.5 text-xs text-neutral-heading rounded-custom border border-neutral-border focus:border-brand focus:ring-1 focus:ring-brand outline-none transition";
+        errorMsg.classList.add('hidden');
+        iconLock.className = "absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-neutral-muted";
+        if (eyeBtn) eyeBtn.className = "absolute inset-y-0 right-0 pr-3 flex items-center text-neutral-muted focus:outline-none";
+        return;
+      }
+
+      if (newPass !== confirmPass) {
+        // Mismatch / Error State
+        confirmInput.className = "block w-full pl-9 pr-10 py-2.5 text-xs text-neutral-heading rounded-custom outline-none transition border-[1.5px] border-status-danger bg-red-50/40 text-neutral-heading focus:ring-1 focus:ring-status-danger focus:border-status-danger";
+        errorMsg.classList.remove('hidden');
+        iconLock.className = "absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-status-danger";
+        if (eyeBtn) eyeBtn.className = "absolute inset-y-0 right-0 pr-3 flex items-center text-status-danger focus:outline-none";
+      } else {
+        // Success / Match State
+        confirmInput.className = "block w-full pl-9 pr-10 py-2.5 text-xs text-neutral-heading rounded-custom outline-none transition border-[1.5px] border-status-success bg-green-50/30 text-neutral-heading focus:ring-1 focus:ring-status-success focus:border-status-success";
+        errorMsg.classList.add('hidden');
+        iconLock.className = "absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-status-success";
+        if (eyeBtn) eyeBtn.className = "absolute inset-y-0 right-0 pr-3 flex items-center text-status-success focus:outline-none";
+      }
+    }
+
+    // Demo State Switcher Controller
+    function setDemoState(state) {
+      const btnErr = document.getElementById('btn-state-error');
+      const btnSucc = document.getElementById('btn-state-success');
+      const btnLoad = document.getElementById('btn-state-loading');
+
+      const newPassInput = document.getElementById('new-password');
+      const confirmPassInput = document.getElementById('confirm-password');
+      const submitBtn = document.getElementById('btn-submit');
+      const submitText = document.getElementById('submit-text');
+      const submitIcon = document.getElementById('submit-icon');
+      const submitSpinner = document.getElementById('submit-spinner');
+
+      // Reset switcher button styles
+      [btnErr, btnSucc, btnLoad].forEach(b => {
+        b.className = "px-2.5 py-1 rounded text-neutral-body hover:bg-slate-100 font-medium transition-all";
+      });
+
+      // Stop any loading state first
+      submitBtn.disabled = false;
+      submitIcon.classList.remove('hidden');
+      submitSpinner.classList.add('hidden');
+      submitText.textContent = "Đổi mật khẩu";
+
+      if (state === 'error') {
+        btnErr.className = "px-2.5 py-1 rounded text-white bg-status-danger font-medium shadow-sm transition-all";
+        newPassInput.value = "PmcAdmin@2026";
+        confirmPassInput.value = "PmcAdmin@2025"; // Intentional mismatch
+        handlePasswordInput(newPassInput.value);
+        validateMatch();
+      } else if (state === 'success') {
+        btnSucc.className = "px-2.5 py-1 rounded text-white bg-status-success font-medium shadow-sm transition-all";
+        newPassInput.value = "PmcAdmin@2026";
+        confirmPassInput.value = "PmcAdmin@2026"; // Exact match
+        handlePasswordInput(newPassInput.value);
+        validateMatch();
+      } else if (state === 'loading') {
+        btnLoad.className = "px-2.5 py-1 rounded text-white bg-brand font-medium shadow-sm transition-all";
+        newPassInput.value = "PmcAdmin@2026";
+        confirmPassInput.value = "PmcAdmin@2026";
+        handlePasswordInput(newPassInput.value);
+        validateMatch();
+        
+        // Activate Loading Presentation
+        submitBtn.disabled = true;
+        submitIcon.classList.add('hidden');
+        submitSpinner.classList.remove('hidden');
+        submitText.textContent = "Đang lưu thay đổi...";
+      }
+    }
+  </script>
+<!-- END: Interactive Client-Side JavaScript -->
+<script src="../shared/nav.js"></script></body></html>

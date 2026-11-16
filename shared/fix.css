@@ -1,0 +1,15 @@
+/* Sửa lỗi hiển thị chung cho các trang xuất từ Stitch */
+
+/* 1) Stitch ẩn toàn bộ thanh cuộn nên bảng rộng trông như bị cắt cụt -> hiện lại thanh cuộn mảnh */
+html *::-webkit-scrollbar { display: block !important; width: 8px; height: 8px; }
+html *::-webkit-scrollbar-thumb { background: #CBD5E1; border-radius: 8px; }
+html *::-webkit-scrollbar-thumb:hover { background: #94A3B8; }
+html *::-webkit-scrollbar-track { background: transparent; }
+/* các dải chip/tab cuộn có chủ ý vẫn giữ ẩn thanh cuộn */
+html .no-scrollbar::-webkit-scrollbar { display: none !important; }
+
+/* 2) Dải chip "xem trước trạng thái UI" ở trang đăng nhập bị cắt -> cho xuống dòng */
+div:has(> .state-pill) { flex-wrap: wrap !important; overflow: visible !important; }
+
+/* 3) Bảng: không cho chữ bị bẻ từng ký tự khi cột quá hẹp */
+main table th, main table td { overflow-wrap: break-word; word-break: normal; }

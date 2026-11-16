@@ -1,0 +1,805 @@
+<!DOCTYPE html>
+
+<html lang="vi"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "on-error": "#ffffff", "on-primary-container": "#d6e5ff", "on-primary-fixed-variant": "#004883", "primary-container": "#1967b2", "inverse-surface": "#2d3133", "secondary": "#515f74", "primary": "#004f8f", "on-surface": "#191c1e", "surface-tint": "#0660aa", "tertiary-container": "#006c9b", "on-primary-fixed": "#001c39", "error": "#ba1a1a", "surface-bright": "#f7f9fc", "on-tertiary-fixed": "#001e2f", "surface-container-lowest": "#ffffff", "surface-variant": "#e0e3e6", "surface-container-high": "#e6e8eb", "on-background": "#191c1e", "inverse-on-surface": "#eff1f4", "tertiary-fixed": "#c9e6ff", "tertiary": "#005378", "secondary-container": "#d5e3fc", "outline": "#727782", "secondary-fixed": "#d5e3fc", "on-tertiary-container": "#cbe7ff", "on-secondary-container": "#57657a", "on-surface-variant": "#414751", "surface": "#f7f9fc", "primary-fixed": "#d4e3ff", "on-secondary-fixed-variant": "#3a485b", "surface-container-highest": "#e0e3e6", "on-error-container": "#93000a", "outline-variant": "#c1c7d3", "secondary-fixed-dim": "#b9c7df", "on-secondary": "#ffffff", "on-tertiary": "#ffffff", "surface-container-low": "#f2f4f7", "on-tertiary-fixed-variant": "#004c6e", "primary-fixed-dim": "#a4c9ff", "error-container": "#ffdad6", "tertiary-fixed-dim": "#89ceff", "surface-dim": "#d8dadd", "surface-container": "#eceef1", "on-primary": "#ffffff", "background": "#f7f9fc", "on-secondary-fixed": "#0d1c2e", "inverse-primary": "#a4c9ff" }, "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, "spacing": { "space-md": "1rem", "space-lg": "1.5rem", "gutter": "1.5rem", "gutter-mobile": "0.75rem", "space-xl": "2rem", "margin": "1.5rem", "space-xs": "0.25rem", "space-sm": "0.5rem", "margin-mobile": "1rem" }, "fontFamily": { "body-lg": ["Be Vietnam Pro"], "headline-sm": ["Be Vietnam Pro"], "caption": ["Be Vietnam Pro"], "headline-lg-mobile": ["Be Vietnam Pro"], "label-md": ["Be Vietnam Pro"], "body-md": ["Be Vietnam Pro"], "mono-num": ["Be Vietnam Pro"], "body-md-medium": ["Be Vietnam Pro"], "body-sm": ["Be Vietnam Pro"], "headline-lg": ["Be Vietnam Pro"], "headline-md": ["Be Vietnam Pro"], "label-sm": ["Be Vietnam Pro"], "display": ["Be Vietnam Pro"] }, "fontSize": { "body-lg": ["15px", { "lineHeight": "22px", "letterSpacing": "0", "fontWeight": "400" }], "headline-sm": ["16px", { "lineHeight": "22px", "letterSpacing": "0", "fontWeight": "600" }], "caption": ["12px", { "lineHeight": "16px", "letterSpacing": "0", "fontWeight": "400" }], "headline-lg-mobile": ["20px", { "lineHeight": "26px", "letterSpacing": "-0.01em", "fontWeight": "600" }], "label-md": ["13px", { "lineHeight": "16px", "letterSpacing": "0.01em", "fontWeight": "500" }], "body-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0", "fontWeight": "400" }], "mono-num": ["14px", { "lineHeight": "20px", "letterSpacing": "0", "fontWeight": "500" }], "body-md-medium": ["14px", { "lineHeight": "20px", "letterSpacing": "0", "fontWeight": "500" }], "body-sm": ["13px", { "lineHeight": "18px", "letterSpacing": "0", "fontWeight": "400" }], "headline-lg": ["22px", { "lineHeight": "28px", "letterSpacing": "-0.015em", "fontWeight": "600" }], "headline-md": ["18px", { "lineHeight": "24px", "letterSpacing": "-0.01em", "fontWeight": "600" }], "label-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "500" }], "display": ["28px", { "lineHeight": "36px", "letterSpacing": "-0.02em", "fontWeight": "600" }] } } } };</script><link rel="stylesheet" href="../shared/nav.css"/><link rel="stylesheet" href="../shared/fix.css"/></head><body class="bg-surface font-body-md text-on-surface antialiased"><header class="fixed top-0 left-0 right-0 h-16 bg-surface-container-lowest/90 backdrop-blur-md shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-50 flex items-center justify-between px-6"><div class="flex items-center gap-4 w-72"><img alt="logo.png" class="h-8 w-auto object-contain" src="../shared/logo.png"/><div class="flex flex-col"><span class="font-headline-sm text-headline-sm text-primary tracking-tight">PMC HRM</span><span class="font-caption text-caption text-on-surface-variant leading-none">Enterprise Suite</span></div></div><div class="flex-1 max-w-2xl px-4"><div class="relative flex items-center w-full"><span class="material-symbols-outlined absolute left-3 text-outline text-[20px]">search</span><input class="w-full pl-10 pr-4 py-2 bg-surface-container-low text-on-surface placeholder:text-outline rounded-lg text-body-md font-body-md focus:outline-none focus:bg-surface-container-lowest transition-colors" placeholder="Tìm kiếm nhân sự, mã NV, phòng ban..." type="text"/></div></div><div class="flex items-center gap-4"><button class="relative p-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" type="button"><span class="material-symbols-outlined text-[22px]">notifications</span><span class="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-error ring-2 ring-surface-container-lowest"></span></button><button class="p-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" type="button"><span class="material-symbols-outlined text-[22px]">help</span></button><div class="h-6 w-[1px] bg-outline-variant/40"></div><div class="flex items-center gap-3 pl-1"><div class="text-right hidden sm:block"><div class="font-body-md-medium text-body-md-medium text-on-surface">Nguyễn Văn An</div><div class="font-caption text-caption text-on-surface-variant">Trưởng phòng Kỹ thuật</div></div><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><aside id="app-sidebar" data-mode="fixed" data-old-w="288"></aside><div class="pl-72"><main class="w-full pt-16 bg-surface min-h-screen"><div class="flex flex-col w-full pb-16">
+<!-- Top Ambient Glow -->
+<div class="relative w-full overflow-hidden">
+<div class="absolute -top-24 right-1/4 w-96 h-96 bg-primary-fixed/30 rounded-full blur-3xl pointer-events-none"></div>
+<div class="absolute -top-12 right-12 w-64 h-64 bg-secondary-container/40 rounded-full blur-2xl pointer-events-none"></div>
+</div>
+<div class="px-6 py-6 max-w-[1600px] w-full mx-auto flex flex-col gap-6 relative z-10">
+<!-- Breadcrumb & Page Header -->
+<div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
+<div class="flex flex-col gap-1.5">
+<nav class="flex items-center gap-2">
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors flex items-center gap-1" href="#">
+<span class="material-symbols-outlined text-[16px]">calendar_month</span>
+            Chấm công &amp; Điểm danh
+          </a>
+<span class="material-symbols-outlined text-outline-variant text-[14px]">chevron_right</span>
+<span class="font-label-sm text-label-sm text-primary font-semibold">Nghỉ sinh &amp; Chế độ Thai sản</span>
+</nav>
+<div class="flex items-baseline gap-3 flex-wrap">
+<h1 class="font-headline-lg text-headline-lg text-on-surface tracking-tight font-bold">Quản lý Nhân sự Nghỉ sinh &amp; Chế độ Thai sản</h1>
+<span class="px-2.5 py-0.5 rounded-full bg-secondary-container text-on-secondary-fixed-variant font-label-sm text-label-sm font-medium">Luật LĐ 2019 • 6 Tháng</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-4xl">
+          Theo dõi lịch nghỉ thai sản 6 tháng, ngày dự sinh, ngày trở lại làm việc và tiến độ nạp hồ sơ hưởng chế độ BHXH thai sản cho CBNV nữ.
+        </p>
+</div>
+<!-- Quick Header Actions -->
+<div class="flex items-center gap-3 shrink-0">
+<button class="px-4 py-2 rounded-lg bg-surface-container-lowest text-on-surface font-label-md text-label-md shadow-sm hover:bg-surface-container-high transition-colors flex items-center gap-2" type="button">
+<span class="material-symbols-outlined text-primary text-[18px]">sim_card_download</span>
+          Xuất báo cáo BHXH (Mẫu D01-TS)
+        </button>
+<button class="px-4 py-2 rounded-lg bg-primary-container text-on-primary font-label-md text-label-md shadow-md hover:bg-primary transition-all flex items-center gap-2" onclick="toggleDrawer(true)" type="button">
+<span class="material-symbols-outlined text-[20px]">add_circle</span>
+          + Thêm nghỉ sinh
+        </button>
+</div>
+</div>
+<!-- 4 KPI Cards Grid -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+<!-- Card 1 -->
+<div class="p-5 rounded-xl bg-surface-container-lowest shadow-sm flex flex-col justify-between gap-3 relative overflow-hidden group hover:shadow-md transition-shadow">
+<div class="flex items-start justify-between">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider font-semibold">Hiện diện thai sản</span>
+<span class="font-display text-display text-primary font-bold mt-1">14</span>
+</div>
+<div class="w-10 h-10 rounded-xl bg-primary-fixed flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[22px]">pregnant_woman</span>
+</div>
+</div>
+<div class="flex items-center justify-between text-body-sm">
+<span class="font-body-sm text-body-sm text-on-surface-variant">Đang trong kỳ nghỉ sinh 6T</span>
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded-full bg-secondary-container text-on-secondary-container font-medium">92% đúng lịch</span>
+</div>
+<div class="w-full bg-surface-container h-1.5 rounded-full overflow-hidden">
+<div class="bg-primary-container h-full rounded-full" style="width: 78%"></div>
+</div>
+</div>
+<!-- Card 2: Sắp đến ngày dự sinh -->
+<div class="p-5 rounded-xl bg-surface-container-lowest shadow-sm flex flex-col justify-between gap-3 relative overflow-hidden group hover:shadow-md transition-shadow">
+<div class="flex items-start justify-between">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider font-semibold">Sắp dự sinh (30 ngày)</span>
+<div class="flex items-baseline gap-2 mt-1">
+<span class="font-display text-display text-on-surface font-bold">06</span>
+<span class="font-caption text-caption text-error font-medium flex items-center">
+<span class="material-symbols-outlined text-[14px]">warning</span> Bàn giao việc
+              </span>
+</div>
+</div>
+<div class="w-10 h-10 rounded-xl bg-error-container/60 flex items-center justify-center text-error">
+<span class="material-symbols-outlined text-[22px]">notification_important</span>
+</div>
+</div>
+<div class="flex items-center justify-between">
+<span class="font-body-sm text-body-sm text-on-surface-variant">3 nhân sự đã giao việc xong</span>
+<span class="font-mono-num text-caption text-caption text-outline font-semibold">50%</span>
+</div>
+<div class="w-full bg-surface-container h-1.5 rounded-full overflow-hidden">
+<div class="bg-error h-full rounded-full" style="width: 50%"></div>
+</div>
+</div>
+<!-- Card 3: Sắp quay lại làm việc -->
+<div class="p-5 rounded-xl bg-surface-container-lowest shadow-sm flex flex-col justify-between gap-3 relative overflow-hidden group hover:shadow-md transition-shadow">
+<div class="flex items-start justify-between">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider font-semibold">Sắp đi làm lại (30 ngày)</span>
+<div class="flex items-baseline gap-2 mt-1">
+<span class="font-display text-display text-on-surface font-bold">04</span>
+<span class="font-caption text-caption text-tertiary font-medium">Bố trí vị trí</span>
+</div>
+</div>
+<div class="w-10 h-10 rounded-xl bg-tertiary-fixed flex items-center justify-center text-tertiary">
+<span class="material-symbols-outlined text-[22px]">assignment_turned_in</span>
+</div>
+</div>
+<div class="flex items-center justify-between">
+<span class="font-body-sm text-body-sm text-on-surface-variant">Cần xác nhận lịch đón</span>
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded-full bg-surface-container-high text-on-surface font-semibold">01 chờ duyệt</span>
+</div>
+<div class="w-full bg-surface-container h-1.5 rounded-full overflow-hidden">
+<div class="bg-tertiary h-full rounded-full" style="width: 75%"></div>
+</div>
+</div>
+<!-- Card 4: Hồ sơ BHXH -->
+<div class="p-5 rounded-xl bg-surface-container-lowest shadow-sm flex flex-col justify-between gap-3 relative overflow-hidden group hover:shadow-md transition-shadow">
+<div class="flex items-start justify-between">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider font-semibold">Hồ sơ BHXH Thai sản</span>
+<div class="flex items-baseline gap-1 mt-1">
+<span class="font-display text-display text-primary font-bold">100%</span>
+<span class="font-caption text-caption text-on-surface-variant">đúng hạn</span>
+</div>
+</div>
+<div class="w-10 h-10 rounded-xl bg-secondary-container flex items-center justify-center text-primary-container">
+<span class="material-symbols-outlined text-[22px]">verified</span>
+</div>
+</div>
+<div class="flex items-center justify-between">
+<span class="font-body-sm text-body-sm text-on-surface-variant">Chi trả lũy kế 2026: 18 hồ sơ</span>
+<span class="font-mono-num text-caption text-caption text-primary font-bold">0 trễ hạn</span>
+</div>
+<div class="w-full bg-surface-container h-1.5 rounded-full overflow-hidden">
+<div class="bg-primary-container h-full rounded-full" style="width: 100%"></div>
+</div>
+</div>
+</div>
+<!-- Filter Bar Card -->
+<div class="p-4 rounded-xl bg-surface-container-lowest shadow-sm flex flex-col lg:flex-row items-center justify-between gap-4">
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 w-full lg:w-auto flex-1">
+<!-- Search input -->
+<div class="relative w-full">
+<span class="material-symbols-outlined absolute left-3 top-2.5 text-outline text-[18px]">search</span>
+<input class="w-full pl-9 pr-3 py-2 bg-surface-container-low text-on-surface placeholder:text-outline rounded-lg text-body-md font-body-md focus:outline-none focus:bg-surface-container-lowest transition-colors" placeholder="Tìm theo Họ tên, Mã NV..." type="text"/>
+</div>
+<!-- Department filter -->
+<div class="relative w-full">
+<select class="w-full pl-3 pr-8 py-2 bg-surface-container-low text-on-surface rounded-lg text-body-md font-body-md focus:outline-none appearance-none cursor-pointer">
+<option value="">Tất cả Phòng ban / Dự án</option>
+<option value="hr">Phòng Nhân sự &amp; Đào tạo</option>
+<option value="fin">Phòng Kế toán Tài chính</option>
+<option value="cskh">Phòng Dịch vụ Khách hàng</option>
+<option value="bms">Trung tâm Kỹ thuật BMS</option>
+<option value="it">Khối Chuyển đổi số</option>
+</select>
+<span class="material-symbols-outlined absolute right-2.5 top-2.5 text-outline pointer-events-none text-[18px]">expand_more</span>
+</div>
+<!-- Fiscal Year -->
+<div class="relative w-full">
+<select class="w-full pl-3 pr-8 py-2 bg-surface-container-low text-on-surface rounded-lg text-body-md font-body-md focus:outline-none appearance-none cursor-pointer">
+<option selected="" value="2026">Năm tài chính 2026</option>
+<option value="2025">Năm tài chính 2025</option>
+<option value="all">Tất cả các năm</option>
+</select>
+<span class="material-symbols-outlined absolute right-2.5 top-2.5 text-outline pointer-events-none text-[18px]">expand_more</span>
+</div>
+<!-- Status filter -->
+<div class="relative w-full">
+<select class="w-full pl-3 pr-8 py-2 bg-surface-container-low text-on-surface rounded-lg text-body-md font-body-md focus:outline-none appearance-none cursor-pointer">
+<option value="">Tất cả Trạng thái thai sản</option>
+<option value="dang_nghi">Đang nghỉ thai sản</option>
+<option value="sap_nghi">Sắp nghỉ sinh (&lt;30 ngày)</option>
+<option value="sap_ve">Sắp đi làm lại (&lt;30 ngày)</option>
+<option value="da_ve">Đã trở lại công tác</option>
+<option value="cho_duyet">Chờ duyệt trợ cấp BHXH</option>
+</select>
+<span class="material-symbols-outlined absolute right-2.5 top-2.5 text-outline pointer-events-none text-[18px]">expand_more</span>
+</div>
+</div>
+<!-- Filter Controls Action -->
+<div class="flex items-center gap-2 w-full lg:w-auto justify-end shrink-0">
+<button class="px-3.5 py-2 rounded-lg bg-surface-container text-on-surface-variant hover:text-on-surface font-label-md text-label-md flex items-center gap-1.5 transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]">filter_alt_off</span>
+          Đặt lại
+        </button>
+<button class="px-3.5 py-2 rounded-lg bg-surface-container-high text-on-surface font-label-md text-label-md flex items-center gap-1.5 hover:bg-surface-variant transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]">tune</span>
+          Lọc nâng cao
+        </button>
+</div>
+</div>
+<!-- Main Table Container -->
+<div class="rounded-xl bg-surface-container-lowest shadow-sm overflow-hidden flex flex-col">
+<!-- Table Header Stats Bar -->
+<div class="px-6 py-3.5 bg-surface-container-low flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
+<div class="flex items-center gap-3">
+<span class="font-headline-sm text-headline-sm text-on-surface">Danh sách CBNV Thai sản</span>
+<span class="px-2.5 py-0.5 rounded-full bg-primary-fixed text-on-primary-fixed font-mono-num text-caption font-semibold">24 nhân sự</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="font-caption text-caption text-on-surface-variant">Hiển thị các ca nghỉ từ 01/01/2026 - 31/12/2026</span>
+<button class="p-1 rounded text-outline hover:text-on-surface transition-colors" title="Làm mới" type="button">
+<span class="material-symbols-outlined text-[18px]">refresh</span>
+</button>
+</div>
+</div>
+<!-- Data Table -->
+<div class="overflow-x-auto w-full">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-low/70 text-on-surface-variant font-label-sm text-label-sm uppercase tracking-wider">
+<th class="py-3 px-4 w-12 text-center">
+<input class="w-4 h-4 rounded cursor-pointer accent-primary" type="checkbox"/>
+</th>
+<th class="py-3 px-3 w-10 text-center">STT</th>
+<th class="py-3 px-4">Mã NV</th>
+<th class="py-3 px-4 min-w-[200px]">Nhân sự</th>
+<th class="py-3 px-4 min-w-[150px]">Ngày dự sinh</th>
+<th class="py-3 px-4 min-w-[190px]">Nghỉ từ - Nghỉ đến</th>
+<th class="py-3 px-4 min-w-[150px]">Số tháng &amp; Tiến độ</th>
+<th class="py-3 px-4 min-w-[180px]">Chế độ BHXH</th>
+<th class="py-3 px-4 min-w-[150px]">Trạng thái</th>
+<th class="py-3 px-4 text-right min-w-[130px]">Thao tác</th>
+</tr>
+</thead>
+<tbody class="divide-y-0 text-body-md font-body-md text-on-surface">
+<!-- Row 1: Đang nghỉ thai sản - NV0418 -->
+<tr class="hover:bg-surface-container-low/50 transition-colors group">
+<td class="py-3.5 px-4 text-center">
+<input class="w-4 h-4 rounded cursor-pointer accent-primary" type="checkbox"/>
+</td>
+<td class="py-3.5 px-3 text-center font-mono-num text-caption text-outline">01</td>
+<td class="py-3.5 px-4">
+<span class="font-mono-num text-body-md-medium text-primary font-semibold">NV0418</span>
+</td>
+<td class="py-3.5 px-4">
+<div class="flex items-center gap-3">
+<div class="relative shrink-0">
+<img class="w-9 h-9 rounded-full object-cover ring-2 ring-primary/20" data-alt="Chân dung phụ nữ Việt Nam công sở thanh lịch, 28 tuổi, nụ cười nhẹ, mặc sơ mi công sở cao cấp, ánh sáng studio mềm mại, tông màu ấm áp sắc nét" src="../shared/img/img-66.jpg"/>
+<span class="absolute bottom-0 right-0 w-2.5 h-2.5 rounded-full bg-secondary ring-2 ring-surface-container-lowest"></span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-body-md-medium text-body-md-medium text-on-surface truncate font-semibold">Nguyễn Thị Mai</span>
+<span class="font-caption text-caption text-on-surface-variant truncate">Chuyên viên Nhân sự &amp; Tuyển dụng</span>
+</div>
+</div>
+</td>
+<td class="py-3.5 px-4">
+<div class="flex flex-col">
+<span class="font-mono-num text-body-md-medium font-semibold">15/03/2026</span>
+<span class="font-caption text-caption text-on-surface-variant">Thai đơn • Tuần 39</span>
+</div>
+</td>
+<td class="py-3.5 px-4">
+<div class="flex flex-col">
+<span class="font-mono-num text-body-sm font-medium">01/03/2026 - 31/08/2026</span>
+<span class="font-caption text-caption text-outline">Quay lại: 01/09/2026</span>
+</div>
+</td>
+<td class="py-3.5 px-4">
+<div class="flex flex-col gap-1.5">
+<div class="flex items-center justify-between">
+<span class="px-2 py-0.5 rounded-md bg-secondary-container text-on-secondary-fixed-variant font-label-sm text-caption font-semibold">06 tháng</span>
+<span class="font-mono-num text-caption text-on-surface-variant">Đã nghỉ 1/6 T</span>
+</div>
+<div class="w-full bg-surface-container h-1.5 rounded-full overflow-hidden">
+<div class="bg-primary-container h-full rounded-full" style="width: 17%"></div>
+</div>
+</div>
+</td>
+<td class="py-3.5 px-4">
+<div class="flex items-center gap-1.5">
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-[#dcfce7] text-[#15803d] font-label-sm text-label-sm font-medium">
+<span class="material-symbols-outlined text-[15px]">check_circle</span>
+                    Đã nhận trợ cấp 6T
+                  </span>
+</div>
+</td>
+<td class="py-3.5 px-4">
+<span class="inline-flex items-center px-2.5 py-1 rounded-full bg-purple-100 text-purple-800 font-label-sm text-label-sm font-medium">
+                  Đang nghỉ thai sản
+                </span>
+</td>
+<td class="py-3.5 px-4 text-right">
+<div class="flex items-center justify-end gap-1 opacity-80 group-hover:opacity-100 transition-opacity">
+<button class="p-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-primary transition-colors" title="Xem chi tiết hồ sơ" type="button">
+<span class="material-symbols-outlined text-[18px]">visibility</span>
+</button>
+<button class="p-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-primary transition-colors" title="Cập nhật ngày đi làm thực tế" type="button">
+<span class="material-symbols-outlined text-[18px]">event_repeat</span>
+</button>
+<button class="p-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-primary transition-colors" title="Tải hồ sơ đính kèm" type="button">
+<span class="material-symbols-outlined text-[18px]">attachment</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 2: Sắp đến ngày dự sinh - NV0522 -->
+<tr class="hover:bg-surface-container-low/50 transition-colors group bg-error-container/10">
+<td class="py-3.5 px-4 text-center">
+<input class="w-4 h-4 rounded cursor-pointer accent-primary" type="checkbox"/>
+</td>
+<td class="py-3.5 px-3 text-center font-mono-num text-caption text-outline">02</td>
+<td class="py-3.5 px-4">
+<span class="font-mono-num text-body-md-medium text-primary font-semibold">NV0522</span>
+</td>
+<td class="py-3.5 px-4">
+<div class="flex items-center gap-3">
+<div class="relative shrink-0">
+<img class="w-9 h-9 rounded-full object-cover ring-2 ring-error/30" data-alt="Chân dung người phụ nữ trí thức văn phòng Việt Nam, 31 tuổi, đeo kính gọng mỏng, mái tóc buộc gọn, nụ cười tự tin, bối cảnh văn phòng mở hiện đại" src="../shared/img/img-52.jpg"/>
+<span class="absolute bottom-0 right-0 w-2.5 h-2.5 rounded-full bg-error ring-2 ring-surface-container-lowest"></span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-body-md-medium text-body-md-medium text-on-surface truncate font-semibold">Hoàng Bích Ngọc</span>
+<span class="font-caption text-caption text-on-surface-variant truncate">Kế toán viên Tổng hợp</span>
+</div>
+</div>
+</td>
+<td class="py-3.5 px-4">
+<div class="flex flex-col">
+<span class="font-mono-num text-body-md-medium font-semibold text-error">02/04/2026</span>
+<span class="font-caption text-caption text-error font-medium">Còn 18 ngày nữa</span>
+</div>
+</td>
+<td class="py-3.5 px-4">
+<div class="flex flex-col">
+<span class="font-mono-num text-body-sm font-medium">25/03/2026 - 24/09/2026</span>
+<span class="font-caption text-caption text-outline">Bàn giao cho: NV0189</span>
+</div>
+</td>
+<td class="py-3.5 px-4">
+<div class="flex flex-col gap-1.5">
+<div class="flex items-center justify-between">
+<span class="px-2 py-0.5 rounded-md bg-secondary-container text-on-secondary-fixed-variant font-label-sm text-caption font-semibold">06 tháng</span>
+<span class="font-caption text-caption text-error font-medium">Chuẩn bị nghỉ</span>
+</div>
+<div class="w-full bg-surface-container h-1.5 rounded-full overflow-hidden">
+<div class="bg-error h-full rounded-full" style="width: 5%"></div>
+</div>
+</div>
+</td>
+<td class="py-3.5 px-4">
+<div class="flex items-center gap-1.5">
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-[#fef3c7] text-[#b45309] font-label-sm text-label-sm font-medium">
+<span class="material-symbols-outlined text-[15px]">hourglass_empty</span>
+                    Chờ giấy chứng sinh
+                  </span>
+</div>
+</td>
+<td class="py-3.5 px-4">
+<span class="inline-flex items-center px-2.5 py-1 rounded-full bg-amber-100 text-amber-800 font-label-sm text-label-sm font-medium">
+                  Chuẩn bị nghỉ sinh
+                </span>
+</td>
+<td class="py-3.5 px-4 text-right">
+<div class="flex items-center justify-end gap-1 opacity-80 group-hover:opacity-100 transition-opacity">
+<button class="p-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-primary transition-colors" title="Xem chi tiết hồ sơ" type="button">
+<span class="material-symbols-outlined text-[18px]">visibility</span>
+</button>
+<button class="p-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-primary transition-colors" title="Đôn đốc bàn giao việc" type="button">
+<span class="material-symbols-outlined text-[18px]">assignment_turned_in</span>
+</button>
+<button class="p-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-primary transition-colors" title="Chỉnh sửa" type="button">
+<span class="material-symbols-outlined text-[18px]">edit</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 3: Sinh đôi, 7 tháng - NV0234 -->
+<tr class="hover:bg-surface-container-low/50 transition-colors group">
+<td class="py-3.5 px-4 text-center">
+<input class="w-4 h-4 rounded cursor-pointer accent-primary" type="checkbox"/>
+</td>
+<td class="py-3.5 px-3 text-center font-mono-num text-caption text-outline">03</td>
+<td class="py-3.5 px-4">
+<span class="font-mono-num text-body-md-medium text-primary font-semibold">NV0234</span>
+</td>
+<td class="py-3.5 px-4">
+<div class="flex items-center gap-3">
+<div class="relative shrink-0">
+<img class="w-9 h-9 rounded-full object-cover ring-2 ring-primary/20" data-alt="Chân dung nhân viên nữ chăm sóc khách hàng trẻ trung, tóc dài đen suôn mượt, nụ cười thân thiện rạng rỡ, áo vest đồng phục cao cấp" src="../shared/img/img-34.jpg"/>
+<span class="absolute bottom-0 right-0 w-2.5 h-2.5 rounded-full bg-secondary ring-2 ring-surface-container-lowest"></span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-body-md-medium text-body-md-medium text-on-surface truncate font-semibold">Lê Thu Hà</span>
+<span class="font-caption text-caption text-on-surface-variant truncate">Trưởng nhóm CSKH Căn hộ</span>
+</div>
+</div>
+</td>
+<td class="py-3.5 px-4">
+<div class="flex flex-col">
+<span class="font-mono-num text-body-md-medium font-semibold">10/11/2025</span>
+<span class="font-caption text-caption text-tertiary font-medium">Sinh đôi (2 bé)</span>
+</div>
+</td>
+<td class="py-3.5 px-4">
+<div class="flex flex-col">
+<span class="font-mono-num text-body-sm font-medium">01/11/2025 - 31/05/2026</span>
+<span class="font-caption text-caption text-outline">Chế độ luật: 07 tháng</span>
+</div>
+</td>
+<td class="py-3.5 px-4">
+<div class="flex flex-col gap-1.5">
+<div class="flex items-center justify-between">
+<span class="px-2 py-0.5 rounded-md bg-tertiary-fixed text-on-tertiary-fixed font-label-sm text-caption font-bold">07 tháng</span>
+<span class="font-mono-num text-caption text-on-surface-variant">Đã nghỉ 4.5/7 T</span>
+</div>
+<div class="w-full bg-surface-container h-1.5 rounded-full overflow-hidden">
+<div class="bg-primary-container h-full rounded-full" style="width: 64%"></div>
+</div>
+</div>
+</td>
+<td class="py-3.5 px-4">
+<div class="flex items-center gap-1.5">
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-[#dbeafe] text-[#1d4ed8] font-label-sm text-label-sm font-medium">
+<span class="material-symbols-outlined text-[15px]">send</span>
+                    Đã nộp hồ sơ C12
+                  </span>
+</div>
+</td>
+<td class="py-3.5 px-4">
+<span class="inline-flex items-center px-2.5 py-1 rounded-full bg-purple-100 text-purple-800 font-label-sm text-label-sm font-medium">
+                  Đang nghỉ thai sản
+                </span>
+</td>
+<td class="py-3.5 px-4 text-right">
+<div class="flex items-center justify-end gap-1 opacity-80 group-hover:opacity-100 transition-opacity">
+<button class="p-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-primary transition-colors" title="Xem chi tiết hồ sơ" type="button">
+<span class="material-symbols-outlined text-[18px]">visibility</span>
+</button>
+<button class="p-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-primary transition-colors" title="Tra cứu mã C12" type="button">
+<span class="material-symbols-outlined text-[18px]">receipt_long</span>
+</button>
+<button class="p-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-primary transition-colors" title="Chỉnh sửa" type="button">
+<span class="material-symbols-outlined text-[18px]">edit</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 4: Sắp quay lại công tác - NV0681 -->
+<tr class="hover:bg-surface-container-low/50 transition-colors group bg-tertiary-fixed/15">
+<td class="py-3.5 px-4 text-center">
+<input class="w-4 h-4 rounded cursor-pointer accent-primary" type="checkbox"/>
+</td>
+<td class="py-3.5 px-3 text-center font-mono-num text-caption text-outline">04</td>
+<td class="py-3.5 px-4">
+<span class="font-mono-num text-body-md-medium text-primary font-semibold">NV0681</span>
+</td>
+<td class="py-3.5 px-4">
+<div class="flex items-center gap-3">
+<div class="relative shrink-0">
+<img class="w-9 h-9 rounded-full object-cover ring-2 ring-tertiary/40" data-alt="Chân dung kỹ sư nữ Việt Nam phụ trách tòa nhà, 33 tuổi, phong thái năng động, áo polo kỹ thuật viên màu xanh navy, tác phong chuyên nghiệp" src="../shared/img/img-13.jpg"/>
+<span class="absolute bottom-0 right-0 w-2.5 h-2.5 rounded-full bg-tertiary ring-2 ring-surface-container-lowest"></span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-body-md-medium text-body-md-medium text-on-surface truncate font-semibold">Trần Phương Thảo</span>
+<span class="font-caption text-caption text-on-surface-variant truncate">Kỹ thuật viên Vận hành BMS</span>
+</div>
+</div>
+</td>
+<td class="py-3.5 px-4">
+<div class="flex flex-col">
+<span class="font-mono-num text-body-md-medium font-semibold">28/09/2025</span>
+<span class="font-caption text-caption text-on-surface-variant">Đã sinh bé trai</span>
+</div>
+</td>
+<td class="py-3.5 px-4">
+<div class="flex flex-col">
+<span class="font-mono-num text-body-sm font-medium">01/10/2025 - 31/03/2026</span>
+<span class="font-caption text-caption text-tertiary font-bold">Đi làm: 01/04/2026</span>
+</div>
+</td>
+<td class="py-3.5 px-4">
+<div class="flex flex-col gap-1.5">
+<div class="flex items-center justify-between">
+<span class="px-2 py-0.5 rounded-md bg-secondary-container text-on-secondary-fixed-variant font-label-sm text-caption font-semibold">06 tháng</span>
+<span class="font-mono-num text-caption text-tertiary font-semibold">Đã nghỉ 5.5/6 T</span>
+</div>
+<div class="w-full bg-surface-container h-1.5 rounded-full overflow-hidden">
+<div class="bg-tertiary h-full rounded-full" style="width: 92%"></div>
+</div>
+</div>
+</td>
+<td class="py-3.5 px-4">
+<div class="flex items-center gap-1.5">
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-[#dcfce7] text-[#15803d] font-label-sm text-label-sm font-medium">
+<span class="material-symbols-outlined text-[15px]">check_circle</span>
+                    Đã nhận trợ cấp 6T
+                  </span>
+</div>
+</td>
+<td class="py-3.5 px-4">
+<span class="inline-flex items-center px-2.5 py-1 rounded-full bg-blue-100 text-blue-800 font-label-sm text-label-sm font-medium">
+                  Sắp quay lại (16 ngày)
+                </span>
+</td>
+<td class="py-3.5 px-4 text-right">
+<div class="flex items-center justify-end gap-1 opacity-80 group-hover:opacity-100 transition-opacity">
+<button class="p-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-primary transition-colors" title="Xác nhận ngày đi làm" type="button">
+<span class="material-symbols-outlined text-[18px]">how_to_reg</span>
+</button>
+<button class="p-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-primary transition-colors" title="Đăng ký dưỡng sức" type="button">
+<span class="material-symbols-outlined text-[18px]">medical_services</span>
+</button>
+<button class="p-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-primary transition-colors" title="Chỉnh sửa" type="button">
+<span class="material-symbols-outlined text-[18px]">edit</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 5: Đã trở lại làm việc - NV0315 -->
+<tr class="hover:bg-surface-container-low/50 transition-colors group">
+<td class="py-3.5 px-4 text-center">
+<input class="w-4 h-4 rounded cursor-pointer accent-primary" type="checkbox"/>
+</td>
+<td class="py-3.5 px-3 text-center font-mono-num text-caption text-outline">05</td>
+<td class="py-3.5 px-4">
+<span class="font-mono-num text-body-md-medium text-primary font-semibold">NV0315</span>
+</td>
+<td class="py-3.5 px-4">
+<div class="flex items-center gap-3">
+<div class="relative shrink-0">
+<img class="w-9 h-9 rounded-full object-cover ring-2 ring-outline-variant/30" data-alt="Chân dung nhà thiết kế nữ Việt Nam trẻ trung phong cách sáng tạo, áo blouse lụa trang nhã, ánh mắt tập trung chuyên nghiệp" src="../shared/img/img-21.jpg"/>
+<span class="absolute bottom-0 right-0 w-2.5 h-2.5 rounded-full bg-outline-variant ring-2 ring-surface-container-lowest"></span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-body-md-medium text-body-md-medium text-on-surface truncate font-semibold">Đặng Hải Yến</span>
+<span class="font-caption text-caption text-on-surface-variant truncate">Chuyên viên Truyền thông Nội bộ</span>
+</div>
+</div>
+</td>
+<td class="py-3.5 px-4">
+<div class="flex flex-col">
+<span class="font-mono-num text-body-md-medium font-semibold">14/07/2025</span>
+<span class="font-caption text-caption text-on-surface-variant">Thai đơn</span>
+</div>
+</td>
+<td class="py-3.5 px-4">
+<div class="flex flex-col">
+<span class="font-mono-num text-body-sm font-medium">01/08/2025 - 31/01/2026</span>
+<span class="font-caption text-caption text-outline">Đã hoàn thành 6T</span>
+</div>
+</td>
+<td class="py-3.5 px-4">
+<div class="flex flex-col gap-1.5">
+<div class="flex items-center justify-between">
+<span class="px-2 py-0.5 rounded-md bg-surface-container-high text-on-surface-variant font-label-sm text-caption font-semibold">06 tháng</span>
+<span class="font-caption text-caption text-outline">Hoàn tất 6/6</span>
+</div>
+<div class="w-full bg-surface-container h-1.5 rounded-full overflow-hidden">
+<div class="bg-secondary h-full rounded-full" style="width: 100%"></div>
+</div>
+</div>
+</td>
+<td class="py-3.5 px-4">
+<div class="flex items-center gap-1.5">
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-[#dcfce7] text-[#15803d] font-label-sm text-label-sm font-medium">
+<span class="material-symbols-outlined text-[15px]">check_circle</span>
+                    Quyết toán xong
+                  </span>
+</div>
+</td>
+<td class="py-3.5 px-4">
+<span class="inline-flex items-center px-2.5 py-1 rounded-full bg-surface-container-high text-on-surface font-label-sm text-label-sm font-medium">
+                  Đã trở lại công tác
+                </span>
+</td>
+<td class="py-3.5 px-4 text-right">
+<div class="flex items-center justify-end gap-1 opacity-80 group-hover:opacity-100 transition-opacity">
+<button class="p-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-primary transition-colors" title="Xem lưu trữ" type="button">
+<span class="material-symbols-outlined text-[18px]">folder_open</span>
+</button>
+<button class="p-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-primary transition-colors" title="Xem chi tiết" type="button">
+<span class="material-symbols-outlined text-[18px]">visibility</span>
+</button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Pagination -->
+<div class="px-6 py-4 bg-surface-container-lowest border-t-0 flex flex-col sm:flex-row items-center justify-between gap-4">
+<div class="flex items-center gap-2">
+<span class="font-body-sm text-body-sm text-on-surface-variant">Hiển thị</span>
+<select class="px-2 py-1 bg-surface-container-low text-on-surface rounded font-mono-num text-caption font-semibold focus:outline-none">
+<option>10</option>
+<option>25</option>
+<option>50</option>
+</select>
+<span class="font-body-sm text-body-sm text-on-surface-variant">trên tổng số <strong>24</strong> nhân sự</span>
+</div>
+<div class="flex items-center gap-1.5">
+<button class="p-2 rounded-lg bg-surface-container-low text-outline disabled:opacity-50 hover:bg-surface-container hover:text-on-surface transition-colors" disabled="" type="button">
+<span class="material-symbols-outlined text-[18px]">chevron_left</span>
+</button>
+<button class="w-8 h-8 rounded-lg bg-primary-container text-on-primary font-mono-num text-caption font-bold flex items-center justify-center" type="button">1</button>
+<button class="w-8 h-8 rounded-lg bg-surface-container-low text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface font-mono-num text-caption font-medium flex items-center justify-center transition-colors" type="button">2</button>
+<button class="w-8 h-8 rounded-lg bg-surface-container-low text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface font-mono-num text-caption font-medium flex items-center justify-center transition-colors" type="button">3</button>
+<button class="p-2 rounded-lg bg-surface-container-low text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- DRAWER: Thêm nghỉ sinh (Tiện ích trượt từ bên phải) -->
+<div class="fixed inset-0 bg-inverse-surface/40 backdrop-blur-sm z-50 hidden opacity-0 transition-opacity duration-300" id="drawerBackdrop" onclick="toggleDrawer(false)"></div>
+<div class="fixed top-0 right-0 bottom-0 w-full max-w-xl bg-surface-container-lowest shadow-2xl z-50 flex flex-col translate-x-full transition-transform duration-300 ease-out overflow-hidden" id="addMaternityDrawer">
+<!-- Drawer Header -->
+<div class="p-6 bg-surface-container-low flex items-center justify-between shrink-0">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-xl bg-primary-fixed flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[24px]">pregnant_woman</span>
+</div>
+<div>
+<h2 class="font-headline-md text-headline-md text-on-surface font-bold">Thêm Hồ Sơ Nghỉ Sinh</h2>
+<p class="font-caption text-caption text-on-surface-variant">Lập kế hoạch thai sản &amp; kích hoạt quy trình BHXH</p>
+</div>
+</div>
+<button class="p-2 rounded-lg text-outline hover:text-on-surface hover:bg-surface-container transition-colors" onclick="toggleDrawer(false)" type="button">
+<span class="material-symbols-outlined text-[20px]">close</span>
+</button>
+</div>
+<!-- Drawer Body Form -->
+<div class="flex-1 overflow-y-auto p-6 space-y-5">
+<!-- Nhân sự nữ * -->
+<div class="space-y-1.5">
+<label class="block font-label-md text-label-md text-on-surface font-semibold">
+          Nhân sự hưởng chế độ thai sản <span class="text-error">*</span>
+</label>
+<div class="relative">
+<select class="w-full px-3.5 py-2.5 bg-surface-container-low text-on-surface rounded-lg text-body-md font-body-md focus:outline-none focus:ring-2 focus:ring-primary-container transition-all cursor-pointer" id="selectEmployee">
+<option value="">-- Chọn nhân sự nữ đủ điều kiện --</option>
+<option value="NV0418">Nguyễn Thị Mai (NV0418 - Phòng Nhân sự)</option>
+<option value="NV0522">Hoàng Bích Ngọc (NV0522 - Kế toán Tổng hợp)</option>
+<option value="NV0812">Phan Thùy Dương (NV0812 - Kỹ thuật BMS)</option>
+<option value="NV0904">Vũ Ngọc Lan (NV0904 - CSKH Dịch vụ)</option>
+</select>
+</div>
+<p class="font-caption text-caption text-outline">Hệ thống lọc tự động danh sách CBNV nữ đóng BHXH đủ 6 tháng trong 12 tháng gần nhất.</p>
+</div>
+<!-- Grid Ngày dự sinh & Ngày sinh thực tế -->
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+<div class="space-y-1.5">
+<label class="block font-label-md text-label-md text-on-surface font-semibold">
+            Ngày dự sinh <span class="text-error">*</span>
+</label>
+<input class="w-full px-3.5 py-2 bg-surface-container-low text-on-surface rounded-lg text-body-md font-body-md focus:outline-none focus:ring-2 focus:ring-primary-container" id="inputDueDate" onchange="autoCalculateDates()" type="date" value="2026-05-15"/>
+<span class="font-caption text-caption text-on-surface-variant">Căn cứ giấy khám thai</span>
+</div>
+<div class="space-y-1.5">
+<label class="block font-label-md text-label-md text-on-surface font-semibold">
+            Ngày sinh thực tế (nếu có)
+          </label>
+<input class="w-full px-3.5 py-2 bg-surface-container-low text-on-surface rounded-lg text-body-md font-body-md focus:outline-none focus:ring-2 focus:ring-primary-container" type="date"/>
+<span class="font-caption text-caption text-on-surface-variant">Bổ sung sau khi sinh</span>
+</div>
+</div>
+<!-- Grid Nghỉ từ ngày & Nghỉ đến ngày (Tự động +6T) -->
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+<div class="space-y-1.5">
+<label class="block font-label-md text-label-md text-on-surface font-semibold">
+            Nghỉ từ ngày <span class="text-error">*</span>
+</label>
+<input class="w-full px-3.5 py-2 bg-surface-container-low text-on-surface rounded-lg text-body-md font-body-md focus:outline-none focus:ring-2 focus:ring-primary-container" id="inputStartDate" onchange="autoCalculateDates()" type="date" value="2026-05-01"/>
+<span class="font-caption text-caption text-outline">Thường trước ngày sinh 1-2 tuần</span>
+</div>
+<div class="space-y-1.5">
+<label class="block font-label-md text-label-md text-on-surface font-semibold">
+            Nghỉ đến ngày <span class="text-error">*</span>
+</label>
+<input class="w-full px-3.5 py-2 bg-surface-container-high text-on-surface rounded-lg text-body-md font-body-md focus:outline-none" id="inputEndDate" readonly="" type="date" value="2026-10-31"/>
+<span class="font-caption text-caption text-primary font-medium flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px]">lock</span>
+            Tự động tính 06 tháng chuẩn Luật LĐ
+          </span>
+</div>
+</div>
+<!-- Số con sinh & Chế độ dưỡng sức -->
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+<div class="space-y-1.5">
+<label class="block font-label-md text-label-md text-on-surface font-semibold">
+            Số con sinh
+          </label>
+<select class="w-full px-3.5 py-2 bg-surface-container-low text-on-surface rounded-lg text-body-md font-body-md focus:outline-none cursor-pointer" id="selectChildCount" onchange="autoCalculateDates()">
+<option selected="" value="1">Sinh đơn (Nghỉ 6 tháng)</option>
+<option value="2">Sinh đôi (+ thêm 1 tháng = 7 tháng)</option>
+<option value="3">Sinh ba (+ thêm 2 tháng = 8 tháng)</option>
+</select>
+</div>
+<div class="space-y-1.5">
+<label class="block font-label-md text-label-md text-on-surface font-semibold">
+            Dưỡng sức sau thai sản
+          </label>
+<select class="w-full px-3.5 py-2 bg-surface-container-low text-on-surface rounded-lg text-body-md font-body-md focus:outline-none cursor-pointer">
+<option value="0">Không đăng ký</option>
+<option value="5">05 ngày (sinh thường)</option>
+<option value="7">07 ngày (sinh mổ)</option>
+<option value="10">10 ngày (sinh đôi trở lên)</option>
+</select>
+</div>
+</div>
+<!-- Người tiếp nhận bàn giao công việc * -->
+<div class="space-y-1.5">
+<label class="block font-label-md text-label-md text-on-surface font-semibold">
+          Người tiếp nhận bàn giao công việc <span class="text-error">*</span>
+</label>
+<div class="relative">
+<select class="w-full px-3.5 py-2.5 bg-surface-container-low text-on-surface rounded-lg text-body-md font-body-md focus:outline-none focus:ring-2 focus:ring-primary-container cursor-pointer">
+<option value="">-- Chọn nhân sự cùng bộ phận thay thế --</option>
+<option value="NV0012">Nguyễn Văn An (Trưởng phòng Kỹ thuật)</option>
+<option value="NV0189">Trịnh Thu Trang (Phó phòng Nhân sự)</option>
+<option value="NV0290">Bùi Minh Quân (Chuyên viên Vận hành)</option>
+</select>
+</div>
+</div>
+<!-- File đính kèm: Giấy chứng sinh / Giấy khám thai -->
+<div class="space-y-1.5">
+<label class="block font-label-md text-label-md text-on-surface font-semibold">
+          File đính kèm (Giấy chứng sinh / Giấy khám thai định kỳ)
+        </label>
+<div class="p-4 rounded-xl border-2 border-dashed border-outline-variant/60 bg-surface-container-low flex flex-col items-center justify-center gap-2 hover:bg-surface-container-high transition-colors cursor-pointer text-center">
+<span class="material-symbols-outlined text-[32px] text-primary">cloud_upload</span>
+<div class="flex flex-col">
+<span class="font-body-md-medium text-body-md-medium text-on-surface">Kéo thả tệp hoặc chọn từ máy tính</span>
+<span class="font-caption text-caption text-outline">Định dạng hỗ trợ: PDF, JPG, PNG (Tối đa 15MB)</span>
+</div>
+</div>
+</div>
+<!-- Ghi chú bổ sung -->
+<div class="space-y-1.5">
+<label class="block font-label-md text-label-md text-on-surface font-semibold">
+          Ghi chú &amp; Lưu ý C&amp;B
+        </label>
+<textarea class="w-full px-3.5 py-2 bg-surface-container-low text-on-surface rounded-lg text-body-md font-body-md focus:outline-none focus:ring-2 focus:ring-primary-container resize-none" placeholder="Nhập ghi chú chi tiết bàn giao hồ sơ giấy cho cơ quan BHXH..." rows="3"></textarea>
+</div>
+<!-- Checkbox đồng bộ C12 -->
+<div class="flex items-start gap-2.5 pt-1">
+<input checked="" class="w-4 h-4 mt-0.5 rounded accent-primary cursor-pointer" id="syncC12" type="checkbox"/>
+<label class="font-body-sm text-body-sm text-on-surface select-none cursor-pointer" for="syncC12">
+          Tự động tạo phiếu báo giảm thai sản và lên lịch xuất mẫu C12 gửi cơ quan BHXH quận/huyện.
+        </label>
+</div>
+</div>
+<!-- Drawer Footer Actions -->
+<div class="p-4 bg-surface-container-low flex items-center justify-end gap-3 shrink-0">
+<button class="px-5 py-2 rounded-lg bg-surface-container-lowest text-on-surface font-label-md text-label-md hover:bg-surface-container-high transition-colors" onclick="toggleDrawer(false)" type="button">
+        Hủy bỏ
+      </button>
+<button class="px-5 py-2 rounded-lg bg-primary-container text-on-primary font-label-md text-label-md shadow-md hover:bg-primary transition-all flex items-center gap-2" onclick="saveMaternityRecord()" type="button">
+<span class="material-symbols-outlined text-[18px]">save</span>
+        Lưu thông tin nghỉ sinh
+      </button>
+</div>
+</div>
+<!-- Client-side Interactive Script -->
+<script>
+    function toggleDrawer(open) {
+      const drawer = document.getElementById('addMaternityDrawer');
+      const backdrop = document.getElementById('drawerBackdrop');
+      if (open) {
+        backdrop.classList.remove('hidden');
+        setTimeout(() => {
+          backdrop.classList.remove('opacity-0');
+          drawer.classList.remove('translate-x-full');
+        }, 10);
+      } else {
+        drawer.classList.add('translate-x-full');
+        backdrop.classList.add('opacity-0');
+        setTimeout(() => {
+          backdrop.classList.add('hidden');
+        }, 300);
+      }
+    }
+
+    function autoCalculateDates() {
+      const startDateInput = document.getElementById('inputStartDate');
+      const endDateInput = document.getElementById('inputEndDate');
+      const childCount = parseInt(document.getElementById('selectChildCount').value, 10) || 1;
+
+      if (!startDateInput.value) return;
+
+      const start = new Date(startDateInput.value);
+      let monthsToAdd = 6;
+      if (childCount === 2) monthsToAdd = 7;
+      if (childCount >= 3) monthsToAdd = 8;
+
+      // Add months
+      const end = new Date(start);
+      end.setMonth(end.getMonth() + monthsToAdd);
+      end.setDate(end.getDate() - 1); // Tròn chu kỳ 6 tháng
+
+      const yyyy = end.getFullYear();
+      const mm = String(end.getMonth() + 1).padStart(2, '0');
+      const dd = String(end.getDate()).padStart(2, '0');
+
+      endDateInput.value = `${yyyy}-${mm}-${dd}`;
+    }
+
+    function saveMaternityRecord() {
+      const employee = document.getElementById('selectEmployee').value;
+      if (!employee) {
+        alert('Vui lòng chọn nhân sự hưởng chế độ thai sản.');
+        return;
+      }
+      alert('Đã lưu thành công hồ sơ thai sản và cập nhật tiến độ nạp BHXH!');
+      toggleDrawer(false);
+    }
+  </script>
+</div></main></div><script src="../shared/nav.js"></script></body></html>
