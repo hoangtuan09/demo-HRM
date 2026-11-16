@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Nhật ký chỉnh sửa dữ liệu — PMC HRM</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="../shared/tw-config.js"></script>
+<link rel="stylesheet" href="../shared/nav.css"/>
+<link rel="stylesheet" href="../shared/fix.css"/>
+</head>
+<body class="bg-background font-body-md text-on-surface antialiased">
+<aside id="app-sidebar" data-mode="fixed" data-old-w="256"></aside>
+<div class="pl-64"><div id="page-root"></div></div>
+<script>
+window.HRM_PAGE = {
+  search: "Tìm kiếm nhật ký, bảng dữ liệu, người sửa...",
+  breadcrumb: ["Nhật ký", "Chỉnh sửa dữ liệu"],
+  title: "Nhật ký chỉnh sửa dữ liệu",
+  desc: "Theo dõi lịch sử thêm mới và chỉnh sửa dữ liệu trên hệ thống: bảng dữ liệu, bản ghi, trường thay đổi, giá trị cũ → mới, người thực hiện và thời điểm.",
+  stats: [
+    { label: "Thao tác trong ngày", value: "64", sub: "ngày 16/11/2026", icon: "edit_note", tone: "primary" },
+    { label: "Bảng dữ liệu bị tác động", value: "7", sub: "có thay đổi", icon: "table_view", tone: "info" },
+    { label: "Lượt thêm mới", value: "19", sub: "bản ghi mới", icon: "add_circle", tone: "success" },
+    { label: "Lượt chỉnh sửa", value: "45", sub: "bản ghi cập nhật", icon: "edit", tone: "warning" }
+  ],
+  filters: [
+    { label: "Ngày", type: "date", value: "16/11/2026" },
+    { label: "Bảng dữ liệu", type: "select", options: ["Tất cả bảng", "Hồ sơ nhân sự", "Hợp đồng lao động", "Bảng lương", "Chấm công", "Bảo hiểm xã hội"] }
+  ],
+  gear: true,
+  columns: [
+    { title: "STT", field: "stt", align: "center", width: 60 },
+    { title: "Bảng dữ liệu", field: "bang", kind: "strong" },
+    { title: "Bản ghi", field: "banGhi", kind: "link" },
+    { title: "Trường thay đổi", field: "truong" },
+    { title: "Giá trị cũ", field: "giaTriCu" },
+    { title: "Giá trị mới", field: "giaTriMoi" },
+    { title: "Loại thao tác", field: "loai", align: "center", kind: "badge", tones: { "Thêm mới": "bg-emerald-50 text-emerald-600", "Chỉnh sửa": "bg-amber-50 text-amber-600" } },
+    { title: "Người sửa", field: "nguoi" },
+    { title: "Thời gian", field: "thoiGian", align: "center" }
+  ],
+  rows: [
+    { stt: 1, bang: "Hồ sơ nhân sự", banGhi: "NV0088", truong: "Số điện thoại", giaTriCu: "0912 345 678", giaTriMoi: "0987 654 321", loai: "Chỉnh sửa", nguoi: "Trần Thị Bình", thoiGian: "16/11/2026 08:45" },
+    { stt: 2, bang: "Hợp đồng lao động", banGhi: "HD2026-204", truong: "Ngày hết hạn", giaTriCu: "31/12/2026", giaTriMoi: "31/12/2027", loai: "Chỉnh sửa", nguoi: "Phạm Thị Dung", thoiGian: "16/11/2026 09:12" },
+    { stt: 3, bang: "Bảng lương", banGhi: "L2026-11-0132", truong: "Phụ cấp trách nhiệm", giaTriCu: "500.000", giaTriMoi: "800.000", loai: "Chỉnh sửa", nguoi: "Phạm Thị Dung", thoiGian: "16/11/2026 10:03" },
+    { stt: 4, bang: "Chấm công", banGhi: "CC2026-11-0177", truong: "Công tổng hợp", giaTriCu: "—", giaTriMoi: "22 công", loai: "Thêm mới", nguoi: "Ngô Thị Mai", thoiGian: "16/11/2026 11:20" },
+    { stt: 5, bang: "Bảo hiểm xã hội", banGhi: "BH0001-2026", truong: "Mức đóng", giaTriCu: "4.680.000", giaTriMoi: "5.200.000", loai: "Chỉnh sửa", nguoi: "Trần Thị Bình", thoiGian: "16/11/2026 13:55" },
+    { stt: 6, bang: "Hồ sơ nhân sự", banGhi: "NV0201", truong: "Hồ sơ nhân sự", giaTriCu: "—", giaTriMoi: "Tạo mới hồ sơ", loai: "Thêm mới", nguoi: "Nguyễn Văn An", thoiGian: "16/11/2026 14:30" }
+  ],
+  total: 64,
+  toolbar: [
+    { label: "Lọc dữ liệu", icon: "filter_alt", kind: "find" },
+    { label: "Xuất Excel", icon: "file_download", kind: "export" }
+  ]
+};
+</script>
+<script src="../shared/page.js"></script>
+<script src="../shared/nav.js"></script>
+</body>
+</html>

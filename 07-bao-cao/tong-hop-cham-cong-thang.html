@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Tổng hợp chấm công tháng — PMC HRM</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="../shared/tw-config.js"></script>
+<link rel="stylesheet" href="../shared/nav.css"/>
+<link rel="stylesheet" href="../shared/fix.css"/>
+</head>
+<body class="bg-background font-body-md text-on-surface antialiased">
+<aside id="app-sidebar" data-mode="fixed" data-old-w="256"></aside>
+<div class="pl-64"><div id="page-root"></div></div>
+<script>
+window.HRM_PAGE = {
+  search: "Tìm kiếm báo cáo, nhân sự, phòng ban...",
+  breadcrumb: ["Báo cáo", "Chấm công tháng"],
+  title: "Tổng hợp chấm công tháng",
+  desc: "Bảng chấm công chi tiết theo từng ngày trong tháng kèm công thực tế, công tính lương và các loại nghỉ. Nhấp đúp vào ô ngày để xem chi tiết.",
+  stats: [
+    { label: "Số CBNV", value: "128", sub: "có dữ liệu chấm công", icon: "groups", tone: "primary" },
+    { label: "Công thực tế TB", value: "21.6", sub: "công/người trong tháng", icon: "event_available", tone: "success" },
+    { label: "Số lượt đi muộn", value: "37", sub: "lượt trong tháng", icon: "schedule", tone: "warning" },
+    { label: "Trạng thái bảng công", value: "Chưa chốt", sub: "tháng 11/2025", icon: "lock_open", tone: "info" }
+  ],
+  filters: [
+    { label: "Tháng", type: "select", options: ["Tháng 11", "Tháng 10", "Tháng 9", "Tháng 8", "Tháng 7", "Tháng 6", "Tháng 5", "Tháng 4", "Tháng 3", "Tháng 2", "Tháng 1", "Tháng 12"] },
+    { label: "Năm", type: "select", options: ["2025", "2024", "2023"] },
+    { label: "Đơn vị", type: "select", options: ["BQL Tòa nhà Keangnam", "BQL Tòa Handico", "TTTM Indochina"], required: true },
+    { label: "Phòng ban/Dự án", type: "select", options: ["Tất cả phòng ban"] },
+    { label: "Bộ phận", type: "select", options: ["Tất cả bộ phận"] }
+  ],
+  gear: true,
+  columns: [
+    { title: "STT", field: "stt", group: "Thông tin nhân sự", align: "center", width: 60 },
+    { title: "Mã nhân sự", field: "ma", group: "Thông tin nhân sự", kind: "link" },
+    { title: "Họ tên", field: "ten", group: "Thông tin nhân sự", kind: "strong" },
+    { title: "Bộ phận", field: "bp", group: "Thông tin nhân sự" },
+    { title: "Chức vụ", field: "cv", group: "Thông tin nhân sự" },
+    { title: "T7", field: "d1", group: "1/11", align: "center", width: 46 },
+    { title: "CN", field: "d2", group: "2/11", align: "center", width: 46 },
+    { title: "T2", field: "d3", group: "3/11", align: "center", width: 46 },
+    { title: "T3", field: "d4", group: "4/11", align: "center", width: 46 },
+    { title: "T4", field: "d5", group: "5/11", align: "center", width: 46 },
+    { title: "T5", field: "d6", group: "6/11", align: "center", width: 46 },
+    { title: "T6", field: "d7", group: "7/11", align: "center", width: 46 },
+    { title: "T7", field: "d8", group: "8/11", align: "center", width: 46 },
+    { title: "CN", field: "d9", group: "9/11", align: "center", width: 46 },
+    { title: "T2", field: "d10", group: "10/11", align: "center", width: 46 },
+    { title: "T3", field: "d11", group: "11/11", align: "center", width: 46 },
+    { title: "T4", field: "d12", group: "12/11", align: "center", width: 46 },
+    { title: "T5", field: "d13", group: "13/11", align: "center", width: 46 },
+    { title: "T6", field: "d14", group: "14/11", align: "center", width: 46 },
+    { title: "T7", field: "d15", group: "15/11", align: "center", width: 46 },
+    { title: "CN", field: "d16", group: "16/11", align: "center", width: 46 },
+    { title: "T2", field: "d17", group: "17/11", align: "center", width: 46 },
+    { title: "T3", field: "d18", group: "18/11", align: "center", width: 46 },
+    { title: "T4", field: "d19", group: "19/11", align: "center", width: 46 },
+    { title: "T5", field: "d20", group: "20/11", align: "center", width: 46 },
+    { title: "T6", field: "d21", group: "21/11", align: "center", width: 46 },
+    { title: "T7", field: "d22", group: "22/11", align: "center", width: 46 },
+    { title: "CN", field: "d23", group: "23/11", align: "center", width: 46 },
+    { title: "T2", field: "d24", group: "24/11", align: "center", width: 46 },
+    { title: "T3", field: "d25", group: "25/11", align: "center", width: 46 },
+    { title: "T4", field: "d26", group: "26/11", align: "center", width: 46 },
+    { title: "T5", field: "d27", group: "27/11", align: "center", width: 46 },
+    { title: "T6", field: "d28", group: "28/11", align: "center", width: 46 },
+    { title: "Ngày đi muộn", field: "diMuon", group: "Tổng hợp tháng", align: "center", kind: "money" },
+    { title: "Công thực tế", field: "tte", group: "Tổng hợp tháng", align: "center", kind: "money" },
+    { title: "Công chuẩn tháng", field: "cchuan", group: "Tổng hợp tháng", align: "center", kind: "money" },
+    { title: "Công tính lương", field: "ctinh", group: "Tổng hợp tháng", align: "center", kind: "money" },
+    { title: "Nghỉ tuần", field: "ntuan", group: "Tổng hợp tháng", align: "center", kind: "money" },
+    { title: "Nghỉ bù tháng", field: "nbu", group: "Tổng hợp tháng", align: "center", kind: "money" },
+    { title: "Nghỉ phép tháng", field: "nphep", group: "Tổng hợp tháng", align: "center", kind: "money" },
+    { title: "Phép tồn", field: "pton", group: "Tổng hợp tháng", align: "center", kind: "money" }
+  ],
+  rows: [
+    { stt: 1, ma: "NV0001", ten: "Nguyễn Văn An", bp: "Tổ Kỹ thuật", cv: "Trưởng phòng", d1: "", d2: "", d3: "X", d4: "X", d5: "X", d6: "X", d7: "X", d8: "", d9: "", d10: "X", d11: "X", d12: "X", d13: "X", d14: "X", d15: "", d16: "", d17: "X", d18: "X", d19: "X", d20: "X", d21: "X", d22: "", d23: "", d24: "X", d25: "X", d26: "X", d27: "X", d28: "X", diMuon: 0, tte: 24, cchuan: 24, ctinh: 24, ntuan: 8, nbu: 0, nphep: 0, pton: 12 },
+    { stt: 2, ma: "NV0045", ten: "Lê Hoàng Cường", bp: "Tổ Vận hành", cv: "Giám sát", d1: "", d2: "", d3: "X", d4: "X", d5: "X", d6: "X", d7: "X", d8: "", d9: "", d10: "X", d11: "X", d12: "X", d13: "X", d14: "X", d15: "", d16: "", d17: "X", d18: "X", d19: "P", d20: "X", d21: "X", d22: "", d23: "", d24: "X", d25: "X", d26: "X", d27: "X", d28: "X", diMuon: 2, tte: 23, cchuan: 24, ctinh: 23, ntuan: 8, nbu: 0, nphep: 1, pton: 10 },
+    { stt: 3, ma: "NV0088", ten: "Vũ Thanh Thảo", bp: "Tổ CSKH", cv: "Chuyên viên", d1: "", d2: "", d3: "X", d4: "X", d5: "X", d6: "X", d7: "X", d8: "", d9: "", d10: "P", d11: "P", d12: "X", d13: "X", d14: "X", d15: "", d16: "", d17: "X", d18: "X", d19: "X", d20: "X", d21: "X", d22: "", d23: "", d24: "X", d25: "X", d26: "X", d27: "X", d28: "X", diMuon: 1, tte: 22, cchuan: 24, ctinh: 22, ntuan: 8, nbu: 0, nphep: 2, pton: 8 },
+    { stt: 4, ma: "NV0132", ten: "Hoàng Minh Đức", bp: "Tổ Lễ tân", cv: "Nhân viên", d1: "", d2: "", d3: "X", d4: "X", d5: "X", d6: "X", d7: "X", d8: "", d9: "", d10: "X", d11: "X", d12: "X", d13: "X", d14: "X", d15: "", d16: "", d17: "X", d18: "X", d19: "X", d20: "X", d21: "X", d22: "", d23: "", d24: "X", d25: "X", d26: "X", d27: "X", d28: "X", diMuon: 3, tte: 24, cchuan: 24, ctinh: 24, ntuan: 8, nbu: 0, nphep: 0, pton: 11 },
+    { stt: 5, ma: "NV0177", ten: "Bùi Văn Phong", bp: "Tổ An ninh", cv: "Kỹ thuật viên", d1: "", d2: "", d3: "X", d4: "X", d5: "X", d6: "X", d7: "X", d8: "", d9: "", d10: "X", d11: "X", d12: "X", d13: "X", d14: "X", d15: "", d16: "", d17: "X", d18: "X", d19: "X", d20: "X", d21: "X", d22: "", d23: "", d24: "X", d25: "X", d26: "P", d27: "P", d28: "P", diMuon: 0, tte: 21, cchuan: 24, ctinh: 21, ntuan: 8, nbu: 1, nphep: 3, pton: 6 }
+  ],
+  total: 128,
+  toolbar: [
+    { label: "Lọc dữ liệu", icon: "filter_alt", kind: "find" },
+    { label: "Xuất Excel", icon: "file_download", kind: "export" },
+    { label: "Xem in", icon: "print", kind: "pdf" },
+    { label: "Chốt bảng công", icon: "lock_person", kind: "success" }
+  ]
+};
+</script>
+<script src="../shared/page.js"></script>
+<script src="../shared/nav.js"></script>
+</body>
+</html>

@@ -51,7 +51,12 @@
       ['Lịch đào tạo', '06-tuyen-dung-dao-tao/lich-dao-tao.html', 'event'],
       ['Thông báo chiêu sinh', '06-tuyen-dung-dao-tao/thong-bao-chieu-sinh.html', 'campaign'],
       ['Đăng ký đào tạo', '06-tuyen-dung-dao-tao/dang-ky-xet-duyet-dao-tao.html', 'how_to_reg'],
-      ['Khung đào tạo theo chức danh', '06-tuyen-dung-dao-tao/khung-dao-tao-theo-chuc-danh.html', 'account_tree']
+      ['Khung đào tạo theo chức danh', '06-tuyen-dung-dao-tao/khung-dao-tao-theo-chuc-danh.html', 'account_tree'],
+      ['DM Giảng viên', '06-tuyen-dung-dao-tao/danh-muc-giang-vien.html', 'record_voice_over'],
+      ['DM Khóa đào tạo', '06-tuyen-dung-dao-tao/danh-muc-khoa-dao-tao.html', 'menu_book'],
+      ['DM Chứng chỉ đào tạo', '06-tuyen-dung-dao-tao/danh-muc-chung-chi-dao-tao.html', 'workspace_premium'],
+      ['DM Tài liệu đào tạo', '06-tuyen-dung-dao-tao/danh-muc-tai-lieu-dao-tao.html', 'description'],
+      ['DM Video đào tạo', '06-tuyen-dung-dao-tao/danh-muc-video-dao-tao.html', 'smart_display']
     ]],
     ['BÁO CÁO', 'insert_chart', [
       ['Diễn biến nhân sự', '07-bao-cao/dien-bien-nhan-su.html', 'timeline'],
@@ -63,7 +68,27 @@
       ['Bảo hiểm xã hội', '07-bao-cao/bao-hiem-xa-hoi.html', 'health_and_safety'],
       ['Tổng hợp lương tháng', '07-bao-cao/tong-hop-luong-thang.html', 'request_quote'],
       ['Biểu thuế TNCN (Mẫu 1)', '07-bao-cao/thue-tncn-mau-1.html', 'receipt'],
-      ['Chuyển khoản / Tiền mặt', '07-bao-cao/chuyen-khoan-tien-mat.html', 'account_balance']
+      ['Chuyển khoản / Tiền mặt', '07-bao-cao/chuyen-khoan-tien-mat.html', 'account_balance'],
+      ['Quan hệ vợ chồng', '07-bao-cao/quan-he-vo-chong.html', 'favorite'],
+      ['Tình trạng hôn nhân', '07-bao-cao/tinh-trang-hon-nhan.html', 'diversity_1'],
+      ['Con nhân sự', '07-bao-cao/con-nhan-vien.html', 'child_care'],
+      ['Hết hạn BHYT', '07-bao-cao/het-han-bhyt.html', 'medical_services'],
+      ['Hết thử việc chưa ký HĐ', '07-bao-cao/het-thu-viec-chua-ky-hd.html', 'assignment_late'],
+      ['Báo tăng BHXH', '07-bao-cao/bao-tang-bhxh.html', 'trending_up'],
+      ['Báo giảm BHXH', '07-bao-cao/bao-giam-bhxh.html', 'trending_down'],
+      ['Nhật ký tăng/giảm BHXH', '07-bao-cao/nhat-ky-tang-giam-bhxh.html', 'swap_vert'],
+      ['Biểu thuế TNCN (Mẫu 2)', '07-bao-cao/thue-tncn-mau-2.html', 'receipt_long'],
+      ['Tổng hợp lương năm', '07-bao-cao/tong-hop-luong-nam.html', 'calendar_month'],
+      ['Nhân sự đi muộn', '07-bao-cao/nhan-su-di-muon.html', 'schedule'],
+      ['Tổng hợp chấm công tháng', '07-bao-cao/tong-hop-cham-cong-thang.html', 'calendar_view_month'],
+      ['Tổng hợp chấm công năm', '07-bao-cao/tong-hop-cham-cong-nam.html', 'date_range'],
+      ['Tổng hợp nghỉ phép năm', '07-bao-cao/tong-hop-nghi-phep-nam.html', 'beach_access'],
+      ['Báo cáo đổi ca', '07-bao-cao/bao-cao-doi-ca.html', 'published_with_changes'],
+      ['Hồ sơ tuyển dụng', '07-bao-cao/bao-cao-ho-so-tuyen-dung.html', 'how_to_reg'],
+      ['NS chưa tham gia đào tạo', '07-bao-cao/ns-chua-tham-gia-dao-tao.html', 'person_alert'],
+      ['NS đã có chứng chỉ', '07-bao-cao/da-co-chung-chi.html', 'verified'],
+      ['Hết hạn chứng chỉ', '07-bao-cao/het-han-chung-chi.html', 'event_busy'],
+      ['Tra cứu học viên', '07-bao-cao/tra-cuu-hoc-vien.html', 'manage_search']
     ]],
     ['DANH MỤC', 'folder_open', [
       ['Địa lý hành chính', '08-danh-muc/dia-ly-hanh-chinh.html', 'map'],
@@ -75,7 +100,10 @@
       ['Loại nghỉ', '08-danh-muc/loai-nghi.html', 'beach_access'],
       ['Loại quyết định', '08-danh-muc/loai-quyet-dinh.html', 'gavel'],
       ['Loại làm thêm', '08-danh-muc/loai-lam-them.html', 'more_time'],
-      ['Ngạch bậc lương', '08-danh-muc/ngach-bac-luong.html', 'stairs']
+      ['Ngạch bậc lương', '08-danh-muc/ngach-bac-luong.html', 'stairs'],
+      ['Bảng lương', '08-danh-muc/danh-muc-bang-luong.html', 'payments'],
+      ['Khu vực', '08-danh-muc/khu-vuc.html', 'map'],
+      ['Bệnh viện (KCB)', '08-danh-muc/benh-vien.html', 'local_hospital']
     ]],
     ['HỆ THỐNG', 'settings', [
       ['Phân quyền người dùng', '09-he-thong/phan-quyen-nguoi-dung.html', 'admin_panel_settings'],
@@ -83,7 +111,13 @@
       ['Nhập dữ liệu Excel', '09-he-thong/nhap-du-lieu-excel.html', 'upload_file'],
       ['Cấu hình hệ thống', '09-he-thong/cau-hinh-he-thong.html', 'settings'],
       ['Nhật ký đăng nhập', '09-he-thong/nhat-ky-dang-nhap.html', 'history'],
-      ['Đổi mật khẩu', '09-he-thong/doi-mat-khau.html', 'lock_reset', ['09-he-thong/doi-mat-khau-B-tren-nen-dashboard.html', '09-he-thong/doi-mat-khau-xac-nhan-2-buoc.html']]
+      ['Nhật ký đổi ca phòng ban', '09-he-thong/nhat-ky-doi-ca-phong-ban.html', 'swap_horiz'],
+      ['Nhật ký đổi ca nhân sự', '09-he-thong/nhat-ky-doi-ca-nhan-su.html', 'sync_alt'],
+      ['Nhật ký đổi mã nhân sự', '09-he-thong/nhat-ky-doi-ma-nhan-su.html', 'tag'],
+      ['Nhật ký chỉnh sửa dữ liệu', '09-he-thong/nhat-ky-chinh-sua-du-lieu.html', 'edit_note'],
+      ['Đổi mật khẩu', '09-he-thong/doi-mat-khau.html', 'lock_reset', ['09-he-thong/doi-mat-khau-B-tren-nen-dashboard.html', '09-he-thong/doi-mat-khau-xac-nhan-2-buoc.html']],
+      ['Mật khẩu kỹ thuật', '09-he-thong/mat-khau-ky-thuat.html', 'key'],
+      ['Mật khẩu xác nhận', '09-he-thong/mat-khau-xac-nhan.html', 'verified_user']
     ]]
   ];
 

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Nhật ký đổi mã nhân sự — PMC HRM</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="../shared/tw-config.js"></script>
+<link rel="stylesheet" href="../shared/nav.css"/>
+<link rel="stylesheet" href="../shared/fix.css"/>
+</head>
+<body class="bg-background font-body-md text-on-surface antialiased">
+<aside id="app-sidebar" data-mode="fixed" data-old-w="256"></aside>
+<div class="pl-64"><div id="page-root"></div></div>
+<script>
+window.HRM_PAGE = {
+  search: "Tìm kiếm nhật ký, mã nhân sự, người thao tác...",
+  breadcrumb: ["Nhật ký", "Đổi mã nhân sự"],
+  title: "Nhật ký đổi mã nhân sự",
+  desc: "Theo dõi lịch sử thay đổi mã nhân sự: mã cũ, mã mới, người thực hiện và thời điểm thao tác, phục vụ tra soát và kiểm toán dữ liệu.",
+  stats: [
+    { label: "Lượt đổi mã trong kỳ", value: "17", sub: "01/11 – 16/11/2026", icon: "badge", tone: "primary" },
+    { label: "Nhân sự liên quan", value: "17", sub: "được cấp mã mới", icon: "groups", tone: "info" },
+    { label: "Người thao tác", value: "3", sub: "quản trị nhân sự", icon: "manage_accounts", tone: "success" },
+    { label: "Đổi trong hôm nay", value: "2", sub: "cập nhật mới nhất", icon: "today", tone: "warning" }
+  ],
+  filters: [
+    { label: "Từ ngày", type: "date", value: "01/11/2026" },
+    { label: "Đến ngày", type: "date", value: "16/11/2026" }
+  ],
+  gear: true,
+  columns: [
+    { title: "STT", field: "stt", align: "center", width: 60 },
+    { title: "Họ và tên", field: "ten", kind: "strong" },
+    { title: "Mã cũ", field: "maCu", kind: "link" },
+    { title: "Mã mới", field: "maMoi", kind: "link" },
+    { title: "Lý do đổi mã", field: "lyDo" },
+    { title: "Người thao tác", field: "nguoi" },
+    { title: "Thời gian", field: "thoiGian", align: "center" }
+  ],
+  rows: [
+    { stt: 1, ten: "Nguyễn Văn An", maCu: "NV0001", maMoi: "PMC00001", lyDo: "Chuẩn hóa mã theo quy định mới", nguoi: "Lê Hoàng Cường", thoiGian: "16/11/2026 08:20" },
+    { stt: 2, ten: "Trần Thị Bình", maCu: "NV0002", maMoi: "PMC00002", lyDo: "Chuẩn hóa mã theo quy định mới", nguoi: "Lê Hoàng Cường", thoiGian: "16/11/2026 08:21" },
+    { stt: 3, ten: "Phạm Thị Dung", maCu: "NV0061", maMoi: "PMC00061", lyDo: "Điều chuyển đơn vị công tác", nguoi: "Nguyễn Văn An", thoiGian: "14/11/2026 10:45" },
+    { stt: 4, ten: "Vũ Thanh Thảo", maCu: "NV0088", maMoi: "PMC00088", lyDo: "Nhập sai mã khi tạo hồ sơ", nguoi: "Nguyễn Văn An", thoiGian: "12/11/2026 15:02" },
+    { stt: 5, ten: "Hoàng Minh Đức", maCu: "NV0132", maMoi: "PMC00132", lyDo: "Chuẩn hóa mã theo quy định mới", nguoi: "Lê Hoàng Cường", thoiGian: "11/11/2026 09:33" },
+    { stt: 6, ten: "Bùi Văn Phong", maCu: "NV0177", maMoi: "PMC00177", lyDo: "Điều chuyển đơn vị công tác", nguoi: "Đặng Quốc Tuấn", thoiGian: "10/11/2026 14:17" }
+  ],
+  total: 17,
+  toolbar: [
+    { label: "Lọc dữ liệu", icon: "filter_alt", kind: "find" },
+    { label: "Xuất Excel", icon: "file_download", kind: "export" }
+  ]
+};
+</script>
+<script src="../shared/page.js"></script>
+<script src="../shared/nav.js"></script>
+</body>
+</html>

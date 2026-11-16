@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Danh mục Video đào tạo — PMC HRM</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="../shared/tw-config.js"></script>
+<link rel="stylesheet" href="../shared/nav.css"/>
+<link rel="stylesheet" href="../shared/fix.css"/>
+</head>
+<body class="bg-background font-body-md text-on-surface antialiased">
+<aside id="app-sidebar" data-mode="fixed" data-old-w="256"></aside>
+<div class="pl-64"><div id="page-root"></div></div>
+<script>
+window.HRM_PAGE = {
+  search: "Tìm kiếm video, lớp đào tạo...",
+  breadcrumb: ["Danh mục", "Video đào tạo"],
+  title: "Danh mục Video đào tạo",
+  desc: "Quản lý thư viện video bài giảng gắn với từng lớp đào tạo, đơn vị và dự án phục vụ học trực tuyến của cán bộ nhân viên PMC.",
+  headerActions: [
+    { label: "Xuất file Excel", icon: "file_download" },
+    { label: "+ Thêm video mới", icon: "add", primary: true }
+  ],
+  stats: [
+    { label: "Tổng video", value: "126", sub: "bài giảng trực tuyến", icon: "smart_display", tone: "primary" },
+    { label: "Lớp có video", value: "34", sub: "lớp đào tạo", icon: "cast_for_education", tone: "info" },
+    { label: "Đơn vị áp dụng", value: "08", sub: "đơn vị thành viên", icon: "apartment", tone: "success" },
+    { label: "Video mới trong tháng", value: "12", sub: "vừa cập nhật", icon: "new_releases", tone: "warning" }
+  ],
+  filters: [
+    { label: "Tìm kiếm", type: "search", placeholder: "Tìm tên video..." },
+    { label: "Đơn vị", type: "select", options: ["Tất cả đơn vị", "BQL Tòa nhà Keangnam", "BQL Tòa Handico", "TTTM Indochina"] },
+    { label: "Lớp đào tạo", type: "select", options: ["Tất cả lớp"] }
+  ],
+  columns: [
+    { title: "STT", field: "stt", align: "center", width: 60 },
+    { title: "Video", field: "video", kind: "link" },
+    { title: "Tên", field: "ten", kind: "strong" },
+    { title: "Lớp đào tạo", field: "lop" },
+    { title: "Đơn vị", field: "donVi" },
+    { title: "Phòng ban/Dự án", field: "pb" },
+    { title: "Thao tác", field: "", kind: "actions", align: "center", actions: ["edit", "delete"] }
+  ],
+  rows: [
+    { stt: 1, video: "Xem video", ten: "Quy trình vận hành hệ thống PCCC toà nhà", lop: "An toàn PCCC cơ bản", donVi: "BQL Tòa nhà Keangnam", pb: "Đội Kỹ thuật - An ninh" },
+    { stt: 2, video: "Xem video", ten: "Kỹ năng chăm sóc khách hàng cư dân", lop: "Nghiệp vụ CSKH", donVi: "BQL Tòa Handico", pb: "Phòng Dịch vụ Khách hàng" },
+    { stt: 3, video: "Xem video", ten: "Hướng dẫn sử dụng phần mềm quản lý toà nhà", lop: "Chuyển đổi số BQL", donVi: "TTTM Indochina", pb: "Phòng Vận hành" },
+    { stt: 4, video: "Xem video", ten: "Vận hành hệ thống điều hoà trung tâm", lop: "Kỹ thuật MEP nâng cao", donVi: "BQL Tòa nhà Keangnam", pb: "Tổ Cơ điện" },
+    { stt: 5, video: "Xem video", ten: "Quy tắc ứng xử và văn hoá PMC", lop: "Hội nhập nhân viên mới", donVi: "Khối Văn phòng", pb: "Phòng Nhân sự" }
+  ],
+  total: 126,
+  toolbar: []
+};
+</script>
+<script src="../shared/page.js"></script>
+<script src="../shared/nav.js"></script>
+</body>
+</html>

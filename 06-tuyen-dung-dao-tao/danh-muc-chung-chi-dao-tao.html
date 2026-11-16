@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Danh mục Chứng chỉ đào tạo — PMC HRM</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="../shared/tw-config.js"></script>
+<link rel="stylesheet" href="../shared/nav.css"/>
+<link rel="stylesheet" href="../shared/fix.css"/>
+</head>
+<body class="bg-background font-body-md text-on-surface antialiased">
+<aside id="app-sidebar" data-mode="fixed" data-old-w="256"></aside>
+<div class="pl-64"><div id="page-root"></div></div>
+<script>
+window.HRM_PAGE = {
+  search: "Tìm kiếm chứng chỉ, nhân sự...",
+  breadcrumb: ["Danh mục", "Chứng chỉ đào tạo"],
+  title: "Danh mục Chứng chỉ đào tạo",
+  desc: "Quản lý văn bằng, chứng chỉ đào tạo của cán bộ nhân viên PMC kèm ngày cấp, thời hạn và nơi lưu trữ phục vụ theo dõi hiệu lực.",
+  headerActions: [
+    { label: "Xuất file Excel", icon: "file_download" },
+    { label: "+ Thêm chứng chỉ mới", icon: "add", primary: true }
+  ],
+  stats: [
+    { label: "Tổng chứng chỉ", value: "312", sub: "văn bằng chứng chỉ", icon: "workspace_premium", tone: "primary" },
+    { label: "Còn hạn", value: "268", sub: "85.9% hiệu lực", icon: "verified", tone: "success" },
+    { label: "Sắp hết hạn (90 ngày)", value: "27", sub: "cần gia hạn", icon: "schedule", tone: "warning" },
+    { label: "Hết hạn", value: "17", sub: "cần cập nhật lại", icon: "error", tone: "danger" }
+  ],
+  filters: [
+    { label: "Tìm kiếm", type: "search", placeholder: "Tìm mã, tên chứng chỉ, nhân sự..." },
+    { label: "Đơn vị", type: "select", options: ["Tất cả đơn vị", "BQL Tòa nhà Keangnam", "BQL Tòa Handico", "TTTM Indochina"] },
+    { label: "Phòng ban/Dự án", type: "select", options: ["Tất cả phòng ban"] },
+    { label: "Trạng thái", type: "select", options: ["Toàn bộ", "Còn hạn", "Hết hạn"] }
+  ],
+  columns: [
+    { title: "STT", field: "stt", align: "center", width: 60 },
+    { title: "Mã chứng chỉ", field: "ma", kind: "link" },
+    { title: "Tên chứng chỉ", field: "ten", kind: "strong" },
+    { title: "Mã PMC", field: "maNS", kind: "link" },
+    { title: "Nhân sự", field: "nhanSu", kind: "strong" },
+    { title: "Đơn vị", field: "donVi" },
+    { title: "Dự án", field: "duAn" },
+    { title: "Ngày cấp", field: "ngayCap" },
+    { title: "Thời hạn", field: "thoiHan" },
+    { title: "Nơi lưu trữ", field: "noiLuuTru" },
+    { title: "Thao tác", field: "", kind: "actions", align: "center" }
+  ],
+  rows: [
+    { stt: 1, ma: "CC0001", ten: "Chứng chỉ huấn luyện An toàn PCCC", maNS: "NV0001", nhanSu: "Nguyễn Văn An", donVi: "BQL Tòa nhà Keangnam", duAn: "Keangnam Landmark", ngayCap: "15/03/2023", thoiHan: "24 tháng", noiLuuTru: "Phòng Nhân sự" },
+    { stt: 2, ma: "CC0002", ten: "Chứng chỉ Vận hành nồi hơi", maNS: "NV0045", nhanSu: "Lê Hoàng Cường", donVi: "BQL Tòa Handico", duAn: "Handico Tower", ngayCap: "02/06/2022", thoiHan: "36 tháng", noiLuuTru: "Phòng Nhân sự" },
+    { stt: 3, ma: "CC0003", ten: "Chứng chỉ Sơ cấp cứu", maNS: "NV0088", nhanSu: "Vũ Thanh Thảo", donVi: "TTTM Indochina", duAn: "Indochina Plaza", ngayCap: "20/11/2023", thoiHan: "12 tháng", noiLuuTru: "Dự án Indochina" },
+    { stt: 4, ma: "CC0004", ten: "Chứng chỉ Quản lý vận hành toà nhà", maNS: "NV0132", nhanSu: "Hoàng Minh Đức", donVi: "BQL Tòa nhà Keangnam", duAn: "Keangnam Landmark", ngayCap: "08/01/2021", thoiHan: "Vô thời hạn", noiLuuTru: "Phòng Nhân sự" },
+    { stt: 5, ma: "CC0005", ten: "Chứng chỉ An toàn điện", maNS: "NV0177", nhanSu: "Bùi Văn Phong", donVi: "BQL Tòa Handico", duAn: "Handico Tower", ngayCap: "12/09/2022", thoiHan: "24 tháng", noiLuuTru: "Tổ Cơ điện" }
+  ],
+  total: 312,
+  toolbar: []
+};
+</script>
+<script src="../shared/page.js"></script>
+<script src="../shared/nav.js"></script>
+</body>
+</html>

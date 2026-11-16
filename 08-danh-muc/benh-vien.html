@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Danh mục Bệnh viện KCB — PMC HRM</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="../shared/tw-config.js"></script>
+<link rel="stylesheet" href="../shared/nav.css"/>
+<link rel="stylesheet" href="../shared/fix.css"/>
+</head>
+<body class="bg-background font-body-md text-on-surface antialiased">
+<aside id="app-sidebar" data-mode="fixed" data-old-w="256"></aside>
+<div class="pl-64"><div id="page-root"></div></div>
+<script>
+window.HRM_PAGE = {
+  search: "Tìm kiếm hồ sơ, nhân sự, danh mục...",
+  breadcrumb: ["Danh mục", "Bệnh viện KCB"],
+  title: "Danh mục Bệnh viện KCB",
+  desc: "Quản lý danh mục các cơ sở y tế, bệnh viện khám chữa bệnh liên kết phục vụ đăng ký nơi khám chữa bệnh ban đầu và giải quyết chế độ bảo hiểm y tế cho cán bộ nhân viên.",
+  stats: [
+    { label: "Tổng bệnh viện KCB", value: "48", sub: "cơ sở liên kết", icon: "local_hospital", tone: "primary" },
+    { label: "Tỉnh/thành phủ sóng", value: "12", sub: "tỉnh/thành phố", icon: "location_city", tone: "info" },
+    { label: "Bệnh viện tuyến TW", value: "06", sub: "tuyến trung ương", icon: "health_and_safety", tone: "success" },
+    { label: "Đang áp dụng", value: "45", sub: "cơ sở hoạt động", icon: "check_circle", tone: "warning" }
+  ],
+  filters: [
+    { label: "Tìm kiếm", type: "search", placeholder: "Tìm theo mã, tên bệnh viện...", width: "w-72" },
+    { label: "Thành phố", type: "select", options: ["Tất cả thành phố", "Hà Nội", "TP. Hồ Chí Minh", "Thanh Hóa", "Đà Nẵng"] }
+  ],
+  gear: true,
+  headerActions: [
+    { label: "Xuất file Excel", icon: "file_download" },
+    { label: "+ Thêm bệnh viện mới", icon: "add", primary: true }
+  ],
+  columns: [
+    { title: "STT", field: "stt", align: "center", width: 60 },
+    { title: "Mã", field: "ma", kind: "link" },
+    { title: "Tên", field: "ten", kind: "strong" },
+    { title: "Thành phố", field: "thanhPho" },
+    { title: "Tuyến", field: "tuyen" },
+    { title: "Địa chỉ", field: "diaChi" },
+    { title: "Trạng thái", field: "trangThai", kind: "toggle", align: "center" },
+    { title: "Thao tác", field: "", kind: "actions", align: "center" }
+  ],
+  rows: [
+    { stt: 1, ma: "BV001", ten: "Bệnh viện Bạch Mai", thanhPho: "Hà Nội", tuyen: "Trung ương", diaChi: "78 Giải Phóng, Đống Đa, Hà Nội", trangThai: true },
+    { stt: 2, ma: "BV002", ten: "Bệnh viện Chợ Rẫy", thanhPho: "TP. Hồ Chí Minh", tuyen: "Trung ương", diaChi: "201B Nguyễn Chí Thanh, Quận 5", trangThai: true },
+    { stt: 3, ma: "BV003", ten: "Bệnh viện Đa khoa Xanh Pôn", thanhPho: "Hà Nội", tuyen: "Tỉnh/Thành phố", diaChi: "12 Chu Văn An, Ba Đình, Hà Nội", trangThai: true },
+    { stt: 4, ma: "BV004", ten: "Bệnh viện Đa khoa tỉnh Thanh Hóa", thanhPho: "Thanh Hóa", tuyen: "Tỉnh/Thành phố", diaChi: "181 Hải Thượng Lãn Ông, TP. Thanh Hóa", trangThai: true },
+    { stt: 5, ma: "BV005", ten: "Bệnh viện E", thanhPho: "Hà Nội", tuyen: "Trung ương", diaChi: "89 Trần Cung, Cầu Giấy, Hà Nội", trangThai: true },
+    { stt: 6, ma: "BV006", ten: "Trung tâm Y tế huyện Gia Lâm", thanhPho: "Hà Nội", tuyen: "Huyện", diaChi: "TT Trâu Quỳ, Gia Lâm, Hà Nội", trangThai: false }
+  ],
+  total: 48
+};
+</script>
+<script src="../shared/page.js"></script>
+<script src="../shared/nav.js"></script>
+</body>
+</html>
