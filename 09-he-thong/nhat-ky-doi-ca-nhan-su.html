@@ -19,9 +19,8 @@
 <script>
 window.HRM_PAGE = {
   search: "Tìm kiếm nhật ký, nhân sự, người thao tác...",
-  breadcrumb: ["Nhật ký", "Đổi ca nhân sự"],
+  breadcrumb: ["Bàn làm việc", "Nhật ký đổi ca nhân sự"],
   title: "Nhật ký đổi ca nhân sự",
-  desc: "Theo dõi lịch sử thay đổi ca làm việc của từng nhân sự: ca cũ, ca mới, người thực hiện điều chỉnh và thời điểm thao tác.",
   stats: [
     { label: "Lượt đổi ca trong kỳ", value: "126", sub: "01/11 – 16/11/2026", icon: "sync_alt", tone: "primary" },
     { label: "Nhân sự liên quan", value: "73", sub: "có thay đổi ca", icon: "groups", tone: "info" },
@@ -35,27 +34,9 @@ window.HRM_PAGE = {
     { label: "Phòng ban/Dự án", type: "select", options: ["Tất cả phòng ban", "Khối Vận hành", "Khối Kỹ thuật", "Tổ Bảo vệ", "Tổ Vệ sinh"] }
   ],
   gear: true,
-  columns: [
-    { title: "STT", field: "stt", align: "center", width: 60 },
-    { title: "Mã NV", field: "ma", kind: "link" },
-    { title: "Họ và tên", field: "ten", kind: "strong" },
-    { title: "Ngày áp dụng", field: "ngay", align: "center" },
-    { title: "Ca cũ", field: "caCu", align: "center", kind: "badge", tones: { "Ca ngày": "bg-sky-50 text-sky-600", "Ca đêm": "bg-indigo-50 text-indigo-600", "Ca gãy": "bg-amber-50 text-amber-600", "Hành chính": "bg-surface-container-high text-on-surface-variant" } },
-    { title: "Ca mới", field: "caMoi", align: "center", kind: "badge", tones: { "Ca ngày": "bg-sky-50 text-sky-600", "Ca đêm": "bg-indigo-50 text-indigo-600", "Ca gãy": "bg-amber-50 text-amber-600", "Hành chính": "bg-surface-container-high text-on-surface-variant" } },
-    { title: "Người thao tác", field: "nguoi" },
-    { title: "Thời gian", field: "thoiGian", align: "center" }
-  ],
-  rows: [
-    { stt: 1, ma: "NV0177", ten: "Bùi Văn Phong", ngay: "16/11/2026", caCu: "Ca ngày", caMoi: "Ca đêm", nguoi: "Đặng Quốc Tuấn", thoiGian: "16/11/2026 07:55" },
-    { stt: 2, ma: "NV0201", ten: "Lý Thu Hà", ngay: "15/11/2026", caCu: "Ca đêm", caMoi: "Hành chính", nguoi: "Ngô Thị Mai", thoiGian: "15/11/2026 13:40" },
-    { stt: 3, ma: "NV0132", ten: "Hoàng Minh Đức", ngay: "14/11/2026", caCu: "Hành chính", caMoi: "Ca gãy", nguoi: "Nguyễn Văn An", thoiGian: "14/11/2026 10:12" },
-    { stt: 4, ma: "NV0045", ten: "Lê Hoàng Cường", ngay: "13/11/2026", caCu: "Ca gãy", caMoi: "Ca ngày", nguoi: "Đặng Quốc Tuấn", thoiGian: "13/11/2026 08:18" },
-    { stt: 5, ma: "NV0088", ten: "Vũ Thanh Thảo", ngay: "12/11/2026", caCu: "Ca ngày", caMoi: "Ca đêm", nguoi: "Bùi Văn Phong", thoiGian: "12/11/2026 16:05" },
-    { stt: 6, ma: "NV0061", ten: "Phạm Thị Dung", ngay: "11/11/2026", caCu: "Ca đêm", caMoi: "Ca ngày", nguoi: "Ngô Thị Mai", thoiGian: "11/11/2026 09:27" }
-  ],
-  total: 126,
+  serverColumns: "NK_DoiCaNhanSu",
   toolbar: [
-    { label: "Lọc dữ liệu", icon: "filter_alt", kind: "find" },
+    { label: "Lọc", icon: "filter_alt", kind: "find" },
     { label: "Xuất Excel", icon: "file_download", kind: "export" }
   ]
 };

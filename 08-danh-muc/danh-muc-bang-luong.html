@@ -21,7 +21,6 @@ window.HRM_PAGE = {
   search: "Tìm kiếm hồ sơ, nhân sự, danh mục...",
   breadcrumb: ["Danh mục", "Bảng lương"],
   title: "Danh mục Bảng lương",
-  desc: "Khai báo và cấu hình các bảng lương, khoản phụ cấp áp dụng theo cấp Đơn vị, Phòng ban/Dự án và Bộ phận, làm cơ sở tính lương và xây dựng cơ cấu thu nhập cho người lao động.",
   stats: [
     { label: "Tổng bảng lương", value: "14", sub: "bảng lương cấu hình", icon: "payments", tone: "primary" },
     { label: "Áp dụng cấp Đơn vị", value: "09", sub: "bảng lương đơn vị", icon: "apartment", tone: "info" },
@@ -29,12 +28,12 @@ window.HRM_PAGE = {
     { label: "Đang áp dụng", value: "12", sub: "bảng lương hoạt động", icon: "check_circle", tone: "warning" }
   ],
   filters: [
-    { label: "Tìm kiếm", type: "search", placeholder: "Tìm theo mã, tên bảng lương...", width: "w-80" }
+    { label: "Tìm kiếm", type: "search", placeholder: "Tìm kiếm", width: "w-80" },
+    { label: "Tình trạng", type: "select", options: ["Toàn bộ", "Đang dùng", "Tạm khóa"] }
   ],
-  gear: true,
+  gear: false,
   headerActions: [
-    { label: "Xuất file Excel", icon: "file_download" },
-    { label: "+ Thêm bảng lương mới", icon: "add", primary: true }
+    { label: "Thêm mới", icon: "add", primary: true }
   ],
   columns: [
     { title: "STT", field: "stt", align: "center", width: 60 },
@@ -43,8 +42,8 @@ window.HRM_PAGE = {
     { title: "Đơn vị", field: "luongDonVi", kind: "toggle", align: "center" },
     { title: "Phòng ban/Dự án", field: "luongPhongBan", kind: "toggle", align: "center" },
     { title: "Bộ phận", field: "luongBoPhan", kind: "toggle", align: "center" },
-    { title: "Trạng thái", field: "trangThai", kind: "toggle", align: "center" },
-    { title: "Thao tác", field: "", kind: "actions", align: "center" }
+    { title: "Tình trạng", field: "trangThai", kind: "toggle", align: "center" },
+    { title: "Chỉnh sửa", field: "", kind: "actions", align: "center", actions: ["edit", "delete"] }
   ],
   rows: [
     { stt: 1, ma: "BL01", ten: "Lương cơ bản theo ngạch bậc", luongDonVi: true, luongPhongBan: false, luongBoPhan: false, trangThai: true },
@@ -55,7 +54,7 @@ window.HRM_PAGE = {
     { stt: 6, ma: "BL06", ten: "Phụ cấp độc hại kỹ thuật", luongDonVi: false, luongPhongBan: true, luongBoPhan: false, trangThai: false }
   ],
   form: {
-    title: "THÊM BẢNG LƯƠNG", saveLabel: "Lưu dữ liệu", wide: false,
+    title: "Thêm mới", saveLabel: "Lưu dữ liệu", wide: false,
     sections: [ { fields: [
       { label: "Mã", type: "text", required: true, span: 1, hint: "Tối đa 50 ký tự" },
       { label: "Tên", type: "text", required: true, span: 3, hint: "Tối đa 100 ký tự" },

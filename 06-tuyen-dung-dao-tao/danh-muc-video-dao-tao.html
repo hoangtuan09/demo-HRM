@@ -19,12 +19,10 @@
 <script>
 window.HRM_PAGE = {
   search: "Tìm kiếm video, lớp đào tạo...",
-  breadcrumb: ["Danh mục", "Video đào tạo"],
-  title: "Danh mục Video đào tạo",
-  desc: "Quản lý thư viện video bài giảng gắn với từng lớp đào tạo, đơn vị và dự án phục vụ học trực tuyến của cán bộ nhân viên PMC.",
+  breadcrumb: ["Bàn làm việc", "Danh mục video đào tạo"],
+  title: "Danh mục video đào tạo",
   headerActions: [
-    { label: "Xuất file Excel", icon: "file_download" },
-    { label: "+ Thêm video mới", icon: "add", primary: true }
+    { label: "Thêm", icon: "add", primary: true }
   ],
   stats: [
     { label: "Tổng video", value: "126", sub: "bài giảng trực tuyến", icon: "smart_display", tone: "primary" },
@@ -33,7 +31,7 @@ window.HRM_PAGE = {
     { label: "Video mới trong tháng", value: "12", sub: "vừa cập nhật", icon: "new_releases", tone: "warning" }
   ],
   filters: [
-    { label: "Tìm kiếm", type: "search", placeholder: "Tìm tên video..." },
+    { label: "Tìm kiếm", type: "search", placeholder: "Tìm kiếm" },
     { label: "Đơn vị", type: "select", options: ["Tất cả đơn vị", "BQL Tòa nhà Keangnam", "BQL Tòa Handico", "TTTM Indochina"] },
     { label: "Lớp đào tạo", type: "select", options: ["Tất cả lớp"] }
   ],
@@ -44,7 +42,7 @@ window.HRM_PAGE = {
     { title: "Lớp đào tạo", field: "lop" },
     { title: "Đơn vị", field: "donVi" },
     { title: "Phòng ban/Dự án", field: "pb" },
-    { title: "Thao tác", field: "", kind: "actions", align: "center", actions: ["edit", "delete"] }
+    { title: "Chỉnh sửa", field: "", kind: "actions", align: "center", actions: ["edit", "delete"] }
   ],
   rows: [
     { stt: 1, video: "Xem video", ten: "Quy trình vận hành hệ thống PCCC toà nhà", lop: "An toàn PCCC cơ bản", donVi: "BQL Tòa nhà Keangnam", pb: "Đội Kỹ thuật - An ninh" },
@@ -54,9 +52,9 @@ window.HRM_PAGE = {
     { stt: 5, video: "Xem video", ten: "Quy tắc ứng xử và văn hoá PMC", lop: "Hội nhập nhân viên mới", donVi: "Khối Văn phòng", pb: "Phòng Nhân sự" }
   ],
   total: 126,
-  toolbar: [],
+  toolbar: [{ label: "Lọc", kind: "find" }],
   form: {
-    title: "THÊM VIDEO ĐÀO TẠO MỚI", saveLabel: "Lưu dữ liệu", wide: false,
+    title: "Thêm mới", saveLabel: "Lưu dữ liệu", wide: false,
     sections: [
       { title: "Thông tin video", fields: [
         { label: "Tên", type: "text", required: true, span: 4 },

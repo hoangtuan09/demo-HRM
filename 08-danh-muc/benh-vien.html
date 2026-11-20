@@ -21,7 +21,6 @@ window.HRM_PAGE = {
   search: "Tìm kiếm hồ sơ, nhân sự, danh mục...",
   breadcrumb: ["Danh mục", "Bệnh viện KCB"],
   title: "Danh mục Bệnh viện KCB",
-  desc: "Quản lý danh mục các cơ sở y tế, bệnh viện khám chữa bệnh liên kết phục vụ đăng ký nơi khám chữa bệnh ban đầu và giải quyết chế độ bảo hiểm y tế cho cán bộ nhân viên.",
   stats: [
     { label: "Tổng bệnh viện KCB", value: "48", sub: "cơ sở liên kết", icon: "local_hospital", tone: "primary" },
     { label: "Tỉnh/thành phủ sóng", value: "12", sub: "tỉnh/thành phố", icon: "location_city", tone: "info" },
@@ -29,13 +28,12 @@ window.HRM_PAGE = {
     { label: "Đang áp dụng", value: "45", sub: "cơ sở hoạt động", icon: "check_circle", tone: "warning" }
   ],
   filters: [
-    { label: "Tìm kiếm", type: "search", placeholder: "Tìm theo mã, tên bệnh viện...", width: "w-72" },
+    { label: "Tìm kiếm", type: "search", placeholder: "Tìm kiếm", width: "w-72" },
     { label: "Thành phố", type: "select", options: ["Tất cả thành phố", "Hà Nội", "TP. Hồ Chí Minh", "Thanh Hóa", "Đà Nẵng"] }
   ],
-  gear: true,
+  gear: false,
   headerActions: [
-    { label: "Xuất file Excel", icon: "file_download" },
-    { label: "+ Thêm bệnh viện mới", icon: "add", primary: true }
+    { label: "Thêm mới", icon: "add", primary: true }
   ],
   columns: [
     { title: "STT", field: "stt", align: "center", width: 60 },
@@ -44,19 +42,18 @@ window.HRM_PAGE = {
     { title: "Thành phố", field: "thanhPho" },
     { title: "Tuyến", field: "tuyen" },
     { title: "Địa chỉ", field: "diaChi" },
-    { title: "Trạng thái", field: "trangThai", kind: "toggle", align: "center" },
-    { title: "Thao tác", field: "", kind: "actions", align: "center" }
+    { title: "Chỉnh sửa", field: "", kind: "actions", align: "center", actions: ["edit", "delete"] }
   ],
   rows: [
-    { stt: 1, ma: "BV001", ten: "Bệnh viện Bạch Mai", thanhPho: "Hà Nội", tuyen: "Trung ương", diaChi: "78 Giải Phóng, Đống Đa, Hà Nội", trangThai: true },
-    { stt: 2, ma: "BV002", ten: "Bệnh viện Chợ Rẫy", thanhPho: "TP. Hồ Chí Minh", tuyen: "Trung ương", diaChi: "201B Nguyễn Chí Thanh, Quận 5", trangThai: true },
-    { stt: 3, ma: "BV003", ten: "Bệnh viện Đa khoa Xanh Pôn", thanhPho: "Hà Nội", tuyen: "Tỉnh/Thành phố", diaChi: "12 Chu Văn An, Ba Đình, Hà Nội", trangThai: true },
-    { stt: 4, ma: "BV004", ten: "Bệnh viện Đa khoa tỉnh Thanh Hóa", thanhPho: "Thanh Hóa", tuyen: "Tỉnh/Thành phố", diaChi: "181 Hải Thượng Lãn Ông, TP. Thanh Hóa", trangThai: true },
-    { stt: 5, ma: "BV005", ten: "Bệnh viện E", thanhPho: "Hà Nội", tuyen: "Trung ương", diaChi: "89 Trần Cung, Cầu Giấy, Hà Nội", trangThai: true },
-    { stt: 6, ma: "BV006", ten: "Trung tâm Y tế huyện Gia Lâm", thanhPho: "Hà Nội", tuyen: "Huyện", diaChi: "TT Trâu Quỳ, Gia Lâm, Hà Nội", trangThai: false }
+    { stt: 1, ma: "BV001", ten: "Bệnh viện Bạch Mai", thanhPho: "Hà Nội", tuyen: "Trung ương", diaChi: "78 Giải Phóng, Đống Đa, Hà Nội" },
+    { stt: 2, ma: "BV002", ten: "Bệnh viện Chợ Rẫy", thanhPho: "TP. Hồ Chí Minh", tuyen: "Trung ương", diaChi: "201B Nguyễn Chí Thanh, Quận 5" },
+    { stt: 3, ma: "BV003", ten: "Bệnh viện Đa khoa Xanh Pôn", thanhPho: "Hà Nội", tuyen: "Tỉnh/Thành phố", diaChi: "12 Chu Văn An, Ba Đình, Hà Nội" },
+    { stt: 4, ma: "BV004", ten: "Bệnh viện Đa khoa tỉnh Thanh Hóa", thanhPho: "Thanh Hóa", tuyen: "Tỉnh/Thành phố", diaChi: "181 Hải Thượng Lãn Ông, TP. Thanh Hóa" },
+    { stt: 5, ma: "BV005", ten: "Bệnh viện E", thanhPho: "Hà Nội", tuyen: "Trung ương", diaChi: "89 Trần Cung, Cầu Giấy, Hà Nội" },
+    { stt: 6, ma: "BV006", ten: "Trung tâm Y tế huyện Gia Lâm", thanhPho: "Hà Nội", tuyen: "Huyện", diaChi: "TT Trâu Quỳ, Gia Lâm, Hà Nội" }
   ],
   form: {
-    title: "THÊM BỆNH VIỆN KCB", saveLabel: "Lưu dữ liệu", wide: false,
+    title: "Thêm mới", saveLabel: "Lưu dữ liệu", wide: false,
     sections: [ { fields: [
       { label: "Mã", type: "text", required: true, span: 1, hint: "Tối đa 10 ký tự" },
       { label: "Tên", type: "text", required: true, span: 3, hint: "Tối đa 100 ký tự" },

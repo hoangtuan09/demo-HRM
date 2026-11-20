@@ -21,7 +21,6 @@ window.HRM_PAGE = {
   search: "Tìm kiếm báo cáo, nhân sự, phòng ban...",
   breadcrumb: ["Báo cáo", "Lương năm"],
   title: "Tổng hợp lương năm",
-  desc: "Tổng hợp thực lĩnh của từng cán bộ nhân viên theo 12 tháng trong năm và tổng cả năm. Cột chi tiết được cấu hình qua nút thiết lập báo cáo.",
   stats: [
     { label: "Tổng quỹ lương năm", value: "24,6 tỷ", sub: "toàn đơn vị năm 2025", icon: "payments", tone: "primary" },
     { label: "Thực lĩnh bình quân", value: "16.020.000", sub: "đồng/người/tháng", icon: "account_balance_wallet", tone: "success" },
@@ -34,33 +33,7 @@ window.HRM_PAGE = {
     { label: "Phòng ban/Dự án", type: "select", options: ["Tất cả phòng ban"] }
   ],
   gear: true,
-  columns: [
-    { title: "STT", field: "stt", align: "center", width: 60 },
-    { title: "Mã NV", field: "ma", kind: "link" },
-    { title: "Họ và tên", field: "ten", kind: "strong" },
-    { title: "Phòng ban/Dự án", field: "pb" },
-    { title: "Tháng 1", field: "t1", align: "right", kind: "money" },
-    { title: "Tháng 2", field: "t2", align: "right", kind: "money" },
-    { title: "Tháng 3", field: "t3", align: "right", kind: "money" },
-    { title: "Tháng 4", field: "t4", align: "right", kind: "money" },
-    { title: "Tháng 5", field: "t5", align: "right", kind: "money" },
-    { title: "Tháng 6", field: "t6", align: "right", kind: "money" },
-    { title: "Tháng 7", field: "t7", align: "right", kind: "money" },
-    { title: "Tháng 8", field: "t8", align: "right", kind: "money" },
-    { title: "Tháng 9", field: "t9", align: "right", kind: "money" },
-    { title: "Tháng 10", field: "t10", align: "right", kind: "money" },
-    { title: "Tháng 11", field: "t11", align: "right", kind: "money" },
-    { title: "Tháng 12", field: "t12", align: "right", kind: "money" },
-    { title: "Cả năm", field: "canam", align: "right", kind: "money" }
-  ],
-  rows: [
-    { stt: 1, ma: "NV0001", ten: "Nguyễn Văn An", pb: "Phòng Kỹ thuật", t1: 22500000, t2: 20800000, t3: 22500000, t4: 22500000, t5: 22500000, t6: 23200000, t7: 22500000, t8: 22500000, t9: 22500000, t10: 22500000, t11: 23200000, t12: 24800000, canam: 272500000 },
-    { stt: 2, ma: "NV0045", ten: "Lê Hoàng Cường", pb: "Phòng Vận hành", t1: 16800000, t2: 15500000, t3: 16800000, t4: 16800000, t5: 16800000, t6: 16800000, t7: 17200000, t8: 16800000, t9: 16800000, t10: 16800000, t11: 17200000, t12: 18500000, canam: 203600000 },
-    { stt: 3, ma: "NV0088", ten: "Vũ Thanh Thảo", pb: "Phòng CSKH", t1: 13200000, t2: 12100000, t3: 13200000, t4: 13200000, t5: 13200000, t6: 13200000, t7: 13200000, t8: 12900000, t9: 13200000, t10: 13200000, t11: 13600000, t12: 15200000, canam: 159600000 },
-    { stt: 4, ma: "NV0132", ten: "Hoàng Minh Đức", pb: "Phòng Lễ tân", t1: 11500000, t2: 10800000, t3: 11500000, t4: 11500000, t5: 11500000, t6: 11800000, t7: 11500000, t8: 11500000, t9: 11500000, t10: 12000000, t11: 12000000, t12: 13500000, canam: 141100000 },
-    { stt: 5, ma: "NV0177", ten: "Bùi Văn Phong", pb: "Phòng An ninh", t1: 12800000, t2: 11900000, t3: 12800000, t4: 12800000, t5: 12800000, t6: 12800000, t7: 12800000, t8: 13100000, t9: 12800000, t10: 12800000, t11: 12400000, t12: 14200000, canam: 154800000 }
-  ],
-  total: 128,
+  serverColumns: "BC_TongHopLuongNam",
   toolbar: [
     { label: "Lọc dữ liệu", icon: "filter_alt", kind: "find" },
     { label: "Xuất Excel", icon: "file_download", kind: "export" },

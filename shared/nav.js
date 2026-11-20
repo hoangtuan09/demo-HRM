@@ -12,15 +12,14 @@
     ]],
     ['NHÂN SỰ', 'groups', [
       ['Danh sách nhân sự', '03-nhan-su/danh-sach-nhan-su.html', 'badge', ['03-nhan-su/ho-so-nhan-su-A-ly-lich.html', '03-nhan-su/ho-so-nhan-su-B-tab-doc-tuong-tac.html', '03-nhan-su/ho-so-nhan-su-C-all-in-one.html']],
-      ['Cơ cấu tổ chức', '03-nhan-su/co-cau-to-chuc.html', 'corporate_fare'],
-      ['Sơ đồ tổ chức', '03-nhan-su/so-do-to-chuc.html', 'account_tree'],
+      ['Danh mục bộ phận', '03-nhan-su/co-cau-to-chuc.html', 'corporate_fare'],
       ['Định biên nhân sự', '03-nhan-su/dinh-bien-nhan-su.html', 'pie_chart'],
       ['Thông tin đơn vị', '03-nhan-su/thong-tin-don-vi.html', 'apartment'],
       ['Hợp đồng lao động', '03-nhan-su/hop-dong-lao-dong.html', 'description'],
       ['Quyết định nhân sự', '03-nhan-su/danh-sach-quyet-dinh.html', 'gavel'],
-      ['Thử thách – Thử việc', '03-nhan-su/thu-thach-thu-viec.html', 'hourglass_empty'],
-      ['Nghỉ việc & bàn giao', '03-nhan-su/nghi-viec-ban-giao.html', 'person_remove'],
-      ['Nghỉ sinh – Thai sản', '03-nhan-su/nghi-sinh-thai-san.html', 'pregnant_woman']
+      ['Thử thách', '03-nhan-su/thu-thach-thu-viec.html', 'hourglass_empty'],
+      ['Nhân sự nghỉ việc', '03-nhan-su/nghi-viec-ban-giao.html', 'person_remove'],
+      ['Nhân sự nghỉ sinh', '03-nhan-su/nghi-sinh-thai-san.html', 'pregnant_woman']
     ]],
     ['XÉT DUYỆT', 'fact_check', [
       ['Tra cứu đề nghị', '03-nhan-su/tra-cuu-de-nghi.html', 'find_in_page'],
@@ -33,15 +32,15 @@
       ['Gán ca làm việc', '04-cham-cong/gan-ca-lam-viec.html', 'schedule'],
       ['Gán địa điểm làm việc', '04-cham-cong/gan-dia-diem-lam-viec.html', 'location_on'],
       ['Chấm công thủ công', '04-cham-cong/cham-cong-thu-cong.html', 'edit_calendar'],
-      ['Đăng ký nghỉ phép', '04-cham-cong/dang-ky-nghi-phep.html', 'beach_access'],
-      ['Làm thêm giờ (OT)', '04-cham-cong/lam-them-gio-ot.html', 'more_time']
+      ['Nhân sự nghỉ phép', '04-cham-cong/dang-ky-nghi-phep.html', 'beach_access'],
+      ['Nhân sự làm thêm giờ', '04-cham-cong/lam-them-gio-ot.html', 'more_time']
     ]],
     ['TIỀN LƯƠNG', 'payments', [
       ['Thông tin lương', '05-luong/thong-tin-luong-ngach-bac.html', 'account_balance_wallet'],
       ['Tham số lương', '05-luong/tham-so-luong.html', 'tune'],
       ['Giảm trừ gia cảnh', '05-luong/giam-tru-gia-canh.html', 'family_restroom'],
       ['Bảng tính lương tháng', '05-luong/bang-tinh-luong-thang.html', 'calculate'],
-      ['In phiếu lương', '05-luong/in-phieu-luong.html', 'receipt_long'],
+      ['In bảng lương', '05-luong/in-phieu-luong.html', 'receipt_long'],
       ['Tổng hợp chi phí', '05-luong/tong-hop-chi-phi.html', 'savings']
     ]],
     ['TUYỂN DỤNG & ĐÀO TẠO', 'school', [
@@ -49,9 +48,9 @@
       ['Hồ sơ ứng viên', '06-tuyen-dung-dao-tao/ho-so-ung-vien-pipeline.html', 'person_search'],
       ['Lớp đào tạo', '06-tuyen-dung-dao-tao/lop-dao-tao.html', 'cast_for_education'],
       ['Lịch đào tạo', '06-tuyen-dung-dao-tao/lich-dao-tao.html', 'event'],
-      ['Thông báo chiêu sinh', '06-tuyen-dung-dao-tao/thong-bao-chieu-sinh.html', 'campaign'],
-      ['Đăng ký đào tạo', '06-tuyen-dung-dao-tao/dang-ky-xet-duyet-dao-tao.html', 'how_to_reg'],
-      ['Khung đào tạo theo chức danh', '06-tuyen-dung-dao-tao/khung-dao-tao-theo-chuc-danh.html', 'account_tree'],
+      ['Thông báo đào tạo', '06-tuyen-dung-dao-tao/thong-bao-chieu-sinh.html', 'campaign'],
+      ['Nhân sự đăng ký đào tạo', '06-tuyen-dung-dao-tao/dang-ky-xet-duyet-dao-tao.html', 'how_to_reg'],
+      ['Nội dung đào tạo chức vụ', '06-tuyen-dung-dao-tao/khung-dao-tao-theo-chuc-danh.html', 'account_tree'],
       ['DM Giảng viên', '06-tuyen-dung-dao-tao/danh-muc-giang-vien.html', 'record_voice_over'],
       ['DM Khóa đào tạo', '06-tuyen-dung-dao-tao/danh-muc-khoa-dao-tao.html', 'menu_book'],
       ['DM Chứng chỉ đào tạo', '06-tuyen-dung-dao-tao/danh-muc-chung-chi-dao-tao.html', 'workspace_premium'],
@@ -100,15 +99,15 @@
       ['Loại nghỉ', '08-danh-muc/loai-nghi.html', 'beach_access'],
       ['Loại quyết định', '08-danh-muc/loai-quyet-dinh.html', 'gavel'],
       ['Loại làm thêm', '08-danh-muc/loai-lam-them.html', 'more_time'],
-      ['Ngạch bậc lương', '08-danh-muc/ngach-bac-luong.html', 'stairs'],
+      ['Ngạch lương', '08-danh-muc/ngach-bac-luong.html', 'stairs'],
       ['Bảng lương', '08-danh-muc/danh-muc-bang-luong.html', 'payments'],
       ['Khu vực', '08-danh-muc/khu-vuc.html', 'map'],
       ['Bệnh viện (KCB)', '08-danh-muc/benh-vien.html', 'local_hospital']
     ]],
     ['HỆ THỐNG', 'settings', [
       ['Phân quyền người dùng', '09-he-thong/phan-quyen-nguoi-dung.html', 'admin_panel_settings'],
-      ['Quản lý thông báo', '09-he-thong/quan-ly-thong-bao.html', 'notifications'],
-      ['Nhập dữ liệu Excel', '09-he-thong/nhap-du-lieu-excel.html', 'upload_file'],
+      ['Thông báo', '09-he-thong/quan-ly-thong-bao.html', 'notifications'],
+      ['Import Data từ Excel', '09-he-thong/nhap-du-lieu-excel.html', 'upload_file'],
       ['Cấu hình hệ thống', '09-he-thong/cau-hinh-he-thong.html', 'settings'],
       ['Nhật ký đăng nhập', '09-he-thong/nhat-ky-dang-nhap.html', 'history'],
       ['Nhật ký đổi ca phòng ban', '09-he-thong/nhat-ky-doi-ca-phong-ban.html', 'swap_horiz'],

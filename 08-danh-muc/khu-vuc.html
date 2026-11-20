@@ -21,7 +21,6 @@ window.HRM_PAGE = {
   search: "Tìm kiếm hồ sơ, nhân sự, danh mục...",
   breadcrumb: ["Danh mục", "Khu vực"],
   title: "Danh mục Khu vực",
-  desc: "Quản lý danh mục khu vực làm việc theo từng đơn vị trực thuộc, phục vụ phân vùng chấm công, bố trí nhân sự và quản lý tác nghiệp tại các tòa nhà, dự án.",
   stats: [
     { label: "Tổng khu vực", value: "36", sub: "khu vực quản lý", icon: "map", tone: "primary" },
     { label: "Theo đơn vị", value: "08", sub: "đơn vị trực thuộc", icon: "apartment", tone: "info" },
@@ -29,21 +28,21 @@ window.HRM_PAGE = {
     { label: "Ngừng dùng", value: "03", sub: "tạm ngưng", icon: "pause_circle", tone: "danger" }
   ],
   filters: [
-    { label: "Tìm kiếm", type: "search", placeholder: "Tìm theo mã, tên khu vực...", width: "w-72" },
+    { label: "Tìm kiếm", type: "search", placeholder: "Tìm kiếm", width: "w-72" },
+    { label: "Tình trạng", type: "select", options: ["Toàn bộ", "Đang dùng", "Tạm khóa"] },
     { label: "Đơn vị", type: "select", options: ["Tất cả đơn vị", "BQL Tòa nhà Keangnam", "BQL Tòa Handico", "TTTM Indochina"] }
   ],
-  gear: true,
+  gear: false,
   headerActions: [
-    { label: "Xuất file Excel", icon: "file_download" },
-    { label: "+ Thêm khu vực mới", icon: "add", primary: true }
+    { label: "Thêm mới", icon: "add", primary: true }
   ],
   columns: [
     { title: "STT", field: "stt", align: "center", width: 60 },
     { title: "Mã", field: "ma", kind: "link" },
     { title: "Tên", field: "ten", kind: "strong" },
     { title: "Đơn vị", field: "donVi" },
-    { title: "Trạng thái", field: "trangThai", kind: "toggle", align: "center" },
-    { title: "Thao tác", field: "", kind: "actions", align: "center" }
+    { title: "Tình trạng", field: "trangThai", kind: "toggle", align: "center" },
+    { title: "Chỉnh sửa", field: "", kind: "actions", align: "center", actions: ["edit", "delete"] }
   ],
   rows: [
     { stt: 1, ma: "KV01", ten: "Khu vực Sảnh chính & Lễ tân", donVi: "BQL Tòa nhà Keangnam", trangThai: true },
@@ -54,7 +53,7 @@ window.HRM_PAGE = {
     { stt: 6, ma: "KV06", ten: "Khu vực Cảnh quan ngoài trời", donVi: "BQL Tòa nhà Keangnam", trangThai: false }
   ],
   form: {
-    title: "THÊM KHU VỰC", saveLabel: "Lưu dữ liệu", wide: false,
+    title: "Thêm mới", saveLabel: "Lưu dữ liệu", wide: false,
     sections: [ { fields: [
       { label: "Mã", type: "text", required: true, span: 1, hint: "Tối đa 10 ký tự" },
       { label: "Tên", type: "text", required: true, span: 3, hint: "Tối đa 50 ký tự" },

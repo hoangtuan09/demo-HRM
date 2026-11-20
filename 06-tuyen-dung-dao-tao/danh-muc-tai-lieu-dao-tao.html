@@ -19,12 +19,10 @@
 <script>
 window.HRM_PAGE = {
   search: "Tìm kiếm tài liệu, lớp đào tạo...",
-  breadcrumb: ["Danh mục", "Tài liệu đào tạo"],
-  title: "Danh mục Tài liệu đào tạo",
-  desc: "Quản lý kho tài liệu, giáo trình đính kèm theo từng lớp đào tạo của PMC để cán bộ nhân viên tải xuống và tham khảo.",
+  breadcrumb: ["Bàn làm việc", "Danh mục tài liệu đào tạo"],
+  title: "Danh mục tài liệu đào tạo",
   headerActions: [
-    { label: "Xuất file Excel", icon: "file_download" },
-    { label: "+ Thêm tài liệu mới", icon: "add", primary: true }
+    { label: "Thêm", icon: "add", primary: true }
   ],
   stats: [
     { label: "Tổng tài liệu", value: "184", sub: "tài liệu đào tạo", icon: "folder_copy", tone: "primary" },
@@ -33,7 +31,7 @@ window.HRM_PAGE = {
     { label: "Tài liệu khác", value: "63", sub: "Word, Excel, Slide...", icon: "description", tone: "success" }
   ],
   filters: [
-    { label: "Tìm kiếm", type: "search", placeholder: "Tìm tên tài liệu..." },
+    { label: "Tìm kiếm", type: "search", placeholder: "Tìm kiếm" },
     { label: "Đơn vị", type: "select", options: ["Tất cả đơn vị", "BQL Tòa nhà Keangnam", "BQL Tòa Handico", "TTTM Indochina"] },
     { label: "Lớp đào tạo", type: "select", options: ["Tất cả lớp"] }
   ],
@@ -42,7 +40,7 @@ window.HRM_PAGE = {
     { title: "Tên", field: "ten", kind: "strong" },
     { title: "Lớp đào tạo", field: "lop" },
     { title: "Dạng tài liệu", field: "dang", kind: "badge", tones: { "PDF": "bg-red-50 text-red-600", "Word": "bg-sky-50 text-sky-600", "Excel": "bg-emerald-50 text-emerald-600", "PowerPoint": "bg-amber-50 text-amber-600" } },
-    { title: "Thao tác", field: "", kind: "actions", align: "center", actions: ["download", "edit", "delete"] }
+    { title: "Chỉnh sửa", field: "", kind: "actions", align: "center", actions: ["download", "edit", "delete"] }
   ],
   rows: [
     { stt: 1, ten: "Giáo trình An toàn PCCC toà nhà cao tầng", lop: "An toàn PCCC cơ bản", dang: "PDF" },
@@ -52,14 +50,14 @@ window.HRM_PAGE = {
     { stt: 5, ten: "Sổ tay vận hành toà nhà thương mại", lop: "Chuyển đổi số BQL", dang: "PDF" }
   ],
   total: 184,
-  toolbar: [],
+  toolbar: [{ label: "Lọc", kind: "find" }],
   form: {
-    title: "THÊM TÀI LIỆU ĐÀO TẠO MỚI", saveLabel: "Lưu dữ liệu", wide: false,
+    title: "Thêm mới", saveLabel: "Lưu dữ liệu", wide: false,
     sections: [
       { title: "Thông tin tài liệu", fields: [
         { label: "Lớp đào tạo", type: "select", required: true, options: ["Chọn lớp đào tạo", "Lớp An toàn PCCC K12", "Lớp Vận hành MEP K05", "Lớp Sơ cấp cứu K03"], span: 2 },
         { label: "Tên tài liệu", type: "text", required: true, span: 2 },
-        { label: "Tệp tài liệu", type: "file", span: 3, hint: "Chấp nhận: .xlsx, .xls, .doc, .docx, .ppt, .pptx, .txt, .pdf" },
+        { label: "Tệp tài liệu", type: "file", span: 3 },
         { label: "Vị trí", type: "number", span: 1 }
       ] }
     ]

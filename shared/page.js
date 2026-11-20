@@ -80,6 +80,13 @@
 
   /* ---------- Bảng dữ liệu ---------- */
   function table() {
+    // Báo cáo mà cột do server sinh từ cấu hình (HT_SQL) → không có cột trong mã nguồn, không dựng cột "đại diện"
+    if (P.serverColumns) {
+      return '<div class="bg-surface-container-lowest rounded-xl border border-dashed border-outline-variant shadow-sm px-space-lg py-12 flex flex-col items-center text-center gap-3">' +
+        '<span class="w-14 h-14 rounded-xl bg-primary-container/10 text-primary flex items-center justify-center">' + icon('table_chart', 'text-[30px]') + '</span>' +
+        '<div class="font-headline-sm text-headline-sm text-on-surface">Bảng kết quả báo cáo</div>' +
+        '<p class="max-w-xl font-body-sm text-body-sm text-on-surface-variant">Bảng được hiển thị sau khi lọc dữ liệu. Các cột của báo cáo này do cấu hình báo cáo (mã <b class="text-on-surface">' + esc(P.serverColumns) + '</b>) sinh ra từ cơ sở dữ liệu, không nằm trong mã nguồn nên chưa vẽ cột mẫu.</p></div>';
+    }
     var cols = P.columns || [];
     var hasGroup = cols.some(function (c) { return c.group; });
     var thCls = 'px-3 py-2.5 font-label-sm text-label-sm uppercase tracking-wide text-on-surface-variant whitespace-nowrap bg-surface-container-low';

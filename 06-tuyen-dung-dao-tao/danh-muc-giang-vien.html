@@ -19,12 +19,10 @@
 <script>
 window.HRM_PAGE = {
   search: "Tìm kiếm giảng viên, mã, CCCD...",
-  breadcrumb: ["Danh mục", "Giảng viên"],
-  title: "Danh mục Giảng viên",
-  desc: "Quản lý danh sách giảng viên nội bộ và giảng viên thuê ngoài phục vụ các lớp đào tạo của PMC, kèm thông tin định danh và nơi công tác.",
+  breadcrumb: ["Bàn làm việc", "Danh mục giảng viên"],
+  title: "Danh mục giảng viên",
   headerActions: [
-    { label: "Xuất file Excel", icon: "file_download" },
-    { label: "+ Thêm giảng viên mới", icon: "add", primary: true }
+    { label: "Thêm mới", icon: "add", primary: true }
   ],
   stats: [
     { label: "Tổng giảng viên", value: "48", sub: "đang quản lý", icon: "school", tone: "primary" },
@@ -33,21 +31,21 @@ window.HRM_PAGE = {
     { label: "Đang hoạt động", value: "45", sub: "sẵn sàng giảng dạy", icon: "check_circle", tone: "warning" }
   ],
   filters: [
-    { label: "Tìm kiếm", type: "search", placeholder: "Tìm mã, tên giảng viên..." },
+    { label: "Tìm kiếm", type: "search", placeholder: "Tìm kiếm" },
     { label: "Giảng viên", type: "select", options: ["Tất cả", "Giảng viên nội bộ", "Giảng viên thuê ngoài"] }
   ],
   columns: [
     { title: "STT", field: "stt", align: "center", width: 60 },
     { title: "Mã", field: "ma", kind: "link" },
-    { title: "Họ và tên", field: "ten", kind: "strong" },
+    { title: "Tên", field: "ten", kind: "strong" },
     { title: "GV NB/Ngoài", field: "loai", kind: "badge", tones: { "Nội bộ": "bg-sky-50 text-sky-600", "Thuê ngoài": "bg-emerald-50 text-emerald-600" } },
     { title: "Ngày sinh", field: "ngaySinh" },
     { title: "Giới tính", field: "gioiTinh" },
     { title: "CCCD", field: "cccd", kind: "link" },
     { title: "Nơi công tác", field: "noiCT" },
     { title: "Chức vụ", field: "chucVu" },
-    { title: "Trạng thái", field: "trangThai", kind: "toggle", align: "center" },
-    { title: "Thao tác", field: "", kind: "actions", align: "center" }
+    { title: "Tình trạng", field: "trangThai", kind: "toggle", align: "center" },
+    { title: "Chỉnh sửa", field: "", kind: "actions", align: "center", actions: ["edit", "delete"] }
   ],
   rows: [
     { stt: 1, ma: "GV001", ten: "Nguyễn Văn Thành", loai: "Nội bộ", ngaySinh: "12/04/1980", gioiTinh: "Nam", cccd: "001080012345", noiCT: "Khối Đào tạo PMC", chucVu: "Trưởng phòng Đào tạo", trangThai: true },
@@ -59,7 +57,7 @@ window.HRM_PAGE = {
   total: 48,
   toolbar: [],
   form: {
-    title: "THÊM GIẢNG VIÊN MỚI", saveLabel: "Lưu dữ liệu", wide: false,
+    title: "Thêm mới", saveLabel: "Lưu dữ liệu", wide: false,
     sections: [
       { title: "Thông tin giảng viên", fields: [
         { label: "Mã", type: "text", required: true, span: 1, hint: "Tối đa 10 ký tự" },

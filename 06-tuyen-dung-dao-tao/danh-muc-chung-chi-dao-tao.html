@@ -19,12 +19,10 @@
 <script>
 window.HRM_PAGE = {
   search: "Tìm kiếm chứng chỉ, nhân sự...",
-  breadcrumb: ["Danh mục", "Chứng chỉ đào tạo"],
-  title: "Danh mục Chứng chỉ đào tạo",
-  desc: "Quản lý văn bằng, chứng chỉ đào tạo của cán bộ nhân viên PMC kèm ngày cấp, thời hạn và nơi lưu trữ phục vụ theo dõi hiệu lực.",
+  breadcrumb: ["Bàn làm việc", "Danh mục chứng chỉ đào tạo"],
+  title: "Danh mục chứng chỉ đào tạo",
   headerActions: [
-    { label: "Xuất file Excel", icon: "file_download" },
-    { label: "+ Thêm chứng chỉ mới", icon: "add", primary: true }
+    { label: "Thêm mới", icon: "add", primary: true }
   ],
   stats: [
     { label: "Tổng chứng chỉ", value: "312", sub: "văn bằng chứng chỉ", icon: "workspace_premium", tone: "primary" },
@@ -33,10 +31,13 @@ window.HRM_PAGE = {
     { label: "Hết hạn", value: "17", sub: "cần cập nhật lại", icon: "error", tone: "danger" }
   ],
   filters: [
-    { label: "Tìm kiếm", type: "search", placeholder: "Tìm mã, tên chứng chỉ, nhân sự..." },
+    { label: "Tìm kiếm", type: "search", placeholder: "Tìm kiếm" },
     { label: "Đơn vị", type: "select", options: ["Tất cả đơn vị", "BQL Tòa nhà Keangnam", "BQL Tòa Handico", "TTTM Indochina"] },
     { label: "Phòng ban/Dự án", type: "select", options: ["Tất cả phòng ban"] },
-    { label: "Trạng thái", type: "select", options: ["Toàn bộ", "Còn hạn", "Hết hạn"] }
+    { label: "Lọc ngày", type: "select", options: ["Không", "Có"] },
+    { label: "Từ", type: "date" },
+    { label: "Đến", type: "date" },
+    { label: "Hạn VBCC còn lại", type: "date", value: "", width: "w-28" }
   ],
   columns: [
     { title: "STT", field: "stt", align: "center", width: 60 },
@@ -49,7 +50,7 @@ window.HRM_PAGE = {
     { title: "Ngày cấp", field: "ngayCap" },
     { title: "Thời hạn", field: "thoiHan" },
     { title: "Nơi lưu trữ", field: "noiLuuTru" },
-    { title: "Thao tác", field: "", kind: "actions", align: "center" }
+    { title: "Chỉnh sửa", field: "", kind: "actions", align: "center" }
   ],
   rows: [
     { stt: 1, ma: "CC0001", ten: "Chứng chỉ huấn luyện An toàn PCCC", maNS: "NV0001", nhanSu: "Nguyễn Văn An", donVi: "BQL Tòa nhà Keangnam", duAn: "Keangnam Landmark", ngayCap: "15/03/2023", thoiHan: "24 tháng", noiLuuTru: "Phòng Nhân sự" },
@@ -59,9 +60,9 @@ window.HRM_PAGE = {
     { stt: 5, ma: "CC0005", ten: "Chứng chỉ An toàn điện", maNS: "NV0177", nhanSu: "Bùi Văn Phong", donVi: "BQL Tòa Handico", duAn: "Handico Tower", ngayCap: "12/09/2022", thoiHan: "24 tháng", noiLuuTru: "Tổ Cơ điện" }
   ],
   total: 312,
-  toolbar: [],
+  toolbar: [{ label: "Lọc", kind: "find" }, { label: "Đồng bộ", kind: "secondary" }],
   form: {
-    title: "THÊM CHỨNG CHỈ ĐÀO TẠO MỚI", saveLabel: "Lưu dữ liệu",
+    title: "Thêm mới", saveLabel: "Lưu dữ liệu",
     sections: [
       { title: "Thông tin nhân sự", fields: [
         { label: "Mã nhân sự", type: "text", required: true, span: 1 },

@@ -21,7 +21,6 @@ window.HRM_PAGE = {
   search: "Tìm kiếm báo cáo, nhân sự, phòng ban...",
   breadcrumb: ["Báo cáo", "Tình trạng hôn nhân"],
   title: "Báo cáo tình trạng hôn nhân",
-  desc: "Thống kê phân bố cán bộ nhân viên theo tình trạng hôn nhân (đã lập gia đình / chưa lập gia đình) theo đơn vị, phòng ban và bộ phận.",
   stats: [
     { label: "Tổng cán bộ nhân viên", value: "428", sub: "đang công tác", icon: "groups", tone: "primary" },
     { label: "Đã lập gia đình", value: "271", sub: "63.3% tổng số", icon: "favorite", tone: "success" },
@@ -35,22 +34,7 @@ window.HRM_PAGE = {
     { label: "Bộ phận", type: "select", options: ["Tất cả bộ phận"] }
   ],
   gear: true,
-  columns: [
-    { title: "STT", field: "stt", align: "center", width: 60 },
-    { title: "Tiêu chí", field: "tc", kind: "strong" },
-    { title: "Đơn vị", field: "dv" },
-    { title: "Số lượng", field: "sl", align: "right" },
-    { title: "Tỷ lệ %", field: "tl", align: "right", kind: "badge", tones: { } }
-  ],
-  rows: [
-    { stt: 1, tc: "Đã lập gia đình", dv: "BQL Tòa nhà Keangnam", sl: 96, tl: "64.0%" },
-    { stt: 2, tc: "Chưa lập gia đình", dv: "BQL Tòa nhà Keangnam", sl: 54, tl: "36.0%" },
-    { stt: 3, tc: "Đã lập gia đình", dv: "BQL Tòa Handico", sl: 78, tl: "61.9%" },
-    { stt: 4, tc: "Chưa lập gia đình", dv: "BQL Tòa Handico", sl: 48, tl: "38.1%" },
-    { stt: 5, tc: "Đã lập gia đình", dv: "TTTM Indochina", sl: 97, tl: "64.2%" },
-    { stt: 6, tc: "Chưa lập gia đình", dv: "TTTM Indochina", sl: 55, tl: "35.8%" }
-  ],
-  total: 12,
+  serverColumns: "BC_TinhTrangHonNhan",
   toolbar: [
     { label: "Lọc dữ liệu", icon: "filter_alt", kind: "find" },
     { label: "Xuất Excel", icon: "file_download", kind: "export" },

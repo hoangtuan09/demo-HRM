@@ -21,7 +21,6 @@ window.HRM_PAGE = {
   search: "Tìm kiếm báo cáo, nhân sự, phòng ban...",
   breadcrumb: ["Báo cáo", "Hết hạn BHYT"],
   title: "Báo cáo hết hạn bảo hiểm y tế",
-  desc: "Danh sách cán bộ nhân viên có thẻ bảo hiểm y tế hết hạn trong tháng được chọn, phục vụ gia hạn và cấp lại thẻ BHYT.",
   stats: [
     { label: "Thẻ hết hạn trong tháng", value: "23", sub: "cần gia hạn", icon: "event_busy", tone: "danger" },
     { label: "Đã gia hạn", value: "9", sub: "39.1% danh sách", icon: "task_alt", tone: "success" },
@@ -36,25 +35,7 @@ window.HRM_PAGE = {
     { label: "Bộ phận", type: "select", options: ["Tất cả bộ phận"] }
   ],
   gear: true,
-  columns: [
-    { title: "STT", field: "stt", align: "center", width: 60 },
-    { title: "Mã NV", field: "ma", kind: "link" },
-    { title: "Họ và tên", field: "ten", kind: "strong" },
-    { title: "Phòng ban / Dự án", field: "pb" },
-    { title: "Số thẻ BHYT", field: "sothe", kind: "link" },
-    { title: "Nơi đăng ký KCB", field: "noikcb" },
-    { title: "Ngày hết hạn", field: "ngayhh" },
-    { title: "Số ngày còn lại", field: "conlai", align: "center" },
-    { title: "Trạng thái", field: "tt", align: "center", kind: "badge", tones: { "Đã gia hạn": "bg-emerald-50 text-emerald-600", "Chưa gia hạn": "bg-amber-50 text-amber-600", "Đã hết hạn": "bg-red-50 text-red-600" } }
-  ],
-  rows: [
-    { stt: 1, ma: "NV0012", ten: "Nguyễn Văn Hùng", pb: "BQL Tòa nhà Keangnam", sothe: "DN4010112345678", noikcb: "BV Bạch Mai", ngayhh: "15/11/2025", conlai: "-1", tt: "Đã hết hạn" },
-    { stt: 2, ma: "NV0048", ten: "Trần Thị Hồng", pb: "Phòng Kế toán", sothe: "DN4010198765432", noikcb: "BV Thanh Nhàn", ngayhh: "22/11/2025", conlai: "6", tt: "Chưa gia hạn" },
-    { stt: 3, ma: "NV0103", ten: "Lê Minh Khôi", pb: "Khối Vận hành", sothe: "DN4010155667788", noikcb: "BV Đống Đa", ngayhh: "28/11/2025", conlai: "12", tt: "Chưa gia hạn" },
-    { stt: 4, ma: "NV0127", ten: "Phạm Thu Trang", pb: "BQL Tòa Handico", sothe: "DN4010122334455", noikcb: "BV Xanh Pôn", ngayhh: "30/11/2025", conlai: "14", tt: "Đã gia hạn" },
-    { stt: 5, ma: "NV0165", ten: "Đỗ Quang Vinh", pb: "TTTM Indochina", sothe: "DN4010177889900", noikcb: "BV E Hà Nội", ngayhh: "25/11/2025", conlai: "9", tt: "Chưa gia hạn" }
-  ],
-  total: 23,
+  serverColumns: "BC_HetHanBaoHiemYTe",
   toolbar: [
     { label: "Lọc dữ liệu", icon: "filter_alt", kind: "find" },
     { label: "Xuất Excel", icon: "file_download", kind: "export" },

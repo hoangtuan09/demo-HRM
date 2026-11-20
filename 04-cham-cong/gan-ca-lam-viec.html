@@ -2,525 +2,54 @@
 
 <html lang="vi"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "on-error": "#ffffff", "on-primary-container": "#d6e5ff", "on-primary-fixed-variant": "#004883", "primary-container": "#1967b2", "inverse-surface": "#2d3133", "secondary": "#515f74", "primary": "#004f8f", "on-surface": "#191c1e", "surface-tint": "#0660aa", "tertiary-container": "#006c9b", "on-primary-fixed": "#001c39", "error": "#ba1a1a", "surface-bright": "#f7f9fc", "on-tertiary-fixed": "#001e2f", "surface-container-lowest": "#ffffff", "surface-variant": "#e0e3e6", "surface-container-high": "#e6e8eb", "on-background": "#191c1e", "inverse-on-surface": "#eff1f4", "tertiary-fixed": "#c9e6ff", "tertiary": "#005378", "secondary-container": "#d5e3fc", "outline": "#727782", "secondary-fixed": "#d5e3fc", "on-tertiary-container": "#cbe7ff", "on-secondary-container": "#57657a", "on-surface-variant": "#414751", "surface": "#f7f9fc", "primary-fixed": "#d4e3ff", "on-secondary-fixed-variant": "#3a485b", "surface-container-highest": "#e0e3e6", "on-error-container": "#93000a", "outline-variant": "#c1c7d3", "secondary-fixed-dim": "#b9c7df", "on-secondary": "#ffffff", "on-tertiary": "#ffffff", "surface-container-low": "#f2f4f7", "on-tertiary-fixed-variant": "#004c6e", "primary-fixed-dim": "#a4c9ff", "error-container": "#ffdad6", "tertiary-fixed-dim": "#89ceff", "surface-dim": "#d8dadd", "surface-container": "#eceef1", "on-primary": "#ffffff", "background": "#f7f9fc", "on-secondary-fixed": "#0d1c2e", "inverse-primary": "#a4c9ff" }, "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, "spacing": { "space-md": "1rem", "space-lg": "1.5rem", "gutter": "1.5rem", "gutter-mobile": "0.75rem", "space-xl": "2rem", "margin": "1.5rem", "space-xs": "0.25rem", "space-sm": "0.5rem", "margin-mobile": "1rem" }, "fontFamily": { "body-lg": ["Be Vietnam Pro"], "headline-sm": ["Be Vietnam Pro"], "caption": ["Be Vietnam Pro"], "headline-lg-mobile": ["Be Vietnam Pro"], "label-md": ["Be Vietnam Pro"], "body-md": ["Be Vietnam Pro"], "mono-num": ["Be Vietnam Pro"], "body-md-medium": ["Be Vietnam Pro"], "body-sm": ["Be Vietnam Pro"], "headline-lg": ["Be Vietnam Pro"], "headline-md": ["Be Vietnam Pro"], "label-sm": ["Be Vietnam Pro"], "display": ["Be Vietnam Pro"] }, "fontSize": { "body-lg": ["15px", { "lineHeight": "22px", "letterSpacing": "0", "fontWeight": "400" }], "headline-sm": ["16px", { "lineHeight": "22px", "letterSpacing": "0", "fontWeight": "600" }], "caption": ["12px", { "lineHeight": "16px", "letterSpacing": "0", "fontWeight": "400" }], "headline-lg-mobile": ["20px", { "lineHeight": "26px", "letterSpacing": "-0.01em", "fontWeight": "600" }], "label-md": ["13px", { "lineHeight": "16px", "letterSpacing": "0.01em", "fontWeight": "500" }], "body-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0", "fontWeight": "400" }], "mono-num": ["14px", { "lineHeight": "20px", "letterSpacing": "0", "fontWeight": "500" }], "body-md-medium": ["14px", { "lineHeight": "20px", "letterSpacing": "0", "fontWeight": "500" }], "body-sm": ["13px", { "lineHeight": "18px", "letterSpacing": "0", "fontWeight": "400" }], "headline-lg": ["22px", { "lineHeight": "28px", "letterSpacing": "-0.015em", "fontWeight": "600" }], "headline-md": ["18px", { "lineHeight": "24px", "letterSpacing": "-0.01em", "fontWeight": "600" }], "label-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "500" }], "display": ["28px", { "lineHeight": "36px", "letterSpacing": "-0.02em", "fontWeight": "600" }] } } } };</script><link rel="stylesheet" href="../shared/nav.css"/><link rel="stylesheet" href="../shared/fix.css"/></head><body class="bg-surface font-body-md text-on-surface antialiased"><header class="fixed top-0 left-0 right-0 h-16 bg-surface-container-lowest/90 backdrop-blur-md shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-50 flex items-center justify-between px-6"><div class="flex items-center gap-4 w-72"><div class="flex flex-col"><span class="font-headline-sm text-headline-sm text-primary tracking-tight">HRM</span><span class="font-caption text-caption text-on-surface-variant leading-none">Enterprise Suite</span></div></div><div class="flex-1 max-w-2xl px-4"><div class="relative flex items-center w-full"><span class="material-symbols-outlined absolute left-3 text-outline text-[20px]">search</span><input class="w-full pl-10 pr-4 py-2 bg-surface-container-low text-on-surface placeholder:text-outline rounded-lg text-body-md font-body-md focus:outline-none focus:bg-surface-container-lowest transition-colors" placeholder="Tìm kiếm nhân sự, mã NV, phòng ban..." type="text"/></div></div><div class="flex items-center gap-4"><button class="relative p-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" type="button"><span class="material-symbols-outlined text-[22px]">notifications</span><span class="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-error ring-2 ring-surface-container-lowest"></span></button><button class="p-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" type="button"><span class="material-symbols-outlined text-[22px]">help</span></button><div class="h-6 w-[1px] bg-outline-variant/40"></div><div class="flex items-center gap-3 pl-1"><div class="text-right hidden sm:block"><div class="font-body-md-medium text-body-md-medium text-on-surface">Nguyễn Văn An</div><div class="font-caption text-caption text-on-surface-variant">Trưởng phòng Kỹ thuật</div></div><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><aside id="app-sidebar" data-mode="fixed" data-old-w="288"></aside><div class="pl-72"><main class="w-full pt-16 bg-surface min-h-screen"><div class="flex flex-col w-full p-6 space-y-6">
-<!-- Top Command & Context Section -->
-<div class="flex flex-col gap-2">
 <!-- Breadcrumb -->
-<nav class="flex items-center gap-2 text-on-surface-variant font-caption text-caption">
-<span class="hover:text-primary cursor-pointer transition-colors">Trang chủ</span>
+<nav class="flex items-center gap-1.5 font-caption text-caption text-on-surface-variant">
+<span>Chấm công &amp; Điểm danh</span>
 <span class="material-symbols-outlined text-[14px]">chevron_right</span>
-<span class="hover:text-primary cursor-pointer transition-colors">Chấm công &amp; Điểm danh</span>
-<span class="material-symbols-outlined text-[14px]">chevron_right</span>
-<span class="text-primary font-medium">Gán ca làm việc</span>
+<span class="text-primary font-semibold">Gán ca làm việc</span>
 </nav>
-<!-- Header Title with Status & Subtext -->
-<div class="flex flex-col md:flex-row md:items-center justify-between gap-4 pt-1">
-<div>
-<div class="flex items-center gap-3">
-<h1 class="font-headline-lg text-headline-lg text-on-surface tracking-tight">Gán ca làm việc cho Nhân sự</h1>
-<span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-secondary-container text-on-secondary-container font-label-sm text-label-sm">
-<span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>
-            Kỳ phân bổ: Tháng 03/2026
-          </span>
-</div>
-<p class="font-body-md text-body-md text-on-surface-variant mt-1">
-          Phân bổ và thiết lập ca làm việc tiêu chuẩn hoặc ca luân phiên cho cán bộ nhân viên theo từng dự án tòa nhà và tổ đội vận hành.
-        </p>
-</div>
-<!-- Quick Context Stat Pill -->
-<div class="flex items-center gap-3 bg-surface-container-lowest px-4 py-2.5 rounded-xl shadow-sm">
-<div class="w-10 h-10 rounded-lg bg-surface-container-high flex items-center justify-center text-primary">
-<span class="material-symbols-outlined text-[24px]">domain</span>
-</div>
-<div class="flex flex-col">
-<span class="font-caption text-caption text-on-surface-variant">Dự án vận hành</span>
-<span class="font-body-md-medium text-body-md-medium text-on-surface">Tổ hợp Keangnam Landmark 72</span>
+<h1 class="font-headline-lg text-headline-lg text-on-surface tracking-tight">Gán ca làm việc</h1>
+<!-- Bộ lọc -->
+<section class="bg-surface-container-lowest rounded-xl p-4 shadow-sm flex flex-wrap items-center gap-6">
+<div class="flex items-center gap-3"><label class="font-label-md text-label-md text-on-surface-variant whitespace-nowrap">Đơn vị</label><select class="h-[38px] px-3 min-w-[260px] bg-surface-container-low rounded-lg text-body-md font-body-md text-on-surface focus:outline-none focus:ring-2 focus:ring-primary-container/30"><option selected>Công ty CP Quản lý và Khai thác tòa nhà VNPT (PMC)</option><option>Chi nhánh TP. Hồ Chí Minh - PMC</option></select></div>
+<div class="flex items-center gap-3"><label class="font-label-md text-label-md text-on-surface-variant whitespace-nowrap">Ca làm việc</label><select class="h-[38px] px-3 min-w-[260px] bg-surface-container-low rounded-lg text-body-md font-body-md text-on-surface focus:outline-none focus:ring-2 focus:ring-primary-container/30"><option selected>Ca Sáng</option><option>Ca Chiều</option><option>Ca Đêm</option><option>Ca Hành chính</option></select></div>
+</section>
+<!-- Hai danh sách -->
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-4 items-start">
+<section class="bg-surface-container-lowest rounded-xl shadow-sm flex flex-col overflow-hidden">
+<div class="p-4 flex flex-col gap-3 bg-surface-container-low/50">
+<h2 class="font-headline-sm text-headline-sm text-on-surface flex items-center gap-2"><span class="material-symbols-outlined text-[20px] text-primary">fact_check</span>Danh sách đã gán ca làm việc</h2>
+<div class="flex flex-wrap items-center gap-4">
+<input class="h-[36px] w-44 px-3 bg-surface-container-lowest rounded-lg text-body-md font-body-md focus:outline-none focus:ring-2 focus:ring-primary-container/30" placeholder="Tìm kiếm" type="text"/>
+<label class="flex items-center gap-1.5 font-body-md text-body-md text-on-surface"><input checked="" name="loaiGanCa" type="radio"/><span>Ca Phòng ban/Dự án</span></label>
+<label class="flex items-center gap-1.5 font-body-md text-body-md text-on-surface"><input name="loaiGanCa" type="radio"/><span>Ca nhân sự</span></label>
+<span class="ml-auto font-caption text-caption text-on-surface-variant">5</span>
 </div>
 </div>
-</div>
-</div>
-<!-- Primary Filter Matrix -->
-<section class="bg-surface-container-lowest rounded-xl p-5 shadow-sm space-y-4">
-<div class="grid grid-cols-1 md:grid-cols-12 gap-4 items-end">
-<!-- Đơn vị -->
-<div class="md:col-span-4 flex flex-col gap-1.5">
-<label class="font-label-md text-label-md text-on-surface-variant flex items-center gap-1.5">
-<span class="material-symbols-outlined text-[16px] text-primary">apartment</span>
-          Đơn vị / Dự án
-        </label>
-<div class="relative">
-<select class="w-full h-[38px] px-3.5 bg-surface-container-low text-on-surface font-body-md text-body-md rounded-lg appearance-none focus:outline-none focus:bg-surface-container-lowest transition-colors pr-9">
-<option selected="">Ban Quản lý Tòa nhà Keangnam Landmark 72</option>
-<option>Tòa nhà Handico Tower Phạm Hùng</option>
-<option>Hội sở PMC Hà Nội</option>
-<option>Vinhomes D'Capitale Vận hành Kỹ thuật</option>
-</select>
-<span class="material-symbols-outlined absolute right-2.5 top-2.5 text-on-surface-variant pointer-events-none text-[18px]">expand_more</span>
-</div>
-</div>
-<!-- Phòng ban -->
-<div class="md:col-span-3 flex flex-col gap-1.5">
-<label class="font-label-md text-label-md text-on-surface-variant flex items-center gap-1.5">
-<span class="material-symbols-outlined text-[16px] text-primary">engineering</span>
-          Phòng ban / Bộ phận
-        </label>
-<div class="relative">
-<select class="w-full h-[38px] px-3.5 bg-surface-container-low text-on-surface font-body-md text-body-md rounded-lg appearance-none focus:outline-none focus:bg-surface-container-lowest transition-colors pr-9">
-<option selected="">Khối Kỹ thuật &amp; Hạ tầng</option>
-<option>Tổ Vận hành An ninh &amp; Bảo vệ</option>
-<option>Bộ phận CSKH &amp; Lễ tân</option>
-<option>Tổ Dịch vụ Vệ sinh &amp; Buồng phòng</option>
-</select>
-<span class="material-symbols-outlined absolute right-2.5 top-2.5 text-on-surface-variant pointer-events-none text-[18px]">expand_more</span>
-</div>
-</div>
-<!-- Ca làm việc cần gán (Highlighted) -->
-<div class="md:col-span-5 flex flex-col gap-1.5">
-<div class="flex items-center justify-between">
-<label class="font-label-md text-label-md text-primary font-semibold flex items-center gap-1.5">
-<span class="material-symbols-outlined text-[16px]">schedule</span>
-            Ca làm việc cần gán
-          </label>
-<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-primary-fixed text-on-primary-fixed-variant font-label-sm text-label-sm font-semibold">
-<span class="material-symbols-outlined text-[14px]">tune</span>
-            Đang thiết lập ca này
-          </span>
-</div>
-<div class="relative">
-<select class="w-full h-[38px] pl-3.5 pr-9 bg-primary-container text-on-primary font-body-md-medium text-body-md-medium rounded-lg appearance-none focus:outline-none cursor-pointer">
-<option class="bg-surface-container-lowest text-on-surface" selected="">Ca Sáng (06:00 - 14:00) • Mã: CA-S1 [8h tiêu chuẩn]</option>
-<option class="bg-surface-container-lowest text-on-surface">Ca Chiều (14:00 - 22:00) • Mã: CA-C2 [8h tiêu chuẩn]</option>
-<option class="bg-surface-container-lowest text-on-surface">Ca Đêm (22:00 - 06:00) • Mã: CA-D3 [8h đêm đặc thù]</option>
-<option class="bg-surface-container-lowest text-on-surface">Ca Hành chính (08:00 - 17:00) • Mã: CA-HC [8h văn phòng]</option>
-</select>
-<span class="material-symbols-outlined absolute right-2.5 top-2.5 text-on-primary pointer-events-none text-[18px]">expand_more</span>
-</div>
-</div>
-</div>
-<!-- Quick Switcher Bar -->
-<div class="flex flex-wrap items-center justify-between gap-3 pt-2">
-<div class="flex items-center gap-2">
-<span class="font-caption text-caption text-on-surface-variant uppercase tracking-wider font-semibold">Chuyển nhanh ca:</span>
-<button class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-surface-container-low hover:bg-surface-container text-on-surface-variant hover:text-on-surface font-label-sm text-label-sm transition-colors" type="button">
-<span class="material-symbols-outlined text-[16px] text-tertiary">wb_twilight</span>
-          Đổi sang Ca Chiều (14:00 - 22:00)
-        </button>
-<button class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-surface-container-low hover:bg-surface-container text-on-surface-variant hover:text-on-surface font-label-sm text-label-sm transition-colors" type="button">
-<span class="material-symbols-outlined text-[16px] text-secondary">bedtime</span>
-          Đổi sang Ca Đêm (22:00 - 06:00)
-        </button>
-</div>
-<div class="flex items-center gap-2 text-on-surface-variant font-caption text-caption">
-<span class="inline-block w-2 h-2 rounded-full bg-secondary-container"></span>
-<span>Phạm vi: Tuần 09 (01/03/2026 - 07/03/2026)</span>
-</div>
+<div class="flex flex-col divide-y divide-surface-container-high min-h-[320px]" id="assignedStaffList">
+<div class="flex items-center px-3 py-2 cursor-grab hover:bg-surface-container-low transition-colors"><div class="w-24 font-label-md text-label-md text-primary">NV0102</div><div class="flex-1 font-body-md text-body-md text-on-surface">Hoàng Đình Trọng <span class="text-on-surface-variant">(Ca Sáng)</span></div></div>
+<div class="flex items-center px-3 py-2 cursor-grab hover:bg-surface-container-low transition-colors"><div class="w-24 font-label-md text-label-md text-primary">NV0188</div><div class="flex-1 font-body-md text-body-md text-on-surface">Phạm Văn Long <span class="text-on-surface-variant">(Ca Sáng)</span></div></div>
+<div class="flex items-center px-3 py-2 cursor-grab hover:bg-surface-container-low transition-colors"><div class="w-24 font-label-md text-label-md text-primary">NV0205</div><div class="flex-1 font-body-md text-body-md text-on-surface">Lê Thị Mai <span class="text-on-surface-variant">(Ca Sáng)</span></div></div>
+<div class="flex items-center px-3 py-2 cursor-grab hover:bg-surface-container-low transition-colors"><div class="w-24 font-label-md text-label-md text-primary">NV0231</div><div class="flex-1 font-body-md text-body-md text-on-surface">Đặng Quốc Bảo <span class="text-on-surface-variant">(Ca Sáng)</span></div></div>
+<div class="flex items-center px-3 py-2 cursor-grab hover:bg-surface-container-low transition-colors"><div class="w-24 font-label-md text-label-md text-primary">NV0267</div><div class="flex-1 font-body-md text-body-md text-on-surface">Nguyễn Thị Hà <span class="text-on-surface-variant">(Ca Sáng)</span></div></div>
 </div>
 </section>
-<!-- Dual-List Operational Workspace -->
-<div class="grid grid-cols-1 lg:grid-cols-12 gap-4 items-stretch">
-<!-- LEFT PANEL: Available Staff / Pool -->
-<section class="lg:col-span-5 bg-surface-container-lowest rounded-xl shadow-sm flex flex-col h-[650px] overflow-hidden">
-<!-- Header -->
-<div class="p-4 bg-surface-container-low flex flex-col gap-3">
-<div class="flex items-center justify-between">
-<div class="flex items-center gap-2">
-<span class="material-symbols-outlined text-primary text-[20px]">group</span>
-<h2 class="font-headline-sm text-headline-sm text-on-surface">Nhân sự chưa gán ca này</h2>
-</div>
-<span class="px-2.5 py-0.5 rounded-full bg-surface-container text-on-surface-variant font-mono-num text-label-sm font-semibold">
-            28 nhân sự khả dụng
-          </span>
-</div>
-<!-- Search & Mass Select Control -->
-<div class="flex items-center gap-3">
-<div class="relative flex-1">
-<span class="material-symbols-outlined absolute left-2.5 top-2.5 text-outline text-[18px]">search</span>
-<input class="w-full h-[36px] pl-9 pr-3 bg-surface-container-lowest rounded-lg font-body-sm text-body-sm text-on-surface placeholder:text-outline focus:outline-none transition-colors" placeholder="Tìm kiếm theo tên, mã NV, vị trí..." type="text"/>
-</div>
-<label class="flex items-center gap-2 cursor-pointer select-none bg-surface-container-lowest px-3 h-[36px] rounded-lg">
-<input class="w-4 h-4 rounded text-primary focus:ring-0 cursor-pointer" id="checkAllLeft" type="checkbox"/>
-<span class="font-label-sm text-label-sm text-on-surface-variant whitespace-nowrap">Chọn tất cả</span>
-</label>
-<label class="flex items-center gap-2 cursor-pointer select-none bg-surface-container-lowest px-3 h-[36px] rounded-lg"><input class="w-4 h-4 rounded text-primary focus:ring-0 cursor-pointer" id="chkChuaThuocNhom" type="checkbox"/><span class="font-label-sm text-label-sm text-on-surface-variant whitespace-nowrap">Chưa thuộc nhóm</span></label>
-</div>
-</div>
-<!-- Action sub-filter tab -->
-<div class="px-4 py-2 bg-surface-container-low/50 flex items-center justify-between text-on-surface-variant font-caption text-caption">
-<span>Hiển thị theo: <strong class="text-on-surface">Tổ Kỹ thuật tòa nhà</strong></span>
-<button class="text-primary hover:underline flex items-center gap-1 font-label-sm text-label-sm" type="button">
-<span class="material-symbols-outlined text-[14px]">filter_list</span> Lọc nâng cao
-        </button>
-</div>
-<!-- Scrollable Staff List -->
-<div class="flex-1 p-3 overflow-y-auto space-y-2" id="availableStaffList">
-<!-- Item 1: Selected candidate -->
-<div class="group flex items-center justify-between p-3 rounded-lg bg-surface-container-lowest hover:bg-surface-container-low transition-all cursor-pointer">
-<div class="flex items-center gap-3 min-w-0">
-<input checked="" class="w-4 h-4 rounded text-primary cursor-pointer shrink-0" type="checkbox"/>
-<img class="w-10 h-10 rounded-full object-cover shrink-0 shadow-sm" data-alt="Chân dung nhân viên nam kỹ thuật tòa nhà người Việt Nam, mặc áo polo đồng phục màu xanh lam đậm PMC có gắn thẻ tên, ánh sáng văn phòng tự nhiên rõ ràng chân thực" src="../shared/img/img-08.jpg"/>
-<div class="flex flex-col min-w-0">
-<div class="flex items-center gap-2">
-<span class="font-body-md-medium text-body-md-medium text-on-surface truncate">Vũ Minh Tuấn</span>
-<span class="font-mono-num text-caption text-outline">NV0219</span>
-</div>
-<span class="font-caption text-caption text-on-surface-variant truncate">Kỹ sư Hệ thống HVAC &amp; Điều hòa</span>
-</div>
-</div>
-<div class="flex flex-col items-end shrink-0 pl-2">
-<span class="inline-flex items-center px-2 py-0.5 rounded-full bg-surface-container-high text-on-surface-variant font-label-sm text-label-sm">
-              Chưa có ca
-            </span>
-<span class="font-caption text-caption text-outline mt-0.5">Tổ Điện - Lạnh</span>
-</div>
-</div>
-<!-- Item 2: Selected candidate -->
-<div class="group flex items-center justify-between p-3 rounded-lg bg-surface-container-lowest hover:bg-surface-container-low transition-all cursor-pointer">
-<div class="flex items-center gap-3 min-w-0">
-<input checked="" class="w-4 h-4 rounded text-primary cursor-pointer shrink-0" type="checkbox"/>
-<img class="w-10 h-10 rounded-full object-cover shrink-0 shadow-sm" data-alt="Chân dung nam kỹ sư vận hành hệ thống tòa nhà trung niên, phong thái chuyên nghiệp, mặc đồng phục kỹ thuật màu xanh than, ánh sáng mềm trong nhà" src="../shared/img/img-49.jpg"/>
-<div class="flex flex-col min-w-0">
-<div class="flex items-center gap-2">
-<span class="font-body-md-medium text-body-md-medium text-on-surface truncate">Nguyễn Văn Nam</span>
-<span class="font-mono-num text-caption text-outline">NV0521</span>
-</div>
-<span class="font-caption text-caption text-on-surface-variant truncate">Giám sát Vận hành PCCC &amp; Bơm</span>
-</div>
-</div>
-<div class="flex flex-col items-end shrink-0 pl-2">
-<span class="inline-flex items-center px-2 py-0.5 rounded-full bg-secondary-container text-on-secondary-container font-label-sm text-label-sm">
-              Ca Hành chính
-            </span>
-<span class="font-caption text-caption text-outline mt-0.5">Tổ An toàn PCCC</span>
-</div>
-</div>
-<!-- Item 3: Selected candidate -->
-<div class="group flex items-center justify-between p-3 rounded-lg bg-surface-container-lowest hover:bg-surface-container-low transition-all cursor-pointer">
-<div class="flex items-center gap-3 min-w-0">
-<input checked="" class="w-4 h-4 rounded text-primary cursor-pointer shrink-0" type="checkbox"/>
-<img class="w-10 h-10 rounded-full object-cover shrink-0 shadow-sm" data-alt="Chân dung nam chuyên viên kỹ thuật trẻ tuổi người Việt Nam, nụ cười thân thiện, đeo thẻ nhân viên PMC dây xanh, phông nền mờ sảnh trung tâm tòa nhà hiện đại" src="../shared/img/img-61.jpg"/>
-<div class="flex flex-col min-w-0">
-<div class="flex items-center gap-2">
-<span class="font-body-md-medium text-body-md-medium text-on-surface truncate">Đỗ Tiến Đạt</span>
-<span class="font-mono-num text-caption text-outline">NV0610</span>
-</div>
-<span class="font-caption text-caption text-on-surface-variant truncate">Kỹ thuật viên Thang máy &amp; Cuốn</span>
-</div>
-</div>
-<div class="flex flex-col items-end shrink-0 pl-2">
-<span class="inline-flex items-center px-2 py-0.5 rounded-full bg-surface-container-high text-on-surface-variant font-label-sm text-label-sm">
-              Chưa có ca
-            </span>
-<span class="font-caption text-caption text-outline mt-0.5">Tổ Cơ điện ME</span>
-</div>
-</div>
-<!-- Item 4: Selected candidate -->
-<div class="group flex items-center justify-between p-3 rounded-lg bg-surface-container-lowest hover:bg-surface-container-low transition-all cursor-pointer">
-<div class="flex items-center gap-3 min-w-0">
-<input checked="" class="w-4 h-4 rounded text-primary cursor-pointer shrink-0" type="checkbox"/>
-<img class="w-10 h-10 rounded-full object-cover shrink-0 shadow-sm" data-alt="Chân dung nam nhân viên giám sát an ninh kỹ thuật người Việt Nam, trang phục đồng phục lịch sự, thần thái tự tin, chụp cận cảnh chân dung doanh nghiệp" src="../shared/img/img-44.jpg"/>
-<div class="flex flex-col min-w-0">
-<div class="flex items-center gap-2">
-<span class="font-body-md-medium text-body-md-medium text-on-surface truncate">Ngô Quang Huy</span>
-<span class="font-mono-num text-caption text-outline">NV0911</span>
-</div>
-<span class="font-caption text-caption text-on-surface-variant truncate">Kỹ thuật viên Hệ thống BMS &amp; Điện áp</span>
-</div>
-</div>
-<div class="flex flex-col items-end shrink-0 pl-2">
-<span class="inline-flex items-center px-2 py-0.5 rounded-full bg-secondary-container text-on-secondary-container font-label-sm text-label-sm">
-              Ca Hành chính
-            </span>
-<span class="font-caption text-caption text-outline mt-0.5">Tổ Vận hành BMS</span>
-</div>
-</div>
-<!-- Item 5: Unchecked -->
-<div class="group flex items-center justify-between p-3 rounded-lg bg-surface-container-lowest hover:bg-surface-container-low transition-all cursor-pointer">
-<div class="flex items-center gap-3 min-w-0">
-<input class="w-4 h-4 rounded text-primary cursor-pointer shrink-0" type="checkbox"/>
-<div class="w-10 h-10 rounded-full bg-primary-fixed text-primary font-headline-sm flex items-center justify-center shrink-0">
-              TH
-            </div>
-<div class="flex flex-col min-w-0">
-<div class="flex items-center gap-2">
-<span class="font-body-md-medium text-body-md-medium text-on-surface truncate">Trần Hữu Hưng</span>
-<span class="font-mono-num text-caption text-outline">NV0314</span>
-</div>
-<span class="font-caption text-caption text-on-surface-variant truncate">Kỹ sư Cấp thoát nước Tòa nhà</span>
-</div>
-</div>
-<div class="flex flex-col items-end shrink-0 pl-2">
-<span class="inline-flex items-center px-2 py-0.5 rounded-full bg-surface-container-high text-on-surface-variant font-label-sm text-label-sm">
-              Chưa có ca
-            </span>
-<span class="font-caption text-caption text-outline mt-0.5">Tổ Cơ điện ME</span>
-</div>
-</div>
-<!-- Item 6: Unchecked -->
-<div class="group flex items-center justify-between p-3 rounded-lg bg-surface-container-lowest hover:bg-surface-container-low transition-all cursor-pointer">
-<div class="flex items-center gap-3 min-w-0">
-<input class="w-4 h-4 rounded text-primary cursor-pointer shrink-0" type="checkbox"/>
-<div class="w-10 h-10 rounded-full bg-secondary-fixed text-secondary font-headline-sm flex items-center justify-center shrink-0">
-              LP
-            </div>
-<div class="flex flex-col min-w-0">
-<div class="flex items-center gap-2">
-<span class="font-body-md-medium text-body-md-medium text-on-surface truncate">Lê Phương Thảo</span>
-<span class="font-mono-num text-caption text-outline">NV0442</span>
-</div>
-<span class="font-caption text-caption text-on-surface-variant truncate">Điều phối viên Helpdesk Kỹ thuật</span>
-</div>
-</div>
-<div class="flex flex-col items-end shrink-0 pl-2">
-<span class="inline-flex items-center px-2 py-0.5 rounded-full bg-secondary-container text-on-secondary-container font-label-sm text-label-sm">
-              Ca Hành chính
-            </span>
-<span class="font-caption text-caption text-outline mt-0.5">Tổ CSKH Kỹ thuật</span>
-</div>
-</div>
-<!-- Item 7: Unchecked -->
-<div class="group flex items-center justify-between p-3 rounded-lg bg-surface-container-lowest hover:bg-surface-container-low transition-all cursor-pointer">
-<div class="flex items-center gap-3 min-w-0">
-<input class="w-4 h-4 rounded text-primary cursor-pointer shrink-0" type="checkbox"/>
-<div class="w-10 h-10 rounded-full bg-tertiary-fixed text-tertiary font-headline-sm flex items-center justify-center shrink-0">
-              BQ
-            </div>
-<div class="flex flex-col min-w-0">
-<div class="flex items-center gap-2">
-<span class="font-body-md-medium text-body-md-medium text-on-surface truncate">Bùi Quang Thắng</span>
-<span class="font-mono-num text-caption text-outline">NV0829</span>
-</div>
-<span class="font-caption text-caption text-on-surface-variant truncate">Thợ kỹ thuật sửa chữa hạ tầng tầng hầm</span>
-</div>
-</div>
-<div class="flex flex-col items-end shrink-0 pl-2">
-<span class="inline-flex items-center px-2 py-0.5 rounded-full bg-surface-container-high text-on-surface-variant font-label-sm text-label-sm">
-              Chưa có ca
-            </span>
-<span class="font-caption text-caption text-outline mt-0.5">Tổ Xây dựng nội bộ</span>
-</div>
-</div>
-</div>
-<!-- Quick footer for list -->
-<div class="px-4 py-2.5 bg-surface-container-low flex items-center justify-between font-caption text-caption text-on-surface-variant">
-<span>Đã chọn: <strong class="text-primary font-semibold">4 nhân sự</strong></span>
-<span>Tổng số trang: 1 / 4</span>
-</div>
-</section>
-<!-- CENTER CONTROLS: Transfer Actions -->
-<div class="lg:col-span-2 flex lg:flex-col items-center justify-center gap-3 py-4">
-<div class="bg-surface-container-lowest p-3 rounded-2xl shadow-sm flex lg:flex-col items-center gap-2.5 w-full max-w-[200px] lg:max-w-none justify-center">
-<!-- Add Selected to Shift -->
-<button class="w-11 h-11 rounded-xl bg-primary hover:bg-primary-container text-on-primary flex items-center justify-center shadow-md hover:scale-105 active:scale-95 transition-all" title="Gán các nhân sự đã chọn vào ca" type="button">
-<span class="material-symbols-outlined text-[22px]">chevron_right</span>
-</button>
-<span class="hidden lg:block font-label-sm text-label-sm text-on-surface-variant text-center px-1">Gán đã chọn</span>
-<!-- Add ALL to Shift -->
-<button class="w-11 h-11 rounded-xl bg-surface-container-high hover:bg-secondary-container text-on-surface-variant hover:text-on-secondary-container flex items-center justify-center transition-all" title="Gán tất cả nhân sự khả dụng vào ca" type="button">
-<span class="material-symbols-outlined text-[20px]">keyboard_double_arrow_right</span>
-</button>
-<div class="w-8 h-[1px] lg:w-[1px] lg:h-4 bg-outline-variant/40 my-1"></div>
-<!-- Remove Selected from Shift -->
-<button class="w-11 h-11 rounded-xl bg-surface-container-high hover:bg-error-container text-on-surface-variant hover:text-error flex items-center justify-center transition-all" title="Bỏ nhân sự được chọn ra khỏi ca" type="button">
-<span class="material-symbols-outlined text-[22px]">chevron_left</span>
-</button>
-<span class="hidden lg:block font-label-sm text-label-sm text-on-surface-variant text-center px-1">Gỡ khỏi ca</span>
-<!-- Remove ALL from Shift -->
-<button class="w-11 h-11 rounded-xl bg-surface-container-high hover:bg-error-container text-on-surface-variant hover:text-error flex items-center justify-center transition-all" title="Bỏ tất cả nhân sự ra khỏi ca này" type="button">
-<span class="material-symbols-outlined text-[20px]">keyboard_double_arrow_left</span>
-</button>
-</div>
-<div class="hidden lg:flex flex-col items-center text-center p-3 rounded-xl bg-surface-container-low max-w-[170px]">
-<span class="material-symbols-outlined text-primary text-[20px]">info</span>
-<span class="font-caption text-caption text-on-surface-variant mt-1 leading-relaxed">
-          Tối ưu 16-18 nhân sự để đảm bảo tiêu chuẩn vận hành Keangnam
-        </span>
-</div>
-</div>
-<!-- RIGHT PANEL: Assigned Staff to Current Shift -->
-<section class="lg:col-span-5 bg-surface-container-lowest rounded-xl shadow-sm flex flex-col h-[650px] overflow-hidden">
-<!-- Header -->
-<div class="p-4 bg-surface-container-low flex flex-col gap-3">
-<div class="flex items-center justify-between">
-<div class="flex items-center gap-2">
-<span class="material-symbols-outlined text-tertiary text-[20px]">task_alt</span>
-<div class="flex flex-col">
-<h2 class="font-headline-sm text-headline-sm text-on-surface">Đã gán vào Ca Sáng</h2>
-<span class="font-caption text-caption text-on-surface-variant">Khung giờ: 06:00 - 14:00 (Hàng ngày)</span>
-</div>
-</div>
-<div class="text-right">
-<span class="px-2.5 py-0.5 rounded-full bg-secondary-fixed text-on-secondary-fixed-variant font-mono-num text-label-sm font-semibold">
-              16 / 18 định biên (88.9%)
-            </span>
-</div>
-</div>
-<!-- Quota Progress Indicator -->
-<div class="w-full bg-surface-container-highest rounded-full h-1.5 overflow-hidden">
-<div class="bg-primary h-1.5 rounded-full" style="width: 88.9%;"></div>
-</div>
-<!-- Loai gan ca (view goc: rdoPhongban / rdoNhansu) -->
-<div class="flex items-center gap-5 font-body-sm text-body-sm text-on-surface">
-<label class="flex items-center gap-2 cursor-pointer"><input checked="" class="w-4 h-4 accent-[#1967b2]" name="loaiGanCa" type="radio"/><span>Ca Phòng ban/Dự án</span></label>
-<label class="flex items-center gap-2 cursor-pointer"><input class="w-4 h-4 accent-[#1967b2]" name="loaiGanCa" type="radio"/><span>Ca nhân sự</span></label>
-</div>
-<!-- Search & Mass Select Control -->
-<div class="flex items-center gap-3">
-<div class="relative flex-1">
-<span class="material-symbols-outlined absolute left-2.5 top-2.5 text-outline text-[18px]">search</span>
-<input class="w-full h-[36px] pl-9 pr-3 bg-surface-container-lowest rounded-lg font-body-sm text-body-sm text-on-surface placeholder:text-outline focus:outline-none transition-colors" placeholder="Tìm kiếm trong ca sáng..." type="text"/>
-</div>
-<label class="flex items-center gap-2 cursor-pointer select-none bg-surface-container-lowest px-3 h-[36px] rounded-lg">
-<input class="w-4 h-4 rounded text-primary focus:ring-0 cursor-pointer" id="checkAllRight" type="checkbox"/>
-<span class="font-label-sm text-label-sm text-on-surface-variant whitespace-nowrap">Chọn tất cả</span>
-</label>
-</div>
-</div>
-<!-- Action sub-filter tab -->
-<div class="px-4 py-2 bg-surface-container-low/50 flex items-center justify-between text-on-surface-variant font-caption text-caption">
-<span>Tình trạng phân ca: <strong class="text-on-surface">Đã kích hoạt vận hành</strong></span>
-<span class="text-outline">Cập nhật: Hôm nay 09:15</span>
-</div>
-<!-- Scrollable Staff List (Assigned) -->
-<div class="flex-1 p-3 overflow-y-auto space-y-2" id="assignedStaffList">
-<!-- Item 1: Shift Leader -->
-<div class="group flex items-center justify-between p-3 rounded-lg bg-surface-container-lowest hover:bg-surface-container-low transition-all cursor-pointer">
-<div class="flex items-center gap-3 min-w-0">
-<input class="w-4 h-4 rounded text-primary cursor-pointer shrink-0" type="checkbox"/>
-<img class="w-10 h-10 rounded-full object-cover shrink-0 shadow-sm" data-alt="Chân dung trưởng ca kỹ thuật nam người Việt Nam tuổi khoảng 40, gương mặt tin cậy, tác phong chỉ huy, đồng phục công sở PMC cao cấp" src="../shared/img/img-81.jpg"/>
-<div class="flex flex-col min-w-0">
-<div class="flex items-center gap-2">
-<span class="font-body-md-medium text-body-md-medium text-on-surface truncate">Hoàng Đình Trọng</span>
-<span class="font-mono-num text-caption text-outline">NV0102</span>
-<span class="px-1.5 py-0.5 rounded bg-primary-fixed text-on-primary-fixed font-label-sm text-[10px] font-bold">TRƯỞNG CA</span>
-</div>
-<span class="font-caption text-caption text-on-surface-variant truncate">Trưởng ca Vận hành Toàn diện Tòa nhà</span>
-</div>
-</div>
-<div class="flex flex-col items-end shrink-0 pl-2">
-<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-secondary-fixed text-on-secondary-fixed font-label-sm text-label-sm font-medium">
-<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
-              Đã kích hoạt
-            </span>
-<span class="font-caption text-caption text-outline mt-0.5">Từ 01/03/2026</span>
-</div>
-</div>
-<!-- Item 2 -->
-<div class="group flex items-center justify-between p-3 rounded-lg bg-surface-container-lowest hover:bg-surface-container-low transition-all cursor-pointer">
-<div class="flex items-center gap-3 min-w-0">
-<input class="w-4 h-4 rounded text-primary cursor-pointer shrink-0" type="checkbox"/>
-<div class="w-10 h-10 rounded-full bg-secondary-container text-on-secondary-container font-headline-sm flex items-center justify-center shrink-0">
-              PV
-            </div>
-<div class="flex flex-col min-w-0">
-<div class="flex items-center gap-2">
-<span class="font-body-md-medium text-body-md-medium text-on-surface truncate">Phạm Văn Long</span>
-<span class="font-mono-num text-caption text-outline">NV0188</span>
-</div>
-<span class="font-caption text-caption text-on-surface-variant truncate">Kỹ thuật viên Trạm biến áp &amp; Máy phát</span>
-</div>
-</div>
-<div class="flex flex-col items-end shrink-0 pl-2">
-<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-secondary-fixed text-on-secondary-fixed font-label-sm text-label-sm font-medium">
-<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
-              Đã kích hoạt
-            </span>
-<span class="font-caption text-caption text-outline mt-0.5">Từ 01/03/2026</span>
-</div>
-</div>
-<!-- Item 3 -->
-<div class="group flex items-center justify-between p-3 rounded-lg bg-surface-container-lowest hover:bg-surface-container-low transition-all cursor-pointer">
-<div class="flex items-center gap-3 min-w-0">
-<input class="w-4 h-4 rounded text-primary cursor-pointer shrink-0" type="checkbox"/>
-<div class="w-10 h-10 rounded-full bg-tertiary-container text-on-tertiary-container font-headline-sm flex items-center justify-center shrink-0">
-              ĐC
-            </div>
-<div class="flex flex-col min-w-0">
-<div class="flex items-center gap-2">
-<span class="font-body-md-medium text-body-md-medium text-on-surface truncate">Đặng Công Thành</span>
-<span class="font-mono-num text-caption text-outline">NV0205</span>
-</div>
-<span class="font-caption text-caption text-on-surface-variant truncate">Giám sát An ninh Trung tâm Báo cháy</span>
-</div>
-</div>
-<div class="flex flex-col items-end shrink-0 pl-2">
-<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-secondary-fixed text-on-secondary-fixed font-label-sm text-label-sm font-medium">
-<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
-              Đã kích hoạt
-            </span>
-<span class="font-caption text-caption text-outline mt-0.5">Từ 01/03/2026</span>
-</div>
-</div>
-<!-- Item 4 -->
-<div class="group flex items-center justify-between p-3 rounded-lg bg-surface-container-lowest hover:bg-surface-container-low transition-all cursor-pointer">
-<div class="flex items-center gap-3 min-w-0">
-<input class="w-4 h-4 rounded text-primary cursor-pointer shrink-0" type="checkbox"/>
-<img class="w-10 h-10 rounded-full object-cover shrink-0 shadow-sm" data-alt="Chân dung nữ nhân viên kỹ thuật kiểm tra hiện trường người Việt Nam, tóc buộc gọn gàng, mặc đồng phục bảo hộ lao động PMC gọn gàng và hiện đại" src="../shared/img/img-31.jpg"/>
-<div class="flex flex-col min-w-0">
-<div class="flex items-center gap-2">
-<span class="font-body-md-medium text-body-md-medium text-on-surface truncate">Nguyễn Thị Mai Anh</span>
-<span class="font-mono-num text-caption text-outline">NV0320</span>
-</div>
-<span class="font-caption text-caption text-on-surface-variant truncate">Kỹ thuật viên Giám sát Môi trường &amp; Khí thải</span>
-</div>
-</div>
-<div class="flex flex-col items-end shrink-0 pl-2">
-<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-secondary-fixed text-on-secondary-fixed font-label-sm text-label-sm font-medium">
-<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
-              Đã kích hoạt
-            </span>
-<span class="font-caption text-caption text-outline mt-0.5">Từ 01/03/2026</span>
-</div>
-</div>
-<!-- Item 5 -->
-<div class="group flex items-center justify-between p-3 rounded-lg bg-surface-container-lowest hover:bg-surface-container-low transition-all cursor-pointer">
-<div class="flex items-center gap-3 min-w-0">
-<input class="w-4 h-4 rounded text-primary cursor-pointer shrink-0" type="checkbox"/>
-<div class="w-10 h-10 rounded-full bg-surface-container-high text-on-surface-variant font-headline-sm flex items-center justify-center shrink-0">
-              TK
-            </div>
-<div class="flex flex-col min-w-0">
-<div class="flex items-center gap-2">
-<span class="font-body-md-medium text-body-md-medium text-on-surface truncate">Trương Quốc Khánh</span>
-<span class="font-mono-num text-caption text-outline">NV0411</span>
-</div>
-<span class="font-caption text-caption text-on-surface-variant truncate">Kỹ thuật viên Cứu hộ thang máy khẩn cấp</span>
-</div>
-</div>
-<div class="flex flex-col items-end shrink-0 pl-2">
-<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-secondary-fixed text-on-secondary-fixed font-label-sm text-label-sm font-medium">
-<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
-              Đã kích hoạt
-            </span>
-<span class="font-caption text-caption text-outline mt-0.5">Từ 01/03/2026</span>
-</div>
-</div>
-<!-- Item 6 -->
-<div class="group flex items-center justify-between p-3 rounded-lg bg-surface-container-lowest hover:bg-surface-container-low transition-all cursor-pointer">
-<div class="flex items-center gap-3 min-w-0">
-<input class="w-4 h-4 rounded text-primary cursor-pointer shrink-0" type="checkbox"/>
-<div class="w-10 h-10 rounded-full bg-primary-fixed-dim text-on-primary-fixed font-headline-sm flex items-center justify-center shrink-0">
-              LH
-            </div>
-<div class="flex flex-col min-w-0">
-<div class="flex items-center gap-2">
-<span class="font-body-md-medium text-body-md-medium text-on-surface truncate">Lý Hùng Cường</span>
-<span class="font-mono-num text-caption text-outline">NV0670</span>
-</div>
-<span class="font-caption text-caption text-on-surface-variant truncate">Kỹ thuật viên Hệ thống Âm thanh PA &amp; Camera</span>
-</div>
-</div>
-<div class="flex flex-col items-end shrink-0 pl-2">
-<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-secondary-fixed text-on-secondary-fixed font-label-sm text-label-sm font-medium">
-<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
-              Đã kích hoạt
-            </span>
-<span class="font-caption text-caption text-outline mt-0.5">Từ 01/03/2026</span>
-</div>
-</div>
-</div>
-<!-- Quick footer for list -->
-<div class="px-4 py-2.5 bg-surface-container-low flex items-center justify-between font-caption text-caption text-on-surface-variant">
-<span>Đã chọn: <strong class="text-on-surface font-semibold">0 nhân sự</strong></span>
-<span>Còn thiếu: <strong class="text-error font-semibold">2 nhân sự</strong> đạt định biên</span>
+<section class="bg-surface-container-lowest rounded-xl shadow-sm flex flex-col overflow-hidden">
+<div class="p-4 flex flex-col gap-3 bg-surface-container-low/50">
+<h2 class="font-headline-sm text-headline-sm text-on-surface flex items-center gap-2"><span class="material-symbols-outlined text-[20px] text-primary">assignment</span>Danh sách chưa gán ca làm việc</h2>
+<div class="flex flex-wrap items-center gap-4">
+<input class="h-[36px] w-44 px-3 bg-surface-container-lowest rounded-lg text-body-md font-body-md focus:outline-none focus:ring-2 focus:ring-primary-container/30" placeholder="Tìm kiếm" type="text"/>
+<span class="font-caption text-caption text-on-surface-variant">6</span>
+<label class="flex items-center gap-1.5 font-body-md text-body-md text-on-surface"><input id="chkChuaThuocNhom" type="checkbox"/><span>Chưa thuộc nhóm</span></label>
+</div>
+</div>
+<div class="flex flex-col divide-y divide-surface-container-high min-h-[320px]" id="availableStaffList">
+<div class="flex items-center px-3 py-2 cursor-grab hover:bg-surface-container-low transition-colors"><div class="w-24 font-label-md text-label-md text-primary">NV0219</div><div class="flex-1 font-body-md text-body-md text-on-surface">Vũ Minh Tuấn</div></div>
+<div class="flex items-center px-3 py-2 cursor-grab hover:bg-surface-container-low transition-colors"><div class="w-24 font-label-md text-label-md text-primary">NV0521</div><div class="flex-1 font-body-md text-body-md text-on-surface">Nguyễn Văn Nam <span class="text-on-surface-variant">(Ca Hành chính)</span></div></div>
+<div class="flex items-center px-3 py-2 cursor-grab hover:bg-surface-container-low transition-colors"><div class="w-24 font-label-md text-label-md text-primary">NV0610</div><div class="flex-1 font-body-md text-body-md text-on-surface">Đỗ Tiến Đạt</div></div>
+<div class="flex items-center px-3 py-2 cursor-grab hover:bg-surface-container-low transition-colors"><div class="w-24 font-label-md text-label-md text-primary">NV0911</div><div class="flex-1 font-body-md text-body-md text-on-surface">Ngô Quang Huy <span class="text-on-surface-variant">(Ca Hành chính)</span></div></div>
+<div class="flex items-center px-3 py-2 cursor-grab hover:bg-surface-container-low transition-colors"><div class="w-24 font-label-md text-label-md text-primary">NV0314</div><div class="flex-1 font-body-md text-body-md text-on-surface">Trần Hữu Hưng</div></div>
+<div class="flex items-center px-3 py-2 cursor-grab hover:bg-surface-container-low transition-colors"><div class="w-24 font-label-md text-label-md text-primary">NV0442</div><div class="flex-1 font-body-md text-body-md text-on-surface">Lê Phương Thảo <span class="text-on-surface-variant">(Ca Hành chính)</span></div></div>
 </div>
 </section>
 </div>
@@ -555,37 +84,6 @@
 <div class="font-headline-sm text-headline-sm text-on-surface mt-0.5">Chu kỳ 7 ngày / Lần</div>
 <div class="font-caption text-caption text-on-surface-variant mt-0.5">Lần xoay kế tiếp: 08/03/2026</div>
 </div>
-</div>
-</div>
-<!-- Sticky Bottom Task Action Bar -->
-<div class="sticky bottom-4 z-30 w-full bg-surface-container-lowest/95 backdrop-blur-md rounded-xl p-4 shadow-xl flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-<!-- Status notice -->
-<div class="flex items-center gap-3">
-<div class="w-10 h-10 rounded-full bg-primary-fixed text-primary flex items-center justify-center shrink-0">
-<span class="material-symbols-outlined text-[20px]">add_task</span>
-</div>
-<div class="flex flex-col">
-<div class="flex items-center gap-2">
-<span class="font-body-md-medium text-body-md-medium text-on-surface">Đã chọn 4 nhân sự mới</span>
-<span class="inline-flex items-center px-2 py-0.2 rounded-full bg-secondary-container text-on-secondary-container font-label-sm text-label-sm">
-            Chờ lưu vào hệ thống
-          </span>
-</div>
-<span class="font-caption text-caption text-on-surface-variant">
-          Gán bổ sung vào: <strong>Ca Sáng (06:00 - 14:00)</strong> • Áp dụng ngay cho tuần vận hành tiếp theo
-        </span>
-</div>
-</div>
-<!-- Actions -->
-<div class="flex items-center gap-3 self-end sm:self-auto">
-<button class="px-4 py-2 h-[38px] rounded-lg bg-surface-container-high hover:bg-surface-container-highest text-on-surface font-label-md text-label-md transition-colors flex items-center gap-2" type="button">
-<span class="material-symbols-outlined text-[18px]">restart_alt</span>
-        Khôi phục ban đầu
-      </button>
-<button class="px-6 py-2 h-[38px] rounded-lg bg-primary-container hover:bg-primary text-on-primary font-label-md text-label-md shadow-md hover:shadow-lg transition-all flex items-center gap-2" type="button">
-<span class="material-symbols-outlined text-[18px]">save</span>
-        Lưu phân ca
-      </button>
 </div>
 </div>
 </div>

@@ -21,7 +21,6 @@ window.HRM_PAGE = {
   search: "Tìm kiếm báo cáo, nhân sự, phòng ban...",
   breadcrumb: ["Báo cáo", "Hồ sơ tuyển dụng"],
   title: "Danh sách hồ sơ tuyển dụng",
-  desc: "Danh sách hồ sơ ứng viên tiếp nhận theo kỳ, kế hoạch tuyển dụng và đơn vị, kèm trạng thái xử lý hồ sơ.",
   stats: [
     { label: "Tổng hồ sơ", value: "214", sub: "tiếp nhận trong kỳ", icon: "folder_shared", tone: "primary" },
     { label: "Đạt phỏng vấn", value: "86", sub: "40.2% số hồ sơ", icon: "how_to_reg", tone: "info" },
@@ -37,25 +36,7 @@ window.HRM_PAGE = {
     { label: "Kế hoạch", type: "select", options: ["Tất cả kế hoạch"] }
   ],
   gear: true,
-  columns: [
-    { title: "STT", field: "stt", align: "center", width: 60 },
-    { title: "Mã hồ sơ", field: "ma", kind: "link" },
-    { title: "Họ và tên", field: "ten", kind: "strong" },
-    { title: "Vị trí ứng tuyển", field: "viTri" },
-    { title: "Phòng ban/Dự án", field: "pb" },
-    { title: "Kế hoạch tuyển dụng", field: "keHoach" },
-    { title: "Nguồn ứng viên", field: "nguon" },
-    { title: "Ngày nộp", field: "ngayNop", align: "center" },
-    { title: "Trạng thái", field: "trangThai", align: "center", kind: "badge", tones: { "Đã tuyển": "bg-emerald-50 text-emerald-600", "Đạt phỏng vấn": "bg-sky-50 text-sky-600", "Chờ xử lý": "bg-amber-50 text-amber-600", "Loại": "bg-red-50 text-red-600" } }
-  ],
-  rows: [
-    { stt: 1, ma: "HS0001", ten: "Trần Thị Bình", viTri: "Nhân viên lễ tân", pb: "BQL Tòa nhà Keangnam", keHoach: "KH tuyển dụng Q4/2025", nguon: "TopCV", ngayNop: "03/11/2025", trangThai: "Đã tuyển" },
-    { stt: 2, ma: "HS0002", ten: "Phạm Quốc Huy", viTri: "Kỹ thuật viên điện", pb: "BQL Tòa Handico", keHoach: "KH tuyển dụng Q4/2025", nguon: "VietnamWorks", ngayNop: "05/11/2025", trangThai: "Đạt phỏng vấn" },
-    { stt: 3, ma: "HS0003", ten: "Nguyễn Thị Lan", viTri: "Nhân viên CSKH", pb: "TTTM Indochina", keHoach: "KH tuyển dụng Q4/2025", nguon: "Giới thiệu nội bộ", ngayNop: "08/11/2025", trangThai: "Chờ xử lý" },
-    { stt: 4, ma: "HS0004", ten: "Đỗ Văn Tùng", viTri: "Nhân viên an ninh", pb: "BQL Tòa nhà Keangnam", keHoach: "KH tuyển dụng Q4/2025", nguon: "Facebook", ngayNop: "10/11/2025", trangThai: "Loại" },
-    { stt: 5, ma: "HS0005", ten: "Lê Thị Hồng", viTri: "Nhân viên kế toán", pb: "Khối Văn phòng", keHoach: "KH tuyển dụng Q4/2025", nguon: "TopCV", ngayNop: "12/11/2025", trangThai: "Đạt phỏng vấn" }
-  ],
-  total: 214,
+  serverColumns: "BC_HoSoTuyenDung",
   toolbar: [
     { label: "Lọc dữ liệu", icon: "filter_alt", kind: "find" },
     { label: "Xuất Excel", icon: "file_download", kind: "export" },

@@ -19,12 +19,10 @@
 <script>
 window.HRM_PAGE = {
   search: "Tìm kiếm khóa đào tạo, chứng chỉ...",
-  breadcrumb: ["Danh mục", "Khóa đào tạo"],
+  breadcrumb: ["Bàn làm việc", "Khóa học"],
   title: "Danh mục Khóa đào tạo",
-  desc: "Quản lý danh mục các khóa đào tạo chuẩn của PMC và các chứng chỉ đầu ra tương ứng, làm cơ sở xây dựng lớp và kế hoạch đào tạo.",
   headerActions: [
-    { label: "Xuất file Excel", icon: "file_download" },
-    { label: "+ Thêm khóa đào tạo mới", icon: "add", primary: true }
+    { label: "Thêm", icon: "add", primary: true }
   ],
   stats: [
     { label: "Tổng khóa đào tạo", value: "36", sub: "khóa chuẩn hóa", icon: "menu_book", tone: "primary" },
@@ -33,15 +31,15 @@ window.HRM_PAGE = {
     { label: "Khóa áp dụng năm nay", value: "28", sub: "đang triển khai", icon: "event_available", tone: "warning" }
   ],
   filters: [
-    { label: "Tìm kiếm", type: "search", placeholder: "Tìm mã, tên khóa đào tạo..." },
-    { label: "Chứng chỉ", type: "select", options: ["Tất cả chứng chỉ", "An toàn PCCC", "Vận hành MEP", "Sơ cấp cứu", "Quản lý toà nhà"] }
+    { label: "Tìm kiếm", type: "search", placeholder: "Tìm kiếm" },
+    { label: "Chứng chỉ", type: "select", options: ["Tất cả", "An toàn PCCC", "Vận hành MEP", "Sơ cấp cứu", "Quản lý toà nhà"] }
   ],
   columns: [
     { title: "STT", field: "stt", align: "center", width: 60 },
     { title: "Mã", field: "ma", kind: "link" },
     { title: "Tên", field: "ten", kind: "strong" },
     { title: "Chứng chỉ", field: "chungChi" },
-    { title: "Thao tác", field: "", kind: "actions", align: "center" }
+    { title: "Chỉnh sửa", field: "", kind: "actions", align: "center" }
   ],
   rows: [
     { stt: 1, ma: "KH001", ten: "An toàn phòng cháy chữa cháy cơ bản", chungChi: "Chứng chỉ An toàn PCCC" },
@@ -51,15 +49,15 @@ window.HRM_PAGE = {
     { stt: 5, ma: "KH005", ten: "Kỹ năng chăm sóc khách hàng cư dân", chungChi: "Không cấp chứng chỉ" }
   ],
   total: 36,
-  toolbar: [],
+  toolbar: [{ label: "Lọc", kind: "find" }],
   form: {
-    title: "THÊM KHÓA ĐÀO TẠO MỚI", saveLabel: "Lưu dữ liệu", wide: false,
+    title: "Thêm mới", saveLabel: "Lưu dữ liệu", wide: false,
     sections: [
       { title: "Thông tin khóa đào tạo", fields: [
         { label: "Mã", type: "text", required: true, span: 1, hint: "Tối đa 10 ký tự" },
         { label: "Tên", type: "text", required: true, span: 3 }
       ] },
-      { title: "Chứng chỉ (chọn nhiều)", fields: [
+      { title: "Chứng chỉ", fields: [
         { label: "An toàn PCCC", type: "checkbox", span: 1 },
         { label: "Vận hành MEP", type: "checkbox", span: 1 },
         { label: "Sơ cấp cứu", type: "checkbox", span: 1 },

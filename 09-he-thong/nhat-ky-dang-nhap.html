@@ -224,24 +224,13 @@
 <div class="flex flex-col">
 <div class="flex items-center gap-2.5">
 <h1 class="font-headline-lg text-headline-lg text-on-surface font-bold tracking-tight">Nhật ký đăng nhập</h1>
-<span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-secondary-container text-primary-container font-label-sm text-label-sm font-semibold">
-<span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>
-          Thời gian thực
-        </span>
 </div>
-<p class="font-body-md text-body-md text-secondary mt-1">
-        Theo dõi và giám sát lịch sử truy cập hệ thống của người dùng để đảm bảo an ninh thông tin
-      </p>
 </div>
 <!-- QUICK SECURITY METRICS PILLS -->
 <div class="flex flex-wrap items-center gap-3">
 <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-secondary-container/60 text-primary-container font-body-md-medium text-body-md-medium shadow-sm transition-all hover:bg-secondary-container">
 <span class="w-2 h-2 rounded-full bg-primary-container"></span>
 <span>Tổng lượt đăng nhập hôm nay: <strong class="font-semibold text-primary">142</strong></span>
-</div>
-<div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-surface-container-low text-tertiary font-body-md-medium text-body-md-medium shadow-sm">
-<span class="material-symbols-outlined text-[18px] text-tertiary" style="font-variation-settings: 'FILL' 1;">verified_user</span>
-<span>Trạng thái an toàn: <strong class="font-semibold text-tertiary">100% hợp lệ</strong></span>
 </div>
 </div>
 </div>
@@ -286,423 +275,32 @@
 <span class="material-symbols-outlined absolute right-2.5 text-[18px] text-outline pointer-events-none">unfold_more</span>
 </div>
 </div>
-<!-- Trạng thái -->
-<div class="flex flex-col gap-1 min-w-[160px]">
-<label class="font-label-sm text-label-sm text-secondary font-medium">Trạng thái</label>
-<div class="relative flex items-center">
-<span class="material-symbols-outlined absolute left-3 text-[18px] text-outline pointer-events-none">shield</span>
-<select class="w-full h-[38px] pl-9 pr-8 rounded-lg bg-surface-container-low font-body-md text-body-md text-on-surface focus:outline-none focus:bg-surface-container-lowest focus:shadow-[0_0_0_2px_rgba(25,103,178,0.25)] transition-all appearance-none cursor-pointer">
-<option value="all">Tất cả trạng thái</option>
-<option value="success">Thành công</option>
-<option value="failed">Thất bại</option>
-<option value="logout">Đăng xuất</option>
-</select>
-<span class="material-symbols-outlined absolute right-2.5 text-[18px] text-outline pointer-events-none">expand_more</span>
-</div>
-</div>
 <!-- Nút Lọc & Nút Làm lại -->
 <div class="flex items-end gap-2 pt-5">
 <button class="h-[38px] px-4 rounded-lg bg-primary-container text-on-primary font-label-md text-label-md font-medium hover:bg-primary transition-all flex items-center gap-1.5 shadow-sm active:translate-y-px" type="button">
 <span class="material-symbols-outlined text-[18px]">filter_alt</span>
 <span>Lọc</span>
 </button>
-<button class="h-[38px] w-[38px] rounded-lg bg-surface-container-low text-secondary hover:text-on-surface hover:bg-surface-container transition-all flex items-center justify-center" title="Đặt lại bộ lọc" type="button">
-<span class="material-symbols-outlined text-[18px]">restart_alt</span>
-</button>
 </div>
 </div>
 <!-- Right Tool Actions -->
 <div class="flex items-center gap-2 pt-2 xl:pt-5 justify-end">
 <button class="h-[38px] w-[38px] rounded-lg bg-surface-container-low text-secondary hover:text-on-surface hover:bg-surface-container transition-all flex items-center justify-center" title="Cấu hình cột hiển thị" type="button">
-<span class="material-symbols-outlined text-[20px]">view_column</span>
+<span class="material-symbols-outlined text-[20px]">settings</span>
 </button>
 <button class="h-[38px] px-3.5 rounded-lg bg-surface-container-low text-on-surface font-label-md text-label-md font-medium hover:bg-surface-container transition-all flex items-center gap-1.5" type="button">
 <span class="material-symbols-outlined text-[18px] text-tertiary">file_download</span>
 <span>Xuất Excel</span>
 </button>
-<button class="h-[38px] w-[38px] rounded-lg bg-surface-container-low text-secondary hover:text-on-surface hover:bg-surface-container transition-all flex items-center justify-center" onclick="this.querySelector('span').classList.add('animate-spin'); setTimeout(() =&gt; this.querySelector('span').classList.remove('animate-spin'), 600);" title="Làm mới dữ liệu" type="button">
-<span class="material-symbols-outlined text-[18px]">refresh</span>
-</button>
 </div>
 </div>
 </div>
-<!-- AUDIT DATA TABLE CONTAINER -->
-<div class="w-full overflow-x-auto">
-<table class="w-full text-left border-collapse min-w-[960px]">
-<thead>
-<tr class="bg-surface-container-low/80 text-secondary font-label-sm text-label-sm">
-<th class="py-3 px-4 w-16 text-center font-semibold">STT</th>
-<th class="py-3 px-4 w-32 font-semibold">Mã NV</th>
-<th class="py-3 px-4 font-semibold">Họ và tên</th>
-<th class="py-3 px-4 font-semibold">Máy trạm</th>
-<th class="py-3 px-4 font-semibold">Địa chỉ IP</th>
-<th class="py-3 px-4 font-semibold">Thời gian đăng nhập</th>
-<th class="py-3 px-4 text-center font-semibold w-40">Trạng thái</th>
-</tr>
-</thead>
-<tbody class="font-body-md text-body-md divide-y-0">
-<!-- ROW 1 -->
-<tr class="hover:bg-secondary-container/20 transition-colors group">
-<td class="py-3 px-4 text-center text-outline font-mono-num text-mono-num">1</td>
-<td class="py-3 px-4">
-<span class="font-mono-num text-mono-num font-semibold text-primary px-2 py-0.5 bg-secondary-container/50 rounded">NV0001</span>
-</td>
-<td class="py-3 px-4">
-<div class="flex items-center gap-3">
-<div class="w-8 h-8 rounded-full bg-primary-container text-on-primary flex items-center justify-center font-label-md text-label-md font-semibold shrink-0">
-                  AN
-                </div>
-<div class="flex flex-col min-w-0">
-<span class="font-body-md-medium text-body-md-medium text-on-surface truncate">Nguyễn Văn An</span>
-<span class="font-caption text-caption text-secondary">Quản trị viên</span>
-</div>
-</div>
-</td>
-<td class="py-3 px-4">
-<div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-surface-container text-on-surface-variant font-mono-num text-caption">
-<span class="material-symbols-outlined text-[15px] text-outline">desktop_windows</span>
-<span>PC-KT-01</span>
-</div>
-</td>
-<td class="py-3 px-4">
-<span class="font-mono-num text-mono-num text-on-surface bg-surface-container-low px-2 py-0.5 rounded text-caption">192.168.1.15</span>
-</td>
-<td class="py-3 px-4">
-<div class="flex items-center gap-1.5 text-secondary">
-<span class="material-symbols-outlined text-[16px] text-outline">schedule</span>
-<span class="font-mono-num text-mono-num text-on-surface">13/11/2026 08:02:14</span>
-</div>
-</td>
-<td class="py-3 px-4 text-center">
-<span class="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-surface-container-low text-tertiary font-label-sm text-label-sm font-semibold">
-<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
-                Thành công
-              </span>
-</td>
-</tr>
-<!-- ROW 2 -->
-<tr class="hover:bg-secondary-container/20 transition-colors group bg-surface-container-lowest">
-<td class="py-3 px-4 text-center text-outline font-mono-num text-mono-num">2</td>
-<td class="py-3 px-4">
-<span class="font-mono-num text-mono-num font-semibold text-primary px-2 py-0.5 bg-secondary-container/50 rounded">NV0002</span>
-</td>
-<td class="py-3 px-4">
-<div class="flex items-center gap-3">
-<div class="w-8 h-8 rounded-full bg-tertiary text-on-tertiary flex items-center justify-center font-label-md text-label-md font-semibold shrink-0">
-                  TB
-                </div>
-<div class="flex flex-col min-w-0">
-<span class="font-body-md-medium text-body-md-medium text-on-surface truncate">Trần Thị Bình</span>
-<span class="font-caption text-caption text-secondary">Chuyên viên HR</span>
-</div>
-</div>
-</td>
-<td class="py-3 px-4">
-<div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-surface-container text-on-surface-variant font-mono-num text-caption">
-<span class="material-symbols-outlined text-[15px] text-outline">laptop_mac</span>
-<span>LAPTOP-HR</span>
-</div>
-</td>
-<td class="py-3 px-4">
-<span class="font-mono-num text-mono-num text-on-surface bg-surface-container-low px-2 py-0.5 rounded text-caption">192.168.1.23</span>
-</td>
-<td class="py-3 px-4">
-<div class="flex items-center gap-1.5 text-secondary">
-<span class="material-symbols-outlined text-[16px] text-outline">schedule</span>
-<span class="font-mono-num text-mono-num text-on-surface">13/11/2026 08:05:32</span>
-</div>
-</td>
-<td class="py-3 px-4 text-center">
-<span class="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-surface-container-low text-tertiary font-label-sm text-label-sm font-semibold">
-<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
-                Thành công
-              </span>
-</td>
-</tr>
-<!-- ROW 3 -->
-<tr class="hover:bg-secondary-container/20 transition-colors group">
-<td class="py-3 px-4 text-center text-outline font-mono-num text-mono-num">3</td>
-<td class="py-3 px-4">
-<span class="font-mono-num text-mono-num font-semibold text-primary px-2 py-0.5 bg-secondary-container/50 rounded">NV0004</span>
-</td>
-<td class="py-3 px-4">
-<div class="flex items-center gap-3">
-<div class="w-8 h-8 rounded-full bg-secondary text-on-secondary flex items-center justify-center font-label-md text-label-md font-semibold shrink-0">
-                  PD
-                </div>
-<div class="flex flex-col min-w-0">
-<span class="font-body-md-medium text-body-md-medium text-on-surface truncate">Phạm Thị Dung</span>
-<span class="font-caption text-caption text-secondary">Kế toán trưởng</span>
-</div>
-</div>
-</td>
-<td class="py-3 px-4">
-<div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-surface-container text-on-surface-variant font-mono-num text-caption">
-<span class="material-symbols-outlined text-[15px] text-outline">desktop_windows</span>
-<span>PC-KETOAN</span>
-</div>
-</td>
-<td class="py-3 px-4">
-<span class="font-mono-num text-mono-num text-on-surface bg-surface-container-low px-2 py-0.5 rounded text-caption">192.168.1.41</span>
-</td>
-<td class="py-3 px-4">
-<div class="flex items-center gap-1.5 text-secondary">
-<span class="material-symbols-outlined text-[16px] text-outline">schedule</span>
-<span class="font-mono-num text-mono-num text-on-surface">13/11/2026 08:11:05</span>
-</div>
-</td>
-<td class="py-3 px-4 text-center">
-<span class="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-surface-container-low text-tertiary font-label-sm text-label-sm font-semibold">
-<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
-                Thành công
-              </span>
-</td>
-</tr>
-<!-- ROW 4 -->
-<tr class="hover:bg-secondary-container/20 transition-colors group bg-surface-container-lowest">
-<td class="py-3 px-4 text-center text-outline font-mono-num text-mono-num">4</td>
-<td class="py-3 px-4">
-<span class="font-mono-num text-mono-num font-semibold text-primary px-2 py-0.5 bg-secondary-container/50 rounded">NV0003</span>
-</td>
-<td class="py-3 px-4">
-<div class="flex items-center gap-3">
-<div class="w-8 h-8 rounded-full bg-primary-fixed-dim text-on-primary-fixed flex items-center justify-center font-label-md text-label-md font-semibold shrink-0">
-                  LC
-                </div>
-<div class="flex flex-col min-w-0">
-<span class="font-body-md-medium text-body-md-medium text-on-surface truncate">Lê Hoàng Cường</span>
-<span class="font-caption text-caption text-secondary">Trưởng phòng IT</span>
-</div>
-</div>
-</td>
-<td class="py-3 px-4">
-<div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-surface-container text-on-surface-variant font-mono-num text-caption">
-<span class="material-symbols-outlined text-[15px] text-outline">dns</span>
-<span>SERVER-GATEWAY</span>
-</div>
-</td>
-<td class="py-3 px-4">
-<span class="font-mono-num text-mono-num text-on-surface bg-surface-container-low px-2 py-0.5 rounded text-caption">10.0.0.112</span>
-</td>
-<td class="py-3 px-4">
-<div class="flex items-center gap-1.5 text-secondary">
-<span class="material-symbols-outlined text-[16px] text-outline">schedule</span>
-<span class="font-mono-num text-mono-num text-on-surface">12/11/2026 17:46:19</span>
-</div>
-</td>
-<td class="py-3 px-4 text-center">
-<span class="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-surface-container-low text-tertiary font-label-sm text-label-sm font-semibold">
-<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
-                Thành công
-              </span>
-</td>
-</tr>
-<!-- ROW 5 -->
-<tr class="hover:bg-secondary-container/20 transition-colors group">
-<td class="py-3 px-4 text-center text-outline font-mono-num text-mono-num">5</td>
-<td class="py-3 px-4">
-<span class="font-mono-num text-mono-num font-semibold text-primary px-2 py-0.5 bg-secondary-container/50 rounded">NV0001</span>
-</td>
-<td class="py-3 px-4">
-<div class="flex items-center gap-3">
-<div class="w-8 h-8 rounded-full bg-primary-container text-on-primary flex items-center justify-center font-label-md text-label-md font-semibold shrink-0">
-                  AN
-                </div>
-<div class="flex flex-col min-w-0">
-<span class="font-body-md-medium text-body-md-medium text-on-surface truncate">Nguyễn Văn An</span>
-<span class="font-caption text-caption text-secondary">Quản trị viên</span>
-</div>
-</div>
-</td>
-<td class="py-3 px-4">
-<div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-surface-container text-on-surface-variant font-mono-num text-caption">
-<span class="material-symbols-outlined text-[15px] text-outline">desktop_windows</span>
-<span>PC-KT-01</span>
-</div>
-</td>
-<td class="py-3 px-4">
-<span class="font-mono-num text-mono-num text-on-surface bg-surface-container-low px-2 py-0.5 rounded text-caption">192.168.1.15</span>
-</td>
-<td class="py-3 px-4">
-<div class="flex items-center gap-1.5 text-secondary">
-<span class="material-symbols-outlined text-[16px] text-outline">schedule</span>
-<span class="font-mono-num text-mono-num text-on-surface">12/11/2026 08:00:02</span>
-</div>
-</td>
-<td class="py-3 px-4 text-center">
-<span class="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-surface-container-low text-tertiary font-label-sm text-label-sm font-semibold">
-<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
-                Thành công
-              </span>
-</td>
-</tr>
-<!-- ROW 6 -->
-<tr class="hover:bg-secondary-container/20 transition-colors group bg-surface-container-lowest">
-<td class="py-3 px-4 text-center text-outline font-mono-num text-mono-num">6</td>
-<td class="py-3 px-4">
-<span class="font-mono-num text-mono-num font-semibold text-primary px-2 py-0.5 bg-secondary-container/50 rounded">NV0015</span>
-</td>
-<td class="py-3 px-4">
-<div class="flex items-center gap-3">
-<div class="w-8 h-8 rounded-full bg-secondary-container text-primary-container flex items-center justify-center font-label-md text-label-md font-semibold shrink-0">
-                  HD
-                </div>
-<div class="flex flex-col min-w-0">
-<span class="font-body-md-medium text-body-md-medium text-on-surface truncate">Hoàng Minh Đức</span>
-<span class="font-caption text-caption text-secondary">Nhân viên CSKH</span>
-</div>
-</div>
-</td>
-<td class="py-3 px-4">
-<div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-surface-container text-on-surface-variant font-mono-num text-caption">
-<span class="material-symbols-outlined text-[15px] text-outline">desktop_windows</span>
-<span>PC-CS-04</span>
-</div>
-</td>
-<td class="py-3 px-4">
-<span class="font-mono-num text-mono-num text-on-surface bg-surface-container-low px-2 py-0.5 rounded text-caption">192.168.1.88</span>
-</td>
-<td class="py-3 px-4">
-<div class="flex items-center gap-1.5 text-secondary">
-<span class="material-symbols-outlined text-[16px] text-outline">schedule</span>
-<span class="font-mono-num text-mono-num text-on-surface">12/11/2026 07:55:40</span>
-</div>
-</td>
-<td class="py-3 px-4 text-center">
-<span class="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-surface-container-low text-tertiary font-label-sm text-label-sm font-semibold">
-<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
-                Thành công
-              </span>
-</td>
-</tr>
-<!-- ROW 7 -->
-<tr class="hover:bg-secondary-container/20 transition-colors group">
-<td class="py-3 px-4 text-center text-outline font-mono-num text-mono-num">7</td>
-<td class="py-3 px-4">
-<span class="font-mono-num text-mono-num font-semibold text-primary px-2 py-0.5 bg-secondary-container/50 rounded">NV0022</span>
-</td>
-<td class="py-3 px-4">
-<div class="flex items-center gap-3">
-<div class="w-8 h-8 rounded-full bg-tertiary-fixed text-on-tertiary-fixed flex items-center justify-center font-label-md text-label-md font-semibold shrink-0">
-                  VT
-                </div>
-<div class="flex flex-col min-w-0">
-<span class="font-body-md-medium text-body-md-medium text-on-surface truncate">Vũ Thanh Thảo</span>
-<span class="font-caption text-caption text-secondary">Chuyên viên Tuyển dụng</span>
-</div>
-</div>
-</td>
-<td class="py-3 px-4">
-<div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-surface-container text-on-surface-variant font-mono-num text-caption">
-<span class="material-symbols-outlined text-[15px] text-outline">laptop_chromebook</span>
-<span>LAPTOP-REC-02</span>
-</div>
-</td>
-<td class="py-3 px-4">
-<span class="font-mono-num text-mono-num text-on-surface bg-surface-container-low px-2 py-0.5 rounded text-caption">192.168.1.52</span>
-</td>
-<td class="py-3 px-4">
-<div class="flex items-center gap-1.5 text-secondary">
-<span class="material-symbols-outlined text-[16px] text-outline">schedule</span>
-<span class="font-mono-num text-mono-num text-on-surface">12/11/2026 07:50:11</span>
-</div>
-</td>
-<td class="py-3 px-4 text-center">
-<span class="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-surface-container-low text-tertiary font-label-sm text-label-sm font-semibold">
-<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
-                Thành công
-              </span>
-</td>
-</tr>
-<!-- ROW 8 -->
-<tr class="hover:bg-secondary-container/20 transition-colors group bg-surface-container-lowest">
-<td class="py-3 px-4 text-center text-outline font-mono-num text-mono-num">8</td>
-<td class="py-3 px-4">
-<span class="font-mono-num text-mono-num font-semibold text-primary px-2 py-0.5 bg-secondary-container/50 rounded">NV0008</span>
-</td>
-<td class="py-3 px-4">
-<div class="flex items-center gap-3">
-<div class="w-8 h-8 rounded-full bg-tertiary-container text-on-tertiary-container flex items-center justify-center font-label-md text-label-md font-semibold shrink-0">
-                  DT
-                </div>
-<div class="flex flex-col min-w-0">
-<span class="font-body-md-medium text-body-md-medium text-on-surface truncate">Đặng Quốc Tuấn</span>
-<span class="font-caption text-caption text-secondary">Giám đốc Vận hành</span>
-</div>
-</div>
-</td>
-<td class="py-3 px-4">
-<div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-surface-container text-on-surface-variant font-mono-num text-caption">
-<span class="material-symbols-outlined text-[15px] text-outline">laptop_mac</span>
-<span>MACBOOK-PRO-COO</span>
-</div>
-</td>
-<td class="py-3 px-4">
-<span class="font-mono-num text-mono-num text-on-surface bg-surface-container-low px-2 py-0.5 rounded text-caption">192.168.1.10</span>
-</td>
-<td class="py-3 px-4">
-<div class="flex items-center gap-1.5 text-secondary">
-<span class="material-symbols-outlined text-[16px] text-outline">schedule</span>
-<span class="font-mono-num text-mono-num text-on-surface">11/11/2026 19:15:28</span>
-</div>
-</td>
-<td class="py-3 px-4 text-center">
-<span class="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-surface-container-low text-tertiary font-label-sm text-label-sm font-semibold">
-<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
-                Thành công
-              </span>
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-<!-- TABLE FOOTER & PAGINATION -->
-<div class="py-3 px-6 bg-surface-container-low/50 flex flex-col sm:flex-row items-center justify-between gap-4">
-<div class="text-secondary font-label-md text-label-md">
-        Hiển thị <span class="font-semibold text-on-surface">1–20</span> trong <span class="font-semibold text-on-surface">1.284</span> lượt đăng nhập
-      </div>
-<div class="flex items-center gap-4">
-<!-- Rows per page selector -->
-<div class="flex items-center gap-2">
-<span class="font-label-sm text-label-sm text-secondary">Số dòng/trang:</span>
-<div class="relative">
-<select class="h-8 pl-2 pr-6 rounded bg-surface-container-lowest font-mono-num text-label-sm text-on-surface focus:outline-none focus:ring-1 focus:ring-primary appearance-none cursor-pointer">
-<option value="10">10</option>
-<option selected="" value="20">20</option>
-<option value="50">50</option>
-<option value="100">100</option>
-</select>
-<span class="material-symbols-outlined absolute right-1 top-1.5 text-[16px] text-outline pointer-events-none">expand_more</span>
-</div>
-</div>
-<!-- Pagination Navigation Buttons -->
-<div class="flex items-center gap-1">
-<button class="w-8 h-8 rounded flex items-center justify-center text-outline hover:text-on-surface hover:bg-surface-container transition-colors disabled:opacity-40" disabled="" title="Trang đầu" type="button">
-<span class="material-symbols-outlined text-[18px]">first_page</span>
-</button>
-<button class="w-8 h-8 rounded flex items-center justify-center text-outline hover:text-on-surface hover:bg-surface-container transition-colors disabled:opacity-40" disabled="" title="Trang trước" type="button">
-<span class="material-symbols-outlined text-[18px]">chevron_left</span>
-</button>
-<button class="w-8 h-8 rounded bg-primary-container text-on-primary font-label-md text-label-md font-semibold flex items-center justify-center shadow-sm" type="button">
-            1
-          </button>
-<button class="w-8 h-8 rounded text-on-surface-variant hover:bg-surface-container font-label-md text-label-md flex items-center justify-center transition-colors" type="button">
-            2
-          </button>
-<button class="w-8 h-8 rounded text-on-surface-variant hover:bg-surface-container font-label-md text-label-md flex items-center justify-center transition-colors" type="button">
-            3
-          </button>
-<span class="w-6 h-8 flex items-center justify-center text-outline font-label-md text-label-md select-none">…</span>
-<button class="w-8 h-8 rounded text-on-surface-variant hover:bg-surface-container font-label-md text-label-md flex items-center justify-center transition-colors" type="button">
-            65
-          </button>
-<button class="w-8 h-8 rounded flex items-center justify-center text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors" title="Trang sau" type="button">
-<span class="material-symbols-outlined text-[18px]">chevron_right</span>
-</button>
-<button class="w-8 h-8 rounded flex items-center justify-center text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors" title="Trang cuối" type="button">
-<span class="material-symbols-outlined text-[18px]">last_page</span>
-</button>
-</div>
+<!-- BẢNG KẾT QUẢ (cột do cấu hình báo cáo NK_DangNhap sinh ra) -->
+<div class="w-full px-space-lg pb-space-lg">
+<div class="rounded-xl border border-dashed border-outline-variant px-space-lg py-12 flex flex-col items-center text-center gap-3">
+<span class="w-14 h-14 rounded-xl bg-primary-container/10 text-primary flex items-center justify-center"><span class="material-symbols-outlined text-[30px]">table_chart</span></span>
+<div class="font-headline-sm text-headline-sm text-on-surface">Bảng kết quả — cột do cấu hình báo cáo sinh ra</div>
+<p class="max-w-xl font-body-sm text-body-sm text-on-surface-variant">Bảng được hiển thị khi bấm “Lọc”. Các cột của báo cáo này do cấu hình báo cáo (mã <b class="text-on-surface">NK_DangNhap</b>) sinh ra từ cơ sở dữ liệu, không nằm trong mã nguồn nên chưa vẽ cột mẫu.</p>
 </div>
 </div>
 </div>

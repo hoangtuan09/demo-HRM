@@ -21,7 +21,6 @@ window.HRM_PAGE = {
   search: "Tìm kiếm học viên, lớp đào tạo...",
   breadcrumb: ["Báo cáo", "Tra cứu học viên"],
   title: "Tra cứu danh sách Học viên",
-  desc: "Tra cứu danh sách học viên theo lớp đào tạo, tình trạng và kết quả học tập, lọc theo thời gian mở lớp, thời gian đăng ký và đơn vị.",
   stats: [
     { label: "Tổng lượt học viên", value: "1.284", sub: "lượt đăng ký học", icon: "groups", tone: "primary" },
     { label: "Đã hoàn thành", value: "1.057", sub: "82.3% học viên", icon: "task_alt", tone: "success" },
@@ -29,35 +28,22 @@ window.HRM_PAGE = {
     { label: "Không đạt", value: "63", sub: "cần đào tạo lại", icon: "cancel", tone: "danger" }
   ],
   filters: [
-    { label: "Đơn vị", type: "select", options: ["Toàn công ty", "BQL Tòa nhà Keangnam", "BQL Tòa Handico", "TTTM Indochina"], required: true },
+    { label: "Thời gian mở lớp: Từ ngày", type: "date" },
+    { label: "Đến ngày", type: "date" },
+    { label: "Lớp DT", type: "select", options: ["Tất cả lớp"] },
+    { label: "Tình trạng", type: "select", options: ["Tất cả tình trạng"] },
+    { label: "Kết quả", type: "select", options: ["Tất cả kết quả"] },
+    { label: "Thời gian đăng ký: Từ ngày", type: "date" },
+    { label: "Đến ngày", type: "date" },
+    { label: "Đơn vị", type: "select", options: ["Toàn công ty", "BQL Tòa nhà Keangnam", "BQL Tòa Handico", "TTTM Indochina"] },
     { label: "Phòng ban/Dự án", type: "select", options: ["Tất cả phòng ban"] },
-    { label: "Bộ phận", type: "select", options: ["Tất cả bộ phận"] },
-    { label: "Lớp đào tạo", type: "select", options: ["Tất cả lớp"] },
-    { label: "Kết quả", type: "select", options: ["Tất cả kết quả", "Đạt", "Không đạt", "Chưa có"] }
+    { label: "Bộ phận", type: "select", options: ["Tất cả bộ phận"] }
   ],
   gear: true,
-  columns: [
-    { title: "STT", field: "stt", align: "center", width: 60 },
-    { title: "Mã HV", field: "ma", kind: "link" },
-    { title: "Họ và tên", field: "ten", kind: "strong" },
-    { title: "Phòng ban / Dự án", field: "pb" },
-    { title: "Lớp đào tạo", field: "lop", kind: "strong" },
-    { title: "Ngày mở lớp", field: "ngayMo" },
-    { title: "Tình trạng", field: "tinhTrang", align: "center", kind: "badge", tones: { "Hoàn thành": "bg-emerald-50 text-emerald-600", "Đang học": "bg-sky-50 text-sky-600" } },
-    { title: "Kết quả", field: "ketQua", align: "center", kind: "badge", tones: { "Đạt": "bg-emerald-50 text-emerald-600", "Không đạt": "bg-red-50 text-red-600", "Chưa có": "bg-surface-container-high text-on-surface-variant" } }
-  ],
-  rows: [
-    { stt: 1, ma: "NV0001", ten: "Nguyễn Văn An", pb: "Phòng Kỹ thuật", lop: "An toàn PCCC cơ bản", ngayMo: "10/03/2025", tinhTrang: "Hoàn thành", ketQua: "Đạt" },
-    { stt: 2, ma: "NV0045", ten: "Lê Hoàng Cường", pb: "Phòng Vận hành", lop: "Kỹ thuật MEP nâng cao", ngayMo: "05/04/2025", tinhTrang: "Hoàn thành", ketQua: "Đạt" },
-    { stt: 3, ma: "NV0088", ten: "Vũ Thanh Thảo", pb: "Phòng Dịch vụ KH", lop: "Nghiệp vụ CSKH", ngayMo: "18/09/2025", tinhTrang: "Đang học", ketQua: "Chưa có" },
-    { stt: 4, ma: "NV0132", ten: "Hoàng Minh Đức", pb: "Khối CSKH", lop: "Hội nhập nhân viên mới", ngayMo: "01/10/2025", tinhTrang: "Hoàn thành", ketQua: "Không đạt" },
-    { stt: 5, ma: "NV0177", ten: "Bùi Văn Phong", pb: "Khối Vận hành", lop: "Sơ cấp cứu tại nơi làm việc", ngayMo: "22/08/2025", tinhTrang: "Hoàn thành", ketQua: "Đạt" }
-  ],
-  total: 1284,
+  serverColumns: "TraCuuHocVien",
   toolbar: [
     { label: "Lọc dữ liệu", icon: "filter_alt", kind: "find" },
-    { label: "Xuất Excel", icon: "file_download", kind: "export" },
-    { label: "Xem in", icon: "print", kind: "pdf" }
+    { label: "Xuất Excel", icon: "file_download", kind: "export" }
   ]
 };
 </script>

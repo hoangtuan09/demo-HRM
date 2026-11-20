@@ -6,9 +6,6 @@
 <div class="flex items-center justify-between pb-3 pt-1">
 <div class="flex items-center gap-space-sm">
 <h1 class="font-headline-lg text-headline-lg text-on-surface tracking-tight">Phân ca</h1>
-<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-label-sm font-label-sm bg-primary-fixed text-primary font-medium">
-        Chu kỳ tháng 11/2026
-      </span>
 </div>
 <div class="flex items-center gap-1.5 font-caption text-caption text-secondary">
 <span>Chấm công &amp; Điểm danh</span>
@@ -51,7 +48,7 @@
 </div>
 <!-- Dự án / Tòa nhà -->
 <div class="flex items-center gap-2">
-<label class="font-label-sm text-label-sm text-secondary font-medium shrink-0">Dự án</label>
+<label class="font-label-sm text-label-sm text-secondary font-medium shrink-0">Phòng ban/Dự án</label>
 <select class="h-9 px-3 rounded-lg bg-surface-container-low text-on-surface font-body-md text-body-md focus:outline-none focus:ring-2 focus:ring-primary-container max-w-[220px] truncate cursor-pointer">
 <option selected="">BQL Tòa nhà Keangnam Landmark 72</option>
 <option>BQL Tòa nhà Discovery Complex</option>
@@ -71,10 +68,6 @@
 </div>
 <!-- Right Controls: Status & Gear Action -->
 <div class="flex items-center gap-3">
-<div class="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-emerald-50 text-emerald-700 font-label-sm text-label-sm font-semibold">
-<span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-<span>Chế độ: Đã mở khóa chỉnh sửa</span>
-</div>
 <!-- Gear dropdown anchor -->
 <div class="relative" id="gearDropdownContainer">
 <button class="w-9 h-9 rounded-lg bg-surface-container-low hover:bg-surface-container text-on-surface-variant flex items-center justify-center transition-colors shadow-xs" id="gearBtn" type="button">
@@ -82,18 +75,13 @@
 </button>
 <!-- Dropdown Menu -->
 <div class="hidden absolute right-0 mt-2 w-56 bg-surface-container-lowest rounded-xl shadow-xl z-50 py-1.5 animate-in fade-in zoom-in-95 duration-150" id="gearMenu">
-<div class="px-3 py-1.5 font-caption text-caption text-secondary uppercase font-semibold">Thao tác phân ca</div>
 <button class="w-full px-3 py-2 text-left font-body-md text-body-md text-on-surface hover:bg-surface-container-low flex items-center gap-2 transition-colors" type="button">
 <span class="material-symbols-outlined text-[18px] text-primary">lock_open</span>
-<span>Khóa kỳ phân ca</span>
+<span>Mở khóa</span>
 </button>
 <button class="w-full px-3 py-2 text-left font-body-md text-body-md text-on-surface hover:bg-surface-container-low flex items-center gap-2 transition-colors" type="button">
-<span class="material-symbols-outlined text-[18px] text-tertiary">sync</span>
-<span>Đồng bộ đơn nghỉ phép</span>
-</button>
-<button class="w-full px-3 py-2 text-left font-body-md text-body-md text-on-surface hover:bg-surface-container-low flex items-center gap-2 transition-colors" type="button">
-<span class="material-symbols-outlined text-[18px] text-secondary">history</span>
-<span>Lịch sử đổi ca &amp; bàn giao</span>
+<span class="material-symbols-outlined text-[18px] text-tertiary">database</span>
+<span>Đồng bộ ca nghỉ</span>
 </button>
 </div>
 </div>
@@ -110,25 +98,21 @@
 <!-- Frozen Left Master: 5 columns (STT, Mã NV, Họ tên, Bộ phận, Chức vụ) -->
 <th class="sticky left-0 z-40 bg-surface-container px-3 py-2 text-primary font-bold shadow-[2px_0_4px_rgba(0,0,0,0.03)]" colspan="5">
 <div class="flex items-center justify-between">
-<span>THÔNG TIN NHÂN SỰ</span>
-<span class="text-caption font-caption text-secondary font-normal">7 nhân sự</span>
+<span>Thông tin nhân sự</span>
+
 </div>
 </th>
 <!-- Center Calendar Header: Days 1 to 30 -->
-<th class="text-center py-2 bg-surface-container-high tracking-wider text-secondary" colspan="30">
-              LỊCH PHÂN CÔNG THÁNG 11/2026 (30 NGÀY)
-            </th>
+<th class="text-center py-2 bg-surface-container-high tracking-wider text-secondary" colspan="30"></th>
 <!-- Frozen Right Master: Summary columns -->
-<th class="sticky right-0 z-40 bg-surface-container px-3 py-2 text-center text-primary font-bold shadow-[-2px_0_4px_rgba(0,0,0,0.03)]" colspan="7">
-              TỔNG HỢP CÔNG &amp; CA
-            </th>
+<th class="sticky right-0 z-40 bg-surface-container px-3 py-2 text-center text-primary font-bold shadow-[-2px_0_4px_rgba(0,0,0,0.03)]" colspan="7"></th>
 </tr>
 <!-- ROW 2: SUB-COLUMNS -->
 <tr class="bg-surface-container-lowest text-secondary text-label-sm font-label-sm sticky top-[33px] z-30 shadow-[0_1px_2px_rgba(0,0,0,0.05)]">
 <!-- 5 Left Frozen Subheaders -->
 <th class="sticky left-0 z-40 bg-surface-container-low w-12 text-center py-2 px-1 text-on-surface-variant font-medium">STT</th>
-<th class="sticky left-12 z-40 bg-surface-container-low w-24 px-2 py-2 text-on-surface font-medium">Mã NV</th>
-<th class="sticky left-36 z-40 bg-surface-container-low w-44 px-3 py-2 text-on-surface font-semibold">Họ và tên</th>
+<th class="sticky left-12 z-40 bg-surface-container-low w-24 px-2 py-2 text-on-surface font-medium">Mã nhân sự</th>
+<th class="sticky left-36 z-40 bg-surface-container-low w-44 px-3 py-2 text-on-surface font-semibold">Họ tên</th>
 <th class="sticky left-[20rem] z-40 bg-surface-container-low w-36 px-2 py-2 text-on-surface-variant">Bộ phận</th>
 <th class="sticky left-[29rem] z-40 bg-surface-container-low w-32 px-2 py-2 text-on-surface-variant shadow-[2px_0_4px_rgba(0,0,0,0.04)]">Chức vụ</th>
 <!-- 30 Calendar Day Columns (November: 1 = Sun, 2 = Mon ... 13 = Thu [Today], 30 = Mon) -->
@@ -215,15 +199,13 @@
 <!-- Day 30: T2 -->
 <th class="w-11 text-center py-1.5 px-0.5 font-medium text-on-surface-variant"><div class="text-[11px] leading-none">30/11</div><div class="text-[10px] text-secondary">T2</div></th>
 <!-- 7 Frozen Right Summary Subheaders -->
-<th class="sticky right-[18rem] z-40 bg-surface-container-low w-12 text-center py-2 text-rose-700 font-semibold shadow-[-2px_0_4px_rgba(0,0,0,0.03)]" title="Ngày nghỉ tuần (Target 6-7)">
-              R
-            </th>
-<th class="sticky right-[15rem] z-40 bg-surface-container-low w-12 text-center py-2 text-cyan-800 font-semibold" title="Nghỉ phép năm">AL</th>
-<th class="sticky right-[12rem] z-40 bg-surface-container-low w-12 text-center py-2 text-purple-700 font-semibold" title="Nghỉ bù">RR</th>
-<th class="sticky right-[9rem] z-40 bg-surface-container-low w-12 text-center py-2 text-primary font-semibold" title="Tổng ca sáng">M</th>
-<th class="sticky right-[6rem] z-40 bg-surface-container-low w-12 text-center py-2 text-emerald-700 font-semibold" title="Tổng ca chiều">A</th>
-<th class="sticky right-[3rem] z-40 bg-surface-container-low w-12 text-center py-2 text-slate-700 font-semibold" title="Tổng ca đêm">N</th>
-<th class="sticky right-0 z-40 bg-surface-container-low w-12 text-center py-2 text-amber-700 font-semibold" title="Nghỉ lễ">PH</th>
+<th class="sticky right-[18rem] z-40 bg-surface-container-low w-12 text-center py-2 text-rose-700 font-semibold shadow-[-2px_0_4px_rgba(0,0,0,0.03)]">R</th>
+<th class="sticky right-[15rem] z-40 bg-surface-container-low w-12 text-center py-2 text-cyan-800 font-semibold">AL<br>trong<br>tháng</th>
+<th class="sticky right-[12rem] z-40 bg-surface-container-low w-12 text-center py-2 text-purple-700 font-semibold">RR<br>trong<br>tháng</th>
+<th class="sticky right-[9rem] z-40 bg-surface-container-low w-12 text-center py-2 text-primary font-semibold">M</th>
+<th class="sticky right-[6rem] z-40 bg-surface-container-low w-12 text-center py-2 text-emerald-700 font-semibold">A</th>
+<th class="sticky right-[3rem] z-40 bg-surface-container-low w-12 text-center py-2 text-slate-700 font-semibold">N</th>
+<th class="sticky right-0 z-40 bg-surface-container-low w-12 text-center py-2 text-amber-700 font-semibold">PH</th>
 </tr>
 </thead>
 <tbody class="divide-y-0 text-on-surface font-mono-num text-mono-num">
@@ -306,7 +288,7 @@
 <div class="absolute left-1/2 -translate-x-1/2 top-8 w-72 bg-surface-container-lowest rounded-xl shadow-2xl p-2.5 z-50 text-left animate-in fade-in zoom-in-95 duration-150">
 <div class="flex items-center justify-between pb-1.5 mb-1.5 bg-surface-container-low px-2 py-1 rounded">
 <span class="font-label-sm text-label-sm font-semibold text-primary">Chọn ca: 14/11 (T7)</span>
-<span class="font-caption text-[11px] text-secondary">Trần Thị Bình</span>
+
 </div>
 <!-- Options list -->
 <div class="flex flex-col gap-1 max-h-48 overflow-y-auto">
@@ -352,7 +334,6 @@
 <div class="mt-2 pt-1.5 bg-surface-container-low/60 rounded px-2 py-1 flex items-center justify-between font-caption text-[10px] text-secondary">
 <span><b>Ctrl+A:</b> Cả cột</span>
 <span><b>Enter:</b> Xuống ô</span>
-<span><b>Esc:</b> Đóng</span>
 </div>
 </div>
 </div>
@@ -621,89 +602,25 @@
 </tbody>
 </table>
 </div>
-<!-- LEGEND & QUICK SHORTCUT BAR -->
-<div class="px-4 py-2.5 bg-surface-container-low/70 flex flex-wrap items-center justify-between gap-3 text-caption font-caption">
-<!-- Shift explanation chips -->
-<div class="flex flex-wrap items-center gap-2">
-<span class="font-label-sm text-label-sm font-semibold text-secondary mr-1">Quy ước ký hiệu:</span>
-<span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded bg-surface-container-lowest shadow-xs text-on-surface">
-<span class="w-4 h-4 rounded text-[10px] font-bold flex items-center justify-center bg-primary-fixed text-primary">M</span>
-<span>Ca Sáng (07:00 - 15:30)</span>
-</span>
-<span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded bg-surface-container-lowest shadow-xs text-on-surface">
-<span class="w-4 h-4 rounded text-[10px] font-bold flex items-center justify-center bg-emerald-100 text-emerald-800">A</span>
-<span>Ca Chiều (14:30 - 22:30)</span>
-</span>
-<span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded bg-surface-container-lowest shadow-xs text-on-surface">
-<span class="w-4 h-4 rounded text-[10px] font-bold flex items-center justify-center bg-slate-200 text-slate-800">N</span>
-<span>Ca Đêm (22:00 - 06:30)</span>
-</span>
-<span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded bg-surface-container-lowest shadow-xs text-on-surface">
-<span class="w-4 h-4 rounded text-[10px] font-bold flex items-center justify-center bg-rose-100 text-rose-700">R</span>
-<span>Nghỉ tuần</span>
-</span>
-<span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded bg-surface-container-lowest shadow-xs text-on-surface">
-<span class="w-4 h-4 rounded text-[10px] font-bold flex items-center justify-center bg-sky-100 text-sky-800">AL</span>
-<span>Phép năm</span>
-</span>
-<span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded bg-surface-container-lowest shadow-xs text-on-surface">
-<span class="w-4 h-4 rounded text-[10px] font-bold flex items-center justify-center bg-purple-100 text-purple-800">RR</span>
-<span>Nghỉ bù</span>
-</span>
-<span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded bg-surface-container-lowest shadow-xs text-on-surface">
-<span class="w-4 h-4 rounded text-[10px] font-bold flex items-center justify-center bg-amber-100 text-amber-800">PH</span>
-<span>Nghỉ lễ</span>
-</span>
-</div>
-<!-- Quick Tips -->
-<div class="flex items-center gap-1.5 text-secondary">
-<span class="material-symbols-outlined text-[16px] text-primary">lightbulb</span>
-<span><b>Phím tắt:</b> Đúp chuột đổi ca · <b>Ctrl+A</b> áp dụng cột · Ngày đã qua không được phép sửa.</span>
-</div>
-</div>
 </div>
 <!-- FIXED BOTTOM ACTION BAR -->
-<div class="fixed bottom-0 left-[240px] right-0 bg-surface-container-lowest/95 backdrop-blur-md px-gutter py-3 shadow-[0_-4px_16px_rgba(0,0,0,0.06)] z-40 flex items-center justify-between">
-<!-- Summary Counter Left -->
-<div class="flex items-center gap-3">
-<div class="w-8 h-8 rounded-lg bg-primary-fixed flex items-center justify-center text-primary font-bold">
-<span class="material-symbols-outlined text-[20px]">calendar_month</span>
-</div>
-<div class="flex flex-col">
-<div class="flex items-center gap-2">
-<span class="font-body-md-medium text-body-md-medium text-on-surface font-semibold">
-            Tổng cộng: 7 nhân sự
-          </span>
-<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
-<span class="font-body-md text-body-md text-secondary">
-            210 ca trực phân bổ trong tháng 11/2026
-          </span>
-</div>
-<span class="font-caption text-caption text-secondary">Đã đối soát 100% định mức ca trực tiêu chuẩn</span>
-</div>
-</div>
-<!-- Right Action Buttons -->
+<div class="fixed bottom-0 left-[240px] right-0 bg-surface-container-lowest/95 backdrop-blur-md px-gutter py-3 shadow-[0_-4px_16px_rgba(0,0,0,0.06)] z-40 flex items-center justify-start">
 <div class="flex items-center gap-2.5">
-<!-- Lọc dữ liệu -->
 <button class="h-9 px-3.5 rounded-lg bg-surface-container-low text-on-surface hover:bg-surface-container font-label-md text-label-md flex items-center gap-1.5 transition-colors" type="button">
 <span class="material-symbols-outlined text-[18px] text-secondary">filter_list</span>
 <span>Lọc dữ liệu</span>
 </button>
-<!-- Tải mẫu nhập ca -->
-<button class="h-9 px-3.5 rounded-lg bg-surface-container-low text-on-surface hover:bg-surface-container font-label-md text-label-md flex items-center gap-1.5 transition-colors" type="button">
-<span class="material-symbols-outlined text-[18px] text-emerald-600">download</span>
-<span>Tải mẫu Excel</span>
-</button>
-<!-- Nhập ca theo mẫu -->
-<button class="h-9 px-3.5 rounded-lg bg-surface-container-low text-on-surface hover:bg-surface-container font-label-md text-label-md flex items-center gap-1.5 transition-colors" type="button">
-<span class="material-symbols-outlined text-[18px] text-primary">upload_file</span>
-<span>Nhập từ Excel</span>
-</button>
-<div class="h-6 w-px bg-surface-container-high mx-1"></div>
-<!-- Lưu dữ liệu (PRIMARY) -->
 <button class="h-9 px-5 rounded-lg bg-primary text-on-primary hover:bg-primary-container font-label-md text-label-md font-semibold flex items-center gap-2 shadow-sm transition-all hover:shadow-md active:scale-95" type="button">
 <span class="material-symbols-outlined text-[18px]">save</span>
-<span>Lưu bảng phân ca</span>
+<span>Lưu dữ liệu</span>
+</button>
+<button class="h-9 px-3.5 rounded-lg bg-surface-container-low text-on-surface hover:bg-surface-container font-label-md text-label-md flex items-center gap-1.5 transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px] text-emerald-600">download</span>
+<span>Tải mẫu nhập ca</span>
+</button>
+<button class="h-9 px-3.5 rounded-lg bg-surface-container-low text-on-surface hover:bg-surface-container font-label-md text-label-md flex items-center gap-1.5 transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px] text-primary">upload_file</span>
+<span>Nhập ca theo mẫu</span>
 </button>
 </div>
 </div>
@@ -732,17 +649,16 @@
 <div class="px-6 py-4 bg-surface-container-low rounded-t-xl flex items-center justify-between">
 <div class="flex items-center gap-3">
 <div class="w-9 h-9 rounded-lg bg-primary-container/10 text-primary-container flex items-center justify-center"><span class="material-symbols-outlined text-[22px]">upload_file</span></div>
-<div class="flex flex-col"><h2 class="font-headline-md text-headline-md text-on-surface">Import phân ca</h2><span class="font-caption text-caption text-on-surface-variant">Nhập ca theo file Excel mẫu</span></div>
+<div class="flex flex-col"><h2 class="font-headline-md text-headline-md text-on-surface">Import phân ca</h2></div>
 </div>
 <button class="p-1.5 rounded-lg text-outline hover:text-on-surface hover:bg-surface-container-high transition-colors" data-close-modal="mdlImportPhanCa" type="button"><span class="material-symbols-outlined text-[22px]">close</span></button>
 </div>
 <div class="flex-1 overflow-y-auto px-6 py-5 flex flex-col gap-4">
-<div class="flex flex-col gap-1.5"><label class="font-label-md text-label-md text-on-surface">Chọn tệp Excel <span class="text-error">*</span></label><input class="w-full h-[38px] px-3 text-body-md font-body-md bg-surface-container-low rounded-lg text-on-surface focus:outline-none focus:bg-surface-container-lowest focus:ring-2 focus:ring-primary-container/20 py-1.5 h-auto" type="file" accept=".xls,.xlsx"/></div>
-<span class="font-caption text-caption text-outline">Tải mẫu nhập ca ở nút "Tải mẫu Excel" trước khi nhập.</span>
+<div class="flex flex-col gap-1.5"><input class="w-full h-[38px] px-3 text-body-md font-body-md bg-surface-container-low rounded-lg text-on-surface focus:outline-none focus:bg-surface-container-lowest focus:ring-2 focus:ring-primary-container/20 py-1.5 h-auto" type="file" accept=".xls,.xlsx"/></div>
 </div>
 <div class="px-6 py-4 bg-surface-container-low rounded-b-xl flex items-center justify-end gap-3">
 <button class="px-4 py-2 bg-surface-container-lowest text-on-surface font-label-md text-label-md rounded-lg shadow-sm hover:bg-surface-container-high transition-colors" data-close-modal="mdlImportPhanCa" type="button">Thoát</button>
-<button class="px-5 py-2 bg-primary-container text-on-primary font-label-md text-label-md rounded-lg shadow-sm hover:opacity-95 transition-all" data-close-modal="mdlImportPhanCa" type="button">Lưu dữ liệu</button>
+<button class="px-5 py-2 bg-primary-container text-on-primary font-label-md text-label-md rounded-lg shadow-sm hover:opacity-95 transition-all" data-close-modal="mdlImportPhanCa" type="button">OK</button>
 </div>
 </div>
 </div>
@@ -752,7 +668,7 @@
   document.addEventListener('click',function(ev){var t=ev.target.closest('[data-open-modal],[data-close-modal]');if(!t)return;ev.preventDefault();if(t.dataset.openModal)m(t.dataset.openModal,true);else m(t.dataset.closeModal,false);});
   document.addEventListener('keydown',function(e){if(e.key==='Escape')document.querySelectorAll('.mdl-ov.flex').forEach(function(x){m(x.id,false);});});
   function find(t){return Array.prototype.find.call(document.querySelectorAll('button'),function(b){return b.textContent.replace(/\s+/g,' ').indexOf(t)>-1&&!b.closest('.mdl-ov');});}
-  [["Nhập từ Excel","mdlImportPhanCa"]].forEach(function(p){var b=find(p[0]);if(b)b.setAttribute('data-open-modal',p[1]);});
+  [["Nhập ca theo mẫu","mdlImportPhanCa"]].forEach(function(p){var b=find(p[0]);if(b)b.setAttribute('data-open-modal',p[1]);});
   [].forEach(function(p){var r=find(p[0]);if(!r)return;var c=r.cloneNode(false);c.removeAttribute('onclick');c.removeAttribute('id');c.removeAttribute('title');c.setAttribute('type','button');c.setAttribute('data-open-modal',p[3]);c.innerHTML='<span class="material-symbols-outlined text-[18px]">'+p[2]+'</span><span>'+p[1]+'</span>';r.parentNode.insertBefore(c,r);});
   
 })();

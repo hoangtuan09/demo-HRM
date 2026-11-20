@@ -6,31 +6,9 @@
 <!-- Top Bar: Breadcrumb + Header Title & Actions -->
 <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
 <div class="flex flex-col gap-1">
-<nav class="flex items-center gap-2 font-caption text-caption text-on-surface-variant">
-<span class="hover:text-primary cursor-pointer transition-colors">Tuyển dụng</span>
-<span class="material-symbols-outlined text-[14px]">chevron_right</span>
-<span class="font-body-md-medium text-body-md-medium text-on-surface">Kế hoạch tuyển dụng</span>
-</nav>
-<div class="flex items-center gap-3 mt-1">
-<h1 class="font-headline-lg text-headline-lg text-on-surface">Kế hoạch Tuyển dụng Nhân sự Năm 2026</h1>
-<span class="px-2.5 py-0.5 rounded-full bg-secondary-container text-on-secondary-fixed font-label-sm text-label-sm">Niên độ 2026</span>
-</div>
-<p class="font-body-md text-body-md text-on-surface-variant max-w-3xl">
-          Lập định biên nhu cầu tuyển dụng, theo dõi tiến độ săn đón nhân tài và phê duyệt ngân sách tuyển mộ cho các tòa nhà &amp; khối phòng ban PMC.
-        </p>
-</div>
-<!-- Quick Action Group -->
-<div class="flex items-center gap-3 shrink-0 self-start md:self-auto">
-<button class="inline-flex items-center gap-2 px-3.5 py-2 rounded-lg bg-surface-container-lowest text-on-surface hover:bg-surface-container shadow-sm transition-colors font-label-md text-label-md" type="button">
-<span class="material-symbols-outlined text-[18px] text-tertiary">file_download</span>
-<span>Xuất Báo Cáo Năm</span>
-</button>
-<button class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-primary-container text-on-primary hover:bg-primary shadow-sm transition-colors font-label-md text-label-md" id="open-plan-drawer" type="button">
-<span class="material-symbols-outlined text-[18px]">add</span>
-<span>Thêm kế hoạch</span>
-</button>
-</div>
-</div>
+<nav class="flex items-center gap-2 font-caption text-caption text-on-surface-variant"><span class="hover:text-primary cursor-pointer transition-colors">Bàn làm việc</span><span class="material-symbols-outlined text-[14px]">chevron_right</span><span class="font-body-md-medium text-body-md-medium text-on-surface">Kế hoạch tuyển dụng</span></nav>
+<h1 class="font-headline-lg text-headline-lg text-on-surface mt-1">Kế hoạch tuyển dụng</h1></div>
+<div class="flex items-center gap-3 shrink-0 self-start md:self-auto"><button class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-primary-container text-on-primary hover:bg-primary shadow-sm transition-colors font-label-md text-label-md" type="button" id="open-plan-drawer"><span class="material-symbols-outlined text-[18px] ">add</span><span>Thêm mới</span></button></div></div>
 <!-- 4 KPI Summary Cards -->
 <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4">
 <!-- Card 1 -->
@@ -111,343 +89,8 @@
 </div>
 </div>
 <!-- Main Workspace Container -->
-<div class="bg-surface-container-lowest rounded-xl shadow-sm flex flex-col overflow-hidden">
-<!-- Filter Bar -->
-<div class="p-4 bg-surface-container-low/40 flex flex-col xl:flex-row xl:items-center justify-between gap-3">
-<div class="flex flex-wrap items-center gap-3 flex-1">
-<!-- Search Field -->
-<div class="relative w-full sm:w-80">
-<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline text-[18px]">search</span>
-<input class="w-full pl-9 pr-4 py-2 bg-surface-container-lowest rounded-lg font-body-md text-body-md text-on-surface placeholder:text-outline focus:outline-none focus:bg-surface-container-lowest transition-all shadow-sm" placeholder="Tìm theo mã KH, vị trí tuyển dụng, người phụ trách..." type="text"/>
-</div>
-<!-- Dropdown: Department -->
-<div class="relative">
-<select class="appearance-none bg-surface-container-lowest pl-3 pr-8 py-2 rounded-lg font-body-md text-body-md text-on-surface focus:outline-none shadow-sm cursor-pointer">
-<option value="">Tất cả phòng ban / Dự án</option>
-<option value="vh">Khối Vận hành Tòa nhà</option>
-<option value="mep">Khối Kỹ thuật &amp; MEP</option>
-<option value="gp">Ban Quản lý Golden Palace</option>
-<option value="kn">BQL Keangnam Landmark</option>
-<option value="tc">Khối Tài chính Kế toán</option>
-</select>
-<span class="material-symbols-outlined absolute right-2 top-1/2 -translate-y-1/2 text-outline pointer-events-none text-[18px]">expand_more</span>
-</div>
-<!-- Dropdown: Fiscal Year -->
-<div class="relative">
-<select class="appearance-none bg-surface-container-lowest pl-3 pr-8 py-2 rounded-lg font-body-md text-body-md text-on-surface focus:outline-none shadow-sm cursor-pointer">
-<option value="2026">Năm 2026 (Năm tài chính)</option>
-<option value="2025">Năm 2025 (Đã kết chuyển)</option>
-</select>
-<span class="material-symbols-outlined absolute right-2 top-1/2 -translate-y-1/2 text-outline pointer-events-none text-[18px]">expand_more</span>
-</div>
-<!-- Dropdown: Status -->
-<div class="relative">
-<select class="appearance-none bg-surface-container-lowest pl-3 pr-8 py-2 rounded-lg font-body-md text-body-md text-on-surface focus:outline-none shadow-sm cursor-pointer">
-<option value="">Tất cả trạng thái</option>
-<option value="active">Đang tuyển</option>
-<option value="pending">Chờ phê duyệt</option>
-<option value="completed">Đã hoàn thành</option>
-<option value="paused">Tạm hoãn</option>
-</select>
-<span class="material-symbols-outlined absolute right-2 top-1/2 -translate-y-1/2 text-outline pointer-events-none text-[18px]">expand_more</span>
-</div>
-</div>
-<!-- Right Tool Buttons -->
-<div class="flex items-center gap-2 self-end xl:self-auto shrink-0">
-<button class="inline-flex items-center gap-1.5 px-3 py-2 rounded-lg bg-surface-container-lowest text-on-surface-variant hover:text-on-surface hover:bg-surface-container shadow-sm transition-colors font-label-md text-label-md" type="button">
-<span class="material-symbols-outlined text-[18px]">tune</span>
-<span>Bộ lọc nâng cao</span>
-</button>
-<button class="inline-flex items-center gap-1.5 px-3 py-2 rounded-lg bg-surface-container-lowest text-tertiary hover:bg-surface-container shadow-sm transition-colors font-label-md text-label-md" type="button">
-<span class="material-symbols-outlined text-[18px]">description</span>
-<span>Xuất Excel kế hoạch</span>
-</button>
-</div>
-</div>
-<!-- Data Table -->
-<div class="overflow-x-auto w-full">
-<table class="w-full text-left border-collapse">
-<thead>
-<tr class="bg-surface-container-low text-on-surface-variant font-label-sm text-label-sm uppercase tracking-wider h-10 select-none">
-<th class="px-4 py-2 w-12 text-center">STT</th>
-<th class="px-4 py-2 w-32">Mã KH</th>
-<th class="px-4 py-2 min-w-[220px]">Vị trí tuyển dụng</th>
-<th class="px-4 py-2 min-w-[180px]">Phòng ban / Dự án</th>
-<th class="px-4 py-2 text-center w-28">Số lượng</th>
-<th class="px-4 py-2 min-w-[170px]">Tiến độ tuyển</th>
-<th class="px-4 py-2 min-w-[180px]">Thời gian tuyển</th>
-<th class="px-4 py-2 min-w-[140px]">Mức lương dự kiến</th>
-<th class="px-4 py-2 w-32">Trạng thái</th>
-<th class="px-4 py-2 min-w-[160px]">Phụ trách</th>
-<th class="px-4 py-2 w-20 text-center">Thao tác</th>
-</tr>
-</thead>
-<tbody class="divide-y-0 text-body-md font-body-md">
-<!-- Row 1 -->
-<tr class="h-12 hover:bg-surface-container-low transition-colors bg-surface-container-lowest">
-<td class="px-4 py-2 text-center text-outline font-mono-num">01</td>
-<td class="px-4 py-2 font-mono-num font-medium text-primary">KH-2026-001</td>
-<td class="px-4 py-2">
-<div class="flex flex-col">
-<span class="font-body-md-medium text-body-md-medium text-on-surface">Kỹ sư Trưởng MEP Tòa nhà</span>
-<span class="font-caption text-caption text-on-surface-variant">Level 4 - Chuyên gia cao cấp</span>
-</div>
-</td>
-<td class="px-4 py-2 text-on-surface-variant">Khối Vận hành &amp; Kỹ thuật</td>
-<td class="px-4 py-2 text-center font-mono-num font-semibold text-on-surface">04 người</td>
-<td class="px-4 py-2">
-<div class="flex flex-col gap-1">
-<div class="flex justify-between items-center font-caption text-caption">
-<span class="font-mono-num font-medium text-on-surface">03/04</span>
-<span class="text-primary font-mono-num font-semibold">75%</span>
-</div>
-<div class="w-full h-1.5 rounded-full bg-surface-container-high overflow-hidden">
-<div class="h-full bg-primary-container rounded-full" style="width: 75%"></div>
-</div>
-</div>
-</td>
-<td class="px-4 py-2 font-mono-num text-body-sm text-on-surface-variant">01/01/26 - 31/03/26</td>
-<td class="px-4 py-2 font-mono-num font-medium text-on-surface">22 - 28 Triệu</td>
-<td class="px-4 py-2">
-<span class="inline-flex items-center px-2 py-0.5 rounded-full bg-secondary-container text-on-secondary-fixed text-label-sm font-label-sm">
-                  Đang tuyển
-                </span>
-</td>
-<td class="px-4 py-2">
-<div class="flex items-center gap-2">
-<div class="w-6 h-6 rounded-full bg-primary-fixed text-primary flex items-center justify-center font-label-sm font-semibold text-[11px]">NA</div>
-<span class="text-on-surface truncate">Nguyễn Văn An</span>
-</div>
-</td>
-<td class="px-4 py-2 text-center">
-<div class="flex items-center justify-center gap-1 text-on-surface-variant">
-<button class="p-1 hover:text-primary rounded hover:bg-surface-container" title="Chi tiết kế hoạch" type="button">
-<span class="material-symbols-outlined text-[18px]">visibility</span>
-</button>
-<button class="p-1 hover:text-primary rounded hover:bg-surface-container" title="Chỉnh sửa" type="button">
-<span class="material-symbols-outlined text-[18px]">edit</span>
-</button>
-</div>
-</td>
-</tr>
-<!-- Row 2 -->
-<tr class="h-12 hover:bg-surface-container-low transition-colors bg-surface-container-low/20">
-<td class="px-4 py-2 text-center text-outline font-mono-num">02</td>
-<td class="px-4 py-2 font-mono-num font-medium text-primary">KH-2026-005</td>
-<td class="px-4 py-2">
-<div class="flex flex-col">
-<span class="font-body-md-medium text-body-md-medium text-on-surface">Giám sát An ninh Tòa nhà</span>
-<span class="font-caption text-caption text-on-surface-variant">Khối an ninh tập trung</span>
-</div>
-</td>
-<td class="px-4 py-2 text-on-surface-variant">BQL Keangnam Landmark</td>
-<td class="px-4 py-2 text-center font-mono-num font-semibold text-on-surface">12 người</td>
-<td class="px-4 py-2">
-<div class="flex flex-col gap-1">
-<div class="flex justify-between items-center font-caption text-caption">
-<span class="font-mono-num font-medium text-on-surface">12/12</span>
-<span class="text-tertiary font-mono-num font-semibold">100%</span>
-</div>
-<div class="w-full h-1.5 rounded-full bg-surface-container-high overflow-hidden">
-<div class="h-full bg-tertiary rounded-full" style="width: 100%"></div>
-</div>
-</div>
-</td>
-<td class="px-4 py-2 font-mono-num text-body-sm text-on-surface-variant">15/01/26 - 28/02/26</td>
-<td class="px-4 py-2 font-mono-num font-medium text-on-surface">10 - 13 Triệu</td>
-<td class="px-4 py-2">
-<span class="inline-flex items-center px-2 py-0.5 rounded-full bg-tertiary-fixed text-on-tertiary-fixed-variant text-label-sm font-label-sm">
-                  Đã hoàn thành
-                </span>
-</td>
-<td class="px-4 py-2">
-<div class="flex items-center gap-2">
-<div class="w-6 h-6 rounded-full bg-tertiary-container text-on-tertiary flex items-center justify-center font-label-sm font-semibold text-[11px]">HN</div>
-<span class="text-on-surface truncate">Hoàng Bích Ngọc</span>
-</div>
-</td>
-<td class="px-4 py-2 text-center">
-<div class="flex items-center justify-center gap-1 text-on-surface-variant">
-<button class="p-1 hover:text-primary rounded hover:bg-surface-container" title="Chi tiết kế hoạch" type="button">
-<span class="material-symbols-outlined text-[18px]">visibility</span>
-</button>
-<button class="p-1 hover:text-primary rounded hover:bg-surface-container" title="Chỉnh sửa" type="button">
-<span class="material-symbols-outlined text-[18px]">edit</span>
-</button>
-</div>
-</td>
-</tr>
-<!-- Row 3 -->
-<tr class="h-12 hover:bg-surface-container-low transition-colors bg-surface-container-lowest">
-<td class="px-4 py-2 text-center text-outline font-mono-num">03</td>
-<td class="px-4 py-2 font-mono-num font-medium text-primary">KH-2026-008</td>
-<td class="px-4 py-2">
-<div class="flex flex-col">
-<span class="font-body-md-medium text-body-md-medium text-on-surface">Nhân viên Chăm sóc Khách hàng</span>
-<span class="font-caption text-caption text-on-surface-variant">Lễ tân sảnh tiêu chuẩn A</span>
-</div>
-</td>
-<td class="px-4 py-2 text-on-surface-variant">Khối Dịch vụ Khách hàng</td>
-<td class="px-4 py-2 text-center font-mono-num font-semibold text-on-surface">08 người</td>
-<td class="px-4 py-2">
-<div class="flex flex-col gap-1">
-<div class="flex justify-between items-center font-caption text-caption">
-<span class="font-mono-num font-medium text-on-surface">04/08</span>
-<span class="text-primary font-mono-num font-semibold">50%</span>
-</div>
-<div class="w-full h-1.5 rounded-full bg-surface-container-high overflow-hidden">
-<div class="h-full bg-primary-container rounded-full" style="width: 50%"></div>
-</div>
-</div>
-</td>
-<td class="px-4 py-2 font-mono-num text-body-sm text-on-surface-variant">01/02/26 - 30/04/26</td>
-<td class="px-4 py-2 font-mono-num font-medium text-on-surface">9 - 12 Triệu</td>
-<td class="px-4 py-2">
-<span class="inline-flex items-center px-2 py-0.5 rounded-full bg-secondary-container text-on-secondary-fixed text-label-sm font-label-sm">
-                  Đang tuyển
-                </span>
-</td>
-<td class="px-4 py-2">
-<div class="flex items-center gap-2">
-<div class="w-6 h-6 rounded-full bg-secondary-fixed-dim text-on-secondary-fixed flex items-center justify-center font-label-sm font-semibold text-[11px]">MA</div>
-<span class="text-on-surface truncate">Vũ Thị Mai Anh</span>
-</div>
-</td>
-<td class="px-4 py-2 text-center">
-<div class="flex items-center justify-center gap-1 text-on-surface-variant">
-<button class="p-1 hover:text-primary rounded hover:bg-surface-container" title="Chi tiết kế hoạch" type="button">
-<span class="material-symbols-outlined text-[18px]">visibility</span>
-</button>
-<button class="p-1 hover:text-primary rounded hover:bg-surface-container" title="Chỉnh sửa" type="button">
-<span class="material-symbols-outlined text-[18px]">edit</span>
-</button>
-</div>
-</td>
-</tr>
-<!-- Row 4 -->
-<tr class="h-12 hover:bg-surface-container-low transition-colors bg-surface-container-low/20">
-<td class="px-4 py-2 text-center text-outline font-mono-num">04</td>
-<td class="px-4 py-2 font-mono-num font-medium text-primary">KH-2026-012</td>
-<td class="px-4 py-2">
-<div class="flex flex-col">
-<span class="font-body-md-medium text-body-md-medium text-on-surface">Kỹ thuật viên Điều hòa Chiller &amp; HVAC</span>
-<span class="font-caption text-caption text-on-surface-variant">Vận hành ca 24/7</span>
-</div>
-</td>
-<td class="px-4 py-2 text-on-surface-variant">Khối Vận hành BMS</td>
-<td class="px-4 py-2 text-center font-mono-num font-semibold text-on-surface">06 người</td>
-<td class="px-4 py-2">
-<div class="flex flex-col gap-1">
-<div class="flex justify-between items-center font-caption text-caption">
-<span class="font-mono-num font-medium text-on-surface">01/06</span>
-<span class="text-secondary font-mono-num font-semibold">16.7%</span>
-</div>
-<div class="w-full h-1.5 rounded-full bg-surface-container-high overflow-hidden">
-<div class="h-full bg-secondary rounded-full" style="width: 16.7%"></div>
-</div>
-</div>
-</td>
-<td class="px-4 py-2 font-mono-num text-body-sm text-on-surface-variant">15/02/26 - 15/05/26</td>
-<td class="px-4 py-2 font-mono-num font-medium text-on-surface">13 - 17 Triệu</td>
-<td class="px-4 py-2">
-<span class="inline-flex items-center px-2 py-0.5 rounded-full bg-secondary-container text-on-secondary-fixed text-label-sm font-label-sm">
-                  Đang tuyển
-                </span>
-</td>
-<td class="px-4 py-2">
-<div class="flex items-center gap-2">
-<div class="w-6 h-6 rounded-full bg-primary-fixed text-on-primary-fixed flex items-center justify-center font-label-sm font-semibold text-[11px]">QK</div>
-<span class="text-on-surface truncate">Đặng Quốc Khang</span>
-</div>
-</td>
-<td class="px-4 py-2 text-center">
-<div class="flex items-center justify-center gap-1 text-on-surface-variant">
-<button class="p-1 hover:text-primary rounded hover:bg-surface-container" title="Chi tiết kế hoạch" type="button">
-<span class="material-symbols-outlined text-[18px]">visibility</span>
-</button>
-<button class="p-1 hover:text-primary rounded hover:bg-surface-container" title="Chỉnh sửa" type="button">
-<span class="material-symbols-outlined text-[18px]">edit</span>
-</button>
-</div>
-</td>
-</tr>
-<!-- Row 5 -->
-<tr class="h-12 hover:bg-surface-container-low transition-colors bg-surface-container-lowest">
-<td class="px-4 py-2 text-center text-outline font-mono-num">05</td>
-<td class="px-4 py-2 font-mono-num font-medium text-primary">KH-2026-015</td>
-<td class="px-4 py-2">
-<div class="flex flex-col">
-<span class="font-body-md-medium text-body-md-medium text-on-surface">Chuyên viên Pháp chế Lao động</span>
-<span class="font-caption text-caption text-on-surface-variant">Văn phòng Hội đồng Quản trị</span>
-</div>
-</td>
-<td class="px-4 py-2 text-on-surface-variant">Phòng Pháp chế &amp; Tuân thủ</td>
-<td class="px-4 py-2 text-center font-mono-num font-semibold text-on-surface">02 người</td>
-<td class="px-4 py-2">
-<div class="flex flex-col gap-1">
-<div class="flex justify-between items-center font-caption text-caption">
-<span class="font-mono-num font-medium text-on-surface">00/02</span>
-<span class="text-on-surface-variant font-mono-num font-semibold">0%</span>
-</div>
-<div class="w-full h-1.5 rounded-full bg-surface-container-high overflow-hidden">
-<div class="h-full bg-secondary-container rounded-full" style="width: 0%"></div>
-</div>
-</div>
-</td>
-<td class="px-4 py-2 font-mono-num text-body-sm text-on-surface-variant">01/03/26 - 30/04/26</td>
-<td class="px-4 py-2 font-mono-num font-medium text-on-surface">18 - 25 Triệu</td>
-<td class="px-4 py-2">
-<span class="inline-flex items-center px-2 py-0.5 rounded-full bg-surface-container-high text-on-surface text-label-sm font-label-sm">
-                  Chờ phê duyệt
-                </span>
-</td>
-<td class="px-4 py-2">
-<div class="flex items-center gap-2">
-<div class="w-6 h-6 rounded-full bg-secondary-fixed text-on-secondary-fixed flex items-center justify-center font-label-sm font-semibold text-[11px]">TL</div>
-<span class="text-on-surface truncate">Phạm Thùy Linh</span>
-</div>
-</td>
-<td class="px-4 py-2 text-center">
-<div class="flex items-center justify-center gap-1 text-on-surface-variant">
-<button class="p-1 hover:text-primary rounded hover:bg-surface-container" title="Chi tiết kế hoạch" type="button">
-<span class="material-symbols-outlined text-[18px]">visibility</span>
-</button>
-<button class="p-1 hover:text-primary rounded hover:bg-surface-container" title="Chỉnh sửa" type="button">
-<span class="material-symbols-outlined text-[18px]">edit</span>
-</button>
-</div>
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-<!-- Pagination & Row Summary Footer -->
-<div class="p-4 bg-surface-container-low/30 flex flex-col sm:flex-row items-center justify-between gap-4 font-caption text-caption text-on-surface-variant">
-<div class="flex items-center gap-2">
-<span>Hiển thị</span>
-<select class="bg-surface-container-lowest px-2 py-1 rounded text-on-surface font-mono-num focus:outline-none">
-<option>5 dòng</option>
-<option>10 dòng</option>
-<option>25 dòng</option>
-</select>
-<span>trên tổng số <strong>38</strong> kế hoạch năm 2026</span>
-</div>
-<!-- Pagination Controls -->
-<div class="flex items-center gap-1">
-<button class="w-8 h-8 rounded-lg flex items-center justify-center hover:bg-surface-container text-on-surface-variant transition-colors" disabled="" type="button">
-<span class="material-symbols-outlined text-[18px]">chevron_left</span>
-</button>
-<button class="w-8 h-8 rounded-lg flex items-center justify-center bg-primary-container text-on-primary font-mono-num text-body-sm font-semibold shadow-sm" type="button">1</button>
-<button class="w-8 h-8 rounded-lg flex items-center justify-center hover:bg-surface-container text-on-surface font-mono-num text-body-sm transition-colors" type="button">2</button>
-<button class="w-8 h-8 rounded-lg flex items-center justify-center hover:bg-surface-container text-on-surface font-mono-num text-body-sm transition-colors" type="button">3</button>
-<span class="px-1 text-outline">…</span>
-<button class="w-8 h-8 rounded-lg flex items-center justify-center hover:bg-surface-container text-on-surface font-mono-num text-body-sm transition-colors" type="button">8</button>
-<button class="w-8 h-8 rounded-lg flex items-center justify-center hover:bg-surface-container text-on-surface-variant transition-colors" type="button">
-<span class="material-symbols-outlined text-[18px]">chevron_right</span>
-</button>
-</div>
-</div>
-</div>
+<div class="bg-surface-container-lowest rounded-xl shadow-sm flex flex-col lg:flex-row overflow-hidden">
+<aside class="w-full lg:w-60 shrink-0 p-4 flex flex-col gap-5 bg-surface-container-low/40"><ul class="flex flex-col gap-1"><li><a class="flex items-center justify-between px-3 py-2 rounded-lg font-label-md text-label-md cursor-pointer bg-secondary-container text-on-secondary-fixed"><span>Toàn bộ</span><span class="font-mono-num text-caption px-2 py-0.5 rounded-full bg-surface-container-lowest">38</span></a></li><li><a class="flex items-center justify-between px-3 py-2 rounded-lg font-label-md text-label-md cursor-pointer text-on-surface-variant hover:bg-surface-container"><span>Đang dùng</span><span class="font-mono-num text-caption px-2 py-0.5 rounded-full bg-surface-container-lowest">26</span></a></li><li><a class="flex items-center justify-between px-3 py-2 rounded-lg font-label-md text-label-md cursor-pointer text-on-surface-variant hover:bg-surface-container"><span>Tạm khóa</span><span class="font-mono-num text-caption px-2 py-0.5 rounded-full bg-surface-container-lowest">12</span></a></li></ul><div class="flex flex-col gap-3"><div class="flex flex-col gap-1.5"><label class="font-label-md text-label-md text-on-surface">Đơn vị <span class="text-error">*</span></label><div class="relative"><select class="w-full h-10 px-3 bg-surface-container-low rounded-lg font-body-md text-body-md text-on-surface placeholder:text-outline focus:outline-none focus:bg-surface-container-lowest focus:ring-2 focus:ring-primary/20 transition-all appearance-none pr-8 cursor-pointer"><option>Tất cả</option><option>BQL Tòa nhà Keangnam</option><option>BQL Tòa Handico</option><option>TTTM Indochina</option></select><span class="material-symbols-outlined absolute right-2.5 top-1/2 -translate-y-1/2 text-outline pointer-events-none text-[18px]">expand_more</span></div></div><div class="flex flex-col gap-1.5"><label class="font-label-md text-label-md text-on-surface">Phòng ban/Dự án</label><div class="relative"><select class="w-full h-10 px-3 bg-surface-container-low rounded-lg font-body-md text-body-md text-on-surface placeholder:text-outline focus:outline-none focus:bg-surface-container-lowest focus:ring-2 focus:ring-primary/20 transition-all appearance-none pr-8 cursor-pointer"><option>Tất cả</option></select><span class="material-symbols-outlined absolute right-2.5 top-1/2 -translate-y-1/2 text-outline pointer-events-none text-[18px]">expand_more</span></div></div><div class="flex flex-col gap-1.5"><label class="font-label-md text-label-md text-on-surface">Bộ phận</label><div class="relative"><select class="w-full h-10 px-3 bg-surface-container-low rounded-lg font-body-md text-body-md text-on-surface placeholder:text-outline focus:outline-none focus:bg-surface-container-lowest focus:ring-2 focus:ring-primary/20 transition-all appearance-none pr-8 cursor-pointer"><option>Tất cả</option></select><span class="material-symbols-outlined absolute right-2.5 top-1/2 -translate-y-1/2 text-outline pointer-events-none text-[18px]">expand_more</span></div></div></div></aside><div class="flex-1 min-w-0 flex flex-col"><div class="p-4 flex flex-wrap items-center gap-3"><div class="relative w-full sm:w-72"><span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline text-[18px]">search</span><input class="w-full pl-9 pr-4 py-2 bg-surface-container-lowest rounded-lg font-body-md text-body-md text-on-surface placeholder:text-outline focus:outline-none shadow-sm" placeholder="Tìm kiếm" type="text"/></div><div class="flex items-center gap-2"><span class="font-label-md text-label-md text-on-surface-variant whitespace-nowrap">Thành phố</span><div class="relative"><select class="appearance-none bg-surface-container-lowest pl-3 pr-8 py-2 rounded-lg font-body-md text-body-md text-on-surface focus:outline-none shadow-sm cursor-pointer "><option>Tất cả</option><option>Hà Nội</option><option>TP. Hồ Chí Minh</option><option>Đà Nẵng</option></select><span class="material-symbols-outlined absolute right-2 top-1/2 -translate-y-1/2 text-outline pointer-events-none text-[18px]">expand_more</span></div></div><div class="flex items-center gap-2"><span class="font-label-md text-label-md text-on-surface-variant whitespace-nowrap">Chức Vụ</span><div class="relative"><select class="appearance-none bg-surface-container-lowest pl-3 pr-8 py-2 rounded-lg font-body-md text-body-md text-on-surface focus:outline-none shadow-sm cursor-pointer "><option>Tất cả</option><option>Kỹ sư trưởng MEP</option><option>Giám sát an ninh</option><option>Nhân viên CSKH</option></select><span class="material-symbols-outlined absolute right-2 top-1/2 -translate-y-1/2 text-outline pointer-events-none text-[18px]">expand_more</span></div></div><button class="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg bg-primary-container text-on-primary hover:bg-primary shadow-sm transition-colors font-label-md text-label-md" type="button">Lọc</button></div><div class="overflow-x-auto w-full"><table class="w-full text-left border-collapse"><thead><tr class="bg-surface-container-low text-on-surface-variant font-label-sm text-label-sm uppercase tracking-wider h-10 select-none"><th class="px-4 py-2 w-14 text-center">STT</th><th class="px-4 py-2 ">Mã</th><th class="px-4 py-2 min-w-[260px]">Tên</th><th class="px-4 py-2 ">Số lượng</th><th class="px-4 py-2 min-w-[180px]">Chức vụ</th><th class="px-4 py-2 text-center w-28">Tình trạng</th><th class="px-4 py-2 text-center w-28">Chỉnh sửa</th></tr></thead><tbody class="divide-y-0 text-body-md font-body-md"><tr class="h-12 hover:bg-surface-container-low transition-colors bg-surface-container-lowest"><td class="px-4 py-2 text-center text-outline font-mono-num">01</td><td class="px-4 py-2 font-mono-num font-medium text-primary">KH2026-01</td><td class="px-4 py-2 font-body-md-medium text-body-md-medium text-on-surface">Tuyển kỹ sư trưởng MEP Keangnam</td><td class="px-4 py-2 font-mono-num">4</td><td class="px-4 py-2 ">Kỹ sư trưởng MEP</td><td class="px-4 py-2 text-center"><label class="inline-flex items-center cursor-pointer"><span class="relative w-9 h-5 rounded-full bg-[#1967B2]"><span class="absolute top-0.5 right-0.5 w-4 h-4 rounded-full bg-white shadow"></span></span></label></td><td class="px-4 py-2 text-center"><div class="flex items-center justify-center gap-1 text-on-surface-variant"><button class="p-1 hover:text-primary rounded hover:bg-surface-container" title="Sửa" type="button" data-open-drawer="1"><span class="material-symbols-outlined text-[18px] ">edit</span></button><button class="p-1 hover:text-error rounded hover:bg-surface-container" title="Xóa" type="button"><span class="material-symbols-outlined text-[18px] ">delete</span></button></div></td></tr><tr class="h-12 hover:bg-surface-container-low transition-colors bg-surface-container-low/20"><td class="px-4 py-2 text-center text-outline font-mono-num">02</td><td class="px-4 py-2 font-mono-num font-medium text-primary">KH2026-02</td><td class="px-4 py-2 font-body-md-medium text-body-md-medium text-on-surface">Tuyển giám sát an ninh Handico</td><td class="px-4 py-2 font-mono-num">12</td><td class="px-4 py-2 ">Giám sát an ninh</td><td class="px-4 py-2 text-center"><label class="inline-flex items-center cursor-pointer"><span class="relative w-9 h-5 rounded-full bg-[#1967B2]"><span class="absolute top-0.5 right-0.5 w-4 h-4 rounded-full bg-white shadow"></span></span></label></td><td class="px-4 py-2 text-center"><div class="flex items-center justify-center gap-1 text-on-surface-variant"><button class="p-1 hover:text-primary rounded hover:bg-surface-container" title="Sửa" type="button" data-open-drawer="1"><span class="material-symbols-outlined text-[18px] ">edit</span></button><button class="p-1 hover:text-error rounded hover:bg-surface-container" title="Xóa" type="button"><span class="material-symbols-outlined text-[18px] ">delete</span></button></div></td></tr><tr class="h-12 hover:bg-surface-container-low transition-colors bg-surface-container-lowest"><td class="px-4 py-2 text-center text-outline font-mono-num">03</td><td class="px-4 py-2 font-mono-num font-medium text-primary">KH2026-03</td><td class="px-4 py-2 font-body-md-medium text-body-md-medium text-on-surface">Tuyển nhân viên chăm sóc khách hàng</td><td class="px-4 py-2 font-mono-num">8</td><td class="px-4 py-2 ">Nhân viên CSKH</td><td class="px-4 py-2 text-center"><label class="inline-flex items-center cursor-pointer"><span class="relative w-9 h-5 rounded-full bg-[#1967B2]"><span class="absolute top-0.5 right-0.5 w-4 h-4 rounded-full bg-white shadow"></span></span></label></td><td class="px-4 py-2 text-center"><div class="flex items-center justify-center gap-1 text-on-surface-variant"><button class="p-1 hover:text-primary rounded hover:bg-surface-container" title="Sửa" type="button" data-open-drawer="1"><span class="material-symbols-outlined text-[18px] ">edit</span></button><button class="p-1 hover:text-error rounded hover:bg-surface-container" title="Xóa" type="button"><span class="material-symbols-outlined text-[18px] ">delete</span></button></div></td></tr><tr class="h-12 hover:bg-surface-container-low transition-colors bg-surface-container-low/20"><td class="px-4 py-2 text-center text-outline font-mono-num">04</td><td class="px-4 py-2 font-mono-num font-medium text-primary">KH2026-04</td><td class="px-4 py-2 font-body-md-medium text-body-md-medium text-on-surface">Tuyển kỹ thuật viên điều hòa Chiller</td><td class="px-4 py-2 font-mono-num">6</td><td class="px-4 py-2 ">Kỹ thuật viên HVAC</td><td class="px-4 py-2 text-center"><label class="inline-flex items-center cursor-pointer"><span class="relative w-9 h-5 rounded-full bg-surface-container-highest"><span class="absolute top-0.5 left-0.5 w-4 h-4 rounded-full bg-white shadow"></span></span></label></td><td class="px-4 py-2 text-center"><div class="flex items-center justify-center gap-1 text-on-surface-variant"><button class="p-1 hover:text-primary rounded hover:bg-surface-container" title="Sửa" type="button" data-open-drawer="1"><span class="material-symbols-outlined text-[18px] ">edit</span></button><button class="p-1 hover:text-error rounded hover:bg-surface-container" title="Xóa" type="button"><span class="material-symbols-outlined text-[18px] ">delete</span></button></div></td></tr><tr class="h-12 hover:bg-surface-container-low transition-colors bg-surface-container-lowest"><td class="px-4 py-2 text-center text-outline font-mono-num">05</td><td class="px-4 py-2 font-mono-num font-medium text-primary">KH2026-05</td><td class="px-4 py-2 font-body-md-medium text-body-md-medium text-on-surface">Tuyển chuyên viên pháp chế lao động</td><td class="px-4 py-2 font-mono-num">2</td><td class="px-4 py-2 ">Chuyên viên pháp chế</td><td class="px-4 py-2 text-center"><label class="inline-flex items-center cursor-pointer"><span class="relative w-9 h-5 rounded-full bg-[#1967B2]"><span class="absolute top-0.5 right-0.5 w-4 h-4 rounded-full bg-white shadow"></span></span></label></td><td class="px-4 py-2 text-center"><div class="flex items-center justify-center gap-1 text-on-surface-variant"><button class="p-1 hover:text-primary rounded hover:bg-surface-container" title="Sửa" type="button" data-open-drawer="1"><span class="material-symbols-outlined text-[18px] ">edit</span></button><button class="p-1 hover:text-error rounded hover:bg-surface-container" title="Xóa" type="button"><span class="material-symbols-outlined text-[18px] ">delete</span></button></div></td></tr></tbody></table></div><div class="p-4 bg-surface-container-low/30 flex flex-col sm:flex-row items-center justify-between gap-4 font-caption text-caption text-on-surface-variant"><div class="flex items-center gap-2"><span>Hiển thị</span><select class="bg-surface-container-lowest px-2 py-1 rounded text-on-surface font-mono-num focus:outline-none"><option>20</option><option>50</option><option>100</option><option>Tất cả</option></select></div><div class="flex items-center gap-1"><button class="w-8 h-8 rounded-lg flex items-center justify-center text-on-surface-variant" disabled="" type="button"><span class="material-symbols-outlined text-[18px] ">chevron_left</span></button><button class="w-8 h-8 rounded-lg flex items-center justify-center bg-primary-container text-on-primary font-mono-num text-body-sm font-semibold shadow-sm" type="button">1</button><button class="w-8 h-8 rounded-lg flex items-center justify-center hover:bg-surface-container text-on-surface font-mono-num text-body-sm" type="button">2</button><button class="w-8 h-8 rounded-lg flex items-center justify-center hover:bg-surface-container text-on-surface-variant" type="button"><span class="material-symbols-outlined text-[18px] ">chevron_right</span></button></div></div></div></div>
 </div>
 <!-- Archetype D: Slide-Over Drawer for Adding/Editing Recruitment Plan -->
 <div class="fixed inset-0 z-50 flex justify-end pointer-events-none transition-all duration-300" id="plan-drawer-container">
@@ -457,129 +100,19 @@
 <aside class="relative w-full max-w-xl h-full bg-surface-container-lowest shadow-2xl flex flex-col justify-between translate-x-full transition-transform duration-300 ease-out pointer-events-auto" id="drawer-panel">
 <!-- Drawer Header -->
 <div class="px-6 py-5 bg-surface-container-low/50 flex items-center justify-between">
-<div class="flex flex-col gap-0.5">
-<div class="flex items-center gap-2">
-<span class="material-symbols-outlined text-primary text-[20px]">assignment_add</span>
-<h2 class="font-headline-md text-headline-md text-on-surface">Thêm Kế hoạch Tuyển dụng</h2>
-</div>
-<span class="font-caption text-caption text-on-surface-variant">Lập kế hoạch nhu cầu nhân sự vào định biên tài khóa 2026</span>
-</div>
-<button class="p-1.5 rounded-lg text-outline hover:text-on-surface hover:bg-surface-container-high transition-colors" id="close-plan-drawer" type="button">
-<span class="material-symbols-outlined text-[20px]">close</span>
-</button>
+<div class="flex items-center gap-2"><span class="material-symbols-outlined text-primary text-[20px]">assignment_add</span><h2 class="font-headline-md text-headline-md text-on-surface">Thêm mới</h2></div>
+<button class="p-1.5 rounded-lg text-outline hover:text-on-surface hover:bg-surface-container-high transition-colors" id="close-plan-drawer" type="button"><span class="material-symbols-outlined text-[20px]">close</span></button>
 </div>
 <!-- Drawer Content / Form -->
-<div class="p-6 overflow-y-auto flex-1 flex flex-col gap-5">
-<!-- BS:  -->
-<div class="flex flex-col gap-3"><div class="grid grid-cols-1 sm:grid-cols-4 gap-x-4 gap-y-4"><div class="col-span-1 sm:col-span-2 flex flex-col gap-1.5"><label class="font-label-md text-label-md text-on-surface">Mã kế hoạch <span class="text-error">*</span></label><input type="text" class="w-full h-10 px-3 bg-surface-container-low rounded-lg font-body-md text-body-md text-on-surface placeholder:text-outline focus:outline-none focus:bg-surface-container-lowest focus:ring-2 focus:ring-primary/20 transition-all" value="" placeholder="VD: KH2026-01"/><span class="font-caption text-caption text-on-surface-variant">Tối đa 10 ký tự</span></div><div class="col-span-1 sm:col-span-2 flex flex-col gap-1.5"><label class="font-label-md text-label-md text-on-surface">Tên kế hoạch <span class="text-error">*</span></label><input type="text" class="w-full h-10 px-3 bg-surface-container-low rounded-lg font-body-md text-body-md text-on-surface placeholder:text-outline focus:outline-none focus:bg-surface-container-lowest focus:ring-2 focus:ring-primary/20 transition-all" value="" placeholder=""/><span class="font-caption text-caption text-on-surface-variant">Tối đa 100 ký tự</span></div></div></div>
-<!-- Field 1: Vị trí tuyển dụng -->
-<div class="flex flex-col gap-1.5">
-<label class="font-label-md text-label-md text-on-surface flex items-center gap-1">
-            Chức vụ / Vị trí tuyển dụng <span class="text-error">*</span>
-</label>
-<input class="h-10 px-3 bg-surface-container-low rounded-lg font-body-md text-body-md text-on-surface focus:outline-none focus:bg-surface-container-lowest transition-all" placeholder="Ví dụ: Kỹ sư Trưởng MEP, Giám sát Vận hành Tòa nhà..." type="text"/>
-</div>
-<!-- Field 2: Phòng ban & Khối -->
-<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-<div class="flex flex-col gap-1.5">
-<label class="font-label-md text-label-md text-on-surface flex items-center gap-1">
-              Phòng ban / Đơn vị <span class="text-error">*</span>
-</label>
-<div class="relative">
-<select class="w-full h-10 appearance-none bg-surface-container-low px-3 pr-8 rounded-lg font-body-md text-body-md text-on-surface focus:outline-none focus:bg-surface-container-lowest transition-all cursor-pointer">
-<option value="">Chọn phòng ban</option>
-<option value="1">Khối Vận hành Tòa nhà</option>
-<option value="2">Khối Kỹ thuật MEP</option>
-<option value="3">BQL Keangnam Landmark</option>
-<option value="4">BQL Golden Palace</option>
-<option value="5">Phòng Pháp chế &amp; Tuân thủ</option>
-</select>
-<span class="material-symbols-outlined absolute right-2.5 top-1/2 -translate-y-1/2 text-outline pointer-events-none text-[18px]">expand_more</span>
-</div>
-</div>
-<div class="flex flex-col gap-1.5">
-<label class="font-label-md text-label-md text-on-surface flex items-center gap-1">
-              Số lượng định biên <span class="text-error">*</span>
-</label>
-<input class="h-10 px-3 bg-surface-container-low rounded-lg font-mono-num text-body-md text-on-surface focus:outline-none focus:bg-surface-container-lowest transition-all" placeholder="VD: 04" type="number"/>
-</div>
-</div>
-<!-- Field 3: Mức lương dự kiến -->
-<div class="flex flex-col gap-1.5">
-<label class="font-label-md text-label-md text-on-surface">Mức lương dự kiến (VNĐ/tháng)</label>
-<div class="grid grid-cols-2 gap-3">
-<div class="relative">
-<input class="w-full h-10 pl-3 pr-8 bg-surface-container-low rounded-lg font-mono-num text-body-md text-on-surface focus:outline-none focus:bg-surface-container-lowest transition-all" placeholder="Từ (VD: 15.000.000)" type="text"/>
-<span class="absolute right-3 top-1/2 -translate-y-1/2 font-caption text-caption text-outline">₫</span>
-</div>
-<div class="relative">
-<input class="w-full h-10 pl-3 pr-8 bg-surface-container-low rounded-lg font-mono-num text-body-md text-on-surface focus:outline-none focus:bg-surface-container-lowest transition-all" placeholder="Đến (VD: 25.000.000)" type="text"/>
-<span class="absolute right-3 top-1/2 -translate-y-1/2 font-caption text-caption text-outline">₫</span>
-</div>
-</div>
-</div>
-<!-- Field 4: Thời gian tuyển -->
-<div class="flex flex-col gap-1.5">
-<label class="font-label-md text-label-md text-on-surface">Ngày bắt đầu / Ngày kết thúc <span class="text-error">*</span></label>
-<div class="grid grid-cols-2 gap-3">
-<div class="flex flex-col gap-1">
-<span class="font-caption text-caption text-on-surface-variant">Từ ngày</span>
-<input class="h-10 px-3 bg-surface-container-low rounded-lg font-mono-num text-body-md text-on-surface focus:outline-none focus:bg-surface-container-lowest transition-all" type="date" value="2026-03-01"/>
-</div>
-<div class="flex flex-col gap-1">
-<span class="font-caption text-caption text-on-surface-variant">Đến ngày</span>
-<input class="h-10 px-3 bg-surface-container-low rounded-lg font-mono-num text-body-md text-on-surface focus:outline-none focus:bg-surface-container-lowest transition-all" type="date" value="2026-05-31"/>
-</div>
-</div>
-</div>
-<!-- Field 5: Người phụ trách & Kênh tuyển dụng -->
-<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-<div class="flex flex-col gap-1.5">
-<label class="font-label-md text-label-md text-on-surface">Người phụ trách (HR/Mentor)</label>
-<div class="relative">
-<select class="w-full h-10 appearance-none bg-surface-container-low px-3 pr-8 rounded-lg font-body-md text-body-md text-on-surface focus:outline-none focus:bg-surface-container-lowest transition-all cursor-pointer">
-<option value="1">Nguyễn Văn An (Trưởng ban)</option>
-<option value="2">Hoàng Bích Ngọc (HR Lead)</option>
-<option value="3">Vũ Thị Mai Anh (Talent Lead)</option>
-<option value="4">Phạm Thùy Linh (C&amp;B Lead)</option>
-</select>
-<span class="material-symbols-outlined absolute right-2.5 top-1/2 -translate-y-1/2 text-outline pointer-events-none text-[18px]">expand_more</span>
-</div>
-</div>
-<div class="flex flex-col gap-1.5">
-<label class="font-label-md text-label-md text-on-surface">Kênh đăng tuyển ưu tiên</label>
-<div class="relative">
-<select class="w-full h-10 appearance-none bg-surface-container-low px-3 pr-8 rounded-lg font-body-md text-body-md text-on-surface focus:outline-none focus:bg-surface-container-lowest transition-all cursor-pointer">
-<option value="all">PMC Career &amp; TopCV Partner</option>
-<option value="linkedin">LinkedIn Pro &amp; Headhunt</option>
-<option value="internal">Nội bộ &amp; Giới thiệu (Employee Referral)</option>
-</select>
-<span class="material-symbols-outlined absolute right-2.5 top-1/2 -translate-y-1/2 text-outline pointer-events-none text-[18px]">expand_more</span>
-</div>
-</div>
-</div>
-<!-- Field 6: Yêu cầu chuyên môn cốt lõi -->
-<div class="flex flex-col gap-1.5">
-<label class="font-label-md text-label-md text-on-surface">Yêu cầu chuyên môn &amp; Tiêu chuẩn tuyển mộ</label>
-<textarea class="p-3 bg-surface-container-low rounded-lg font-body-md text-body-md text-on-surface focus:outline-none focus:bg-surface-container-lowest transition-all resize-none" placeholder="Nêu rõ các chứng chỉ hành nghề cần có (MEP, An toàn PCCC, Chứng chỉ Quản lý Tòa nhà...) và kinh nghiệm tối thiểu..." rows="3"></textarea>
-</div>
-<!-- BS: Đơn vị và địa điểm tuyển dụng -->
-<div class="flex flex-col gap-3"><div class="flex items-center gap-2 mt-1 mb-3"><span class="w-1 h-4 rounded bg-[#1967B2]"></span><h3 class="font-headline-sm text-headline-sm text-on-surface">Đơn vị và địa điểm tuyển dụng</h3></div><div class="grid grid-cols-1 sm:grid-cols-4 gap-x-4 gap-y-4"><div class="col-span-1 sm:col-span-2 flex flex-col gap-1.5"><label class="font-label-md text-label-md text-on-surface">Phòng ban/Dự án</label><div class="relative"><select class="w-full h-10 px-3 bg-surface-container-low rounded-lg font-body-md text-body-md text-on-surface placeholder:text-outline focus:outline-none focus:bg-surface-container-lowest focus:ring-2 focus:ring-primary/20 transition-all appearance-none pr-8 cursor-pointer"><option>Chọn phòng ban/dự án</option><option>Khối Vận hành Tòa nhà</option><option>Khối Kỹ thuật MEP</option></select><span class="material-symbols-outlined absolute right-2.5 top-1/2 -translate-y-1/2 text-outline pointer-events-none text-[18px]">expand_more</span></div></div><div class="col-span-1 sm:col-span-2 flex flex-col gap-1.5"><label class="font-label-md text-label-md text-on-surface">Bộ phận</label><div class="relative"><select class="w-full h-10 px-3 bg-surface-container-low rounded-lg font-body-md text-body-md text-on-surface placeholder:text-outline focus:outline-none focus:bg-surface-container-lowest focus:ring-2 focus:ring-primary/20 transition-all appearance-none pr-8 cursor-pointer"><option>Chọn bộ phận</option></select><span class="material-symbols-outlined absolute right-2.5 top-1/2 -translate-y-1/2 text-outline pointer-events-none text-[18px]">expand_more</span></div></div><div class="col-span-1 sm:col-span-4 flex flex-col gap-1.5"><label class="font-label-md text-label-md text-on-surface">Địa điểm</label><div class="relative"><select class="w-full h-10 px-3 bg-surface-container-low rounded-lg font-body-md text-body-md text-on-surface placeholder:text-outline focus:outline-none focus:bg-surface-container-lowest focus:ring-2 focus:ring-primary/20 transition-all appearance-none pr-8 cursor-pointer"><option>Chọn địa điểm</option><option>Keangnam Landmark 72</option><option>Handico Complex</option><option>Indochina Plaza</option></select><span class="material-symbols-outlined absolute right-2.5 top-1/2 -translate-y-1/2 text-outline pointer-events-none text-[18px]">expand_more</span></div></div><div class="col-span-1 sm:col-span-2 flex flex-col gap-1.5"><label class="font-label-md text-label-md text-on-surface">Thành phố <span class="text-error">*</span></label><div class="relative"><select class="w-full h-10 px-3 bg-surface-container-low rounded-lg font-body-md text-body-md text-on-surface placeholder:text-outline focus:outline-none focus:bg-surface-container-lowest focus:ring-2 focus:ring-primary/20 transition-all appearance-none pr-8 cursor-pointer"><option>Chọn thành phố</option><option>Hà Nội</option><option>TP. Hồ Chí Minh</option><option>Đà Nẵng</option></select><span class="material-symbols-outlined absolute right-2.5 top-1/2 -translate-y-1/2 text-outline pointer-events-none text-[18px]">expand_more</span></div></div><div class="col-span-1 sm:col-span-2 flex flex-col gap-1.5"><label class="font-label-md text-label-md text-on-surface">Quận</label><div class="relative"><select class="w-full h-10 px-3 bg-surface-container-low rounded-lg font-body-md text-body-md text-on-surface placeholder:text-outline focus:outline-none focus:bg-surface-container-lowest focus:ring-2 focus:ring-primary/20 transition-all appearance-none pr-8 cursor-pointer"><option>Chọn quận</option><option>Nam Từ Liêm</option><option>Cầu Giấy</option><option>Thanh Xuân</option></select><span class="material-symbols-outlined absolute right-2.5 top-1/2 -translate-y-1/2 text-outline pointer-events-none text-[18px]">expand_more</span></div></div><div class="col-span-1 sm:col-span-2 flex flex-col gap-1.5"><label class="font-label-md text-label-md text-on-surface">Vị trí</label><input type="text" class="w-full h-10 px-3 bg-surface-container-low rounded-lg font-body-md text-body-md text-on-surface placeholder:text-outline focus:outline-none focus:bg-surface-container-lowest focus:ring-2 focus:ring-primary/20 transition-all font-mono-num" value="" placeholder=""/><span class="font-caption text-caption text-on-surface-variant">Số thứ tự hiển thị (tối đa 4 ký tự)</span></div></div></div>
-<div class="p-3.5 rounded-lg bg-surface-container flex items-start gap-3">
-<span class="material-symbols-outlined text-primary text-[20px] shrink-0 mt-0.5">info</span>
-<p class="font-caption text-caption text-on-surface-variant leading-relaxed">
-            Kế hoạch sau khi gửi sẽ chuyển đến Trưởng khối vận hành và Giám đốc Nhân sự xét duyệt ngân sách tuyển mộ trước khi kích hoạt quy trình thu hút hồ sơ ứng viên.
-          </p>
-</div>
-</div>
+<div class="p-6 overflow-y-auto flex-1 flex flex-col gap-5"><div class="grid grid-cols-1 sm:grid-cols-4 gap-x-4 gap-y-4"><div class="col-span-1 sm:col-span-1 flex flex-col gap-1.5"><label class="font-label-md text-label-md text-on-surface">Mã <span class="text-error">*</span></label><input type="text" class="w-full h-10 px-3 bg-surface-container-low rounded-lg font-body-md text-body-md text-on-surface placeholder:text-outline focus:outline-none focus:bg-surface-container-lowest focus:ring-2 focus:ring-primary/20 transition-all" value="" placeholder=""/><span class="font-caption text-caption text-on-surface-variant">Tối đa 10 ký tự</span></div><div class="col-span-1 sm:col-span-3 flex flex-col gap-1.5"><label class="font-label-md text-label-md text-on-surface">Tên <span class="text-error">*</span></label><input type="text" class="w-full h-10 px-3 bg-surface-container-low rounded-lg font-body-md text-body-md text-on-surface placeholder:text-outline focus:outline-none focus:bg-surface-container-lowest focus:ring-2 focus:ring-primary/20 transition-all" value="" placeholder=""/></div><div class="col-span-1 sm:col-span-1 flex flex-col gap-1.5"><label class="font-label-md text-label-md text-on-surface">Số lượng <span class="text-error">*</span></label><input type="text" class="w-full h-10 px-3 bg-surface-container-low rounded-lg font-body-md text-body-md text-on-surface placeholder:text-outline focus:outline-none focus:bg-surface-container-lowest focus:ring-2 focus:ring-primary/20 transition-all font-mono-num" value="1" placeholder=""/></div><div class="col-span-1 sm:col-span-1 flex flex-col gap-1.5"><label class="font-label-md text-label-md text-on-surface">Ngày BD <span class="text-error">*</span></label><input type="text" class="w-full h-10 px-3 bg-surface-container-low rounded-lg font-body-md text-body-md text-on-surface placeholder:text-outline focus:outline-none focus:bg-surface-container-lowest focus:ring-2 focus:ring-primary/20 transition-all font-mono-num" value="" placeholder="__/__/____"/></div><div class="col-span-1 sm:col-span-1 flex flex-col gap-1.5"><label class="font-label-md text-label-md text-on-surface">Ngày KT <span class="text-error">*</span></label><input type="text" class="w-full h-10 px-3 bg-surface-container-low rounded-lg font-body-md text-body-md text-on-surface placeholder:text-outline focus:outline-none focus:bg-surface-container-lowest focus:ring-2 focus:ring-primary/20 transition-all font-mono-num" value="" placeholder="__/__/____"/></div><div class="col-span-1 sm:col-span-1 flex flex-col gap-1.5"><label class="font-label-md text-label-md text-on-surface">Chức vụ <span class="text-error">*</span></label><div class="relative"><select class="w-full h-10 px-3 bg-surface-container-low rounded-lg font-body-md text-body-md text-on-surface placeholder:text-outline focus:outline-none focus:bg-surface-container-lowest focus:ring-2 focus:ring-primary/20 transition-all appearance-none pr-8 cursor-pointer"><option>Chọn chức vụ</option><option>Kỹ sư trưởng MEP</option><option>Giám sát an ninh</option><option>Nhân viên CSKH</option></select><span class="material-symbols-outlined absolute right-2.5 top-1/2 -translate-y-1/2 text-outline pointer-events-none text-[18px]">expand_more</span></div></div><div class="col-span-1 sm:col-span-2 flex flex-col gap-1.5"><label class="font-label-md text-label-md text-on-surface">Đơn vị <span class="text-error">*</span></label><div class="relative"><select class="w-full h-10 px-3 bg-surface-container-low rounded-lg font-body-md text-body-md text-on-surface placeholder:text-outline focus:outline-none focus:bg-surface-container-lowest focus:ring-2 focus:ring-primary/20 transition-all appearance-none pr-8 cursor-pointer"><option>Chọn đơn vị</option><option>BQL Tòa nhà Keangnam</option><option>BQL Tòa Handico</option><option>TTTM Indochina</option></select><span class="material-symbols-outlined absolute right-2.5 top-1/2 -translate-y-1/2 text-outline pointer-events-none text-[18px]">expand_more</span></div></div><div class="col-span-1 sm:col-span-1 flex flex-col gap-1.5"><label class="font-label-md text-label-md text-on-surface">Phòng ban/Dự án</label><div class="relative"><select class="w-full h-10 px-3 bg-surface-container-low rounded-lg font-body-md text-body-md text-on-surface placeholder:text-outline focus:outline-none focus:bg-surface-container-lowest focus:ring-2 focus:ring-primary/20 transition-all appearance-none pr-8 cursor-pointer"><option>Chọn phòng ban/dự án</option></select><span class="material-symbols-outlined absolute right-2.5 top-1/2 -translate-y-1/2 text-outline pointer-events-none text-[18px]">expand_more</span></div></div><div class="col-span-1 sm:col-span-1 flex flex-col gap-1.5"><label class="font-label-md text-label-md text-on-surface">Bộ phận</label><div class="relative"><select class="w-full h-10 px-3 bg-surface-container-low rounded-lg font-body-md text-body-md text-on-surface placeholder:text-outline focus:outline-none focus:bg-surface-container-lowest focus:ring-2 focus:ring-primary/20 transition-all appearance-none pr-8 cursor-pointer"><option>Chọn bộ phận</option></select><span class="material-symbols-outlined absolute right-2.5 top-1/2 -translate-y-1/2 text-outline pointer-events-none text-[18px]">expand_more</span></div></div><div class="col-span-1 sm:col-span-2 flex flex-col gap-1.5"><label class="font-label-md text-label-md text-on-surface">Địa điểm</label><div class="relative"><select class="w-full h-10 px-3 bg-surface-container-low rounded-lg font-body-md text-body-md text-on-surface placeholder:text-outline focus:outline-none focus:bg-surface-container-lowest focus:ring-2 focus:ring-primary/20 transition-all appearance-none pr-8 cursor-pointer"><option>Chọn địa điểm</option></select><span class="material-symbols-outlined absolute right-2.5 top-1/2 -translate-y-1/2 text-outline pointer-events-none text-[18px]">expand_more</span></div></div><div class="col-span-1 sm:col-span-1 flex flex-col gap-1.5"><label class="font-label-md text-label-md text-on-surface">Thành phố <span class="text-error">*</span></label><div class="relative"><select class="w-full h-10 px-3 bg-surface-container-low rounded-lg font-body-md text-body-md text-on-surface placeholder:text-outline focus:outline-none focus:bg-surface-container-lowest focus:ring-2 focus:ring-primary/20 transition-all appearance-none pr-8 cursor-pointer"><option>Chọn thành phố</option><option>Hà Nội</option><option>TP. Hồ Chí Minh</option><option>Đà Nẵng</option></select><span class="material-symbols-outlined absolute right-2.5 top-1/2 -translate-y-1/2 text-outline pointer-events-none text-[18px]">expand_more</span></div></div><div class="col-span-1 sm:col-span-1 flex flex-col gap-1.5"><label class="font-label-md text-label-md text-on-surface">Quận</label><div class="relative"><select class="w-full h-10 px-3 bg-surface-container-low rounded-lg font-body-md text-body-md text-on-surface placeholder:text-outline focus:outline-none focus:bg-surface-container-lowest focus:ring-2 focus:ring-primary/20 transition-all appearance-none pr-8 cursor-pointer"><option>Chọn quận</option></select><span class="material-symbols-outlined absolute right-2.5 top-1/2 -translate-y-1/2 text-outline pointer-events-none text-[18px]">expand_more</span></div></div><div class="col-span-1 sm:col-span-1 flex flex-col gap-1.5"><label class="font-label-md text-label-md text-on-surface">Vị trí</label><input type="text" class="w-full h-10 px-3 bg-surface-container-low rounded-lg font-body-md text-body-md text-on-surface placeholder:text-outline focus:outline-none focus:bg-surface-container-lowest focus:ring-2 focus:ring-primary/20 transition-all font-mono-num" value="" placeholder=""/></div><div class="col-span-1 sm:col-span-4 flex flex-col gap-1.5"><label class="font-label-md text-label-md text-on-surface">Mô tả</label><textarea rows="8" class="w-full p-3 bg-surface-container-low rounded-lg font-body-md text-body-md text-on-surface placeholder:text-outline focus:outline-none focus:bg-surface-container-lowest focus:ring-2 focus:ring-primary/20 transition-all resize-none" placeholder=""></textarea></div></div></div>
 <!-- Drawer Footer Actions -->
 <div class="px-6 py-4 bg-surface-container-low/50 flex items-center justify-end gap-3">
 <button class="px-4 py-2 rounded-lg font-label-md text-label-md text-on-surface-variant hover:bg-surface-container-high transition-colors" id="cancel-plan-drawer" type="button">
-          Hủy bỏ
+          Thoát
         </button>
 <button class="inline-flex items-center gap-1.5 px-5 py-2 rounded-lg bg-primary-container text-on-primary hover:bg-primary font-label-md text-label-md shadow-sm transition-colors" id="save-plan-button" type="button">
 <span class="material-symbols-outlined text-[18px]">save</span>
-<span>Lưu kế hoạch</span>
+<span>Lưu dữ liệu</span>
 </button>
 </div>
 </aside>
@@ -611,6 +144,7 @@
       }
 
       if (openBtn) openBtn.addEventListener('click', openDrawer);
+      document.querySelectorAll('[data-open-drawer]').forEach(b => b.addEventListener('click', openDrawer));
       if (closeBtn) closeBtn.addEventListener('click', closeDrawer);
       if (cancelBtn) cancelBtn.addEventListener('click', closeDrawer);
       if (backdrop) backdrop.addEventListener('click', closeDrawer);
@@ -619,9 +153,9 @@
         saveBtn.addEventListener('click', () => {
           saveBtn.innerHTML = '<span class="material-symbols-outlined text-[18px] animate-spin">progress_activity</span><span>Đang xử lý...</span>';
           setTimeout(() => {
-            saveBtn.innerHTML = '<span class="material-symbols-outlined text-[18px]">check</span><span>Đã tạo xong!</span>';
+            saveBtn.innerHTML = '<span class="material-symbols-outlined text-[18px]">check</span><span>Đã lưu!</span>';
             setTimeout(() => {
-              saveBtn.innerHTML = '<span class="material-symbols-outlined text-[18px]">save</span><span>Lưu kế hoạch</span>';
+              saveBtn.innerHTML = '<span class="material-symbols-outlined text-[18px]">save</span><span>Lưu dữ liệu</span>';
               closeDrawer();
             }, 800);
           }, 600);

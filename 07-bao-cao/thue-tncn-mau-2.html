@@ -21,7 +21,6 @@ window.HRM_PAGE = {
   search: "Tìm kiếm báo cáo, nhân sự, phòng ban...",
   breadcrumb: ["Báo cáo", "Biểu thuế TNCN (Mẫu 2)"],
   title: "Biểu thuế TNCN (Mẫu 2)",
-  desc: "Bảng kê giảm trừ gia cảnh cho người phụ thuộc của cán bộ nhân viên theo năm, phục vụ quyết toán thuế thu nhập cá nhân.",
   stats: [
     { label: "Người nộp thuế", value: "186", sub: "có người phụ thuộc", icon: "badge", tone: "primary" },
     { label: "Người phụ thuộc", value: "274", sub: "được giảm trừ", icon: "family_restroom", tone: "info" },
@@ -47,8 +46,8 @@ window.HRM_PAGE = {
     { title: "Loại giấy tờ", field: "loaigt" },
     { title: "Số giấy tờ", field: "sogt" },
     { title: "Quan hệ với người nộp thuế", field: "quanhe", align: "center" },
-    { title: "Từ tháng (giảm trừ)", field: "tuthang", align: "center" },
-    { title: "Đến tháng (giảm trừ)", field: "denthang", align: "center" },
+    { title: "Từ tháng", field: "tuthang", group: "Thời gian tính giảm trừ", align: "center" },
+    { title: "Đến tháng", field: "denthang", group: "Thời gian tính giảm trừ", align: "center" },
     { title: "Mã loại giấy tờ", field: "maloaigt", align: "center" },
     { title: "Mã quan hệ với người nộp thuế", field: "maquanhe", align: "center" },
     { title: "Số người GTGC", field: "songuoi", align: "center" },

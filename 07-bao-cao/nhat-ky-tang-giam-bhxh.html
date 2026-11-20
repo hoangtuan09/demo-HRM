@@ -21,7 +21,6 @@ window.HRM_PAGE = {
   search: "Tìm kiếm báo cáo, nhân sự, phòng ban...",
   breadcrumb: ["Báo cáo", "Nhật ký tăng giảm BHXH"],
   title: "Nhật ký tăng giảm bảo hiểm xã hội",
-  desc: "Lịch sử các lần báo tăng và báo giảm bảo hiểm xã hội của cán bộ nhân viên theo khoảng thời gian, phục vụ đối chiếu và tra cứu.",
   stats: [
     { label: "Tổng lượt tăng/giảm", value: "146", sub: "trong kỳ", icon: "sync_alt", tone: "primary" },
     { label: "Lượt tăng BHXH", value: "84", sub: "57.5% nhật ký", icon: "trending_up", tone: "success" },
@@ -37,25 +36,7 @@ window.HRM_PAGE = {
     { label: "Tình trạng", type: "select", options: ["Tất cả", "Tăng BHXH", "Giảm BHXH"] }
   ],
   gear: true,
-  columns: [
-    { title: "STT", field: "stt", align: "center", width: 60 },
-    { title: "Mã NV", field: "ma", kind: "link" },
-    { title: "Họ và tên", field: "ten", kind: "strong" },
-    { title: "Phòng ban / Dự án", field: "pb" },
-    { title: "Loại nghiệp vụ", field: "loai", align: "center", kind: "badge", tones: { "Tăng BHXH": "bg-emerald-50 text-emerald-600", "Giảm BHXH": "bg-amber-50 text-amber-600" } },
-    { title: "Số BHXH", field: "sobhxh", kind: "link" },
-    { title: "Ngày thực hiện", field: "ngaytt", align: "center" },
-    { title: "Người thực hiện", field: "nguoi" }
-  ],
-  rows: [
-    { stt: 1, ma: "NV0231", ten: "Nguyễn Văn Khánh", pb: "Khối Vận hành", loai: "Tăng BHXH", sobhxh: "0120345678", ngaytt: "01/11/2025", nguoi: "Phạm Thị Hồng" },
-    { stt: 2, ma: "NV0188", ten: "Hoàng Minh Tuấn", pb: "BQL Tòa nhà Keangnam", loai: "Giảm BHXH", sobhxh: "0118223344", ngaytt: "31/10/2025", nguoi: "Phạm Thị Hồng" },
-    { stt: 3, ma: "NV0244", ten: "Trần Thị Thu Hà", pb: "Phòng Kế toán", loai: "Tăng BHXH", sobhxh: "0119887766", ngaytt: "05/11/2025", nguoi: "Lê Quốc Dũng" },
-    { stt: 4, ma: "NV0195", ten: "Ngô Thị Mai", pb: "Khối CSKH", loai: "Giảm BHXH", sobhxh: "0118556677", ngaytt: "01/11/2025", nguoi: "Lê Quốc Dũng" },
-    { stt: 5, ma: "NV0258", ten: "Lê Hoàng Nam", pb: "TTTM Indochina", loai: "Tăng BHXH", sobhxh: "0120556677", ngaytt: "10/11/2025", nguoi: "Phạm Thị Hồng" },
-    { stt: 6, ma: "NV0216", ten: "Vũ Đình Long", pb: "BQL Tòa Handico", loai: "Giảm BHXH", sobhxh: "0118334455", ngaytt: "08/11/2025", nguoi: "Lê Quốc Dũng" }
-  ],
-  total: 146,
+  serverColumns: "BC_NhatKyBaoHiemXaHoi",
   toolbar: [
     { label: "Lọc dữ liệu", icon: "filter_alt", kind: "find" },
     { label: "Xuất Excel", icon: "file_download", kind: "export" }

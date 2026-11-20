@@ -21,7 +21,6 @@ window.HRM_PAGE = {
   search: "Tìm kiếm báo cáo, nhân sự, phòng ban...",
   breadcrumb: ["Báo cáo", "Con nhân sự"],
   title: "Báo cáo con nhân sự",
-  desc: "Danh sách con của cán bộ nhân viên theo đơn vị, phòng ban và bộ phận, phục vụ thực hiện chế độ phúc lợi và giảm trừ gia cảnh.",
   stats: [
     { label: "Tổng số con", value: "312", sub: "của CBNV", icon: "child_care", tone: "primary" },
     { label: "Dưới 6 tuổi", value: "118", sub: "hưởng chế độ", icon: "stroller", tone: "info" },
@@ -34,25 +33,7 @@ window.HRM_PAGE = {
     { label: "Bộ phận", type: "select", options: ["Tất cả bộ phận"] }
   ],
   gear: true,
-  columns: [
-    { title: "STT", field: "stt", align: "center", width: 60 },
-    { title: "Mã NV", field: "ma", kind: "link" },
-    { title: "Họ tên nhân viên", field: "ten", kind: "strong" },
-    { title: "Phòng ban / Dự án", field: "pb" },
-    { title: "Họ tên con", field: "tencon", kind: "strong" },
-    { title: "Ngày sinh", field: "ns", align: "center" },
-    { title: "Giới tính", field: "gt", align: "center" },
-    { title: "Quan hệ", field: "qh", align: "center" }
-  ],
-  rows: [
-    { stt: 1, ma: "NV0005", ten: "Nguyễn Văn An", pb: "Phòng Kỹ thuật", tencon: "Nguyễn Gia Bảo", ns: "12/03/2019", gt: "Nam", qh: "Con ruột" },
-    { stt: 2, ma: "NV0005", ten: "Nguyễn Văn An", pb: "Phòng Kỹ thuật", tencon: "Nguyễn Khánh Linh", ns: "08/09/2021", gt: "Nữ", qh: "Con ruột" },
-    { stt: 3, ma: "NV0032", ten: "Trần Thị Bình", pb: "Phòng Kế toán", tencon: "Trần Minh Quân", ns: "25/06/2015", gt: "Nam", qh: "Con ruột" },
-    { stt: 4, ma: "NV0067", ten: "Lê Hoàng Cường", pb: "BQL Tòa Handico", tencon: "Lê Bảo Ngọc", ns: "14/02/2017", gt: "Nữ", qh: "Con ruột" },
-    { stt: 5, ma: "NV0091", ten: "Phạm Thị Dung", pb: "Khối CSKH", tencon: "Phạm Anh Khôi", ns: "30/11/2020", gt: "Nam", qh: "Con ruột" },
-    { stt: 6, ma: "NV0120", ten: "Vũ Thanh Thảo", pb: "Phòng Tuyển dụng", tencon: "Vũ Hà My", ns: "05/07/2013", gt: "Nữ", qh: "Con ruột" }
-  ],
-  total: 312,
+  serverColumns: "BC_ConNhanVien",
   toolbar: [
     { label: "Lọc dữ liệu", icon: "filter_alt", kind: "find" },
     { label: "Xuất Excel", icon: "file_download", kind: "export" },
