@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Báo cáo tình trạng hôn nhân — HRM</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="../shared/tw-config.js"></script>
+<link rel="stylesheet" href="../shared/nav.css"/>
+<link rel="stylesheet" href="../shared/fix.css"/>
+</head>
+<body class="bg-background font-body-md text-on-surface antialiased">
+<aside id="app-sidebar" data-mode="fixed" data-old-w="256"></aside>
+<div class="pl-64"><div id="page-root"></div></div>
+<script>
+window.HRM_PAGE = {
+  search: "Tìm kiếm báo cáo, nhân sự, phòng ban...",
+  breadcrumb: ["Báo cáo", "Tình trạng hôn nhân"],
+  title: "Báo cáo tình trạng hôn nhân",
+  desc: "Thống kê phân bố cán bộ nhân viên theo tình trạng hôn nhân (đã lập gia đình / chưa lập gia đình) theo đơn vị, phòng ban và bộ phận.",
+  stats: [
+    { label: "Tổng cán bộ nhân viên", value: "428", sub: "đang công tác", icon: "groups", tone: "primary" },
+    { label: "Đã lập gia đình", value: "271", sub: "63.3% tổng số", icon: "favorite", tone: "success" },
+    { label: "Chưa lập gia đình", value: "157", sub: "36.7% tổng số", icon: "person", tone: "info" },
+    { label: "Đơn vị thống kê", value: "6", sub: "đơn vị trực thuộc", icon: "apartment", tone: "warning" }
+  ],
+  filters: [
+    { label: "Tình trạng", type: "select", options: ["Lập gia đình", "Chưa lập gia đình"] },
+    { label: "Đơn vị", type: "select", options: ["Toàn công ty", "BQL Tòa nhà Keangnam", "BQL Tòa Handico", "TTTM Indochina"] },
+    { label: "Phòng ban/Dự án", type: "select", options: ["Tất cả phòng ban"] },
+    { label: "Bộ phận", type: "select", options: ["Tất cả bộ phận"] }
+  ],
+  gear: true,
+  columns: [
+    { title: "STT", field: "stt", align: "center", width: 60 },
+    { title: "Tiêu chí", field: "tc", kind: "strong" },
+    { title: "Đơn vị", field: "dv" },
+    { title: "Số lượng", field: "sl", align: "right" },
+    { title: "Tỷ lệ %", field: "tl", align: "right", kind: "badge", tones: { } }
+  ],
+  rows: [
+    { stt: 1, tc: "Đã lập gia đình", dv: "BQL Tòa nhà Keangnam", sl: 96, tl: "64.0%" },
+    { stt: 2, tc: "Chưa lập gia đình", dv: "BQL Tòa nhà Keangnam", sl: 54, tl: "36.0%" },
+    { stt: 3, tc: "Đã lập gia đình", dv: "BQL Tòa Handico", sl: 78, tl: "61.9%" },
+    { stt: 4, tc: "Chưa lập gia đình", dv: "BQL Tòa Handico", sl: 48, tl: "38.1%" },
+    { stt: 5, tc: "Đã lập gia đình", dv: "TTTM Indochina", sl: 97, tl: "64.2%" },
+    { stt: 6, tc: "Chưa lập gia đình", dv: "TTTM Indochina", sl: 55, tl: "35.8%" }
+  ],
+  total: 12,
+  toolbar: [
+    { label: "Lọc dữ liệu", icon: "filter_alt", kind: "find" },
+    { label: "Xuất Excel", icon: "file_download", kind: "export" },
+    { label: "Xem in", icon: "print", kind: "pdf" }
+  ]
+};
+</script>
+<script src="../shared/page.js"></script>
+<script src="../shared/nav.js"></script>
+</body>
+</html>

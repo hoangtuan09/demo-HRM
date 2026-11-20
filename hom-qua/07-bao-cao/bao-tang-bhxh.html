@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Báo tăng bảo hiểm xã hội — HRM</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="../shared/tw-config.js"></script>
+<link rel="stylesheet" href="../shared/nav.css"/>
+<link rel="stylesheet" href="../shared/fix.css"/>
+</head>
+<body class="bg-background font-body-md text-on-surface antialiased">
+<aside id="app-sidebar" data-mode="fixed" data-old-w="256"></aside>
+<div class="pl-64"><div id="page-root"></div></div>
+<script>
+window.HRM_PAGE = {
+  search: "Tìm kiếm báo cáo, nhân sự, phòng ban...",
+  breadcrumb: ["Báo cáo", "Báo tăng BHXH"],
+  title: "Báo tăng bảo hiểm xã hội",
+  desc: "Danh sách cán bộ nhân viên cần tăng/đã tăng bảo hiểm xã hội theo khoảng thời gian, phục vụ lập hồ sơ báo tăng với cơ quan BHXH.",
+  stats: [
+    { label: "Thuộc diện tăng BHXH", value: "27", sub: "trong kỳ", icon: "trending_up", tone: "primary" },
+    { label: "Đã tăng BHXH", value: "15", sub: "55.6% danh sách", icon: "task_alt", tone: "success" },
+    { label: "Chưa tăng BHXH", value: "12", sub: "44.4% danh sách", icon: "pending_actions", tone: "warning" },
+    { label: "Kết thúc nghỉ thai sản", value: "4", sub: "quay lại đóng BHXH", icon: "pregnant_woman", tone: "info" }
+  ],
+  filters: [
+    { label: "Đơn vị", type: "select", options: ["Toàn công ty", "BQL Tòa nhà Keangnam", "BQL Tòa Handico", "TTTM Indochina"] },
+    { label: "Phòng ban/Dự án", type: "select", options: ["Tất cả phòng ban"] },
+    { label: "Bộ phận", type: "select", options: ["Tất cả bộ phận"] },
+    { label: "Từ ngày", type: "date", value: "01/11/2025" },
+    { label: "Đến ngày", type: "date", value: "16/11/2025" },
+    { label: "Thời hạn hợp đồng", type: "select", options: ["Tất cả", "Không xác định thời hạn", "Xác định thời hạn", "Thử việc"] },
+    { label: "Tình trạng", type: "select", options: ["Tất cả", "Đã tăng BHXH", "Chưa tăng BHXH"] },
+    { label: "Loại tăng BHXH", type: "select", options: ["Tất cả", "Kết thúc nghỉ thai sản", "Nhân sự mới"] }
+  ],
+  gear: true,
+  columns: [
+    { title: "STT", field: "stt", align: "center", width: 60 },
+    { title: "Mã", field: "ma", kind: "link" },
+    { title: "Họ và tên", field: "ten", kind: "strong" },
+    { title: "BHXH", field: "bhxh", align: "center", kind: "badge", tones: { "Có": "bg-emerald-50 text-emerald-600", "Không": "bg-surface-container-high text-on-surface-variant" } },
+    { title: "Số BHXH", field: "sobhxh", kind: "link" },
+    { title: "Ngày chính thức", field: "ngayct", align: "center" },
+    { title: "Ngày kết thúc nghỉ", field: "ngayktn", align: "center" },
+    { title: "Giới tính", field: "gt", align: "center" },
+    { title: "Ngày sinh", field: "ns", align: "center" },
+    { title: "Căn cước công dân", field: "cccd" },
+    { title: "Chức vụ", field: "cv" },
+    { title: "Lương cơ bản", field: "luong", align: "right", kind: "money" },
+    { title: "Nơi làm việc", field: "noilv" },
+    { title: "Tỉnh/Thành phố", field: "tinh" },
+    { title: "Quận/Huyện", field: "quan" },
+    { title: "Phường/Xã", field: "phuong" }
+  ],
+  rows: [
+    { stt: 1, ma: "PMC-0231", ten: "Nguyễn Văn Khánh", bhxh: "Không", sobhxh: "0120345678", ngayct: "01/11/2025", ngayktn: "", gt: "Nam", ns: "14/05/1995", cccd: "001095012345", cv: "Kỹ thuật viên", luong: 8500000, noilv: "Tòa nhà Keangnam", tinh: "Hà Nội", quan: "Nam Từ Liêm", phuong: "Mễ Trì" },
+    { stt: 2, ma: "PMC-0244", ten: "Trần Thị Thu Hà", bhxh: "Có", sobhxh: "0119887766", ngayct: "05/11/2025", ngayktn: "04/11/2025", gt: "Nữ", ns: "22/08/1992", cccd: "001192045678", cv: "Chuyên viên", luong: 11000000, noilv: "Tòa Handico", tinh: "Hà Nội", quan: "Cầu Giấy", phuong: "Dịch Vọng" },
+    { stt: 3, ma: "PMC-0258", ten: "Lê Hoàng Nam", bhxh: "Không", sobhxh: "0120556677", ngayct: "10/11/2025", ngayktn: "", gt: "Nam", ns: "03/12/1998", cccd: "001098067890", cv: "Nhân viên", luong: 7800000, noilv: "TTTM Indochina", tinh: "Hà Nội", quan: "Ba Đình", phuong: "Cống Vị" },
+    { stt: 4, ma: "PMC-0263", ten: "Phạm Thị Lan Anh", bhxh: "Có", sobhxh: "0119443322", ngayct: "12/11/2025", ngayktn: "11/11/2025", gt: "Nữ", ns: "17/03/1990", cccd: "001190034512", cv: "Giám sát", luong: 13500000, noilv: "Tòa nhà Keangnam", tinh: "Hà Nội", quan: "Nam Từ Liêm", phuong: "Mỹ Đình 1" },
+    { stt: 5, ma: "PMC-0270", ten: "Đặng Quốc Tuấn", bhxh: "Không", sobhxh: "0120778899", ngayct: "15/11/2025", ngayktn: "", gt: "Nam", ns: "29/07/1996", cccd: "001096078901", cv: "Bảo vệ", luong: 7200000, noilv: "Tòa Handico", tinh: "Hà Nội", quan: "Thanh Xuân", phuong: "Nhân Chính" }
+  ],
+  total: 27,
+  toolbar: [
+    { label: "Lọc dữ liệu", icon: "filter_alt", kind: "find" },
+    { label: "Xuất Excel", icon: "file_download", kind: "export" },
+    { label: "Tăng BHXH", icon: "add_circle", kind: "success" }
+  ]
+};
+</script>
+<script src="../shared/page.js"></script>
+<script src="../shared/nav.js"></script>
+</body>
+</html>

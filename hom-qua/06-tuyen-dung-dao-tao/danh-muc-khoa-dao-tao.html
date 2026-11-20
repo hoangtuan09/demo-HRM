@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Danh mục Khóa đào tạo — HRM</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="../shared/tw-config.js"></script>
+<link rel="stylesheet" href="../shared/nav.css"/>
+<link rel="stylesheet" href="../shared/fix.css"/>
+</head>
+<body class="bg-background font-body-md text-on-surface antialiased">
+<aside id="app-sidebar" data-mode="fixed" data-old-w="256"></aside>
+<div class="pl-64"><div id="page-root"></div></div>
+<script>
+window.HRM_PAGE = {
+  search: "Tìm kiếm khóa đào tạo, chứng chỉ...",
+  breadcrumb: ["Danh mục", "Khóa đào tạo"],
+  title: "Danh mục Khóa đào tạo",
+  desc: "Quản lý danh mục các khóa đào tạo chuẩn của PMC và các chứng chỉ đầu ra tương ứng, làm cơ sở xây dựng lớp và kế hoạch đào tạo.",
+  headerActions: [
+    { label: "Xuất file Excel", icon: "file_download" },
+    { label: "+ Thêm khóa đào tạo mới", icon: "add", primary: true }
+  ],
+  stats: [
+    { label: "Tổng khóa đào tạo", value: "36", sub: "khóa chuẩn hóa", icon: "menu_book", tone: "primary" },
+    { label: "Khóa có chứng chỉ", value: "24", sub: "cấp chứng chỉ đầu ra", icon: "workspace_premium", tone: "success" },
+    { label: "Khóa kỹ năng", value: "12", sub: "không cấp chứng chỉ", icon: "psychology", tone: "info" },
+    { label: "Khóa áp dụng năm nay", value: "28", sub: "đang triển khai", icon: "event_available", tone: "warning" }
+  ],
+  filters: [
+    { label: "Tìm kiếm", type: "search", placeholder: "Tìm mã, tên khóa đào tạo..." },
+    { label: "Chứng chỉ", type: "select", options: ["Tất cả chứng chỉ", "An toàn PCCC", "Vận hành MEP", "Sơ cấp cứu", "Quản lý toà nhà"] }
+  ],
+  columns: [
+    { title: "STT", field: "stt", align: "center", width: 60 },
+    { title: "Mã", field: "ma", kind: "link" },
+    { title: "Tên", field: "ten", kind: "strong" },
+    { title: "Chứng chỉ", field: "chungChi" },
+    { title: "Thao tác", field: "", kind: "actions", align: "center" }
+  ],
+  rows: [
+    { stt: 1, ma: "KH001", ten: "An toàn phòng cháy chữa cháy cơ bản", chungChi: "Chứng chỉ An toàn PCCC" },
+    { stt: 2, ma: "KH002", ten: "Vận hành hệ thống cơ điện MEP", chungChi: "Chứng chỉ Vận hành MEP" },
+    { stt: 3, ma: "KH003", ten: "Sơ cấp cứu tại nơi làm việc", chungChi: "Chứng chỉ Sơ cấp cứu" },
+    { stt: 4, ma: "KH004", ten: "Nghiệp vụ quản lý vận hành toà nhà", chungChi: "Chứng chỉ Quản lý toà nhà" },
+    { stt: 5, ma: "KH005", ten: "Kỹ năng chăm sóc khách hàng cư dân", chungChi: "Không cấp chứng chỉ" }
+  ],
+  total: 36,
+  toolbar: [],
+  form: {
+    title: "THÊM KHÓA ĐÀO TẠO MỚI", saveLabel: "Lưu dữ liệu", wide: false,
+    sections: [
+      { title: "Thông tin khóa đào tạo", fields: [
+        { label: "Mã", type: "text", required: true, span: 1, hint: "Tối đa 10 ký tự" },
+        { label: "Tên", type: "text", required: true, span: 3 }
+      ] },
+      { title: "Chứng chỉ (chọn nhiều)", fields: [
+        { label: "An toàn PCCC", type: "checkbox", span: 1 },
+        { label: "Vận hành MEP", type: "checkbox", span: 1 },
+        { label: "Sơ cấp cứu", type: "checkbox", span: 1 },
+        { label: "Quản lý toà nhà", type: "checkbox", span: 1 }
+      ] }
+    ]
+  }
+};
+</script>
+<script src="../shared/page.js"></script>
+<script src="../shared/nav.js"></script>
+</body>
+</html>

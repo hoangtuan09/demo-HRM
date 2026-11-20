@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Danh mục Giảng viên — HRM</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="../shared/tw-config.js"></script>
+<link rel="stylesheet" href="../shared/nav.css"/>
+<link rel="stylesheet" href="../shared/fix.css"/>
+</head>
+<body class="bg-background font-body-md text-on-surface antialiased">
+<aside id="app-sidebar" data-mode="fixed" data-old-w="256"></aside>
+<div class="pl-64"><div id="page-root"></div></div>
+<script>
+window.HRM_PAGE = {
+  search: "Tìm kiếm giảng viên, mã, CCCD...",
+  breadcrumb: ["Danh mục", "Giảng viên"],
+  title: "Danh mục Giảng viên",
+  desc: "Quản lý danh sách giảng viên nội bộ và giảng viên thuê ngoài phục vụ các lớp đào tạo của PMC, kèm thông tin định danh và nơi công tác.",
+  headerActions: [
+    { label: "Xuất file Excel", icon: "file_download" },
+    { label: "+ Thêm giảng viên mới", icon: "add", primary: true }
+  ],
+  stats: [
+    { label: "Tổng giảng viên", value: "48", sub: "đang quản lý", icon: "school", tone: "primary" },
+    { label: "Giảng viên nội bộ", value: "31", sub: "cán bộ PMC kiêm nhiệm", icon: "badge", tone: "info" },
+    { label: "Giảng viên thuê ngoài", value: "17", sub: "chuyên gia hợp tác", icon: "diversity_3", tone: "success" },
+    { label: "Đang hoạt động", value: "45", sub: "sẵn sàng giảng dạy", icon: "check_circle", tone: "warning" }
+  ],
+  filters: [
+    { label: "Tìm kiếm", type: "search", placeholder: "Tìm mã, tên giảng viên..." },
+    { label: "Giảng viên", type: "select", options: ["Tất cả", "Giảng viên nội bộ", "Giảng viên thuê ngoài"] }
+  ],
+  columns: [
+    { title: "STT", field: "stt", align: "center", width: 60 },
+    { title: "Mã", field: "ma", kind: "link" },
+    { title: "Họ và tên", field: "ten", kind: "strong" },
+    { title: "GV NB/Ngoài", field: "loai", kind: "badge", tones: { "Nội bộ": "bg-sky-50 text-sky-600", "Thuê ngoài": "bg-emerald-50 text-emerald-600" } },
+    { title: "Ngày sinh", field: "ngaySinh" },
+    { title: "Giới tính", field: "gioiTinh" },
+    { title: "CCCD", field: "cccd", kind: "link" },
+    { title: "Nơi công tác", field: "noiCT" },
+    { title: "Chức vụ", field: "chucVu" },
+    { title: "Trạng thái", field: "trangThai", kind: "toggle", align: "center" },
+    { title: "Thao tác", field: "", kind: "actions", align: "center" }
+  ],
+  rows: [
+    { stt: 1, ma: "GV001", ten: "Nguyễn Văn Thành", loai: "Nội bộ", ngaySinh: "12/04/1980", gioiTinh: "Nam", cccd: "001080012345", noiCT: "Khối Đào tạo PMC", chucVu: "Trưởng phòng Đào tạo", trangThai: true },
+    { stt: 2, ma: "GV002", ten: "Trần Thị Hồng Nhung", loai: "Nội bộ", ngaySinh: "25/09/1985", gioiTinh: "Nữ", cccd: "001185006789", noiCT: "Phòng Nhân sự", chucVu: "Chuyên viên đào tạo", trangThai: true },
+    { stt: 3, ma: "GV003", ten: "Lê Quốc Dũng", loai: "Thuê ngoài", ngaySinh: "03/02/1976", gioiTinh: "Nam", cccd: "001076004321", noiCT: "Đại học Bách Khoa Hà Nội", chucVu: "Giảng viên PCCC", trangThai: true },
+    { stt: 4, ma: "GV004", ten: "Phạm Thị Mai Lan", loai: "Thuê ngoài", ngaySinh: "18/11/1982", gioiTinh: "Nữ", cccd: "001182009876", noiCT: "Viện Quản lý Bất động sản", chucVu: "Chuyên gia vận hành toà nhà", trangThai: false },
+    { stt: 5, ma: "GV005", ten: "Hoàng Minh Tuấn", loai: "Nội bộ", ngaySinh: "07/07/1988", gioiTinh: "Nam", cccd: "001188003210", noiCT: "BQL Tòa nhà Keangnam", chucVu: "Kỹ sư trưởng MEP", trangThai: true }
+  ],
+  total: 48,
+  toolbar: [],
+  form: {
+    title: "THÊM GIẢNG VIÊN MỚI", saveLabel: "Lưu dữ liệu", wide: false,
+    sections: [
+      { title: "Thông tin giảng viên", fields: [
+        { label: "Mã", type: "text", required: true, span: 1, hint: "Tối đa 10 ký tự" },
+        { label: "GV NB/ngoài", type: "select", options: ["Nội bộ", "Thuê ngoài"], span: 1 },
+        { label: "Họ đệm", type: "text", required: true, span: 1 },
+        { label: "Tên", type: "text", required: true, span: 1 },
+        { label: "Giới tính", type: "select", options: ["Nam", "Nữ"], span: 1 },
+        { label: "Ngày sinh", type: "date", span: 1 },
+        { label: "Điện thoại", type: "text", required: true, span: 1 },
+        { label: "CCCD", type: "text", required: true, span: 1 },
+        { label: "Ảnh đại diện", type: "file", span: 2 },
+        { label: "Chức vụ", type: "select", options: ["Trưởng phòng Đào tạo", "Chuyên viên đào tạo", "Giảng viên PCCC", "Kỹ sư trưởng MEP"], span: 2 },
+        { label: "Nơi công tác", type: "text", span: 4 },
+        { label: "Địa chỉ", type: "text", span: 4 },
+        { label: "Ghi chú", type: "textarea", span: 4 }
+      ] }
+    ]
+  }
+};
+</script>
+<script src="../shared/page.js"></script>
+<script src="../shared/nav.js"></script>
+</body>
+</html>

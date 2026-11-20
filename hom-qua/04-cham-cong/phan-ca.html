@@ -1,0 +1,760 @@
+<!DOCTYPE html>
+
+<html lang="vi"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "outline": "#727782", "primary-fixed-dim": "#a4c9ff", "surface": "#f7f9fc", "primary": "#004f8f", "secondary-fixed-dim": "#b9c7df", "surface-container": "#eceef1", "tertiary-container": "#006c9b", "error": "#ba1a1a", "secondary-fixed": "#d5e3fc", "on-primary-fixed-variant": "#004883", "on-error-container": "#93000a", "tertiary": "#005378", "on-error": "#ffffff", "inverse-on-surface": "#eff1f4", "surface-dim": "#d8dadd", "on-tertiary-fixed-variant": "#004c6e", "surface-tint": "#0660aa", "on-secondary-fixed": "#0d1c2e", "surface-container-lowest": "#ffffff", "background": "#f7f9fc", "tertiary-fixed-dim": "#89ceff", "secondary": "#515f74", "surface-container-high": "#e6e8eb", "on-primary-container": "#d6e5ff", "surface-container-low": "#f2f4f7", "primary-container": "#1967b2", "inverse-primary": "#a4c9ff", "on-surface": "#191c1e", "on-secondary-container": "#57657a", "outline-variant": "#c1c7d3", "surface-container-highest": "#e0e3e6", "on-secondary-fixed-variant": "#3a485b", "tertiary-fixed": "#c9e6ff", "on-primary": "#ffffff", "inverse-surface": "#2d3133", "on-tertiary-fixed": "#001e2f", "surface-bright": "#f7f9fc", "on-tertiary": "#ffffff", "on-primary-fixed": "#001c39", "surface-variant": "#e0e3e6", "secondary-container": "#d5e3fc", "primary-fixed": "#d4e3ff", "error-container": "#ffdad6", "on-secondary": "#ffffff", "on-background": "#191c1e", "on-tertiary-container": "#cbe7ff", "on-surface-variant": "#414751" }, "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, "spacing": { "space-lg": "1.5rem", "space-xl": "2rem", "margin-mobile": "1rem", "margin": "1.5rem", "gutter-mobile": "0.75rem", "space-xs": "0.25rem", "gutter": "1.5rem", "space-md": "1rem", "space-sm": "0.5rem" }, "fontFamily": { "label-md": ["Be Vietnam Pro"], "headline-sm": ["Be Vietnam Pro"], "headline-md": ["Be Vietnam Pro"], "label-sm": ["Be Vietnam Pro"], "headline-lg-mobile": ["Be Vietnam Pro"], "body-md-medium": ["Be Vietnam Pro"], "body-md": ["Be Vietnam Pro"], "mono-num": ["Be Vietnam Pro"], "display": ["Be Vietnam Pro"], "headline-lg": ["Be Vietnam Pro"], "caption": ["Be Vietnam Pro"], "body-sm": ["Be Vietnam Pro"], "body-lg": ["Be Vietnam Pro"] }, "fontSize": { "label-md": ["13px", { "lineHeight": "16px", "letterSpacing": "0.01em", "fontWeight": "500" }], "headline-sm": ["16px", { "lineHeight": "22px", "letterSpacing": "0", "fontWeight": "600" }], "headline-md": ["18px", { "lineHeight": "24px", "letterSpacing": "-0.01em", "fontWeight": "600" }], "label-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "500" }], "headline-lg-mobile": ["20px", { "lineHeight": "26px", "letterSpacing": "-0.01em", "fontWeight": "600" }], "body-md-medium": ["14px", { "lineHeight": "20px", "letterSpacing": "0", "fontWeight": "500" }], "body-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0", "fontWeight": "400" }], "mono-num": ["14px", { "lineHeight": "20px", "letterSpacing": "0", "fontWeight": "500" }], "display": ["28px", { "lineHeight": "36px", "letterSpacing": "-0.02em", "fontWeight": "600" }], "headline-lg": ["22px", { "lineHeight": "28px", "letterSpacing": "-0.015em", "fontWeight": "600" }], "caption": ["12px", { "lineHeight": "16px", "letterSpacing": "0", "fontWeight": "400" }], "body-sm": ["13px", { "lineHeight": "18px", "letterSpacing": "0", "fontWeight": "400" }], "body-lg": ["15px", { "lineHeight": "22px", "letterSpacing": "0", "fontWeight": "400" }] } } } };</script><link rel="stylesheet" href="../shared/nav.css"/><link rel="stylesheet" href="../shared/fix.css"/></head><body class="bg-surface font-body-md text-on-surface antialiased"><aside id="app-sidebar" data-mode="fixed" data-old-w="240"></aside><div class="pl-[240px]"><header class="fixed top-0 left-[240px] right-0 h-16 bg-surface-container-lowest/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-40 flex items-center justify-between px-space-lg"><div class="flex items-center gap-space-md"><div class="relative flex items-center w-80"><span class="material-symbols-outlined absolute left-3 text-secondary text-[20px] pointer-events-none">search</span><input class="w-full h-[38px] pl-10 pr-4 bg-surface-container-low rounded-lg font-body-md text-body-md text-on-surface placeholder:text-secondary focus:outline-none focus:ring-2 focus:ring-primary-container" placeholder="Tìm kiếm nhân viên, mã NV, phòng ban..." type="search"/></div></div><div class="flex items-center gap-space-md"><div class="relative flex items-center justify-center"><button class="w-10 h-10 rounded-full flex items-center justify-center text-secondary hover:bg-surface-container-low hover:text-on-surface transition-colors" type="button"><span class="material-symbols-outlined text-[22px]">notifications</span></button><span class="absolute top-1.5 right-1.5 w-4 h-4 bg-error text-on-error font-caption text-[10px] font-semibold rounded-full flex items-center justify-center">3</span></div><div class="h-8 w-px bg-surface-container-high"></div><div class="flex items-center gap-space-sm"><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center text-on-primary font-label-md font-semibold text-[13px]"><span>A</span></div><div class="flex flex-col text-left"><span class="font-label-md text-label-md text-on-surface font-semibold leading-tight">Nguyễn Văn An</span><span class="font-caption text-caption text-secondary leading-tight">Trưởng phòng Kỹ thuật</span></div></div></div></header><main class="relative pt-16 bg-surface min-h-screen w-full px-gutter"><div class="flex flex-col w-full pb-20">
+<!-- TOP BREADCRUMB & HEADER -->
+<div class="flex items-center justify-between pb-3 pt-1">
+<div class="flex items-center gap-space-sm">
+<h1 class="font-headline-lg text-headline-lg text-on-surface tracking-tight">Phân ca</h1>
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-label-sm font-label-sm bg-primary-fixed text-primary font-medium">
+        Chu kỳ tháng 11/2026
+      </span>
+</div>
+<div class="flex items-center gap-1.5 font-caption text-caption text-secondary">
+<span>Chấm công &amp; Điểm danh</span>
+<span class="material-symbols-outlined text-[14px]">chevron_right</span>
+<span class="text-primary font-semibold">Phân ca</span>
+</div>
+</div>
+<!-- FILTER & CONTROL TOOLBAR -->
+<div class="bg-surface-container-lowest rounded-xl p-3 shadow-sm mb-3 flex flex-wrap items-center justify-between gap-3">
+<div class="flex flex-wrap items-center gap-3">
+<!-- Tháng -->
+<div class="flex items-center gap-2">
+<label class="font-label-sm text-label-sm text-secondary font-medium shrink-0">Tháng</label>
+<select class="h-9 px-3 rounded-lg bg-surface-container-low text-on-surface font-body-md text-body-md focus:outline-none focus:ring-2 focus:ring-primary-container cursor-pointer">
+<option>Tháng 10</option>
+<option selected="">Tháng 11</option>
+<option>Tháng 12</option>
+</select>
+</div>
+<!-- Năm -->
+<div class="flex items-center gap-2">
+<label class="font-label-sm text-label-sm text-secondary font-medium shrink-0">Năm</label>
+<select class="h-9 px-3 rounded-lg bg-surface-container-low text-on-surface font-body-md text-body-md focus:outline-none focus:ring-2 focus:ring-primary-container cursor-pointer">
+<option>2025</option>
+<option selected="">2026</option>
+<option>2027</option>
+</select>
+</div>
+<div class="h-5 w-px bg-surface-container-high hidden md:block"></div>
+<!-- Đơn vị -->
+<div class="flex items-center gap-2">
+<label class="font-label-sm text-label-sm text-secondary font-medium shrink-0">
+          Đơn vị <span class="text-error">*</span>
+</label>
+<select class="h-9 px-3 rounded-lg bg-surface-container-low text-on-surface font-body-md text-body-md focus:outline-none focus:ring-2 focus:ring-primary-container max-w-[280px] truncate cursor-pointer">
+<option selected="">Công ty CP Quản lý và Khai thác tòa nhà VNPT (PMC)</option>
+<option>Chi nhánh TP. Hồ Chí Minh - PMC</option>
+<option>Khối Văn phòng Điều hành</option>
+</select>
+</div>
+<!-- Dự án / Tòa nhà -->
+<div class="flex items-center gap-2">
+<label class="font-label-sm text-label-sm text-secondary font-medium shrink-0">Dự án</label>
+<select class="h-9 px-3 rounded-lg bg-surface-container-low text-on-surface font-body-md text-body-md focus:outline-none focus:ring-2 focus:ring-primary-container max-w-[220px] truncate cursor-pointer">
+<option selected="">BQL Tòa nhà Keangnam Landmark 72</option>
+<option>BQL Tòa nhà Discovery Complex</option>
+<option>BQL Indochina Plaza Hanoi</option>
+</select>
+</div>
+<!-- Bộ phận -->
+<div class="flex items-center gap-2">
+<label class="font-label-sm text-label-sm text-secondary font-medium shrink-0">Bộ phận</label>
+<select class="h-9 px-3 rounded-lg bg-surface-container-low text-on-surface font-body-md text-body-md focus:outline-none focus:ring-2 focus:ring-primary-container cursor-pointer">
+<option selected="">Tất cả bộ phận</option>
+<option>Tổ Kỹ thuật &amp; Vận hành</option>
+<option>Tổ Bảo vệ - An ninh</option>
+<option>Tổ Vệ sinh Công nghiệp</option>
+</select>
+</div>
+</div>
+<!-- Right Controls: Status & Gear Action -->
+<div class="flex items-center gap-3">
+<div class="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-emerald-50 text-emerald-700 font-label-sm text-label-sm font-semibold">
+<span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+<span>Chế độ: Đã mở khóa chỉnh sửa</span>
+</div>
+<!-- Gear dropdown anchor -->
+<div class="relative" id="gearDropdownContainer">
+<button class="w-9 h-9 rounded-lg bg-surface-container-low hover:bg-surface-container text-on-surface-variant flex items-center justify-center transition-colors shadow-xs" id="gearBtn" type="button">
+<span class="material-symbols-outlined text-[20px]">settings</span>
+</button>
+<!-- Dropdown Menu -->
+<div class="hidden absolute right-0 mt-2 w-56 bg-surface-container-lowest rounded-xl shadow-xl z-50 py-1.5 animate-in fade-in zoom-in-95 duration-150" id="gearMenu">
+<div class="px-3 py-1.5 font-caption text-caption text-secondary uppercase font-semibold">Thao tác phân ca</div>
+<button class="w-full px-3 py-2 text-left font-body-md text-body-md text-on-surface hover:bg-surface-container-low flex items-center gap-2 transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px] text-primary">lock_open</span>
+<span>Khóa kỳ phân ca</span>
+</button>
+<button class="w-full px-3 py-2 text-left font-body-md text-body-md text-on-surface hover:bg-surface-container-low flex items-center gap-2 transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px] text-tertiary">sync</span>
+<span>Đồng bộ đơn nghỉ phép</span>
+</button>
+<button class="w-full px-3 py-2 text-left font-body-md text-body-md text-on-surface hover:bg-surface-container-low flex items-center gap-2 transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px] text-secondary">history</span>
+<span>Lịch sử đổi ca &amp; bàn giao</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- SCHEDULE GRID WRAPPER -->
+<div class="bg-surface-container-lowest rounded-xl shadow-sm overflow-hidden flex flex-col">
+<!-- Horizontal Scrollable Matrix Container -->
+<div class="overflow-x-auto w-full relative max-h-[calc(100vh-270px)] select-none">
+<table class="w-full border-collapse text-left min-w-[2180px]">
+<thead>
+<!-- ROW 1: MASTER HEADERS -->
+<tr class="bg-surface-container-low text-on-surface text-label-sm font-label-sm font-semibold sticky top-0 z-30">
+<!-- Frozen Left Master: 5 columns (STT, Mã NV, Họ tên, Bộ phận, Chức vụ) -->
+<th class="sticky left-0 z-40 bg-surface-container px-3 py-2 text-primary font-bold shadow-[2px_0_4px_rgba(0,0,0,0.03)]" colspan="5">
+<div class="flex items-center justify-between">
+<span>THÔNG TIN NHÂN SỰ</span>
+<span class="text-caption font-caption text-secondary font-normal">7 nhân sự</span>
+</div>
+</th>
+<!-- Center Calendar Header: Days 1 to 30 -->
+<th class="text-center py-2 bg-surface-container-high tracking-wider text-secondary" colspan="30">
+              LỊCH PHÂN CÔNG THÁNG 11/2026 (30 NGÀY)
+            </th>
+<!-- Frozen Right Master: Summary columns -->
+<th class="sticky right-0 z-40 bg-surface-container px-3 py-2 text-center text-primary font-bold shadow-[-2px_0_4px_rgba(0,0,0,0.03)]" colspan="7">
+              TỔNG HỢP CÔNG &amp; CA
+            </th>
+</tr>
+<!-- ROW 2: SUB-COLUMNS -->
+<tr class="bg-surface-container-lowest text-secondary text-label-sm font-label-sm sticky top-[33px] z-30 shadow-[0_1px_2px_rgba(0,0,0,0.05)]">
+<!-- 5 Left Frozen Subheaders -->
+<th class="sticky left-0 z-40 bg-surface-container-low w-12 text-center py-2 px-1 text-on-surface-variant font-medium">STT</th>
+<th class="sticky left-12 z-40 bg-surface-container-low w-24 px-2 py-2 text-on-surface font-medium">Mã NV</th>
+<th class="sticky left-36 z-40 bg-surface-container-low w-44 px-3 py-2 text-on-surface font-semibold">Họ và tên</th>
+<th class="sticky left-[20rem] z-40 bg-surface-container-low w-36 px-2 py-2 text-on-surface-variant">Bộ phận</th>
+<th class="sticky left-[29rem] z-40 bg-surface-container-low w-32 px-2 py-2 text-on-surface-variant shadow-[2px_0_4px_rgba(0,0,0,0.04)]">Chức vụ</th>
+<!-- 30 Calendar Day Columns (November: 1 = Sun, 2 = Mon ... 13 = Thu [Today], 30 = Mon) -->
+<!-- Day 1: CN (Sun) -->
+<th class="w-11 text-center py-1.5 px-0.5 bg-amber-50/70 text-amber-900 font-medium">
+<div class="text-[11px] leading-none">1/11</div>
+<div class="text-[10px] font-bold text-amber-700">CN</div>
+</th>
+<!-- Day 2: T2 -->
+<th class="w-11 text-center py-1.5 px-0.5 font-medium text-on-surface-variant"><div class="text-[11px] leading-none">2/11</div><div class="text-[10px] text-secondary">T2</div></th>
+<!-- Day 3: T3 -->
+<th class="w-11 text-center py-1.5 px-0.5 font-medium text-on-surface-variant"><div class="text-[11px] leading-none">3/11</div><div class="text-[10px] text-secondary">T3</div></th>
+<!-- Day 4: T4 -->
+<th class="w-11 text-center py-1.5 px-0.5 font-medium text-on-surface-variant"><div class="text-[11px] leading-none">4/11</div><div class="text-[10px] text-secondary">T4</div></th>
+<!-- Day 5: T5 -->
+<th class="w-11 text-center py-1.5 px-0.5 font-medium text-on-surface-variant"><div class="text-[11px] leading-none">5/11</div><div class="text-[10px] text-secondary">T5</div></th>
+<!-- Day 6: T6 -->
+<th class="w-11 text-center py-1.5 px-0.5 font-medium text-on-surface-variant"><div class="text-[11px] leading-none">6/11</div><div class="text-[10px] text-secondary">T6</div></th>
+<!-- Day 7: T7 (Sat) -->
+<th class="w-11 text-center py-1.5 px-0.5 bg-sky-50/70 text-sky-900 font-medium">
+<div class="text-[11px] leading-none">7/11</div><div class="text-[10px] font-bold text-sky-700">T7</div>
+</th>
+<!-- Day 8: CN -->
+<th class="w-11 text-center py-1.5 px-0.5 bg-amber-50/70 text-amber-900 font-medium">
+<div class="text-[11px] leading-none">8/11</div><div class="text-[10px] font-bold text-amber-700">CN</div>
+</th>
+<!-- Day 9: T2 -->
+<th class="w-11 text-center py-1.5 px-0.5 font-medium text-on-surface-variant"><div class="text-[11px] leading-none">9/11</div><div class="text-[10px] text-secondary">T2</div></th>
+<!-- Day 10: T3 -->
+<th class="w-11 text-center py-1.5 px-0.5 font-medium text-on-surface-variant"><div class="text-[11px] leading-none">10/11</div><div class="text-[10px] text-secondary">T3</div></th>
+<!-- Day 11: T4 -->
+<th class="w-11 text-center py-1.5 px-0.5 font-medium text-on-surface-variant"><div class="text-[11px] leading-none">11/11</div><div class="text-[10px] text-secondary">T4</div></th>
+<!-- Day 12: T5 -->
+<th class="w-11 text-center py-1.5 px-0.5 font-medium text-on-surface-variant"><div class="text-[11px] leading-none">12/11</div><div class="text-[10px] text-secondary">T5</div></th>
+<!-- Day 13: T6 (HÔM NAY - PROMINENT HIGHLIGHT) -->
+<th class="w-11 text-center py-1.5 px-0.5 bg-primary-container text-on-primary font-bold shadow-sm">
+<div class="text-[11px] leading-none">13/11</div>
+<div class="text-[9px] uppercase tracking-tighter bg-on-primary/20 rounded px-1 mt-0.5">Nay</div>
+</th>
+<!-- Day 14: T7 -->
+<th class="w-11 text-center py-1.5 px-0.5 bg-sky-50/70 text-sky-900 font-medium">
+<div class="text-[11px] leading-none">14/11</div><div class="text-[10px] font-bold text-sky-700">T7</div>
+</th>
+<!-- Day 15: CN -->
+<th class="w-11 text-center py-1.5 px-0.5 bg-amber-50/70 text-amber-900 font-medium">
+<div class="text-[11px] leading-none">15/11</div><div class="text-[10px] font-bold text-amber-700">CN</div>
+</th>
+<!-- Day 16: T2 -->
+<th class="w-11 text-center py-1.5 px-0.5 font-medium text-on-surface-variant"><div class="text-[11px] leading-none">16/11</div><div class="text-[10px] text-secondary">T2</div></th>
+<!-- Day 17: T3 -->
+<th class="w-11 text-center py-1.5 px-0.5 font-medium text-on-surface-variant"><div class="text-[11px] leading-none">17/11</div><div class="text-[10px] text-secondary">T3</div></th>
+<!-- Day 18: T4 -->
+<th class="w-11 text-center py-1.5 px-0.5 font-medium text-on-surface-variant"><div class="text-[11px] leading-none">18/11</div><div class="text-[10px] text-secondary">T4</div></th>
+<!-- Day 19: T5 -->
+<th class="w-11 text-center py-1.5 px-0.5 font-medium text-on-surface-variant"><div class="text-[11px] leading-none">19/11</div><div class="text-[10px] text-secondary">T5</div></th>
+<!-- Day 20: T6 -->
+<th class="w-11 text-center py-1.5 px-0.5 font-medium text-on-surface-variant"><div class="text-[11px] leading-none">20/11</div><div class="text-[10px] text-secondary">T6</div></th>
+<!-- Day 21: T7 -->
+<th class="w-11 text-center py-1.5 px-0.5 bg-sky-50/70 text-sky-900 font-medium">
+<div class="text-[11px] leading-none">21/11</div><div class="text-[10px] font-bold text-sky-700">T7</div>
+</th>
+<!-- Day 22: CN -->
+<th class="w-11 text-center py-1.5 px-0.5 bg-amber-50/70 text-amber-900 font-medium">
+<div class="text-[11px] leading-none">22/11</div><div class="text-[10px] font-bold text-amber-700">CN</div>
+</th>
+<!-- Day 23: T2 -->
+<th class="w-11 text-center py-1.5 px-0.5 font-medium text-on-surface-variant"><div class="text-[11px] leading-none">23/11</div><div class="text-[10px] text-secondary">T2</div></th>
+<!-- Day 24: T3 -->
+<th class="w-11 text-center py-1.5 px-0.5 font-medium text-on-surface-variant"><div class="text-[11px] leading-none">24/11</div><div class="text-[10px] text-secondary">T3</div></th>
+<!-- Day 25: T4 -->
+<th class="w-11 text-center py-1.5 px-0.5 font-medium text-on-surface-variant"><div class="text-[11px] leading-none">25/11</div><div class="text-[10px] text-secondary">T4</div></th>
+<!-- Day 26: T5 -->
+<th class="w-11 text-center py-1.5 px-0.5 font-medium text-on-surface-variant"><div class="text-[11px] leading-none">26/11</div><div class="text-[10px] text-secondary">T5</div></th>
+<!-- Day 27: T6 -->
+<th class="w-11 text-center py-1.5 px-0.5 font-medium text-on-surface-variant"><div class="text-[11px] leading-none">27/11</div><div class="text-[10px] text-secondary">T6</div></th>
+<!-- Day 28: T7 -->
+<th class="w-11 text-center py-1.5 px-0.5 bg-sky-50/70 text-sky-900 font-medium">
+<div class="text-[11px] leading-none">28/11</div><div class="text-[10px] font-bold text-sky-700">T7</div>
+</th>
+<!-- Day 29: CN -->
+<th class="w-11 text-center py-1.5 px-0.5 bg-amber-50/70 text-amber-900 font-medium">
+<div class="text-[11px] leading-none">29/11</div><div class="text-[10px] font-bold text-amber-700">CN</div>
+</th>
+<!-- Day 30: T2 -->
+<th class="w-11 text-center py-1.5 px-0.5 font-medium text-on-surface-variant"><div class="text-[11px] leading-none">30/11</div><div class="text-[10px] text-secondary">T2</div></th>
+<!-- 7 Frozen Right Summary Subheaders -->
+<th class="sticky right-[18rem] z-40 bg-surface-container-low w-12 text-center py-2 text-rose-700 font-semibold shadow-[-2px_0_4px_rgba(0,0,0,0.03)]" title="Ngày nghỉ tuần (Target 6-7)">
+              R
+            </th>
+<th class="sticky right-[15rem] z-40 bg-surface-container-low w-12 text-center py-2 text-cyan-800 font-semibold" title="Nghỉ phép năm">AL</th>
+<th class="sticky right-[12rem] z-40 bg-surface-container-low w-12 text-center py-2 text-purple-700 font-semibold" title="Nghỉ bù">RR</th>
+<th class="sticky right-[9rem] z-40 bg-surface-container-low w-12 text-center py-2 text-primary font-semibold" title="Tổng ca sáng">M</th>
+<th class="sticky right-[6rem] z-40 bg-surface-container-low w-12 text-center py-2 text-emerald-700 font-semibold" title="Tổng ca chiều">A</th>
+<th class="sticky right-[3rem] z-40 bg-surface-container-low w-12 text-center py-2 text-slate-700 font-semibold" title="Tổng ca đêm">N</th>
+<th class="sticky right-0 z-40 bg-surface-container-low w-12 text-center py-2 text-amber-700 font-semibold" title="Nghỉ lễ">PH</th>
+</tr>
+</thead>
+<tbody class="divide-y-0 text-on-surface font-mono-num text-mono-num">
+<!-- ================= ROW 1: NV0001 ================= -->
+<tr class="h-10 hover:bg-surface-container-low/70 transition-colors group">
+<td class="sticky left-0 bg-surface-container-lowest group-hover:bg-surface-container-low text-center font-caption text-caption text-secondary py-1 px-1">1</td>
+<td class="sticky left-12 bg-surface-container-lowest group-hover:bg-surface-container-low font-label-md text-label-md font-semibold text-primary px-2 py-1">NV0001</td>
+<td class="sticky left-36 bg-surface-container-lowest group-hover:bg-surface-container-low font-body-md-medium text-body-md-medium text-on-surface px-3 py-1 truncate">Nguyễn Văn An</td>
+<td class="sticky left-[20rem] bg-surface-container-lowest group-hover:bg-surface-container-low font-body-sm text-body-sm text-secondary px-2 py-1 truncate">Tổ Vận hành</td>
+<td class="sticky left-[29rem] bg-surface-container-lowest group-hover:bg-surface-container-low font-body-sm text-body-sm text-on-surface-variant px-2 py-1 shadow-[2px_0_4px_rgba(0,0,0,0.03)] truncate">Trưởng phòng</td>
+<!-- Days 1 to 30 -->
+<td class="p-0.5 text-center bg-amber-50/30"><span class="inline-block w-8 py-0.5 rounded text-[11px] font-bold bg-rose-100 text-rose-700">R</span></td>
+<td class="p-0.5 text-center"><span class="inline-block w-8 py-0.5 rounded text-[11px] font-bold bg-primary-fixed text-primary">M</span></td>
+<td class="p-0.5 text-center"><span class="inline-block w-8 py-0.5 rounded text-[11px] font-bold bg-primary-fixed text-primary">M</span></td>
+<td class="p-0.5 text-center"><span class="inline-block w-8 py-0.5 rounded text-[11px] font-bold bg-primary-fixed text-primary">M</span></td>
+<td class="p-0.5 text-center"><span class="inline-block w-8 py-0.5 rounded text-[11px] font-bold bg-primary-fixed text-primary">M</span></td>
+<td class="p-0.5 text-center"><span class="inline-block w-8 py-0.5 rounded text-[11px] font-bold bg-primary-fixed text-primary">M</span></td>
+<td class="p-0.5 text-center bg-sky-50/30"><span class="inline-block w-8 py-0.5 rounded text-[11px] font-bold bg-emerald-100 text-emerald-800">A</span></td>
+<td class="p-0.5 text-center bg-amber-50/30"><span class="inline-block w-8 py-0.5 rounded text-[11px] font-bold bg-rose-100 text-rose-700">R</span></td>
+<td class="p-0.5 text-center"><span class="inline-block w-8 py-0.5 rounded text-[11px] font-bold bg-primary-fixed text-primary">M</span></td>
+<td class="p-0.5 text-center"><span class="inline-block w-8 py-0.5 rounded text-[11px] font-bold bg-primary-fixed text-primary">M</span></td>
+<td class="p-0.5 text-center"><span class="inline-block w-8 py-0.5 rounded text-[11px] font-bold bg-primary-fixed text-primary">M</span></td>
+<td class="p-0.5 text-center"><span class="inline-block w-8 py-0.5 rounded text-[11px] font-bold bg-primary-fixed text-primary">M</span></td>
+<!-- Day 13: Today -->
+<td class="p-0.5 text-center bg-primary/5"><span class="inline-block w-8 py-0.5 rounded text-[11px] font-bold bg-primary text-on-primary">M</span></td>
+<td class="p-0.5 text-center bg-sky-50/30"><span class="inline-block w-8 py-0.5 rounded text-[11px] font-bold bg-rose-100 text-rose-700">R</span></td>
+<td class="p-0.5 text-center bg-amber-50/30"><span class="inline-block w-8 py-0.5 rounded text-[11px] font-bold bg-rose-100 text-rose-700">R</span></td>
+<td class="p-0.5 text-center"><span class="inline-block w-8 py-0.5 rounded text-[11px] font-bold bg-primary-fixed text-primary">M</span></td>
+<td class="p-0.5 text-center"><span class="inline-block w-8 py-0.5 rounded text-[11px] font-bold bg-primary-fixed text-primary">M</span></td>
+<td class="p-0.5 text-center"><span class="inline-block w-8 py-0.5 rounded text-[11px] font-bold bg-primary-fixed text-primary">M</span></td>
+<td class="p-0.5 text-center"><span class="inline-block w-8 py-0.5 rounded text-[11px] font-bold bg-primary-fixed text-primary">M</span></td>
+<td class="p-0.5 text-center"><span class="inline-block w-8 py-0.5 rounded text-[11px] font-bold bg-sky-100 text-sky-800">AL</span></td>
+<td class="p-0.5 text-center bg-sky-50/30"><span class="inline-block w-8 py-0.5 rounded text-[11px] font-bold bg-rose-100 text-rose-700">R</span></td>
+<td class="p-0.5 text-center bg-amber-50/30"><span class="inline-block w-8 py-0.5 rounded text-[11px] font-bold bg-rose-100 text-rose-700">R</span></td>
+<td class="p-0.5 text-center"><span class="inline-block w-8 py-0.5 rounded text-[11px] font-bold bg-primary-fixed text-primary">M</span></td>
+<td class="p-0.5 text-center"><span class="inline-block w-8 py-0.5 rounded text-[11px] font-bold bg-primary-fixed text-primary">M</span></td>
+<td class="p-0.5 text-center"><span class="inline-block w-8 py-0.5 rounded text-[11px] font-bold bg-primary-fixed text-primary">M</span></td>
+<td class="p-0.5 text-center"><span class="inline-block w-8 py-0.5 rounded text-[11px] font-bold bg-primary-fixed text-primary">M</span></td>
+<td class="p-0.5 text-center"><span class="inline-block w-8 py-0.5 rounded text-[11px] font-bold bg-emerald-100 text-emerald-800">A</span></td>
+<td class="p-0.5 text-center bg-sky-50/30"><span class="inline-block w-8 py-0.5 rounded text-[11px] font-bold bg-primary-fixed text-primary">M</span></td>
+<td class="p-0.5 text-center bg-amber-50/30"><span class="inline-block w-8 py-0.5 rounded text-[11px] font-bold bg-primary-fixed text-primary">M</span></td>
+<td class="p-0.5 text-center"><span class="inline-block w-8 py-0.5 rounded text-[11px] font-bold bg-primary-fixed text-primary">M</span></td>
+<!-- Summaries NV0001 -->
+<td class="sticky right-[18rem] bg-surface-container-lowest group-hover:bg-surface-container-low text-center font-bold text-rose-700 shadow-[-2px_0_4px_rgba(0,0,0,0.03)]">6</td>
+<td class="sticky right-[15rem] bg-surface-container-lowest group-hover:bg-surface-container-low text-center font-bold text-sky-700">1</td>
+<td class="sticky right-[12rem] bg-surface-container-lowest group-hover:bg-surface-container-low text-center text-secondary">0</td>
+<td class="sticky right-[9rem] bg-surface-container-lowest group-hover:bg-surface-container-low text-center font-bold text-primary">21</td>
+<td class="sticky right-[6rem] bg-surface-container-lowest group-hover:bg-surface-container-low text-center font-bold text-emerald-700">2</td>
+<td class="sticky right-[3rem] bg-surface-container-lowest group-hover:bg-surface-container-low text-center text-secondary">0</td>
+<td class="sticky right-0 bg-surface-container-lowest group-hover:bg-surface-container-low text-center text-secondary">0</td>
+</tr>
+<!-- ================= ROW 2: NV0002 (HAS ACTIVE CELL DEMO) ================= -->
+<tr class="h-10 hover:bg-surface-container-low/70 transition-colors group">
+<td class="sticky left-0 bg-surface-container-lowest group-hover:bg-surface-container-low text-center font-caption text-caption text-secondary py-1 px-1">2</td>
+<td class="sticky left-12 bg-surface-container-lowest group-hover:bg-surface-container-low font-label-md text-label-md font-semibold text-primary px-2 py-1">NV0002</td>
+<td class="sticky left-36 bg-surface-container-lowest group-hover:bg-surface-container-low font-body-md-medium text-body-md-medium text-on-surface px-3 py-1 truncate">Trần Thị Bình</td>
+<td class="sticky left-[20rem] bg-surface-container-lowest group-hover:bg-surface-container-low font-body-sm text-body-sm text-secondary px-2 py-1 truncate">Tổ Vận hành</td>
+<td class="sticky left-[29rem] bg-surface-container-lowest group-hover:bg-surface-container-low font-body-sm text-body-sm text-on-surface-variant px-2 py-1 shadow-[2px_0_4px_rgba(0,0,0,0.03)] truncate">Chuyên viên</td>
+<!-- Days 1 to 13 -->
+<td class="p-0.5 text-center bg-amber-50/30"><span class="inline-block w-8 py-0.5 rounded text-[11px] font-bold bg-primary-fixed text-primary">M</span></td>
+<td class="p-0.5 text-center"><span class="inline-block w-8 py-0.5 rounded text-[11px] font-bold bg-emerald-100 text-emerald-800">A</span></td>
+<td class="p-0.5 text-center"><span class="inline-block w-8 py-0.5 rounded text-[11px] font-bold bg-emerald-100 text-emerald-800">A</span></td>
+<td class="p-0.5 text-center"><span class="inline-block w-8 py-0.5 rounded text-[11px] font-bold bg-rose-100 text-rose-700">R</span></td>
+<td class="p-0.5 text-center"><span class="inline-block w-8 py-0.5 rounded text-[11px] font-bold bg-primary-fixed text-primary">M</span></td>
+<td class="p-0.5 text-center"><span class="inline-block w-8 py-0.5 rounded text-[11px] font-bold bg-primary-fixed text-primary">M</span></td>
+<td class="p-0.5 text-center bg-sky-50/30"><span class="inline-block w-8 py-0.5 rounded text-[11px] font-bold bg-emerald-100 text-emerald-800">A</span></td>
+<td class="p-0.5 text-center bg-amber-50/30"><span class="inline-block w-8 py-0.5 rounded text-[11px] font-bold bg-rose-100 text-rose-700">R</span></td>
+<td class="p-0.5 text-center"><span class="inline-block w-8 py-0.5 rounded text-[11px] font-bold bg-primary-fixed text-primary">M</span></td>
+<td class="p-0.5 text-center"><span class="inline-block w-8 py-0.5 rounded text-[11px] font-bold bg-primary-fixed text-primary">M</span></td>
+<td class="p-0.5 text-center"><span class="inline-block w-8 py-0.5 rounded text-[11px] font-bold bg-purple-100 text-purple-800">RR</span></td>
+<td class="p-0.5 text-center"><span class="inline-block w-8 py-0.5 rounded text-[11px] font-bold bg-emerald-100 text-emerald-800">A</span></td>
+<td class="p-0.5 text-center bg-primary/5"><span class="inline-block w-8 py-0.5 rounded text-[11px] font-bold bg-primary text-on-primary">M</span></td>
+<!-- DAY 14: ACTIVE SELECTED CELL WITH FLOATING DROPDOWN -->
+<td class="p-0.5 text-center bg-sky-50/40 relative z-50">
+<div class="relative inline-block">
+<button class="w-8 py-0.5 rounded text-[11px] font-bold bg-emerald-600 text-on-primary shadow-md ring-2 ring-primary-container outline-none scale-105" type="button">
+                  A
+                </button>
+<!-- INLINE SHIFT SELECTOR POPOVER -->
+<div class="absolute left-1/2 -translate-x-1/2 top-8 w-72 bg-surface-container-lowest rounded-xl shadow-2xl p-2.5 z-50 text-left animate-in fade-in zoom-in-95 duration-150">
+<div class="flex items-center justify-between pb-1.5 mb-1.5 bg-surface-container-low px-2 py-1 rounded">
+<span class="font-label-sm text-label-sm font-semibold text-primary">Chọn ca: 14/11 (T7)</span>
+<span class="font-caption text-[11px] text-secondary">Trần Thị Bình</span>
+</div>
+<!-- Options list -->
+<div class="flex flex-col gap-1 max-h-48 overflow-y-auto">
+<div class="flex items-center justify-between p-1.5 rounded-lg hover:bg-surface-container-low cursor-pointer transition-colors">
+<div class="flex items-center gap-2">
+<span class="w-6 h-5 rounded flex items-center justify-center font-bold text-[11px] bg-primary-fixed text-primary">M</span>
+<div class="flex flex-col">
+<span class="font-body-sm text-body-sm font-medium text-on-surface">Ca Sáng</span>
+<span class="font-caption text-[10px] text-secondary">07:00 - 15:30</span>
+</div>
+</div>
+</div>
+<div class="flex items-center justify-between p-1.5 rounded-lg bg-emerald-50 cursor-pointer transition-colors">
+<div class="flex items-center gap-2">
+<span class="w-6 h-5 rounded flex items-center justify-center font-bold text-[11px] bg-emerald-600 text-white">A</span>
+<div class="flex flex-col">
+<span class="font-body-sm text-body-sm font-semibold text-emerald-900">Ca Chiều (Đang chọn)</span>
+<span class="font-caption text-[10px] text-emerald-700">14:30 - 22:30</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-[16px] text-emerald-700 font-bold">check</span>
+</div>
+<div class="flex items-center justify-between p-1.5 rounded-lg hover:bg-surface-container-low cursor-pointer transition-colors">
+<div class="flex items-center gap-2">
+<span class="w-6 h-5 rounded flex items-center justify-center font-bold text-[11px] bg-slate-200 text-slate-800">N</span>
+<div class="flex flex-col">
+<span class="font-body-sm text-body-sm font-medium text-on-surface">Ca Đêm</span>
+<span class="font-caption text-[10px] text-secondary">22:00 - 06:30</span>
+</div>
+</div>
+</div>
+<div class="flex items-center justify-between p-1.5 rounded-lg hover:bg-surface-container-low cursor-pointer transition-colors">
+<div class="flex items-center gap-2">
+<span class="w-6 h-5 rounded flex items-center justify-center font-bold text-[11px] bg-rose-100 text-rose-700">R</span>
+<div class="flex flex-col">
+<span class="font-body-sm text-body-sm font-medium text-on-surface">Nghỉ Tuần</span>
+<span class="font-caption text-[10px] text-secondary">Chế độ nghỉ chuẩn</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Shortcut hint footer -->
+<div class="mt-2 pt-1.5 bg-surface-container-low/60 rounded px-2 py-1 flex items-center justify-between font-caption text-[10px] text-secondary">
+<span><b>Ctrl+A:</b> Cả cột</span>
+<span><b>Enter:</b> Xuống ô</span>
+<span><b>Esc:</b> Đóng</span>
+</div>
+</div>
+</div>
+</td>
+<!-- Days 15 to 30 -->
+<td class="p-0.5 text-center bg-amber-50/30"><span class="inline-block w-8 py-0.5 rounded text-[11px] font-bold bg-rose-100 text-rose-700">R</span></td>
+<td class="p-0.5 text-center"><span class="inline-block w-8 py-0.5 rounded text-[11px] font-bold bg-primary-fixed text-primary">M</span></td>
+<td class="p-0.5 text-center"><span class="inline-block w-8 py-0.5 rounded text-[11px] font-bold bg-primary-fixed text-primary">M</span></td>
+<td class="p-0.5 text-center"><span class="inline-block w-8 py-0.5 rounded text-[11px] font-bold bg-emerald-100 text-emerald-800">A</span></td>
+<td class="p-0.5 text-center"><span class="inline-block w-8 py-0.5 rounded text-[11px] font-bold bg-rose-100 text-rose-700">R</span></td>
+<td class="p-0.5 text-center"><span class="inline-block w-8 py-0.5 rounded text-[11px] font-bold bg-primary-fixed text-primary">M</span></td>
+<td class="p-0.5 text-center bg-sky-50/30"><span class="inline-block w-8 py-0.5 rounded text-[11px] font-bold bg-emerald-100 text-emerald-800">A</span></td>
+<td class="p-0.5 text-center bg-amber-50/30"><span class="inline-block w-8 py-0.5 rounded text-[11px] font-bold bg-rose-100 text-rose-700">R</span></td>
+<td class="p-0.5 text-center"><span class="inline-block w-8 py-0.5 rounded text-[11px] font-bold bg-primary-fixed text-primary">M</span></td>
+<td class="p-0.5 text-center"><span class="inline-block w-8 py-0.5 rounded text-[11px] font-bold bg-primary-fixed text-primary">M</span></td>
+<td class="p-0.5 text-center"><span class="inline-block w-8 py-0.5 rounded text-[11px] font-bold bg-emerald-100 text-emerald-800">A</span></td>
+<td class="p-0.5 text-center"><span class="inline-block w-8 py-0.5 rounded text-[11px] font-bold bg-rose-100 text-rose-700">R</span></td>
+<td class="p-0.5 text-center"><span class="inline-block w-8 py-0.5 rounded text-[11px] font-bold bg-primary-fixed text-primary">M</span></td>
+<td class="p-0.5 text-center bg-sky-50/30"><span class="inline-block w-8 py-0.5 rounded text-[11px] font-bold bg-emerald-100 text-emerald-800">A</span></td>
+<td class="p-0.5 text-center bg-amber-50/30"><span class="inline-block w-8 py-0.5 rounded text-[11px] font-bold bg-rose-100 text-rose-700">R</span></td>
+<td class="p-0.5 text-center"><span class="inline-block w-8 py-0.5 rounded text-[11px] font-bold bg-primary-fixed text-primary">M</span></td>
+<!-- Summaries NV0002 -->
+<td class="sticky right-[18rem] bg-surface-container-lowest group-hover:bg-surface-container-low text-center font-bold text-rose-700 shadow-[-2px_0_4px_rgba(0,0,0,0.03)]">7</td>
+<td class="sticky right-[15rem] bg-surface-container-lowest group-hover:bg-surface-container-low text-center text-secondary">0</td>
+<td class="sticky right-[12rem] bg-surface-container-lowest group-hover:bg-surface-container-low text-center font-bold text-purple-700">1</td>
+<td class="sticky right-[9rem] bg-surface-container-lowest group-hover:bg-surface-container-low text-center font-bold text-primary">14</td>
+<td class="sticky right-[6rem] bg-surface-container-lowest group-hover:bg-surface-container-low text-center font-bold text-emerald-700">8</td>
+<td class="sticky right-[3rem] bg-surface-container-lowest group-hover:bg-surface-container-low text-center text-secondary">0</td>
+<td class="sticky right-0 bg-surface-container-lowest group-hover:bg-surface-container-low text-center text-secondary">0</td>
+</tr>
+<!-- ================= ROW 3: NV0003 ================= -->
+<tr class="h-10 hover:bg-surface-container-low/70 transition-colors group">
+<td class="sticky left-0 bg-surface-container-lowest group-hover:bg-surface-container-low text-center font-caption text-caption text-secondary py-1 px-1">3</td>
+<td class="sticky left-12 bg-surface-container-lowest group-hover:bg-surface-container-low font-label-md text-label-md font-semibold text-primary px-2 py-1">NV0003</td>
+<td class="sticky left-36 bg-surface-container-lowest group-hover:bg-surface-container-low font-body-md-medium text-body-md-medium text-on-surface px-3 py-1 truncate">Lê Hoàng Cường</td>
+<td class="sticky left-[20rem] bg-surface-container-lowest group-hover:bg-surface-container-low font-body-sm text-body-sm text-secondary px-2 py-1 truncate">Phòng Kỹ thuật</td>
+<td class="sticky left-[29rem] bg-surface-container-lowest group-hover:bg-surface-container-low font-body-sm text-body-sm text-on-surface-variant px-2 py-1 shadow-[2px_0_4px_rgba(0,0,0,0.03)] truncate">Kỹ sư điện</td>
+<!-- Rotational: N, M, A, R -->
+<td class="p-0.5 text-center bg-amber-50/30"><span class="inline-block w-8 py-0.5 rounded text-[11px] font-bold bg-slate-200 text-slate-800">N</span></td>
+<td class="p-0.5 text-center"><span class="inline-block w-8 py-0.5 rounded text-[11px] font-bold bg-rose-100 text-rose-700">R</span></td>
+<td class="p-0.5 text-center"><span class="inline-block w-8 py-0.5 rounded text-[11px] font-bold bg-primary-fixed text-primary">M</span></td>
+<td class="p-0.5 text-center"><span class="inline-block w-8 py-0.5 rounded text-[11px] font-bold bg-emerald-100 text-emerald-800">A</span></td>
+<td class="p-0.5 text-center"><span class="inline-block w-8 py-0.5 rounded text-[11px] font-bold bg-slate-200 text-slate-800">N</span></td>
+<td class="p-0.5 text-center"><span class="inline-block w-8 py-0.5 rounded text-[11px] font-bold bg-rose-100 text-rose-700">R</span></td>
+<td class="p-0.5 text-center bg-sky-50/30"><span class="inline-block w-8 py-0.5 rounded text-[11px] font-bold bg-primary-fixed text-primary">M</span></td>
+<td class="p-0.5 text-center bg-amber-50/30"><span class="inline-block w-8 py-0.5 rounded text-[11px] font-bold bg-emerald-100 text-emerald-800">A</span></td>
+<td class="p-0.5 text-center"><span class="inline-block w-8 py-0.5 rounded text-[11px] font-bold bg-slate-200 text-slate-800">N</span></td>
+<td class="p-0.5 text-center"><span class="inline-block w-8 py-0.5 rounded text-[11px] font-bold bg-rose-100 text-rose-700">R</span></td>
+<td class="p-0.5 text-center"><span class="inline-block w-8 py-0.5 rounded text-[11px] font-bold bg-primary-fixed text-primary">M</span></td>
+<td class="p-0.5 text-center"><span class="inline-block w-8 py-0.5 rounded text-[11px] font-bold bg-emerald-100 text-emerald-800">A</span></td>
+<td class="p-0.5 text-center bg-primary/5"><span class="inline-block w-8 py-0.5 rounded text-[11px] font-bold bg-slate-700 text-white">N</span></td>
+<td class="p-0.5 text-center bg-sky-50/30"><span class="inline-block w-8 py-0.5 rounded text-[11px] font-bold bg-rose-100 text-rose-700">R</span></td>
+<td class="p-0.5 text-center bg-amber-50/30"><span class="inline-block w-8 py-0.5 rounded text-[11px] font-bold bg-primary-fixed text-primary">M</span></td>
+<td class="p-0.5 text-center"><span class="inline-block w-8 py-0.5 rounded text-[11px] font-bold bg-emerald-100 text-emerald-800">A</span></td>
+<td class="p-0.5 text-center"><span class="inline-block w-8 py-0.5 rounded text-[11px] font-bold bg-slate-200 text-slate-800">N</span></td>
+<td class="p-0.5 text-center"><span class="inline-block w-8 py-0.5 rounded text-[11px] font-bold bg-rose-100 text-rose-700">R</span></td>
+<td class="p-0.5 text-center"><span class="inline-block w-8 py-0.5 rounded text-[11px] font-bold bg-primary-fixed text-primary">M</span></td>
+<td class="p-0.5 text-center"><span class="inline-block w-8 py-0.5 rounded text-[11px] font-bold bg-emerald-100 text-emerald-800">A</span></td>
+<td class="p-0.5 text-center bg-sky-50/30"><span class="inline-block w-8 py-0.5 rounded text-[11px] font-bold bg-slate-200 text-slate-800">N</span></td>
+<td class="p-0.5 text-center bg-amber-50/30"><span class="inline-block w-8 py-0.5 rounded text-[11px] font-bold bg-rose-100 text-rose-700">R</span></td>
+<td class="p-0.5 text-center"><span class="inline-block w-8 py-0.5 rounded text-[11px] font-bold bg-primary-fixed text-primary">M</span></td>
+<td class="p-0.5 text-center"><span class="inline-block w-8 py-0.5 rounded text-[11px] font-bold bg-emerald-100 text-emerald-800">A</span></td>
+<td class="p-0.5 text-center"><span class="inline-block w-8 py-0.5 rounded text-[11px] font-bold bg-slate-200 text-slate-800">N</span></td>
+<td class="p-0.5 text-center"><span class="inline-block w-8 py-0.5 rounded text-[11px] font-bold bg-primary-fixed text-primary">M</span></td>
+<td class="p-0.5 text-center"><span class="inline-block w-8 py-0.5 rounded text-[11px] font-bold bg-emerald-100 text-emerald-800">A</span></td>
+<td class="p-0.5 text-center bg-sky-50/30"><span class="inline-block w-8 py-0.5 rounded text-[11px] font-bold bg-primary-fixed text-primary">M</span></td>
+<td class="p-0.5 text-center bg-amber-50/30"><span class="inline-block w-8 py-0.5 rounded text-[11px] font-bold bg-primary-fixed text-primary">M</span></td>
+<td class="p-0.5 text-center"><span class="inline-block w-8 py-0.5 rounded text-[11px] font-bold bg-primary-fixed text-primary">M</span></td>
+<!-- Summaries NV0003 -->
+<td class="sticky right-[18rem] bg-surface-container-lowest group-hover:bg-surface-container-low text-center font-bold text-rose-700 shadow-[-2px_0_4px_rgba(0,0,0,0.03)]">6</td>
+<td class="sticky right-[15rem] bg-surface-container-lowest group-hover:bg-surface-container-low text-center text-secondary">0</td>
+<td class="sticky right-[12rem] bg-surface-container-lowest group-hover:bg-surface-container-low text-center text-secondary">0</td>
+<td class="sticky right-[9rem] bg-surface-container-lowest group-hover:bg-surface-container-low text-center font-bold text-primary">10</td>
+<td class="sticky right-[6rem] bg-surface-container-lowest group-hover:bg-surface-container-low text-center font-bold text-emerald-700">7</td>
+<td class="sticky right-[3rem] bg-surface-container-lowest group-hover:bg-surface-container-low text-center font-bold text-slate-700">7</td>
+<td class="sticky right-0 bg-surface-container-lowest group-hover:bg-surface-container-low text-center text-secondary">0</td>
+</tr>
+<!-- ================= ROW 4: NV0004 ================= -->
+<tr class="h-10 hover:bg-surface-container-low/70 transition-colors group">
+<td class="sticky left-0 bg-surface-container-lowest group-hover:bg-surface-container-low text-center font-caption text-caption text-secondary py-1 px-1">4</td>
+<td class="sticky left-12 bg-surface-container-lowest group-hover:bg-surface-container-low font-label-md text-label-md font-semibold text-primary px-2 py-1">NV0004</td>
+<td class="sticky left-36 bg-surface-container-lowest group-hover:bg-surface-container-low font-body-md-medium text-body-md-medium text-on-surface px-3 py-1 truncate">Phạm Thị Dung</td>
+<td class="sticky left-[20rem] bg-surface-container-lowest group-hover:bg-surface-container-low font-body-sm text-body-sm text-secondary px-2 py-1 truncate">Phòng Kỹ thuật</td>
+<td class="sticky left-[29rem] bg-surface-container-lowest group-hover:bg-surface-container-low font-body-sm text-body-sm text-on-surface-variant px-2 py-1 shadow-[2px_0_4px_rgba(0,0,0,0.03)] truncate">Nhân viên KT</td>
+<!-- Days 1 to 30 -->
+<td class="p-0.5 text-center bg-amber-50/30"><span class="inline-block w-8 py-0.5 rounded text-[11px] font-bold bg-rose-100 text-rose-700">R</span></td>
+<td class="p-0.5 text-center"><span class="inline-block w-8 py-0.5 rounded text-[11px] font-bold bg-primary-fixed text-primary">M</span></td>
+<td class="p-0.5 text-center"><span class="inline-block w-8 py-0.5 rounded text-[11px] font-bold bg-primary-fixed text-primary">M</span></td>
+<td class="p-0.5 text-center"><span class="inline-block w-8 py-0.5 rounded text-[11px] font-bold bg-emerald-100 text-emerald-800">A</span></td>
+<td class="p-0.5 text-center"><span class="inline-block w-8 py-0.5 rounded text-[11px] font-bold bg-emerald-100 text-emerald-800">A</span></td>
+<td class="p-0.5 text-center"><span class="inline-block w-8 py-0.5 rounded text-[11px] font-bold bg-primary-fixed text-primary">M</span></td>
+<td class="p-0.5 text-center bg-sky-50/30"><span class="inline-block w-8 py-0.5 rounded text-[11px] font-bold bg-rose-100 text-rose-700">R</span></td>
+<td class="p-0.5 text-center bg-amber-50/30"><span class="inline-block w-8 py-0.5 rounded text-[11px] font-bold bg-rose-100 text-rose-700">R</span></td>
+<td class="p-0.5 text-center"><span class="inline-block w-8 py-0.5 rounded text-[11px] font-bold bg-primary-fixed text-primary">M</span></td>
+<td class="p-0.5 text-center"><span class="inline-block w-8 py-0.5 rounded text-[11px] font-bold bg-primary-fixed text-primary">M</span></td>
+<td class="p-0.5 text-center"><span class="inline-block w-8 py-0.5 rounded text-[11px] font-bold bg-emerald-100 text-emerald-800">A</span></td>
+<td class="p-0.5 text-center"><span class="inline-block w-8 py-0.5 rounded text-[11px] font-bold bg-emerald-100 text-emerald-800">A</span></td>
+<td class="p-0.5 text-center bg-primary/5"><span class="inline-block w-8 py-0.5 rounded text-[11px] font-bold bg-primary text-on-primary">M</span></td>
+<td class="p-0.5 text-center bg-sky-50/30"><span class="inline-block w-8 py-0.5 rounded text-[11px] font-bold bg-rose-100 text-rose-700">R</span></td>
+<td class="p-0.5 text-center bg-amber-50/30"><span class="inline-block w-8 py-0.5 rounded text-[11px] font-bold bg-rose-100 text-rose-700">R</span></td>
+<td class="p-0.5 text-center"><span class="inline-block w-8 py-0.5 rounded text-[11px] font-bold bg-primary-fixed text-primary">M</span></td>
+<td class="p-0.5 text-center"><span class="inline-block w-8 py-0.5 rounded text-[11px] font-bold bg-primary-fixed text-primary">M</span></td>
+<td class="p-0.5 text-center"><span class="inline-block w-8 py-0.5 rounded text-[11px] font-bold bg-emerald-100 text-emerald-800">A</span></td>
+<td class="p-0.5 text-center"><span class="inline-block w-8 py-0.5 rounded text-[11px] font-bold bg-emerald-100 text-emerald-800">A</span></td>
+<td class="p-0.5 text-center"><span class="inline-block w-8 py-0.5 rounded text-[11px] font-bold bg-primary-fixed text-primary">M</span></td>
+<td class="p-0.5 text-center bg-sky-50/30"><span class="inline-block w-8 py-0.5 rounded text-[11px] font-bold bg-rose-100 text-rose-700">R</span></td>
+<td class="p-0.5 text-center bg-amber-50/30"><span class="inline-block w-8 py-0.5 rounded text-[11px] font-bold bg-rose-100 text-rose-700">R</span></td>
+<td class="p-0.5 text-center"><span class="inline-block w-8 py-0.5 rounded text-[11px] font-bold bg-primary-fixed text-primary">M</span></td>
+<td class="p-0.5 text-center"><span class="inline-block w-8 py-0.5 rounded text-[11px] font-bold bg-primary-fixed text-primary">M</span></td>
+<td class="p-0.5 text-center"><span class="inline-block w-8 py-0.5 rounded text-[11px] font-bold bg-emerald-100 text-emerald-800">A</span></td>
+<td class="p-0.5 text-center"><span class="inline-block w-8 py-0.5 rounded text-[11px] font-bold bg-emerald-100 text-emerald-800">A</span></td>
+<td class="p-0.5 text-center"><span class="inline-block w-8 py-0.5 rounded text-[11px] font-bold bg-primary-fixed text-primary">M</span></td>
+<td class="p-0.5 text-center bg-sky-50/30"><span class="inline-block w-8 py-0.5 rounded text-[11px] font-bold bg-primary-fixed text-primary">M</span></td>
+<td class="p-0.5 text-center bg-amber-50/30"><span class="inline-block w-8 py-0.5 rounded text-[11px] font-bold bg-rose-100 text-rose-700">R</span></td>
+<td class="p-0.5 text-center"><span class="inline-block w-8 py-0.5 rounded text-[11px] font-bold bg-primary-fixed text-primary">M</span></td>
+<!-- Summaries NV0004 -->
+<td class="sticky right-[18rem] bg-surface-container-lowest group-hover:bg-surface-container-low text-center font-bold text-rose-700 shadow-[-2px_0_4px_rgba(0,0,0,0.03)]">7</td>
+<td class="sticky right-[15rem] bg-surface-container-lowest group-hover:bg-surface-container-low text-center text-secondary">0</td>
+<td class="sticky right-[12rem] bg-surface-container-lowest group-hover:bg-surface-container-low text-center text-secondary">0</td>
+<td class="sticky right-[9rem] bg-surface-container-lowest group-hover:bg-surface-container-low text-center font-bold text-primary">15</td>
+<td class="sticky right-[6rem] bg-surface-container-lowest group-hover:bg-surface-container-low text-center font-bold text-emerald-700">8</td>
+<td class="sticky right-[3rem] bg-surface-container-lowest group-hover:bg-surface-container-low text-center text-secondary">0</td>
+<td class="sticky right-0 bg-surface-container-lowest group-hover:bg-surface-container-low text-center text-secondary">0</td>
+</tr>
+<!-- ================= ROW 5: NV0005 ================= -->
+<tr class="h-10 hover:bg-surface-container-low/70 transition-colors group">
+<td class="sticky left-0 bg-surface-container-lowest group-hover:bg-surface-container-low text-center font-caption text-caption text-secondary py-1 px-1">5</td>
+<td class="sticky left-12 bg-surface-container-lowest group-hover:bg-surface-container-low font-label-md text-label-md font-semibold text-primary px-2 py-1">NV0005</td>
+<td class="sticky left-36 bg-surface-container-lowest group-hover:bg-surface-container-low font-body-md-medium text-body-md-medium text-on-surface px-3 py-1 truncate">Võ Minh Đức</td>
+<td class="sticky left-[20rem] bg-surface-container-lowest group-hover:bg-surface-container-low font-body-sm text-body-sm text-secondary px-2 py-1 truncate">Phòng Kỹ thuật</td>
+<td class="sticky left-[29rem] bg-surface-container-lowest group-hover:bg-surface-container-low font-body-sm text-body-sm text-on-surface-variant px-2 py-1 shadow-[2px_0_4px_rgba(0,0,0,0.03)] truncate">Nhân viên KT</td>
+<!-- Pattern: M, N, R -->
+<td class="p-0.5 text-center bg-amber-50/30"><span class="inline-block w-8 py-0.5 rounded text-[11px] font-bold bg-slate-200 text-slate-800">N</span></td>
+<td class="p-0.5 text-center"><span class="inline-block w-8 py-0.5 rounded text-[11px] font-bold bg-slate-200 text-slate-800">N</span></td>
+<td class="p-0.5 text-center"><span class="inline-block w-8 py-0.5 rounded text-[11px] font-bold bg-rose-100 text-rose-700">R</span></td>
+<td class="p-0.5 text-center"><span class="inline-block w-8 py-0.5 rounded text-[11px] font-bold bg-primary-fixed text-primary">M</span></td>
+<td class="p-0.5 text-center"><span class="inline-block w-8 py-0.5 rounded text-[11px] font-bold bg-primary-fixed text-primary">M</span></td>
+<td class="p-0.5 text-center"><span class="inline-block w-8 py-0.5 rounded text-[11px] font-bold bg-slate-200 text-slate-800">N</span></td>
+<td class="p-0.5 text-center bg-sky-50/30"><span class="inline-block w-8 py-0.5 rounded text-[11px] font-bold bg-rose-100 text-rose-700">R</span></td>
+<td class="p-0.5 text-center bg-amber-50/30"><span class="inline-block w-8 py-0.5 rounded text-[11px] font-bold bg-rose-100 text-rose-700">R</span></td>
+<td class="p-0.5 text-center"><span class="inline-block w-8 py-0.5 rounded text-[11px] font-bold bg-primary-fixed text-primary">M</span></td>
+<td class="p-0.5 text-center"><span class="inline-block w-8 py-0.5 rounded text-[11px] font-bold bg-primary-fixed text-primary">M</span></td>
+<td class="p-0.5 text-center"><span class="inline-block w-8 py-0.5 rounded text-[11px] font-bold bg-slate-200 text-slate-800">N</span></td>
+<td class="p-0.5 text-center"><span class="inline-block w-8 py-0.5 rounded text-[11px] font-bold bg-slate-200 text-slate-800">N</span></td>
+<td class="p-0.5 text-center bg-primary/5"><span class="inline-block w-8 py-0.5 rounded text-[11px] font-bold bg-rose-600 text-white">R</span></td>
+<td class="p-0.5 text-center bg-sky-50/30"><span class="inline-block w-8 py-0.5 rounded text-[11px] font-bold bg-primary-fixed text-primary">M</span></td>
+<td class="p-0.5 text-center bg-amber-50/30"><span class="inline-block w-8 py-0.5 rounded text-[11px] font-bold bg-primary-fixed text-primary">M</span></td>
+<td class="p-0.5 text-center"><span class="inline-block w-8 py-0.5 rounded text-[11px] font-bold bg-slate-200 text-slate-800">N</span></td>
+<td class="p-0.5 text-center"><span class="inline-block w-8 py-0.5 rounded text-[11px] font-bold bg-rose-100 text-rose-700">R</span></td>
+<td class="p-0.5 text-center"><span class="inline-block w-8 py-0.5 rounded text-[11px] font-bold bg-primary-fixed text-primary">M</span></td>
+<td class="p-0.5 text-center"><span class="inline-block w-8 py-0.5 rounded text-[11px] font-bold bg-primary-fixed text-primary">M</span></td>
+<td class="p-0.5 text-center"><span class="inline-block w-8 py-0.5 rounded text-[11px] font-bold bg-slate-200 text-slate-800">N</span></td>
+<td class="p-0.5 text-center bg-sky-50/30"><span class="inline-block w-8 py-0.5 rounded text-[11px] font-bold bg-rose-100 text-rose-700">R</span></td>
+<td class="p-0.5 text-center bg-amber-50/30"><span class="inline-block w-8 py-0.5 rounded text-[11px] font-bold bg-rose-100 text-rose-700">R</span></td>
+<td class="p-0.5 text-center"><span class="inline-block w-8 py-0.5 rounded text-[11px] font-bold bg-primary-fixed text-primary">M</span></td>
+<td class="p-0.5 text-center"><span class="inline-block w-8 py-0.5 rounded text-[11px] font-bold bg-primary-fixed text-primary">M</span></td>
+<td class="p-0.5 text-center"><span class="inline-block w-8 py-0.5 rounded text-[11px] font-bold bg-slate-200 text-slate-800">N</span></td>
+<td class="p-0.5 text-center"><span class="inline-block w-8 py-0.5 rounded text-[11px] font-bold bg-slate-200 text-slate-800">N</span></td>
+<td class="p-0.5 text-center"><span class="inline-block w-8 py-0.5 rounded text-[11px] font-bold bg-rose-100 text-rose-700">R</span></td>
+<td class="p-0.5 text-center bg-sky-50/30"><span class="inline-block w-8 py-0.5 rounded text-[11px] font-bold bg-primary-fixed text-primary">M</span></td>
+<td class="p-0.5 text-center bg-amber-50/30"><span class="inline-block w-8 py-0.5 rounded text-[11px] font-bold bg-primary-fixed text-primary">M</span></td>
+<td class="p-0.5 text-center"><span class="inline-block w-8 py-0.5 rounded text-[11px] font-bold bg-primary-fixed text-primary">M</span></td>
+<!-- Summaries NV0005 -->
+<td class="sticky right-[18rem] bg-surface-container-lowest group-hover:bg-surface-container-low text-center font-bold text-rose-700 shadow-[-2px_0_4px_rgba(0,0,0,0.03)]">7</td>
+<td class="sticky right-[15rem] bg-surface-container-lowest group-hover:bg-surface-container-low text-center text-secondary">0</td>
+<td class="sticky right-[12rem] bg-surface-container-lowest group-hover:bg-surface-container-low text-center text-secondary">0</td>
+<td class="sticky right-[9rem] bg-surface-container-lowest group-hover:bg-surface-container-low text-center font-bold text-primary">14</td>
+<td class="sticky right-[6rem] bg-surface-container-lowest group-hover:bg-surface-container-low text-center text-secondary">0</td>
+<td class="sticky right-[3rem] bg-surface-container-lowest group-hover:bg-surface-container-low text-center font-bold text-slate-700">9</td>
+<td class="sticky right-0 bg-surface-container-lowest group-hover:bg-surface-container-low text-center text-secondary">0</td>
+</tr>
+<!-- ================= ROW 6: NV0006 ================= -->
+<tr class="h-10 hover:bg-surface-container-low/70 transition-colors group">
+<td class="sticky left-0 bg-surface-container-lowest group-hover:bg-surface-container-low text-center font-caption text-caption text-secondary py-1 px-1">6</td>
+<td class="sticky left-12 bg-surface-container-lowest group-hover:bg-surface-container-low font-label-md text-label-md font-semibold text-primary px-2 py-1">NV0006</td>
+<td class="sticky left-36 bg-surface-container-lowest group-hover:bg-surface-container-low font-body-md-medium text-body-md-medium text-on-surface px-3 py-1 truncate">Hoàng Kim Dung</td>
+<td class="sticky left-[20rem] bg-surface-container-lowest group-hover:bg-surface-container-low font-body-sm text-body-sm text-secondary px-2 py-1 truncate">Phòng Vận hành</td>
+<td class="sticky left-[29rem] bg-surface-container-lowest group-hover:bg-surface-container-low font-body-sm text-body-sm text-on-surface-variant px-2 py-1 shadow-[2px_0_4px_rgba(0,0,0,0.03)] truncate">Giám sát ca</td>
+<!-- Mostly M, R -->
+<td class="p-0.5 text-center bg-amber-50/30"><span class="inline-block w-8 py-0.5 rounded text-[11px] font-bold bg-rose-100 text-rose-700">R</span></td>
+<td class="p-0.5 text-center"><span class="inline-block w-8 py-0.5 rounded text-[11px] font-bold bg-primary-fixed text-primary">M</span></td>
+<td class="p-0.5 text-center"><span class="inline-block w-8 py-0.5 rounded text-[11px] font-bold bg-primary-fixed text-primary">M</span></td>
+<td class="p-0.5 text-center"><span class="inline-block w-8 py-0.5 rounded text-[11px] font-bold bg-primary-fixed text-primary">M</span></td>
+<td class="p-0.5 text-center"><span class="inline-block w-8 py-0.5 rounded text-[11px] font-bold bg-primary-fixed text-primary">M</span></td>
+<td class="p-0.5 text-center"><span class="inline-block w-8 py-0.5 rounded text-[11px] font-bold bg-primary-fixed text-primary">M</span></td>
+<td class="p-0.5 text-center bg-sky-50/30"><span class="inline-block w-8 py-0.5 rounded text-[11px] font-bold bg-rose-100 text-rose-700">R</span></td>
+<td class="p-0.5 text-center bg-amber-50/30"><span class="inline-block w-8 py-0.5 rounded text-[11px] font-bold bg-rose-100 text-rose-700">R</span></td>
+<td class="p-0.5 text-center"><span class="inline-block w-8 py-0.5 rounded text-[11px] font-bold bg-primary-fixed text-primary">M</span></td>
+<td class="p-0.5 text-center"><span class="inline-block w-8 py-0.5 rounded text-[11px] font-bold bg-primary-fixed text-primary">M</span></td>
+<td class="p-0.5 text-center"><span class="inline-block w-8 py-0.5 rounded text-[11px] font-bold bg-primary-fixed text-primary">M</span></td>
+<td class="p-0.5 text-center"><span class="inline-block w-8 py-0.5 rounded text-[11px] font-bold bg-primary-fixed text-primary">M</span></td>
+<td class="p-0.5 text-center bg-primary/5"><span class="inline-block w-8 py-0.5 rounded text-[11px] font-bold bg-primary text-on-primary">M</span></td>
+<td class="p-0.5 text-center bg-sky-50/30"><span class="inline-block w-8 py-0.5 rounded text-[11px] font-bold bg-rose-100 text-rose-700">R</span></td>
+<td class="p-0.5 text-center bg-amber-50/30"><span class="inline-block w-8 py-0.5 rounded text-[11px] font-bold bg-rose-100 text-rose-700">R</span></td>
+<td class="p-0.5 text-center"><span class="inline-block w-8 py-0.5 rounded text-[11px] font-bold bg-primary-fixed text-primary">M</span></td>
+<td class="p-0.5 text-center"><span class="inline-block w-8 py-0.5 rounded text-[11px] font-bold bg-primary-fixed text-primary">M</span></td>
+<td class="p-0.5 text-center"><span class="inline-block w-8 py-0.5 rounded text-[11px] font-bold bg-primary-fixed text-primary">M</span></td>
+<td class="p-0.5 text-center"><span class="inline-block w-8 py-0.5 rounded text-[11px] font-bold bg-primary-fixed text-primary">M</span></td>
+<td class="p-0.5 text-center"><span class="inline-block w-8 py-0.5 rounded text-[11px] font-bold bg-primary-fixed text-primary">M</span></td>
+<td class="p-0.5 text-center bg-sky-50/30"><span class="inline-block w-8 py-0.5 rounded text-[11px] font-bold bg-rose-100 text-rose-700">R</span></td>
+<td class="p-0.5 text-center bg-amber-50/30"><span class="inline-block w-8 py-0.5 rounded text-[11px] font-bold bg-rose-100 text-rose-700">R</span></td>
+<td class="p-0.5 text-center"><span class="inline-block w-8 py-0.5 rounded text-[11px] font-bold bg-primary-fixed text-primary">M</span></td>
+<td class="p-0.5 text-center"><span class="inline-block w-8 py-0.5 rounded text-[11px] font-bold bg-primary-fixed text-primary">M</span></td>
+<td class="p-0.5 text-center"><span class="inline-block w-8 py-0.5 rounded text-[11px] font-bold bg-primary-fixed text-primary">M</span></td>
+<td class="p-0.5 text-center"><span class="inline-block w-8 py-0.5 rounded text-[11px] font-bold bg-primary-fixed text-primary">M</span></td>
+<td class="p-0.5 text-center"><span class="inline-block w-8 py-0.5 rounded text-[11px] font-bold bg-primary-fixed text-primary">M</span></td>
+<td class="p-0.5 text-center bg-sky-50/30"><span class="inline-block w-8 py-0.5 rounded text-[11px] font-bold bg-rose-100 text-rose-700">R</span></td>
+<td class="p-0.5 text-center bg-amber-50/30"><span class="inline-block w-8 py-0.5 rounded text-[11px] font-bold bg-rose-100 text-rose-700">R</span></td>
+<td class="p-0.5 text-center"><span class="inline-block w-8 py-0.5 rounded text-[11px] font-bold bg-primary-fixed text-primary">M</span></td>
+<!-- Summaries NV0006 -->
+<td class="sticky right-[18rem] bg-surface-container-lowest group-hover:bg-surface-container-low text-center font-bold text-rose-700 shadow-[-2px_0_4px_rgba(0,0,0,0.03)]">8</td>
+<td class="sticky right-[15rem] bg-surface-container-lowest group-hover:bg-surface-container-low text-center text-secondary">0</td>
+<td class="sticky right-[12rem] bg-surface-container-lowest group-hover:bg-surface-container-low text-center text-secondary">0</td>
+<td class="sticky right-[9rem] bg-surface-container-lowest group-hover:bg-surface-container-low text-center font-bold text-primary">22</td>
+<td class="sticky right-[6rem] bg-surface-container-lowest group-hover:bg-surface-container-low text-center text-secondary">0</td>
+<td class="sticky right-[3rem] bg-surface-container-lowest group-hover:bg-surface-container-low text-center text-secondary">0</td>
+<td class="sticky right-0 bg-surface-container-lowest group-hover:bg-surface-container-low text-center text-secondary">0</td>
+</tr>
+<!-- ================= ROW 7: NV0007 ================= -->
+<tr class="h-10 hover:bg-surface-container-low/70 transition-colors group">
+<td class="sticky left-0 bg-surface-container-lowest group-hover:bg-surface-container-low text-center font-caption text-caption text-secondary py-1 px-1">7</td>
+<td class="sticky left-12 bg-surface-container-lowest group-hover:bg-surface-container-low font-label-md text-label-md font-semibold text-primary px-2 py-1">NV0007</td>
+<td class="sticky left-36 bg-surface-container-lowest group-hover:bg-surface-container-low font-body-md-medium text-body-md-medium text-on-surface px-3 py-1 truncate">Đỗ Văn Cường</td>
+<td class="sticky left-[20rem] bg-surface-container-lowest group-hover:bg-surface-container-low font-body-sm text-body-sm text-secondary px-2 py-1 truncate">Tổ Bảo trì</td>
+<td class="sticky left-[29rem] bg-surface-container-lowest group-hover:bg-surface-container-low font-body-sm text-body-sm text-on-surface-variant px-2 py-1 shadow-[2px_0_4px_rgba(0,0,0,0.03)] truncate">Kỹ thuật viên</td>
+<!-- Pattern: A, N, R -->
+<td class="p-0.5 text-center bg-amber-50/30"><span class="inline-block w-8 py-0.5 rounded text-[11px] font-bold bg-emerald-100 text-emerald-800">A</span></td>
+<td class="p-0.5 text-center"><span class="inline-block w-8 py-0.5 rounded text-[11px] font-bold bg-slate-200 text-slate-800">N</span></td>
+<td class="p-0.5 text-center"><span class="inline-block w-8 py-0.5 rounded text-[11px] font-bold bg-rose-100 text-rose-700">R</span></td>
+<td class="p-0.5 text-center"><span class="inline-block w-8 py-0.5 rounded text-[11px] font-bold bg-rose-100 text-rose-700">R</span></td>
+<td class="p-0.5 text-center"><span class="inline-block w-8 py-0.5 rounded text-[11px] font-bold bg-emerald-100 text-emerald-800">A</span></td>
+<td class="p-0.5 text-center"><span class="inline-block w-8 py-0.5 rounded text-[11px] font-bold bg-slate-200 text-slate-800">N</span></td>
+<td class="p-0.5 text-center bg-sky-50/30"><span class="inline-block w-8 py-0.5 rounded text-[11px] font-bold bg-rose-100 text-rose-700">R</span></td>
+<td class="p-0.5 text-center bg-amber-50/30"><span class="inline-block w-8 py-0.5 rounded text-[11px] font-bold bg-emerald-100 text-emerald-800">A</span></td>
+<td class="p-0.5 text-center"><span class="inline-block w-8 py-0.5 rounded text-[11px] font-bold bg-slate-200 text-slate-800">N</span></td>
+<td class="p-0.5 text-center"><span class="inline-block w-8 py-0.5 rounded text-[11px] font-bold bg-rose-100 text-rose-700">R</span></td>
+<td class="p-0.5 text-center"><span class="inline-block w-8 py-0.5 rounded text-[11px] font-bold bg-emerald-100 text-emerald-800">A</span></td>
+<td class="p-0.5 text-center"><span class="inline-block w-8 py-0.5 rounded text-[11px] font-bold bg-slate-200 text-slate-800">N</span></td>
+<td class="p-0.5 text-center bg-primary/5"><span class="inline-block w-8 py-0.5 rounded text-[11px] font-bold bg-emerald-700 text-white">A</span></td>
+<td class="p-0.5 text-center bg-sky-50/30"><span class="inline-block w-8 py-0.5 rounded text-[11px] font-bold bg-rose-100 text-rose-700">R</span></td>
+<td class="p-0.5 text-center bg-amber-50/30"><span class="inline-block w-8 py-0.5 rounded text-[11px] font-bold bg-rose-100 text-rose-700">R</span></td>
+<td class="p-0.5 text-center"><span class="inline-block w-8 py-0.5 rounded text-[11px] font-bold bg-emerald-100 text-emerald-800">A</span></td>
+<td class="p-0.5 text-center"><span class="inline-block w-8 py-0.5 rounded text-[11px] font-bold bg-slate-200 text-slate-800">N</span></td>
+<td class="p-0.5 text-center"><span class="inline-block w-8 py-0.5 rounded text-[11px] font-bold bg-rose-100 text-rose-700">R</span></td>
+<td class="p-0.5 text-center"><span class="inline-block w-8 py-0.5 rounded text-[11px] font-bold bg-emerald-100 text-emerald-800">A</span></td>
+<td class="p-0.5 text-center"><span class="inline-block w-8 py-0.5 rounded text-[11px] font-bold bg-slate-200 text-slate-800">N</span></td>
+<td class="p-0.5 text-center bg-sky-50/30"><span class="inline-block w-8 py-0.5 rounded text-[11px] font-bold bg-rose-100 text-rose-700">R</span></td>
+<td class="p-0.5 text-center bg-amber-50/30"><span class="inline-block w-8 py-0.5 rounded text-[11px] font-bold bg-emerald-100 text-emerald-800">A</span></td>
+<td class="p-0.5 text-center"><span class="inline-block w-8 py-0.5 rounded text-[11px] font-bold bg-slate-200 text-slate-800">N</span></td>
+<td class="p-0.5 text-center"><span class="inline-block w-8 py-0.5 rounded text-[11px] font-bold bg-rose-100 text-rose-700">R</span></td>
+<td class="p-0.5 text-center"><span class="inline-block w-8 py-0.5 rounded text-[11px] font-bold bg-emerald-100 text-emerald-800">A</span></td>
+<td class="p-0.5 text-center"><span class="inline-block w-8 py-0.5 rounded text-[11px] font-bold bg-slate-200 text-slate-800">N</span></td>
+<td class="p-0.5 text-center"><span class="inline-block w-8 py-0.5 rounded text-[11px] font-bold bg-rose-100 text-rose-700">R</span></td>
+<td class="p-0.5 text-center bg-sky-50/30"><span class="inline-block w-8 py-0.5 rounded text-[11px] font-bold bg-emerald-100 text-emerald-800">A</span></td>
+<td class="p-0.5 text-center bg-amber-50/30"><span class="inline-block w-8 py-0.5 rounded text-[11px] font-bold bg-slate-200 text-slate-800">N</span></td>
+<td class="p-0.5 text-center"><span class="inline-block w-8 py-0.5 rounded text-[11px] font-bold bg-rose-100 text-rose-700">R</span></td>
+<!-- Summaries NV0007 -->
+<td class="sticky right-[18rem] bg-surface-container-lowest group-hover:bg-surface-container-low text-center font-bold text-rose-700 shadow-[-2px_0_4px_rgba(0,0,0,0.03)]">10</td>
+<td class="sticky right-[15rem] bg-surface-container-lowest group-hover:bg-surface-container-low text-center text-secondary">0</td>
+<td class="sticky right-[12rem] bg-surface-container-lowest group-hover:bg-surface-container-low text-center text-secondary">0</td>
+<td class="sticky right-[9rem] bg-surface-container-lowest group-hover:bg-surface-container-low text-center text-secondary">0</td>
+<td class="sticky right-[6rem] bg-surface-container-lowest group-hover:bg-surface-container-low text-center font-bold text-emerald-700">11</td>
+<td class="sticky right-[3rem] bg-surface-container-lowest group-hover:bg-surface-container-low text-center font-bold text-slate-700">9</td>
+<td class="sticky right-0 bg-surface-container-lowest group-hover:bg-surface-container-low text-center text-secondary">0</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- LEGEND & QUICK SHORTCUT BAR -->
+<div class="px-4 py-2.5 bg-surface-container-low/70 flex flex-wrap items-center justify-between gap-3 text-caption font-caption">
+<!-- Shift explanation chips -->
+<div class="flex flex-wrap items-center gap-2">
+<span class="font-label-sm text-label-sm font-semibold text-secondary mr-1">Quy ước ký hiệu:</span>
+<span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded bg-surface-container-lowest shadow-xs text-on-surface">
+<span class="w-4 h-4 rounded text-[10px] font-bold flex items-center justify-center bg-primary-fixed text-primary">M</span>
+<span>Ca Sáng (07:00 - 15:30)</span>
+</span>
+<span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded bg-surface-container-lowest shadow-xs text-on-surface">
+<span class="w-4 h-4 rounded text-[10px] font-bold flex items-center justify-center bg-emerald-100 text-emerald-800">A</span>
+<span>Ca Chiều (14:30 - 22:30)</span>
+</span>
+<span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded bg-surface-container-lowest shadow-xs text-on-surface">
+<span class="w-4 h-4 rounded text-[10px] font-bold flex items-center justify-center bg-slate-200 text-slate-800">N</span>
+<span>Ca Đêm (22:00 - 06:30)</span>
+</span>
+<span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded bg-surface-container-lowest shadow-xs text-on-surface">
+<span class="w-4 h-4 rounded text-[10px] font-bold flex items-center justify-center bg-rose-100 text-rose-700">R</span>
+<span>Nghỉ tuần</span>
+</span>
+<span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded bg-surface-container-lowest shadow-xs text-on-surface">
+<span class="w-4 h-4 rounded text-[10px] font-bold flex items-center justify-center bg-sky-100 text-sky-800">AL</span>
+<span>Phép năm</span>
+</span>
+<span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded bg-surface-container-lowest shadow-xs text-on-surface">
+<span class="w-4 h-4 rounded text-[10px] font-bold flex items-center justify-center bg-purple-100 text-purple-800">RR</span>
+<span>Nghỉ bù</span>
+</span>
+<span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded bg-surface-container-lowest shadow-xs text-on-surface">
+<span class="w-4 h-4 rounded text-[10px] font-bold flex items-center justify-center bg-amber-100 text-amber-800">PH</span>
+<span>Nghỉ lễ</span>
+</span>
+</div>
+<!-- Quick Tips -->
+<div class="flex items-center gap-1.5 text-secondary">
+<span class="material-symbols-outlined text-[16px] text-primary">lightbulb</span>
+<span><b>Phím tắt:</b> Đúp chuột đổi ca · <b>Ctrl+A</b> áp dụng cột · Ngày đã qua không được phép sửa.</span>
+</div>
+</div>
+</div>
+<!-- FIXED BOTTOM ACTION BAR -->
+<div class="fixed bottom-0 left-[240px] right-0 bg-surface-container-lowest/95 backdrop-blur-md px-gutter py-3 shadow-[0_-4px_16px_rgba(0,0,0,0.06)] z-40 flex items-center justify-between">
+<!-- Summary Counter Left -->
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-lg bg-primary-fixed flex items-center justify-center text-primary font-bold">
+<span class="material-symbols-outlined text-[20px]">calendar_month</span>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-2">
+<span class="font-body-md-medium text-body-md-medium text-on-surface font-semibold">
+            Tổng cộng: 7 nhân sự
+          </span>
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+<span class="font-body-md text-body-md text-secondary">
+            210 ca trực phân bổ trong tháng 11/2026
+          </span>
+</div>
+<span class="font-caption text-caption text-secondary">Đã đối soát 100% định mức ca trực tiêu chuẩn</span>
+</div>
+</div>
+<!-- Right Action Buttons -->
+<div class="flex items-center gap-2.5">
+<!-- Lọc dữ liệu -->
+<button class="h-9 px-3.5 rounded-lg bg-surface-container-low text-on-surface hover:bg-surface-container font-label-md text-label-md flex items-center gap-1.5 transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px] text-secondary">filter_list</span>
+<span>Lọc dữ liệu</span>
+</button>
+<!-- Tải mẫu nhập ca -->
+<button class="h-9 px-3.5 rounded-lg bg-surface-container-low text-on-surface hover:bg-surface-container font-label-md text-label-md flex items-center gap-1.5 transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px] text-emerald-600">download</span>
+<span>Tải mẫu Excel</span>
+</button>
+<!-- Nhập ca theo mẫu -->
+<button class="h-9 px-3.5 rounded-lg bg-surface-container-low text-on-surface hover:bg-surface-container font-label-md text-label-md flex items-center gap-1.5 transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px] text-primary">upload_file</span>
+<span>Nhập từ Excel</span>
+</button>
+<div class="h-6 w-px bg-surface-container-high mx-1"></div>
+<!-- Lưu dữ liệu (PRIMARY) -->
+<button class="h-9 px-5 rounded-lg bg-primary text-on-primary hover:bg-primary-container font-label-md text-label-md font-semibold flex items-center gap-2 shadow-sm transition-all hover:shadow-md active:scale-95" type="button">
+<span class="material-symbols-outlined text-[18px]">save</span>
+<span>Lưu bảng phân ca</span>
+</button>
+</div>
+</div>
+</div>
+<script>
+  (function() {
+    const gearBtn = document.getElementById('gearBtn');
+    const gearMenu = document.getElementById('gearMenu');
+
+    if (gearBtn && gearMenu) {
+      gearBtn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        gearMenu.classList.toggle('hidden');
+      });
+
+      document.addEventListener('click', function(e) {
+        if (!gearMenu.contains(e.target) && e.target !== gearBtn) {
+          gearMenu.classList.add('hidden');
+        }
+      });
+    }
+  })();
+</script></main></div><!-- Modal: Import phân ca -->
+<div class="mdl-ov fixed inset-0 z-[70] hidden items-center justify-center bg-inverse-surface/40 backdrop-blur-[2px] p-4" id="mdlImportPhanCa">
+<div class="w-full max-w-md max-h-[90vh] bg-surface-container-lowest rounded-xl shadow-2xl flex flex-col">
+<div class="px-6 py-4 bg-surface-container-low rounded-t-xl flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="w-9 h-9 rounded-lg bg-primary-container/10 text-primary-container flex items-center justify-center"><span class="material-symbols-outlined text-[22px]">upload_file</span></div>
+<div class="flex flex-col"><h2 class="font-headline-md text-headline-md text-on-surface">Import phân ca</h2><span class="font-caption text-caption text-on-surface-variant">Nhập ca theo file Excel mẫu</span></div>
+</div>
+<button class="p-1.5 rounded-lg text-outline hover:text-on-surface hover:bg-surface-container-high transition-colors" data-close-modal="mdlImportPhanCa" type="button"><span class="material-symbols-outlined text-[22px]">close</span></button>
+</div>
+<div class="flex-1 overflow-y-auto px-6 py-5 flex flex-col gap-4">
+<div class="flex flex-col gap-1.5"><label class="font-label-md text-label-md text-on-surface">Chọn tệp Excel <span class="text-error">*</span></label><input class="w-full h-[38px] px-3 text-body-md font-body-md bg-surface-container-low rounded-lg text-on-surface focus:outline-none focus:bg-surface-container-lowest focus:ring-2 focus:ring-primary-container/20 py-1.5 h-auto" type="file" accept=".xls,.xlsx"/></div>
+<span class="font-caption text-caption text-outline">Tải mẫu nhập ca ở nút "Tải mẫu Excel" trước khi nhập.</span>
+</div>
+<div class="px-6 py-4 bg-surface-container-low rounded-b-xl flex items-center justify-end gap-3">
+<button class="px-4 py-2 bg-surface-container-lowest text-on-surface font-label-md text-label-md rounded-lg shadow-sm hover:bg-surface-container-high transition-colors" data-close-modal="mdlImportPhanCa" type="button">Thoát</button>
+<button class="px-5 py-2 bg-primary-container text-on-primary font-label-md text-label-md rounded-lg shadow-sm hover:opacity-95 transition-all" data-close-modal="mdlImportPhanCa" type="button">Lưu dữ liệu</button>
+</div>
+</div>
+</div>
+<script>
+(function(){
+  function m(id,o){var e=document.getElementById(id);if(!e)return;e.classList.toggle('hidden',!o);e.classList.toggle('flex',o);}
+  document.addEventListener('click',function(ev){var t=ev.target.closest('[data-open-modal],[data-close-modal]');if(!t)return;ev.preventDefault();if(t.dataset.openModal)m(t.dataset.openModal,true);else m(t.dataset.closeModal,false);});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')document.querySelectorAll('.mdl-ov.flex').forEach(function(x){m(x.id,false);});});
+  function find(t){return Array.prototype.find.call(document.querySelectorAll('button'),function(b){return b.textContent.replace(/\s+/g,' ').indexOf(t)>-1&&!b.closest('.mdl-ov');});}
+  [["Nhập từ Excel","mdlImportPhanCa"]].forEach(function(p){var b=find(p[0]);if(b)b.setAttribute('data-open-modal',p[1]);});
+  [].forEach(function(p){var r=find(p[0]);if(!r)return;var c=r.cloneNode(false);c.removeAttribute('onclick');c.removeAttribute('id');c.removeAttribute('title');c.setAttribute('type','button');c.setAttribute('data-open-modal',p[3]);c.innerHTML='<span class="material-symbols-outlined text-[18px]">'+p[2]+'</span><span>'+p[1]+'</span>';r.parentNode.insertBefore(c,r);});
+  
+})();
+</script>
+<script src="../shared/nav.js"></script></body></html>

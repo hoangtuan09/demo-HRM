@@ -1,0 +1,849 @@
+<!DOCTYPE html>
+
+<html lang="vi"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "surface-container-lowest": "#ffffff", "on-primary-fixed": "#001c39", "outline-variant": "#c1c7d3", "on-secondary-fixed": "#0d1c2e", "primary-fixed-dim": "#a4c9ff", "inverse-on-surface": "#eff1f4", "surface": "#f7f9fc", "primary": "#004f8f", "on-secondary-fixed-variant": "#3a485b", "on-tertiary-fixed": "#001e2f", "error-container": "#ffdad6", "background": "#f7f9fc", "tertiary": "#005378", "surface-bright": "#f7f9fc", "tertiary-fixed-dim": "#89ceff", "surface-variant": "#e0e3e6", "secondary-container": "#d5e3fc", "surface-tint": "#0660aa", "on-surface-variant": "#414751", "on-tertiary": "#ffffff", "on-primary": "#ffffff", "surface-container": "#eceef1", "on-secondary": "#ffffff", "on-primary-container": "#d6e5ff", "primary-container": "#1967b2", "on-surface": "#191c1e", "on-tertiary-container": "#cbe7ff", "primary-fixed": "#d4e3ff", "surface-container-low": "#f2f4f7", "on-primary-fixed-variant": "#004883", "error": "#ba1a1a", "on-tertiary-fixed-variant": "#004c6e", "surface-container-high": "#e6e8eb", "surface-container-highest": "#e0e3e6", "secondary": "#515f74", "on-error": "#ffffff", "surface-dim": "#d8dadd", "tertiary-fixed": "#c9e6ff", "on-error-container": "#93000a", "on-secondary-container": "#57657a", "outline": "#727782", "on-background": "#191c1e", "secondary-fixed": "#d5e3fc", "inverse-primary": "#a4c9ff", "secondary-fixed-dim": "#b9c7df", "tertiary-container": "#006c9b", "inverse-surface": "#2d3133" }, "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, "spacing": { "space-xs": "0.25rem", "space-md": "1rem", "gutter-mobile": "0.75rem", "margin": "1.5rem", "gutter": "1.5rem", "margin-mobile": "1rem", "space-sm": "0.5rem", "space-xl": "2rem", "space-lg": "1.5rem" }, "fontFamily": { "body-sm": ["Be Vietnam Pro"], "label-md": ["Be Vietnam Pro"], "body-md": ["Be Vietnam Pro"], "display": ["Be Vietnam Pro"], "headline-sm": ["Be Vietnam Pro"], "headline-lg": ["Be Vietnam Pro"], "body-md-medium": ["Be Vietnam Pro"], "body-lg": ["Be Vietnam Pro"], "label-sm": ["Be Vietnam Pro"], "headline-md": ["Be Vietnam Pro"], "mono-num": ["Be Vietnam Pro"], "caption": ["Be Vietnam Pro"], "headline-lg-mobile": ["Be Vietnam Pro"] }, "fontSize": { "body-sm": ["13px", { "lineHeight": "18px", "letterSpacing": "0", "fontWeight": "400" }], "label-md": ["13px", { "lineHeight": "16px", "letterSpacing": "0.01em", "fontWeight": "500" }], "body-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0", "fontWeight": "400" }], "display": ["28px", { "lineHeight": "36px", "letterSpacing": "-0.02em", "fontWeight": "600" }], "headline-sm": ["16px", { "lineHeight": "22px", "letterSpacing": "0", "fontWeight": "600" }], "headline-lg": ["22px", { "lineHeight": "28px", "letterSpacing": "-0.015em", "fontWeight": "600" }], "body-md-medium": ["14px", { "lineHeight": "20px", "letterSpacing": "0", "fontWeight": "500" }], "body-lg": ["15px", { "lineHeight": "22px", "letterSpacing": "0", "fontWeight": "400" }], "label-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "500" }], "headline-md": ["18px", { "lineHeight": "24px", "letterSpacing": "-0.01em", "fontWeight": "600" }], "mono-num": ["14px", { "lineHeight": "20px", "letterSpacing": "0", "fontWeight": "500" }], "caption": ["12px", { "lineHeight": "16px", "letterSpacing": "0", "fontWeight": "400" }], "headline-lg-mobile": ["20px", { "lineHeight": "26px", "letterSpacing": "-0.01em", "fontWeight": "600" }] } } } };</script><link rel="stylesheet" href="../shared/nav.css"/><link rel="stylesheet" href="../shared/fix.css"/></head><body class="bg-surface font-body-md text-on-surface antialiased"><header class="fixed top-0 left-0 right-0 h-16 bg-surface-container-lowest/90 backdrop-blur-md shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-50 flex items-center justify-between px-6"><div class="flex items-center gap-4 w-72"><div class="flex flex-col"><span class="font-headline-sm text-headline-sm text-primary tracking-tight">HRM</span><span class="font-caption text-caption text-on-surface-variant leading-none">Enterprise Suite</span></div></div><div class="flex-1 max-w-2xl px-4"><div class="relative flex items-center w-full"><span class="material-symbols-outlined absolute left-3 text-outline text-[20px]">search</span><input class="w-full pl-10 pr-4 py-2 bg-surface-container-low text-on-surface placeholder:text-outline rounded-lg text-body-md font-body-md focus:outline-none focus:bg-surface-container-lowest transition-colors" placeholder="Tìm kiếm nhân sự, mã NV, phòng ban..." type="text"/></div></div><div class="flex items-center gap-4"><button class="relative p-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" type="button"><span class="material-symbols-outlined text-[22px]">notifications</span><span class="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-error ring-2 ring-surface-container-lowest"></span></button><button class="p-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" type="button"><span class="material-symbols-outlined text-[22px]">help</span></button><div class="h-6 w-[1px] bg-outline-variant/40"></div><div class="flex items-center gap-3 pl-1"><div class="text-right hidden sm:block"><div class="font-body-md-medium text-body-md-medium text-on-surface">Nguyễn Văn An</div><div class="font-caption text-caption text-on-surface-variant">Trưởng phòng Kỹ thuật</div></div><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><aside id="app-sidebar" data-mode="fixed" data-old-w="288"></aside><div class="pl-72"><main class="w-full pt-16 bg-surface min-h-screen"><div class="flex flex-col w-full">
+<!-- Content Canvas Container -->
+<div class="px-6 py-6 flex flex-col gap-6 max-w-[1600px] mx-auto w-full">
+<!-- 1. BREADCRUMB & HEADER -->
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+<div class="flex flex-col gap-1">
+<!-- Breadcrumb -->
+<nav class="flex items-center gap-2 font-caption text-caption text-outline">
+<span class="hover:text-primary transition-colors cursor-pointer">Tuyển dụng &amp; Đào tạo</span>
+<span class="material-symbols-outlined text-[14px]">chevron_right</span>
+<span class="hover:text-primary transition-colors cursor-pointer">Đào tạo</span>
+<span class="material-symbols-outlined text-[14px]">chevron_right</span>
+<span class="text-on-surface font-body-md-medium">Thông báo đào tạo</span>
+</nav>
+<!-- Page Title -->
+<h1 class="font-headline-lg text-headline-lg text-on-surface tracking-tight">
+          Thông báo &amp; Kế hoạch Chiêu sinh Đào tạo
+        </h1>
+<p class="font-body-sm text-body-sm text-on-surface-variant max-w-2xl">
+          Quản lý thông báo triệu tập học viên, kế hoạch mở lớp bồi dưỡng nghiệp vụ và truyền thông đào tạo nội bộ PMC Academy.
+        </p>
+</div>
+<!-- Action Buttons -->
+<div class="flex items-center gap-3 shrink-0">
+<button class="inline-flex items-center gap-2 h-[38px] px-4 rounded-lg bg-surface-container-lowest text-on-surface shadow-sm hover:bg-surface-container-high transition-colors font-label-md text-label-md" type="button">
+<span class="material-symbols-outlined text-[18px] text-secondary">history</span>
+<span>Lịch sử gửi thông báo</span>
+</button>
+<button class="inline-flex items-center gap-2 h-[38px] px-4 rounded-lg bg-primary-container text-on-primary shadow-sm hover:opacity-95 transition-all font-label-md text-label-md" id="open-drawer-btn" type="button">
+<span class="material-symbols-outlined text-[18px]">add_circle</span>
+<span>+ Soạn thông báo đào tạo</span>
+</button>
+</div>
+</div>
+<!-- 2. KPI METRICS (4 CARDS) -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+<!-- Card 1 -->
+<div class="bg-surface-container-lowest rounded-xl p-5 shadow-sm flex flex-col justify-between">
+<div class="flex items-start justify-between">
+<div class="flex flex-col">
+<span class="font-caption text-caption uppercase tracking-wider text-outline">Tổng thông báo 2026</span>
+<div class="flex items-baseline gap-2 mt-1">
+<span class="font-display text-display text-on-surface font-semibold">46</span>
+<span class="font-label-sm text-label-sm text-primary">thông báo</span>
+</div>
+</div>
+<div class="w-10 h-10 rounded-lg bg-secondary-container/60 flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-primary text-[22px]">campaign</span>
+</div>
+</div>
+<div class="mt-4 pt-3 bg-surface-container-low/50 -mx-5 -mb-5 px-5 py-2.5 rounded-b-xl flex items-center justify-between">
+<span class="font-caption text-caption text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px] text-[#16a34a]">trending_up</span>
+<strong class="text-[#16a34a] font-medium">+8%</strong> so với cùng kỳ năm trước
+          </span>
+<span class="font-caption text-caption text-outline">Kỳ Q1</span>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="bg-surface-container-lowest rounded-xl p-5 shadow-sm flex flex-col justify-between">
+<div class="flex items-start justify-between">
+<div class="flex flex-col">
+<span class="font-caption text-caption uppercase tracking-wider text-outline">Đang nhận đăng ký</span>
+<div class="flex items-baseline gap-2 mt-1">
+<span class="font-display text-display text-on-surface font-semibold">06</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">lớp chiêu sinh</span>
+</div>
+</div>
+<div class="w-10 h-10 rounded-lg bg-primary-fixed/50 flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-primary text-[22px]">how_to_reg</span>
+</div>
+</div>
+<div class="mt-4 pt-3 bg-surface-container-low/50 -mx-5 -mb-5 px-5 py-2.5 rounded-b-xl flex items-center justify-between">
+<span class="font-caption text-caption text-on-surface-variant flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+<strong>142 học viên</strong> đã gửi phiếu đăng ký
+          </span>
+<span class="font-caption text-caption text-primary cursor-pointer hover:underline">Chi tiết</span>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="bg-surface-container-lowest rounded-xl p-5 shadow-sm flex flex-col justify-between">
+<div class="flex items-start justify-between">
+<div class="flex flex-col">
+<span class="font-caption text-caption uppercase tracking-wider text-outline">Tỷ lệ Đọc / Xác nhận</span>
+<div class="flex items-baseline gap-2 mt-1">
+<span class="font-display text-display text-[#16a34a] font-semibold">94.5%</span>
+</div>
+</div>
+<div class="w-10 h-10 rounded-lg bg-[#f0fdf4] flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[#16a34a] text-[22px]">mark_email_read</span>
+</div>
+</div>
+<div class="mt-4 pt-3 bg-surface-container-low/50 -mx-5 -mb-5 px-5 py-2.5 rounded-b-xl flex items-center justify-between">
+<span class="font-caption text-caption text-on-surface-variant">Đạt chuẩn KPI Vận hành PMC (&gt;90%)</span>
+<span class="font-mono-num text-[11px] font-medium text-[#16a34a] px-1.5 py-0.5 rounded bg-[#dcfce7]">ĐẠT CHỈ TIÊU</span>
+</div>
+</div>
+<!-- Card 4 -->
+<div class="bg-surface-container-lowest rounded-xl p-5 shadow-sm flex flex-col justify-between">
+<div class="flex items-start justify-between">
+<div class="flex flex-col">
+<span class="font-caption text-caption uppercase tracking-wider text-outline">Kênh truyền thông</span>
+<div class="flex items-baseline gap-1 mt-1">
+<span class="font-headline-md text-headline-md text-on-surface font-semibold">Đa kênh tích hợp</span>
+</div>
+</div>
+<div class="w-10 h-10 rounded-lg bg-secondary-container/40 flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-secondary text-[22px]">cell_tower</span>
+</div>
+</div>
+<div class="mt-4 pt-3 bg-surface-container-low/50 -mx-5 -mb-5 px-5 py-2.5 rounded-b-xl flex items-center gap-2">
+<span class="inline-flex items-center gap-1 font-caption text-[11px] px-2 py-0.5 rounded-full bg-surface-container-lowest text-on-surface-variant shadow-sm">
+<span class="material-symbols-outlined text-[13px] text-primary">mail</span> Email
+          </span>
+<span class="inline-flex items-center gap-1 font-caption text-[11px] px-2 py-0.5 rounded-full bg-surface-container-lowest text-on-surface-variant shadow-sm">
+<span class="material-symbols-outlined text-[13px] text-primary">smartphone</span> PMC Me
+          </span>
+<span class="inline-flex items-center gap-1 font-caption text-[11px] px-2 py-0.5 rounded-full bg-surface-container-lowest text-on-surface-variant shadow-sm">
+<span class="material-symbols-outlined text-[13px] text-primary">web</span> Portal
+          </span>
+</div>
+</div>
+</div>
+<!-- 3. SEARCH & ADVANCED FILTER TOOLBAR -->
+<div class="bg-surface-container-lowest rounded-xl p-4 shadow-sm flex flex-col gap-3">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-3 items-center">
+<!-- Search bar -->
+<div class="md:col-span-4 relative flex items-center">
+<span class="material-symbols-outlined absolute left-3 text-outline text-[19px]">search</span>
+<input class="w-full pl-9 pr-3 h-[38px] bg-surface-container-low text-on-surface placeholder:text-outline rounded-lg text-body-md font-body-md focus:outline-none focus:bg-surface-container-lowest focus:ring-2 focus:ring-primary/20 transition-all" placeholder="Tìm theo tiêu đề thông báo, mã lớp, đối tượng..." type="text"/>
+</div>
+<!-- Filter Dropdown 1: Khóa / Lớp -->
+<div class="md:col-span-2 relative">
+<select class="w-full appearance-none h-[38px] pl-3 pr-8 bg-surface-container-low text-on-surface rounded-lg text-body-md font-body-md focus:outline-none focus:bg-surface-container-lowest cursor-pointer">
+<option value="">Tất cả các lớp</option>
+<option value="pccc">An toàn PCCC &amp; Cứu nạn</option>
+<option value="mep">Kỹ thuật BMS &amp; Chiller Trane</option>
+<option value="cskh">Dịch vụ Khách hàng VIP</option>
+<option value="atld">An toàn Vệ sinh Lao động</option>
+</select>
+<span class="material-symbols-outlined absolute right-2.5 top-2.5 text-outline text-[18px] pointer-events-none">expand_more</span>
+</div>
+<!-- Filter Dropdown 2: Đối tượng khối -->
+<div class="md:col-span-2 relative">
+<select class="w-full appearance-none h-[38px] pl-3 pr-8 bg-surface-container-low text-on-surface rounded-lg text-body-md font-body-md focus:outline-none focus:bg-surface-container-lowest cursor-pointer">
+<option value="">Tất cả đối tượng</option>
+<option value="kythuat">Khối Kỹ thuật MEP</option>
+<option value="vanhanh">Khối Vận hành Tòa nhà</option>
+<option value="letan">Khối Lễ tân &amp; CSKH</option>
+<option value="quanly">Cán bộ Quản lý / Trưởng ca</option>
+</select>
+<span class="material-symbols-outlined absolute right-2.5 top-2.5 text-outline text-[18px] pointer-events-none">expand_more</span>
+</div>
+<!-- Filter Dropdown 3: Trạng thái -->
+<div class="md:col-span-2 relative">
+<select class="w-full appearance-none h-[38px] pl-3 pr-8 bg-surface-container-low text-on-surface rounded-lg text-body-md font-body-md focus:outline-none focus:bg-surface-container-lowest cursor-pointer">
+<option value="">Tất cả trạng thái</option>
+<option value="open">Đang mở chiêu sinh</option>
+<option value="active">Đang tiếp nhận</option>
+<option value="draft">Bản nháp</option>
+<option value="closed">Đã hoàn thành</option>
+</select>
+<span class="material-symbols-outlined absolute right-2.5 top-2.5 text-outline text-[18px] pointer-events-none">expand_more</span>
+</div>
+<!-- Action tools -->
+<div class="md:col-span-2 flex items-center justify-end gap-2">
+<button class="inline-flex items-center gap-1.5 h-[38px] px-3 rounded-lg bg-surface-container-low hover:bg-surface-container-high text-on-surface transition-colors font-label-md text-label-md" title="Làm mới bộ lọc" type="button">
+<span class="material-symbols-outlined text-[18px] text-secondary">refresh</span>
+<span>Làm mới</span>
+</button>
+<button class="inline-flex items-center gap-1.5 h-[38px] px-3 rounded-lg bg-surface-container-low hover:bg-surface-container-high text-on-surface transition-colors font-label-md text-label-md" title="Xuất dữ liệu Excel" type="button">
+<span class="material-symbols-outlined text-[18px] text-secondary">file_download</span>
+<span>Xuất</span>
+</button>
+</div>
+</div>
+<!-- Quick Active Tags Bar -->
+<div class="flex items-center gap-2 pt-1 overflow-x-auto text-caption font-caption text-on-surface-variant">
+<span class="text-outline uppercase text-[11px] font-semibold shrink-0">Lọc nhanh:</span>
+<button class="px-2.5 py-1 rounded-full bg-primary-fixed text-on-primary-fixed font-medium shrink-0 flex items-center gap-1">
+<span>Tháng 03/2026</span>
+<span class="material-symbols-outlined text-[14px]">close</span>
+</button>
+<button class="px-2.5 py-1 rounded-full bg-surface-container-low hover:bg-surface-container hover:text-on-surface text-on-surface-variant transition-colors shrink-0">
+          Chỉ thông báo bắt buộc (PCCC / ATLD)
+        </button>
+<button class="px-2.5 py-1 rounded-full bg-surface-container-low hover:bg-surface-container hover:text-on-surface text-on-surface-variant transition-colors shrink-0">
+          Sắp hết hạn đăng ký (&lt; 3 ngày)
+        </button>
+<span class="ml-auto text-outline text-[12px] shrink-0">Tìm thấy <strong class="text-on-surface">46</strong> kết quả</span>
+</div>
+</div>
+<!-- 4. DATA TABLE & ARTIFACT (ARCHETYPE D) -->
+<div class="bg-surface-container-lowest rounded-xl shadow-sm overflow-hidden flex flex-col">
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-low h-10 text-outline font-label-sm text-label-sm uppercase tracking-wider">
+<th class="w-12 px-4 text-center">
+<input class="w-4 h-4 rounded text-primary focus:ring-0 cursor-pointer" type="checkbox"/>
+</th>
+<th class="w-28 px-4 font-semibold">Mã TB</th>
+<th class="px-4 font-semibold min-w-[260px]">Tiêu đề thông báo</th>
+<th class="px-4 font-semibold min-w-[190px]">Khóa / Lớp đào tạo</th>
+<th class="px-4 font-semibold min-w-[210px]">Đối tượng triệu tập</th>
+<th class="px-4 font-semibold min-w-[190px]">Lịch học &amp; Hạn ĐK</th>
+<th class="px-4 font-semibold min-w-[160px]">Đọc &amp; Đăng ký</th>
+<th class="px-4 font-semibold w-36">Trạng thái</th>
+<th class="px-4 font-semibold w-24 text-right">Thao tác</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-surface-container-low text-body-md font-body-md text-on-surface">
+<!-- Row 1: PCCC (Selected highlight sample) -->
+<tr class="h-16 hover:bg-surface-container-low/60 transition-colors bg-primary-fixed/10">
+<td class="px-4 text-center">
+<input checked="" class="w-4 h-4 rounded text-primary focus:ring-0 cursor-pointer" type="checkbox"/>
+</td>
+<td class="px-4 font-mono-num font-semibold text-primary">
+                TB-2026-024
+              </td>
+<td class="px-4">
+<div class="flex flex-col">
+<div class="flex items-center gap-1.5">
+<span class="font-body-md-medium font-medium text-on-surface hover:text-primary cursor-pointer line-clamp-1">
+                      Triệu tập sát hạch Quy chuẩn An toàn PCCC &amp; Cứu nạn 2026
+                    </span>
+<span class="px-1.5 py-0.5 rounded text-[10px] font-semibold bg-[#fee2e2] text-[#b91c1c] uppercase shrink-0">Bắt buộc</span>
+</div>
+<div class="flex items-center gap-2 mt-0.5 font-caption text-caption text-on-surface-variant">
+<span class="flex items-center gap-0.5"><span class="material-symbols-outlined text-[13px] text-outline">location_on</span> Keangnam Landmark 72</span>
+<span>•</span>
+<span class="text-outline">Phát hành: 24/02/2026</span>
+</div>
+</div>
+</td>
+<td class="px-4">
+<div class="flex flex-col">
+<span class="font-body-md-medium text-on-surface text-[13px] font-medium">LDT-2026-01</span>
+<span class="font-caption text-caption text-on-surface-variant">PCCC Cục CS PCCC C07</span>
+</div>
+</td>
+<td class="px-4">
+<div class="flex flex-col">
+<span class="text-[13px] font-medium text-on-surface line-clamp-1">Kỹ thuật viên &amp; Đội BV</span>
+<span class="font-caption text-caption text-outline">Keangnam, Handico Tower</span>
+</div>
+</td>
+<td class="px-4">
+<div class="flex flex-col font-caption">
+<span class="font-body-md-medium text-[13px] text-on-surface font-medium">01/03 - 05/03/2026</span>
+<span class="text-error flex items-center gap-1 font-medium">
+<span class="material-symbols-outlined text-[13px]">alarm</span> Hạn: 28/02 (Hôm nay)
+                  </span>
+</div>
+</td>
+<td class="px-4">
+<div class="flex flex-col gap-1 w-36">
+<div class="flex justify-between items-center font-caption text-[11px]">
+<span class="text-on-surface font-medium">120/120 (100%)</span>
+<span class="text-[#16a34a] font-semibold">Đã đọc</span>
+</div>
+<div class="w-full h-1.5 bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-[#16a34a] rounded-full w-full"></div>
+</div>
+</div>
+</td>
+<td class="px-4">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-caption font-label-sm font-medium bg-[#f0fdf4] text-[#16a34a]">
+<span class="w-1.5 h-1.5 rounded-full bg-[#16a34a]"></span>
+                  Đang tiếp nhận
+                </span>
+</td>
+<td class="px-4 text-right">
+<div class="flex items-center justify-end gap-1">
+<button class="p-1 rounded text-outline hover:text-primary hover:bg-surface-container-high transition-colors" title="Gửi nhắc nhở người chưa đăng ký" type="button">
+<span class="material-symbols-outlined text-[18px]">notification_important</span>
+</button>
+<button class="p-1 rounded text-outline hover:text-primary hover:bg-surface-container-high transition-colors" title="Xem chi tiết thông báo" type="button">
+<span class="material-symbols-outlined text-[18px]">visibility</span>
+</button>
+<button class="p-1 rounded text-outline hover:text-on-surface hover:bg-surface-container-high transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]">more_vert</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 2: BMS HVAC Trane -->
+<tr class="h-16 hover:bg-surface-container-low/60 transition-colors">
+<td class="px-4 text-center">
+<input class="w-4 h-4 rounded text-primary focus:ring-0 cursor-pointer" type="checkbox"/>
+</td>
+<td class="px-4 font-mono-num font-semibold text-primary">
+                TB-2026-022
+              </td>
+<td class="px-4">
+<div class="flex flex-col">
+<span class="font-body-md-medium font-medium text-on-surface hover:text-primary cursor-pointer line-clamp-1">
+                    Chiêu sinh Lớp Kỹ thuật Vận hành BMS &amp; HVAC Chiller Trane nâng cao
+                  </span>
+<div class="flex items-center gap-2 mt-0.5 font-caption text-caption text-on-surface-variant">
+<span class="flex items-center gap-0.5"><span class="material-symbols-outlined text-[13px] text-outline">domain</span> Trung tâm Đào tạo PMC Academy</span>
+<span>•</span>
+<span class="text-outline">Phát hành: 20/02/2026</span>
+</div>
+</div>
+</td>
+<td class="px-4">
+<div class="flex flex-col">
+<span class="font-body-md-medium text-on-surface text-[13px] font-medium">LDT-2026-04</span>
+<span class="font-caption text-caption text-on-surface-variant">Kỹ thuật MEP &amp; Tự động hóa</span>
+</div>
+</td>
+<td class="px-4">
+<div class="flex flex-col">
+<span class="text-[13px] font-medium text-on-surface line-clamp-1">Kỹ sư trưởng &amp; KTV Chiller</span>
+<span class="font-caption text-caption text-outline">Toàn hệ thống BĐS Miền Bắc</span>
+</div>
+</td>
+<td class="px-4">
+<div class="flex flex-col font-caption">
+<span class="font-body-md-medium text-[13px] text-on-surface font-medium">20/03 - 28/03/2026</span>
+<span class="text-on-surface-variant">Hạn ĐK: 15/03/2026</span>
+</div>
+</td>
+<td class="px-4">
+<div class="flex flex-col gap-1 w-36">
+<div class="flex justify-between items-center font-caption text-[11px]">
+<span class="text-on-surface font-medium">35/40 (87.5%)</span>
+<span class="text-primary font-semibold">Đã đăng ký</span>
+</div>
+<div class="w-full h-1.5 bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-primary-container rounded-full w-[87.5%]"></div>
+</div>
+</div>
+</td>
+<td class="px-4">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-caption font-label-sm font-medium bg-[#e0f2fe] text-[#0284c7]">
+<span class="w-1.5 h-1.5 rounded-full bg-[#0284c7]"></span>
+                  Đang mở cổng
+                </span>
+</td>
+<td class="px-4 text-right">
+<div class="flex items-center justify-end gap-1">
+<button class="p-1 rounded text-outline hover:text-primary hover:bg-surface-container-high transition-colors" title="Gửi email thông báo" type="button">
+<span class="material-symbols-outlined text-[18px]">send</span>
+</button>
+<button class="p-1 rounded text-outline hover:text-primary hover:bg-surface-container-high transition-colors" title="Xem chi tiết" type="button">
+<span class="material-symbols-outlined text-[18px]">visibility</span>
+</button>
+<button class="p-1 rounded text-outline hover:text-on-surface hover:bg-surface-container-high transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]">more_vert</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 3: CSKH VIP Mulberry -->
+<tr class="h-16 hover:bg-surface-container-low/60 transition-colors">
+<td class="px-4 text-center">
+<input class="w-4 h-4 rounded text-primary focus:ring-0 cursor-pointer" type="checkbox"/>
+</td>
+<td class="px-4 font-mono-num font-semibold text-secondary">
+                TB-2026-019
+              </td>
+<td class="px-4">
+<div class="flex flex-col">
+<span class="font-body-md-medium font-medium text-on-surface hover:text-primary cursor-pointer line-clamp-1">
+                    Khóa huấn luyện Chuẩn mực Giao tiếp &amp; Ứng xử Cư dân VIP khu căn hộ
+                  </span>
+<div class="flex items-center gap-2 mt-0.5 font-caption text-caption text-on-surface-variant">
+<span class="flex items-center gap-0.5"><span class="material-symbols-outlined text-[13px] text-outline">apartment</span> Mulberry Lane &amp; Seasons Avenue</span>
+<span>•</span>
+<span class="text-outline">Phát hành: 05/02/2026</span>
+</div>
+</div>
+</td>
+<td class="px-4">
+<div class="flex flex-col">
+<span class="font-body-md-medium text-on-surface text-[13px] font-medium">LDT-2026-07</span>
+<span class="font-caption text-caption text-on-surface-variant">Dịch vụ Khách hàng PMC</span>
+</div>
+</td>
+<td class="px-4">
+<div class="flex flex-col">
+<span class="text-[13px] font-medium text-on-surface line-clamp-1">Lễ tân, CSKH, Quản lý sảnh</span>
+<span class="font-caption text-caption text-outline">Khu căn hộ cao cấp</span>
+</div>
+</td>
+<td class="px-4">
+<div class="flex flex-col font-caption">
+<span class="font-body-md-medium text-[13px] text-on-surface font-medium">15/02 - 18/02/2026</span>
+<span class="text-outline">Đã bế giảng khóa</span>
+</div>
+</td>
+<td class="px-4">
+<div class="flex flex-col gap-1 w-36">
+<div class="flex justify-between items-center font-caption text-[11px]">
+<span class="text-on-surface font-medium">45/45 học viên</span>
+<span class="text-secondary font-medium">100% đạt</span>
+</div>
+<div class="w-full h-1.5 bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-secondary rounded-full w-full"></div>
+</div>
+</div>
+</td>
+<td class="px-4">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-caption font-label-sm font-medium bg-[#f1f5f9] text-[#64748b]">
+<span class="w-1.5 h-1.5 rounded-full bg-[#64748b]"></span>
+                  Đã hoàn thành
+                </span>
+</td>
+<td class="px-4 text-right">
+<div class="flex items-center justify-end gap-1">
+<button class="p-1 rounded text-outline hover:text-primary hover:bg-surface-container-high transition-colors" title="Xuất báo cáo kết quả" type="button">
+<span class="material-symbols-outlined text-[18px]">assessment</span>
+</button>
+<button class="p-1 rounded text-outline hover:text-primary hover:bg-surface-container-high transition-colors" title="Xem chi tiết" type="button">
+<span class="material-symbols-outlined text-[18px]">visibility</span>
+</button>
+<button class="p-1 rounded text-outline hover:text-on-surface hover:bg-surface-container-high transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]">more_vert</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 4: Quản trị Trưởng ca -->
+<tr class="h-16 hover:bg-surface-container-low/60 transition-colors">
+<td class="px-4 text-center">
+<input class="w-4 h-4 rounded text-primary focus:ring-0 cursor-pointer" type="checkbox"/>
+</td>
+<td class="px-4 font-mono-num font-semibold text-secondary">
+                TB-2026-015
+              </td>
+<td class="px-4">
+<div class="flex flex-col">
+<span class="font-body-md-medium font-medium text-on-surface hover:text-primary cursor-pointer line-clamp-1">
+                    Hội thảo Kỹ năng Quản trị Đội ngũ Trưởng ca &amp; Điều phối sự cố
+                  </span>
+<div class="flex items-center gap-2 mt-0.5 font-caption text-caption text-on-surface-variant">
+<span class="flex items-center gap-0.5"><span class="material-symbols-outlined text-[13px] text-outline">devices</span> PMC Virtual Training Hall</span>
+<span>•</span>
+<span class="text-outline">Phát hành: 10/01/2026</span>
+</div>
+</div>
+</td>
+<td class="px-4">
+<div class="flex flex-col">
+<span class="font-body-md-medium text-on-surface text-[13px] font-medium">LDT-2026-11</span>
+<span class="font-caption text-caption text-on-surface-variant">Năng lực Quản lý Vận hành</span>
+</div>
+</td>
+<td class="px-4">
+<div class="flex flex-col">
+<span class="text-[13px] font-medium text-on-surface line-clamp-1">Trưởng ca, Giám sát tòa nhà</span>
+<span class="font-caption text-caption text-outline">Hà Nội &amp; Đà Nẵng</span>
+</div>
+</td>
+<td class="px-4">
+<div class="flex flex-col font-caption">
+<span class="font-body-md-medium text-[13px] text-on-surface font-medium">22/01 - 25/01/2026</span>
+<span class="text-outline">Đã đóng khóa</span>
+</div>
+</td>
+<td class="px-4">
+<div class="flex flex-col gap-1 w-36">
+<div class="flex justify-between items-center font-caption text-[11px]">
+<span class="text-on-surface font-medium">20/20 nhân sự</span>
+<span class="text-secondary font-medium">100%</span>
+</div>
+<div class="w-full h-1.5 bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-secondary rounded-full w-full"></div>
+</div>
+</div>
+</td>
+<td class="px-4">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-caption font-label-sm font-medium bg-[#f1f5f9] text-[#64748b]">
+<span class="w-1.5 h-1.5 rounded-full bg-[#64748b]"></span>
+                  Đã kết thúc
+                </span>
+</td>
+<td class="px-4 text-right">
+<div class="flex items-center justify-end gap-1">
+<button class="p-1 rounded text-outline hover:text-primary hover:bg-surface-container-high transition-colors" title="Xem chi tiết" type="button">
+<span class="material-symbols-outlined text-[18px]">visibility</span>
+</button>
+<button class="p-1 rounded text-outline hover:text-on-surface hover:bg-surface-container-high transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]">more_vert</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 5: An toan Lao dong - Bản nháp -->
+<tr class="h-16 hover:bg-surface-container-low/60 transition-colors">
+<td class="px-4 text-center">
+<input class="w-4 h-4 rounded text-primary focus:ring-0 cursor-pointer" type="checkbox"/>
+</td>
+<td class="px-4 font-mono-num font-semibold text-outline">
+                TB-2026-025
+              </td>
+<td class="px-4">
+<div class="flex flex-col">
+<span class="font-body-md-medium font-medium text-on-surface hover:text-primary cursor-pointer line-clamp-1">
+                    Thông báo cập nhật Tài liệu An toàn Vệ sinh Lao động &amp; Kiểm định điện
+                  </span>
+<div class="flex items-center gap-2 mt-0.5 font-caption text-caption text-on-surface-variant">
+<span class="flex items-center gap-0.5"><span class="material-symbols-outlined text-[13px] text-outline">edit_note</span> Khởi tạo: Hôm nay 09:30</span>
+<span>•</span>
+<span class="text-outline">Người tạo: Lê Thu Trang</span>
+</div>
+</div>
+</td>
+<td class="px-4">
+<div class="flex flex-col">
+<span class="font-body-md-medium text-on-surface text-[13px] font-medium">LDT-2026-09</span>
+<span class="font-caption text-caption text-on-surface-variant">An toàn Lao động &amp; Môi trường</span>
+</div>
+</td>
+<td class="px-4">
+<div class="flex flex-col">
+<span class="text-[13px] font-medium text-on-surface line-clamp-1">Toàn thể CBNV Khối Vận hành</span>
+<span class="font-caption text-caption text-outline">Dự kiến 350 người nhận</span>
+</div>
+</td>
+<td class="px-4">
+<div class="flex flex-col font-caption">
+<span class="font-body-md-medium text-[13px] text-on-surface font-medium">Dự kiến 10/03/2026</span>
+<span class="text-outline">Chưa thiết lập hạn</span>
+</div>
+</td>
+<td class="px-4">
+<div class="flex flex-col gap-1 w-36">
+<div class="flex justify-between items-center font-caption text-[11px]">
+<span class="text-outline">0/350</span>
+<span class="text-outline">Chưa gửi</span>
+</div>
+<div class="w-full h-1.5 bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-outline rounded-full w-0"></div>
+</div>
+</div>
+</td>
+<td class="px-4">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-caption font-label-sm font-medium bg-[#fef3c7] text-[#d97706]">
+<span class="w-1.5 h-1.5 rounded-full bg-[#d97706]"></span>
+                  Bản nháp
+                </span>
+</td>
+<td class="px-4 text-right">
+<div class="flex items-center justify-end gap-1">
+<button class="p-1 rounded text-primary hover:bg-surface-container-high transition-colors" title="Tiếp tục chỉnh sửa" type="button">
+<span class="material-symbols-outlined text-[18px]">edit</span>
+</button>
+<button class="p-1 rounded text-outline hover:text-error hover:bg-surface-container-high transition-colors" title="Xóa thông báo nháp" type="button">
+<span class="material-symbols-outlined text-[18px]">delete</span>
+</button>
+<button class="p-1 rounded text-outline hover:text-on-surface hover:bg-surface-container-high transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]">more_vert</span>
+</button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- 6. PAGINATION FOOTER -->
+<div class="px-6 py-4 bg-surface-container-lowest flex flex-col sm:flex-row items-center justify-between gap-4 border-t border-surface-container-low">
+<div class="flex items-center gap-2 font-caption text-caption text-on-surface-variant">
+<span>Hiển thị <strong class="text-on-surface">1 - 5</strong> trên tổng số <strong class="text-on-surface">46</strong> thông báo</span>
+<span class="text-outline">|</span>
+<div class="flex items-center gap-1">
+<span>Hiển thị mỗi trang:</span>
+<select class="bg-surface-container-low text-on-surface rounded px-2 py-0.5 text-[12px] font-medium outline-none">
+<option>5 hàng</option>
+<option selected="">10 hàng</option>
+<option>25 hàng</option>
+<option>50 hàng</option>
+</select>
+</div>
+</div>
+<div class="flex items-center gap-1">
+<button class="w-8 h-8 flex items-center justify-center rounded-lg text-outline opacity-40 hover:bg-surface-container cursor-not-allowed" disabled="" type="button">
+<span class="material-symbols-outlined text-[18px]">chevron_left</span>
+</button>
+<button class="w-8 h-8 flex items-center justify-center rounded-lg bg-primary-container text-on-primary font-body-md-medium text-[13px] shadow-sm" type="button">
+            1
+          </button>
+<button class="w-8 h-8 flex items-center justify-center rounded-lg text-on-surface hover:bg-surface-container font-body-md text-[13px]" type="button">
+            2
+          </button>
+<button class="w-8 h-8 flex items-center justify-center rounded-lg text-on-surface hover:bg-surface-container font-body-md text-[13px]" type="button">
+            3
+          </button>
+<span class="px-1 text-outline font-caption">...</span>
+<button class="w-8 h-8 flex items-center justify-center rounded-lg text-on-surface hover:bg-surface-container font-body-md text-[13px]" type="button">
+            10
+          </button>
+<button class="w-8 h-8 flex items-center justify-center rounded-lg text-on-surface hover:bg-surface-container font-body-md text-[13px]" type="button">
+<span class="material-symbols-outlined text-[18px]">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- 5. ARCHETYPE D DRAWER (CANVAS OVERLAY / SLIDE-IN PANEL) -->
+<div class="fixed inset-0 bg-[#0f172a]/40 backdrop-blur-[2px] z-50 flex justify-end transition-opacity duration-300" id="drawer-backdrop">
+<div class="w-full max-w-2xl bg-surface-container-lowest h-full shadow-2xl flex flex-col justify-between overflow-hidden animate-slide-left" id="action-drawer">
+<!-- Drawer Header -->
+<div class="p-6 bg-surface-container-low flex items-start justify-between shrink-0">
+<div class="flex flex-col gap-1">
+<div class="flex items-center gap-2">
+<span class="w-7 h-7 rounded-md bg-primary-container text-on-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-[18px]">campaign</span>
+</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-semibold">
+              Soạn Thông báo Đào tạo &amp; Chiêu sinh
+            </h2>
+</div>
+<p class="font-caption text-caption text-on-surface-variant pl-9">
+            Thiết lập nội dung truyền thông và triệu tập học viên tham gia khóa đào tạo nghiệp vụ PMC Academy.
+          </p>
+</div>
+<button class="p-1.5 rounded-lg text-outline hover:text-on-surface hover:bg-surface-container-high transition-colors" id="close-drawer-btn" type="button">
+<span class="material-symbols-outlined text-[20px]">close</span>
+</button>
+</div>
+<!-- Drawer Form Body (Scrollable) -->
+<div class="p-6 overflow-y-auto flex-1 flex flex-col gap-5">
+<!-- Field 1: Tiêu đề thông báo -->
+<div class="flex flex-col gap-1.5">
+<label class="font-label-md text-label-md text-on-surface font-medium flex items-center justify-between">
+<span>Tiêu đề thông báo chiêu sinh <strong class="text-error">*</strong></span>
+<span class="font-caption text-[11px] text-outline">Tối đa 120 ký tự</span>
+</label>
+<input class="h-[38px] px-3 bg-surface-container-lowest text-on-surface rounded-lg text-body-md font-body-md shadow-sm focus:outline-none focus:ring-2 focus:ring-primary/25" type="text" value="Thông báo triệu tập Lớp Bồi dưỡng Nghiệp vụ An toàn PCCC 2026"/>
+<span class="font-caption text-caption text-outline">Tiêu đề sẽ hiển thị trên email, thông báo ứng dụng PMC Me và cổng portal nhân sự.</span>
+</div>
+<!-- BS:  -->
+<div class="flex flex-col gap-3"><div class="grid grid-cols-1 sm:grid-cols-4 gap-x-4 gap-y-4"><div class="col-span-1 sm:col-span-2 flex flex-col gap-1.5"><label class="font-label-md text-label-md text-on-surface">Loại thông báo</label><div class="relative"><select class="w-full h-10 px-3 bg-surface-container-low rounded-lg font-body-md text-body-md text-on-surface placeholder:text-outline focus:outline-none focus:bg-surface-container-lowest focus:ring-2 focus:ring-primary/20 transition-all appearance-none pr-8 cursor-pointer"><option>Thông báo đào tạo</option></select><span class="material-symbols-outlined absolute right-2.5 top-1/2 -translate-y-1/2 text-outline pointer-events-none text-[18px]">expand_more</span></div></div><div class="col-span-1 sm:col-span-2 flex flex-col gap-1.5"><label class="font-label-md text-label-md text-on-surface">Ngày tạo thông báo</label><input type="text" class="w-full h-10 px-3 bg-surface-container-low rounded-lg font-body-md text-body-md text-on-surface placeholder:text-outline focus:outline-none focus:bg-surface-container-lowest focus:ring-2 focus:ring-primary/20 transition-all font-mono-num" value="" placeholder="dd/mm/yyyy"/></div></div></div>
+<!-- Field 2: Chọn Lớp / Khóa đào tạo -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<div class="flex flex-col gap-1.5">
+<label class="font-label-md text-label-md text-on-surface font-medium">
+              Khóa / Lớp đào tạo liên kết <strong class="text-error">*</strong>
+</label>
+<div class="relative">
+<select class="w-full appearance-none h-[38px] pl-3 pr-8 bg-surface-container-lowest text-on-surface rounded-lg text-body-md font-body-md shadow-sm focus:outline-none focus:ring-2 focus:ring-primary/25 cursor-pointer">
+<option selected="" value="LDT-2026-01">LDT-2026-01: An toàn PCCC Cục CS PCCC C07</option>
+<option value="LDT-2026-04">LDT-2026-04: Kỹ thuật MEP &amp; BMS Chiller</option>
+<option value="LDT-2026-07">LDT-2026-07: CSKH VIP Căn hộ</option>
+<option value="NEW">+ Tạo mã lớp đào tạo mới...</option>
+</select>
+<span class="material-symbols-outlined absolute right-2.5 top-2.5 text-outline text-[18px] pointer-events-none">expand_more</span>
+</div>
+</div>
+<!-- Field: Hạn đăng ký -->
+<div class="flex flex-col gap-1.5">
+<label class="font-label-md text-label-md text-on-surface font-medium">
+              Hạn chót tiếp nhận đăng ký <strong class="text-error">*</strong>
+</label>
+<div class="relative flex items-center">
+<input class="w-full h-[38px] pl-3 pr-9 bg-surface-container-lowest text-on-surface rounded-lg text-body-md font-body-md shadow-sm focus:outline-none focus:ring-2 focus:ring-primary/25 font-mono-num" type="text" value="28/02/2026 17:00"/>
+<span class="material-symbols-outlined absolute right-2.5 text-outline text-[18px] pointer-events-none">event</span>
+</div>
+</div>
+</div>
+<!-- Field 3: Hình thức đào tạo -->
+<div class="flex flex-col gap-2">
+<label class="font-label-md text-label-md text-on-surface font-medium">
+            Hình thức tổ chức đào tạo
+          </label>
+<div class="grid grid-cols-3 gap-3">
+<label class="flex items-center gap-2 p-2.5 rounded-lg bg-surface-container-low hover:bg-surface-container cursor-pointer transition-colors">
+<input checked="" class="w-4 h-4 text-primary focus:ring-0" name="training_format" type="radio"/>
+<div class="flex flex-col">
+<span class="text-body-md-medium font-medium text-[13px]">Tập trung</span>
+<span class="font-caption text-[11px] text-outline">Tại tòa nhà</span>
+</div>
+</label>
+<label class="flex items-center gap-2 p-2.5 rounded-lg bg-surface-container-low hover:bg-surface-container cursor-pointer transition-colors">
+<input class="w-4 h-4 text-primary focus:ring-0" name="training_format" type="radio"/>
+<div class="flex flex-col">
+<span class="text-body-md-medium font-medium text-[13px]">Trực tuyến</span>
+<span class="font-caption text-[11px] text-outline">PMC LMS / Zoom</span>
+</div>
+</label>
+<label class="flex items-center gap-2 p-2.5 rounded-lg bg-surface-container-low hover:bg-surface-container cursor-pointer transition-colors">
+<input class="w-4 h-4 text-primary focus:ring-0" name="training_format" type="radio"/>
+<div class="flex flex-col">
+<span class="text-body-md-medium font-medium text-[13px]">Bên ngoài</span>
+<span class="font-caption text-[11px] text-outline">Đơn vị ủy quyền</span>
+</div>
+</label>
+</div>
+</div>
+<!-- Field 4: Đối tượng áp dụng / triệu tập -->
+<div class="flex flex-col gap-2">
+<label class="font-label-md text-label-md text-on-surface font-medium">
+            Đối tượng triệu tập / Đơn vị tiếp nhận <strong class="text-error">*</strong>
+</label>
+<div class="p-3 bg-surface-container-low rounded-lg flex flex-col gap-2">
+<div class="grid grid-cols-2 gap-2 text-body-md">
+<label class="flex items-center gap-2 cursor-pointer">
+<input checked="" class="w-4 h-4 rounded text-primary focus:ring-0" type="checkbox"/>
+<span>Khối Kỹ thuật Vận hành (MEP)</span>
+</label>
+<label class="flex items-center gap-2 cursor-pointer">
+<input checked="" class="w-4 h-4 rounded text-primary focus:ring-0" type="checkbox"/>
+<span>Đội An ninh / Bảo vệ Keangnam</span>
+</label>
+<label class="flex items-center gap-2 cursor-pointer">
+<input class="w-4 h-4 rounded text-primary focus:ring-0" type="checkbox"/>
+<span>Khối Lễ tân &amp; CSKH Căn hộ</span>
+</label>
+<label class="flex items-center gap-2 cursor-pointer">
+<input class="w-4 h-4 rounded text-primary focus:ring-0" type="checkbox"/>
+<span>Ban Quản lý Handico Tower</span>
+</label>
+</div>
+<div class="pt-2 border-t border-surface-variant flex items-center justify-between text-caption font-caption text-outline">
+<span>Đã chọn: <strong class="text-primary font-medium">Khối Kỹ thuật, Bảo vệ (120 CBNV)</strong></span>
+<button class="text-primary hover:underline font-medium" type="button">+ Thêm nhóm/dự án khác</button>
+</div>
+</div>
+</div>
+<!-- BS: Phạm vi gửi thông báo -->
+<div class="flex flex-col gap-3"><div class="flex items-center gap-2 mt-1 mb-3"><span class="w-1 h-4 rounded bg-[#1967B2]"></span><h3 class="font-headline-sm text-headline-sm text-on-surface">Phạm vi gửi thông báo</h3></div><div class="grid grid-cols-1 sm:grid-cols-4 gap-x-4 gap-y-4"><div class="col-span-1 sm:col-span-4 flex items-center pt-5"><label class="inline-flex items-center gap-2 cursor-pointer"><input type="checkbox" class="w-4 h-4 rounded accent-[#1967B2]"/><span class="font-body-md text-body-md text-on-surface">Tất cả</span></label></div><div class="col-span-1 sm:col-span-1 flex items-center pt-5"><label class="inline-flex items-center gap-2 cursor-pointer"><input type="checkbox" class="w-4 h-4 rounded accent-[#1967B2]"/><span class="font-body-md text-body-md text-on-surface">Đơn vị</span></label></div><div class="col-span-1 sm:col-span-3 flex flex-col gap-1.5"><label class="font-label-md text-label-md text-on-surface">Chọn đơn vị</label><div class="relative"><select class="w-full h-10 px-3 bg-surface-container-low rounded-lg font-body-md text-body-md text-on-surface placeholder:text-outline focus:outline-none focus:bg-surface-container-lowest focus:ring-2 focus:ring-primary/20 transition-all appearance-none pr-8 cursor-pointer"><option>Chọn đơn vị</option><option>BQL Tòa nhà Keangnam</option><option>BQL Tòa Handico</option><option>TTTM Indochina</option></select><span class="material-symbols-outlined absolute right-2.5 top-1/2 -translate-y-1/2 text-outline pointer-events-none text-[18px]">expand_more</span></div></div><div class="col-span-1 sm:col-span-1 flex items-center pt-5"><label class="inline-flex items-center gap-2 cursor-pointer"><input type="checkbox" class="w-4 h-4 rounded accent-[#1967B2]"/><span class="font-body-md text-body-md text-on-surface">Phòng ban/ Dự án</span></label></div><div class="col-span-1 sm:col-span-3 flex flex-col gap-1.5"><label class="font-label-md text-label-md text-on-surface">Chọn phòng ban/dự án</label><div class="relative"><select class="w-full h-10 px-3 bg-surface-container-low rounded-lg font-body-md text-body-md text-on-surface placeholder:text-outline focus:outline-none focus:bg-surface-container-lowest focus:ring-2 focus:ring-primary/20 transition-all appearance-none pr-8 cursor-pointer"><option>Chọn phòng ban/dự án</option></select><span class="material-symbols-outlined absolute right-2.5 top-1/2 -translate-y-1/2 text-outline pointer-events-none text-[18px]">expand_more</span></div></div><div class="col-span-1 sm:col-span-1 flex items-center pt-5"><label class="inline-flex items-center gap-2 cursor-pointer"><input type="checkbox" class="w-4 h-4 rounded accent-[#1967B2]"/><span class="font-body-md text-body-md text-on-surface">Lớp đào tạo</span></label></div><div class="col-span-1 sm:col-span-3 flex flex-col gap-1.5"><label class="font-label-md text-label-md text-on-surface">Chọn lớp đào tạo</label><div class="relative"><select class="w-full h-10 px-3 bg-surface-container-low rounded-lg font-body-md text-body-md text-on-surface placeholder:text-outline focus:outline-none focus:bg-surface-container-lowest focus:ring-2 focus:ring-primary/20 transition-all appearance-none pr-8 cursor-pointer"><option>Chọn lớp đào tạo</option><option>LDT-2026-01: An toàn PCCC</option><option>LDT-2026-04: Vận hành BMS &amp; HVAC Chiller</option><option>LDT-2026-07: Giao tiếp Cư dân VIP</option><option>LDT-2026-11: Quản lý Trưởng ca</option></select><span class="material-symbols-outlined absolute right-2.5 top-1/2 -translate-y-1/2 text-outline pointer-events-none text-[18px]">expand_more</span></div></div><div class="col-span-1 sm:col-span-1 flex items-center pt-5"><label class="inline-flex items-center gap-2 cursor-pointer"><input type="checkbox" class="w-4 h-4 rounded accent-[#1967B2]"/><span class="font-body-md text-body-md text-on-surface">VB,CC,CN hết hạn và sắp hết hạn (30 ngày)</span></label></div><div class="col-span-1 sm:col-span-3 flex flex-col gap-1.5"><label class="font-label-md text-label-md text-on-surface">Chọn VB,CC,CN</label><div class="relative"><select class="w-full h-10 px-3 bg-surface-container-low rounded-lg font-body-md text-body-md text-on-surface placeholder:text-outline focus:outline-none focus:bg-surface-container-lowest focus:ring-2 focus:ring-primary/20 transition-all appearance-none pr-8 cursor-pointer"><option>Chọn văn bằng/chứng chỉ</option><option>An toàn PCCC</option><option>Vận hành MEP</option><option>Sơ cấp cứu</option></select><span class="material-symbols-outlined absolute right-2.5 top-1/2 -translate-y-1/2 text-outline pointer-events-none text-[18px]">expand_more</span></div></div></div></div>
+<!-- Field 5: Nội dung chi tiết thông báo (Rich Text Mock) -->
+<div class="flex flex-col gap-1.5">
+<label class="font-label-md text-label-md text-on-surface font-medium">
+            Nội dung chi tiết &amp; Quy định sát hạch <strong class="text-error">*</strong>
+</label>
+<div class="rounded-lg shadow-sm overflow-hidden bg-surface-container-lowest">
+<!-- Toolbar -->
+<div class="p-2 bg-surface-container-low flex items-center gap-1 flex-wrap text-outline font-label-sm">
+<button class="p-1 hover:text-on-surface rounded hover:bg-surface-container-high" type="button"><span class="material-symbols-outlined text-[16px]">format_bold</span></button>
+<button class="p-1 hover:text-on-surface rounded hover:bg-surface-container-high" type="button"><span class="material-symbols-outlined text-[16px]">format_italic</span></button>
+<button class="p-1 hover:text-on-surface rounded hover:bg-surface-container-high" type="button"><span class="material-symbols-outlined text-[16px]">format_underlined</span></button>
+<div class="h-4 w-[1px] bg-outline-variant/60 mx-1"></div>
+<button class="p-1 hover:text-on-surface rounded hover:bg-surface-container-high" type="button"><span class="material-symbols-outlined text-[16px]">format_list_bulleted</span></button>
+<button class="p-1 hover:text-on-surface rounded hover:bg-surface-container-high" type="button"><span class="material-symbols-outlined text-[16px]">format_list_numbered</span></button>
+<div class="h-4 w-[1px] bg-outline-variant/60 mx-1"></div>
+<button class="p-1 hover:text-on-surface rounded hover:bg-surface-container-high" type="button"><span class="material-symbols-outlined text-[16px]">link</span></button>
+<button class="p-1 hover:text-on-surface rounded hover:bg-surface-container-high" type="button"><span class="material-symbols-outlined text-[16px]">table_chart</span></button>
+</div>
+<!-- Editor Content -->
+<textarea class="w-full p-3 text-body-md font-body-md text-on-surface bg-transparent focus:outline-none resize-none leading-relaxed" rows="5">Kính gửi: Toàn thể Cán bộ Kỹ thuật &amp; Đội phản ứng nhanh PCCC,
+
+Căn cứ Kế hoạch Bồi dưỡng Nghiệp vụ định kỳ năm 2026 của PMC Academy phối hợp cùng Cục Cảnh sát PCCC và CNCH (C07), Ban Giám đốc thông báo triệu tập toàn bộ nhân sự theo danh sách tham dự khóa huấn luyện:
+1. Thời gian: 08:30 - 17:00 ngày 01/03/2026 đến 05/03/2026.
+2. Địa điểm: Hội trường tầng 6, Keangnam Landmark 72 &amp; Bãi tập ngoài trời.
+3. Yêu cầu: 100% học viên mặc trang phục kỹ thuật chuẩn, mang theo sổ tay nghiệp vụ và tham gia đầy đủ buổi sát hạch cấp chứng chỉ.</textarea>
+</div>
+</div>
+<!-- Field 6: Dropzone đính kèm tài liệu -->
+<div class="flex flex-col gap-1.5">
+<label class="font-label-md text-label-md text-on-surface font-medium">
+            Tài liệu chi tiết đính kèm (PDF, DOCX)
+          </label>
+<div class="p-3 bg-surface-container-low rounded-lg flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="w-9 h-9 rounded-lg bg-error-container text-error flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[20px]">picture_as_pdf</span>
+</div>
+<div class="flex flex-col">
+<span class="font-body-md-medium text-body-md-medium text-on-surface font-medium line-clamp-1">Ke_hoach_chi_tiet_dao_tao_PCCC_2026.pdf</span>
+<span class="font-caption text-caption text-outline">3.2 MB • Tải lên thành công</span>
+</div>
+</div>
+<button class="p-1 text-outline hover:text-error rounded" type="button">
+<span class="material-symbols-outlined text-[18px]">close</span>
+</button>
+</div>
+</div>
+<!-- Field 7: Kênh phát thông báo -->
+<div class="flex flex-col gap-2">
+<label class="font-label-md text-label-md text-on-surface font-medium">
+            Kênh phát hành thông báo
+          </label>
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-2">
+<label class="flex items-center gap-2 p-2 rounded-lg bg-surface-container-low text-body-md cursor-pointer">
+<input checked="" class="w-4 h-4 rounded text-primary focus:ring-0" type="checkbox"/>
+<span class="font-body-md text-body-md">Email nội bộ</span>
+</label>
+<label class="flex items-center gap-2 p-2 rounded-lg bg-surface-container-low text-body-md cursor-pointer">
+<input checked="" class="w-4 h-4 rounded text-primary focus:ring-0" type="checkbox"/>
+<span class="font-body-md text-body-md">Push App PMC Me</span>
+</label>
+<label class="flex items-center gap-2 p-2 rounded-lg bg-surface-container-low text-body-md cursor-pointer opacity-70">
+<input class="w-4 h-4 rounded text-primary focus:ring-0" type="checkbox"/>
+<span class="font-body-md text-body-md">SMS khẩn cấp</span>
+</label>
+</div>
+</div>
+</div>
+<!-- Drawer Footer Action Bar -->
+<div class="p-4 bg-surface-container-low flex items-center justify-between shrink-0">
+<button class="h-[38px] px-4 rounded-lg bg-surface-container-lowest text-on-surface hover:bg-surface-container-high transition-colors font-label-md text-label-md shadow-sm" id="cancel-drawer-btn" type="button">
+          Hủy bỏ
+        </button>
+<div class="flex items-center gap-2">
+<button class="h-[38px] px-4 rounded-lg bg-surface-container-high hover:bg-surface-container-highest text-on-surface transition-colors font-label-md text-label-md" type="button">
+            Lưu bản nháp
+          </button>
+<button class="inline-flex items-center gap-1.5 h-[38px] px-5 rounded-lg bg-primary-container text-on-primary hover:opacity-95 shadow-sm transition-all font-label-md text-label-md" type="button">
+<span class="material-symbols-outlined text-[18px]">send</span>
+<span>Phát hành thông báo ngay</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Vanilla JS Micro-Interactions for Archetype D Drawer Control -->
+<script>
+  (function() {
+    const backdrop = document.getElementById('drawer-backdrop');
+    const closeBtn = document.getElementById('close-drawer-btn');
+    const cancelBtn = document.getElementById('cancel-drawer-btn');
+    const openBtn = document.getElementById('open-drawer-btn');
+
+    function closeDrawer() {
+      if (backdrop) {
+        backdrop.classList.add('hidden');
+      }
+    }
+
+    function openDrawer() {
+      if (backdrop) {
+        backdrop.classList.remove('hidden');
+      }
+    }
+
+    if (closeBtn) closeBtn.addEventListener('click', closeDrawer);
+    if (cancelBtn) cancelBtn.addEventListener('click', closeDrawer);
+    if (openBtn) openBtn.addEventListener('click', openDrawer);
+
+    // Optional click outside panel to dismiss
+    if (backdrop) {
+      backdrop.addEventListener('click', function(e) {
+        if (e.target === backdrop) {
+          closeDrawer();
+        }
+      });
+    }
+  })();
+</script></main></div><script src="../shared/nav.js"></script></body></html>

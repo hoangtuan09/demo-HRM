@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Danh mục Tài liệu đào tạo — HRM</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="../shared/tw-config.js"></script>
+<link rel="stylesheet" href="../shared/nav.css"/>
+<link rel="stylesheet" href="../shared/fix.css"/>
+</head>
+<body class="bg-background font-body-md text-on-surface antialiased">
+<aside id="app-sidebar" data-mode="fixed" data-old-w="256"></aside>
+<div class="pl-64"><div id="page-root"></div></div>
+<script>
+window.HRM_PAGE = {
+  search: "Tìm kiếm tài liệu, lớp đào tạo...",
+  breadcrumb: ["Danh mục", "Tài liệu đào tạo"],
+  title: "Danh mục Tài liệu đào tạo",
+  desc: "Quản lý kho tài liệu, giáo trình đính kèm theo từng lớp đào tạo của PMC để cán bộ nhân viên tải xuống và tham khảo.",
+  headerActions: [
+    { label: "Xuất file Excel", icon: "file_download" },
+    { label: "+ Thêm tài liệu mới", icon: "add", primary: true }
+  ],
+  stats: [
+    { label: "Tổng tài liệu", value: "184", sub: "tài liệu đào tạo", icon: "folder_copy", tone: "primary" },
+    { label: "Lớp có tài liệu", value: "42", sub: "lớp đào tạo", icon: "cast_for_education", tone: "info" },
+    { label: "Tài liệu PDF", value: "121", sub: "định dạng PDF", icon: "picture_as_pdf", tone: "danger" },
+    { label: "Tài liệu khác", value: "63", sub: "Word, Excel, Slide...", icon: "description", tone: "success" }
+  ],
+  filters: [
+    { label: "Tìm kiếm", type: "search", placeholder: "Tìm tên tài liệu..." },
+    { label: "Đơn vị", type: "select", options: ["Tất cả đơn vị", "BQL Tòa nhà Keangnam", "BQL Tòa Handico", "TTTM Indochina"] },
+    { label: "Lớp đào tạo", type: "select", options: ["Tất cả lớp"] }
+  ],
+  columns: [
+    { title: "STT", field: "stt", align: "center", width: 60 },
+    { title: "Tên", field: "ten", kind: "strong" },
+    { title: "Lớp đào tạo", field: "lop" },
+    { title: "Dạng tài liệu", field: "dang", kind: "badge", tones: { "PDF": "bg-red-50 text-red-600", "Word": "bg-sky-50 text-sky-600", "Excel": "bg-emerald-50 text-emerald-600", "PowerPoint": "bg-amber-50 text-amber-600" } },
+    { title: "Thao tác", field: "", kind: "actions", align: "center", actions: ["download", "edit", "delete"] }
+  ],
+  rows: [
+    { stt: 1, ten: "Giáo trình An toàn PCCC toà nhà cao tầng", lop: "An toàn PCCC cơ bản", dang: "PDF" },
+    { stt: 2, ten: "Quy trình nghiệp vụ Chăm sóc khách hàng", lop: "Nghiệp vụ CSKH", dang: "Word" },
+    { stt: 3, ten: "Bảng kiểm tra vận hành hệ thống MEP", lop: "Kỹ thuật MEP nâng cao", dang: "Excel" },
+    { stt: 4, ten: "Slide Văn hoá doanh nghiệp PMC", lop: "Hội nhập nhân viên mới", dang: "PowerPoint" },
+    { stt: 5, ten: "Sổ tay vận hành toà nhà thương mại", lop: "Chuyển đổi số BQL", dang: "PDF" }
+  ],
+  total: 184,
+  toolbar: [],
+  form: {
+    title: "THÊM TÀI LIỆU ĐÀO TẠO MỚI", saveLabel: "Lưu dữ liệu", wide: false,
+    sections: [
+      { title: "Thông tin tài liệu", fields: [
+        { label: "Lớp đào tạo", type: "select", required: true, options: ["Chọn lớp đào tạo", "Lớp An toàn PCCC K12", "Lớp Vận hành MEP K05", "Lớp Sơ cấp cứu K03"], span: 2 },
+        { label: "Tên tài liệu", type: "text", required: true, span: 2 },
+        { label: "Tệp tài liệu", type: "file", span: 3, hint: "Chấp nhận: .xlsx, .xls, .doc, .docx, .ppt, .pptx, .txt, .pdf" },
+        { label: "Vị trí", type: "number", span: 1 }
+      ] }
+    ]
+  }
+};
+</script>
+<script src="../shared/page.js"></script>
+<script src="../shared/nav.js"></script>
+</body>
+</html>

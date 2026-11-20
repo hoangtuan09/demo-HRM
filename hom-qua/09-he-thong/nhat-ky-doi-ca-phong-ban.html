@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Nhật ký đổi ca Phòng ban/Dự án — HRM</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="../shared/tw-config.js"></script>
+<link rel="stylesheet" href="../shared/nav.css"/>
+<link rel="stylesheet" href="../shared/fix.css"/>
+</head>
+<body class="bg-background font-body-md text-on-surface antialiased">
+<aside id="app-sidebar" data-mode="fixed" data-old-w="256"></aside>
+<div class="pl-64"><div id="page-root"></div></div>
+<script>
+window.HRM_PAGE = {
+  search: "Tìm kiếm nhật ký, phòng ban, người thao tác...",
+  breadcrumb: ["Nhật ký", "Đổi ca phòng ban"],
+  title: "Nhật ký đổi ca Phòng ban/Dự án",
+  desc: "Theo dõi lịch sử thay đổi phân ca làm việc theo phòng ban/dự án: ca cũ, ca mới, người thực hiện và thời điểm thao tác.",
+  stats: [
+    { label: "Lượt đổi ca trong kỳ", value: "48", sub: "01/11 – 16/11/2026", icon: "cached", tone: "primary" },
+    { label: "Phòng ban liên quan", value: "9", sub: "có điều chỉnh ca", icon: "apartment", tone: "info" },
+    { label: "Người thao tác", value: "6", sub: "quản lý ca trực", icon: "manage_accounts", tone: "success" },
+    { label: "Đổi trong hôm nay", value: "5", sub: "cập nhật mới nhất", icon: "today", tone: "warning" }
+  ],
+  filters: [
+    { label: "Từ ngày", type: "date", value: "01/11/2026" },
+    { label: "Đến ngày", type: "date", value: "16/11/2026" },
+    { label: "Đơn vị", type: "select", options: ["Toàn công ty", "BQL Tòa nhà Keangnam", "BQL Tòa Handico", "TTTM Indochina"] },
+    { label: "Phòng ban/Dự án", type: "select", options: ["Tất cả phòng ban", "Khối Vận hành", "Khối Kỹ thuật", "Tổ Bảo vệ", "Tổ Vệ sinh"] }
+  ],
+  gear: true,
+  columns: [
+    { title: "STT", field: "stt", align: "center", width: 60 },
+    { title: "Phòng ban / Dự án", field: "pb", kind: "strong" },
+    { title: "Ngày áp dụng", field: "ngay", align: "center" },
+    { title: "Ca cũ", field: "caCu", align: "center", kind: "badge", tones: { "Ca ngày": "bg-sky-50 text-sky-600", "Ca đêm": "bg-indigo-50 text-indigo-600", "Ca gãy": "bg-amber-50 text-amber-600", "Hành chính": "bg-surface-container-high text-on-surface-variant" } },
+    { title: "Ca mới", field: "caMoi", align: "center", kind: "badge", tones: { "Ca ngày": "bg-sky-50 text-sky-600", "Ca đêm": "bg-indigo-50 text-indigo-600", "Ca gãy": "bg-amber-50 text-amber-600", "Hành chính": "bg-surface-container-high text-on-surface-variant" } },
+    { title: "Người thao tác", field: "nguoi" },
+    { title: "Thời gian", field: "thoiGian", align: "center" }
+  ],
+  rows: [
+    { stt: 1, pb: "Khối Vận hành", ngay: "16/11/2026", caCu: "Ca ngày", caMoi: "Ca đêm", nguoi: "Đặng Quốc Tuấn", thoiGian: "16/11/2026 07:42" },
+    { stt: 2, pb: "Tổ Bảo vệ", ngay: "15/11/2026", caCu: "Ca đêm", caMoi: "Ca gãy", nguoi: "Bùi Văn Phong", thoiGian: "15/11/2026 16:20" },
+    { stt: 3, pb: "Khối Kỹ thuật", ngay: "14/11/2026", caCu: "Hành chính", caMoi: "Ca ngày", nguoi: "Nguyễn Văn An", thoiGian: "14/11/2026 09:05" },
+    { stt: 4, pb: "Tổ Vệ sinh", ngay: "13/11/2026", caCu: "Ca ngày", caMoi: "Ca gãy", nguoi: "Ngô Thị Mai", thoiGian: "13/11/2026 14:11" },
+    { stt: 5, pb: "Khối Vận hành", ngay: "12/11/2026", caCu: "Ca đêm", caMoi: "Ca ngày", nguoi: "Đặng Quốc Tuấn", thoiGian: "12/11/2026 08:30" },
+    { stt: 6, pb: "Tổ Bảo vệ", ngay: "11/11/2026", caCu: "Ca gãy", caMoi: "Ca đêm", nguoi: "Bùi Văn Phong", thoiGian: "11/11/2026 17:48" }
+  ],
+  total: 48,
+  toolbar: [
+    { label: "Lọc dữ liệu", icon: "filter_alt", kind: "find" },
+    { label: "Xuất Excel", icon: "file_download", kind: "export" }
+  ]
+};
+</script>
+<script src="../shared/page.js"></script>
+<script src="../shared/nav.js"></script>
+</body>
+</html>

@@ -1,0 +1,343 @@
+<!DOCTYPE html><html lang="vi"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Đăng nhập - Hệ thống Quản trị Nhân sự HRM</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&amp;display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Be Vietnam Pro"', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              DEFAULT: '#1967B2',
+              hover: '#124E88',
+              light: '#E8F1FA',
+              subtle: '#F4F8FD',
+            },
+            surface: {
+              DEFAULT: '#FFFFFF',
+              app: '#F5F7FA',
+            },
+            content: {
+              primary: '#0F172A',
+              secondary: '#475569',
+              muted: '#94A3B8',
+            },
+            border: '#E2E8F0',
+            danger: {
+              DEFAULT: '#DC2626',
+              light: '#FEE2E2',
+              border: '#FECACA',
+            },
+            success: '#16A34A',
+            warning: '#F59E0B',
+            info: '#0EA5E9',
+          },
+          borderRadius: {
+            DEFAULT: '8px',
+          },
+          boxShadow: {
+            card: '0 4px 20px -2px rgba(15, 23, 42, 0.08), 0 2px 6px -1px rgba(15, 23, 42, 0.04)',
+            soft: '0 2px 8px rgba(15, 23, 42, 0.06)',
+            focused: '0 0 0 3px rgba(25, 103, 178, 0.15)',
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body {
+      font-family: 'Be Vietnam Pro', sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+    .brand-gradient {
+      background: linear-gradient(135deg, #1967B2 0%, #124E88 100%);
+    }
+    .captcha-noise {
+      background-color: #f1f5f9;
+      background-image: radial-gradient(#cbd5e1 1px, transparent 1px), radial-gradient(#94a3b8 1px, #f1f5f9 1px);
+      background-size: 8px 8px;
+      background-position: 0 0, 4px 4px;
+    }
+    .skew-text {
+      transform: skew(-6deg) rotate(-2deg);
+      letter-spacing: 0.25em;
+    }
+  </style>
+<link rel="stylesheet" href="../shared/fix.css"/></head>
+<body class="bg-surface-app text-content-primary antialiased min-h-screen"><a class="hrm-back" href="../index.html">&#8592; Thư viện</a>
+  <div class="flex flex-col lg:flex-row min-h-screen w-full">
+    
+    <!-- LEFT PANEL: Brand & Illustration (55% on lg screens, top banner on mobile) -->
+    <div class="brand-gradient lg:w-[55%] w-full flex flex-col justify-between p-6 sm:p-10 lg:p-14 text-white relative overflow-hidden shrink-0">
+      
+      <!-- Background Ambient Geometric Vector Motifs -->
+      <div class="absolute inset-0 pointer-events-none opacity-10">
+        <svg class="w-full h-full object-cover" viewBox="0 0 800 800" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- Org-chart node representations & grid -->
+          <circle cx="150" cy="180" r="40" stroke="white" stroke-width="2"></circle>
+          <circle cx="350" cy="180" r="40" stroke="white" stroke-width="2"></circle>
+          <circle cx="250" cy="340" r="50" stroke="white" stroke-width="2.5"></circle>
+          <circle cx="450" cy="340" r="40" stroke="white" stroke-width="2"></circle>
+          <circle cx="200" cy="520" r="35" stroke="white" stroke-width="2"></circle>
+          <circle cx="380" cy="520" r="35" stroke="white" stroke-width="2"></circle>
+          
+          <!-- Hierarchy links -->
+          <path d="M150 220 L150 280 L250 280 L250 290" stroke="white" stroke-width="2" stroke-dasharray="4 4"></path>
+          <path d="M350 220 L350 280 L250 280" stroke="white" stroke-width="2" stroke-dasharray="4 4"></path>
+          <path d="M250 390 L250 460 L200 460 L200 485" stroke="white" stroke-width="2"></path>
+          <path d="M250 460 L380 460 L380 485" stroke="white" stroke-width="2"></path>
+          <path d="M450 380 L450 460 L380 460" stroke="white" stroke-width="2" stroke-dasharray="4 4"></path>
+          
+          <!-- Soft ambient concentric rings -->
+          <circle cx="650" cy="200" r="180" stroke="white" stroke-width="1.5" stroke-dasharray="6 6"></circle>
+          <circle cx="650" cy="200" r="260" stroke="white" stroke-width="1"></circle>
+          <circle cx="100" cy="700" r="220" stroke="white" stroke-width="1.5"></circle>
+        </svg>
+      </div>
+
+      <!-- Top Header / Logo Lockup -->
+      <div class="relative z-10 flex items-center justify-between lg:justify-start">
+        <div class="flex items-center space-x-3"><div class="h-10 px-2 py-1 rounded-lg bg-white flex items-center justify-center shadow-md">
+            <img src="../shared/img/img-11.png" alt="HRM" class="h-full w-auto object-contain">
+          </div>
+          <div class="flex flex-col">
+            <span class="text-xl font-bold tracking-tight text-white leading-tight">HRM</span>
+            <span class="text-xs text-blue-100 font-medium tracking-wider uppercase opacity-90">Enterprise Platform</span>
+          </div></div>
+        <span class="lg:hidden text-xs bg-white/15 px-3 py-1 rounded-full font-medium text-white/90 backdrop-blur-sm">v3.4.2</span>
+      </div>
+
+      <!-- Center Copy & HR Modules Showcase (Shown prominent on desktop) -->
+      <div class="relative z-10 my-8 lg:my-auto max-w-xl">
+        <div class="inline-flex items-center space-x-2 px-3 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/15 text-xs font-medium text-blue-50 mb-6">
+          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+          <span>Hệ thống Quản trị Nhân sự Toàn diện</span>
+        </div>
+        
+        <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white leading-[1.2] mb-4">
+          Hệ thống Quản trị<br class="hidden sm:inline"> Nhân sự Thông minh
+        </h1>
+        
+        <p class="text-blue-100 text-sm sm:text-base leading-relaxed mb-8 max-w-lg font-normal">
+          Quản lý nhân sự, chấm công, bảng lương tự động và quy trình tuyển dụng trên một nền tảng tập trung, an toàn và tinh gọn.
+        </p>
+
+        <!-- Feature Grid Mini Badges -->
+        <div class="grid grid-cols-2 gap-3 sm:gap-4 max-w-md">
+          <div class="flex items-center space-x-3 p-3 rounded-lg bg-white/10 backdrop-blur-sm border border-white/10">
+            <div class="w-8 h-8 rounded-md bg-white/20 flex items-center justify-center shrink-0">
+              <svg class="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+              </svg>
+            </div>
+            <div>
+              <p class="text-xs font-semibold text-white">Hồ sơ 360°</p>
+              <p class="text-[11px] text-blue-200">Đầy đủ vòng đời nhân sự</p>
+            </div>
+          </div>
+
+          <div class="flex items-center space-x-3 p-3 rounded-lg bg-white/10 backdrop-blur-sm border border-white/10">
+            <div class="w-8 h-8 rounded-md bg-white/20 flex items-center justify-center shrink-0">
+              <svg class="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+              </svg>
+            </div>
+            <div>
+              <p class="text-xs font-semibold text-white">Chấm công &amp; Phân ca</p>
+              <p class="text-[11px] text-blue-200">Linh hoạt theo ca kíp</p>
+            </div>
+          </div>
+
+          <div class="flex items-center space-x-3 p-3 rounded-lg bg-white/10 backdrop-blur-sm border border-white/10">
+            <div class="w-8 h-8 rounded-md bg-white/20 flex items-center justify-center shrink-0">
+              <svg class="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"></path>
+              </svg>
+            </div>
+            <div>
+              <p class="text-xs font-semibold text-white">Tính lương tự động</p>
+              <p class="text-[11px] text-blue-200">Chính xác &amp; bảo mật</p>
+            </div>
+          </div>
+
+          <div class="flex items-center space-x-3 p-3 rounded-lg bg-white/10 backdrop-blur-sm border border-white/10">
+            <div class="w-8 h-8 rounded-md bg-white/20 flex items-center justify-center shrink-0">
+              <svg class="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+              </svg>
+            </div>
+            <div>
+              <p class="text-xs font-semibold text-white">Bảo mật đa tầng</p>
+              <p class="text-[11px] text-blue-200">Chuẩn phân quyền role-based</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bottom Panel Footer -->
+      <div class="relative z-10 pt-4 border-t border-white/15 flex flex-col sm:flex-row sm:items-center justify-between text-xs text-blue-100 gap-2">
+        <p>© 2026 PMC. Bản quyền thuộc về PMC.</p>
+        <div class="flex items-center space-x-4">
+          <a href="#" class="hover:text-white transition-colors">Điều khoản dịch vụ</a>
+          <span class="opacity-40">•</span>
+          <a href="#" class="hover:text-white transition-colors">Chính sách bảo mật</a>
+          <span class="opacity-40">•</span>
+          <a href="#" class="hover:text-white transition-colors">Hỗ trợ</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- RIGHT PANEL: Login Form Card (45% on lg screens, full width on mobile) -->
+    <div class="lg:w-[45%] w-full flex items-center justify-center p-4 sm:p-8 lg:p-12 bg-surface-app">
+      <div class="w-full max-w-[420px] bg-white rounded-xl shadow-card border border-border p-6 sm:p-8">
+        
+        <!-- Header Section -->
+        <div class="mb-6">
+          <div class="lg:hidden flex items-center space-x-2.5 mb-4">
+            <div class="w-8 h-8 rounded bg-brand flex items-center justify-center text-white font-bold text-sm">H</div>
+            <span class="font-bold text-lg text-content-primary">HRM Core</span>
+          </div>
+          <h2 class="text-2xl font-bold text-content-primary tracking-tight">Đăng nhập</h2>
+          <p class="text-sm text-content-secondary mt-1">Vui lòng nhập thông tin tài khoản để tiếp tục</p>
+        </div>
+
+        <!-- Inline Error Alert State -->
+        <div class="mb-5 p-3.5 rounded-lg bg-danger-light border border-danger-border flex items-start space-x-3" role="alert">
+          <svg class="w-5 h-5 text-danger shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+          </svg>
+          <div class="flex-1">
+            <p class="text-xs font-semibold text-danger leading-tight">Đăng nhập không thành công</p>
+            <p class="text-xs text-danger/90 mt-0.5">Tài khoản hoặc mật khẩu không chính xác. Vui lòng kiểm tra lại.</p>
+          </div>
+          <button class="text-danger hover:opacity-75 focus:outline-none" aria-label="Đóng cảnh báo" onclick="this.parentElement.remove()">
+            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+            </svg>
+          </button>
+        </div>
+
+        <!-- Login Form -->
+        <form class="space-y-4" onsubmit="event.preventDefault();">
+          
+          <!-- Field: Username / Account -->
+          <div>
+            <label for="username" class="block text-xs font-semibold text-content-primary mb-1.5">
+              Tài khoản <span class="text-danger">*</span>
+            </label>
+            <div class="relative rounded-lg shadow-sm">
+              <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-content-muted">
+                <!-- User Line Icon -->
+                <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+                </svg>
+              </div>
+              <input type="text" id="username" name="username" value="nguyen.van.an" class="block w-full pl-9 pr-3 py-2.5 text-sm bg-white border border-border rounded-lg text-content-primary placeholder-content-muted focus:outline-none focus:border-brand focus:ring-2 focus:ring-brand/20 transition duration-150" placeholder="Nhập tài khoản hoặc email công vụ" required="">
+            </div>
+          </div>
+
+          <!-- Field: Password -->
+          <div>
+            <div class="flex items-center justify-between mb-1.5">
+              <label for="password" class="block text-xs font-semibold text-content-primary">
+                Mật khẩu <span class="text-danger">*</span>
+              </label>
+            </div>
+            <div class="relative rounded-lg shadow-sm">
+              <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-content-muted">
+                <!-- Lock Line Icon -->
+                <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
+                </svg>
+              </div>
+              <input type="password" id="password" name="password" value="••••••••••••" class="block w-full pl-9 pr-10 py-2.5 text-sm bg-white border border-border rounded-lg text-content-primary placeholder-content-muted focus:outline-none focus:border-brand focus:ring-2 focus:ring-brand/20 transition duration-150" placeholder="Nhập mật khẩu" required="">
+              <button type="button" id="togglePassword" class="absolute inset-y-0 right-0 pr-3 flex items-center text-content-muted hover:text-content-secondary focus:outline-none" onclick="const p = document.getElementById('password'); p.type = p.type === 'password' ? 'text' : 'password';" aria-label="Ẩn hiện mật khẩu">
+                <!-- Eye Line Icon -->
+                <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <!-- Captcha Row -->
+          <div>
+            <label class="block text-xs font-semibold text-content-primary mb-1.5">
+              Mã xác nhận (Captcha) <span class="text-danger">*</span>
+            </label>
+            <div class="grid grid-cols-12 gap-2">
+              <!-- Captcha Image Display & Refresh -->
+              <div class="col-span-5 flex items-center rounded-lg border border-border overflow-hidden bg-slate-50">
+                <div class="flex-1 h-[42px] captcha-noise flex items-center justify-center select-none font-mono font-bold text-base text-slate-700 italic skew-text border-r border-border/80 px-2 tracking-widest">
+                  8K9M2
+                </div>
+                <button type="button" title="Đổi mã khác" class="w-9 h-[42px] flex items-center justify-center text-content-secondary hover:text-brand hover:bg-slate-100 transition-colors" aria-label="Đổi mã captcha khác">
+                  <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path>
+                  </svg>
+                </button>
+              </div>
+
+              <!-- Captcha Input -->
+              <div class="col-span-7">
+                <input type="text" id="captcha" maxlength="6" class="block w-full px-3 py-2.5 text-sm uppercase bg-white border border-border rounded-lg text-content-primary placeholder-content-muted focus:outline-none focus:border-brand focus:ring-2 focus:ring-brand/20 transition duration-150 font-medium" placeholder="Nhập mã xác nhận" required="">
+              </div>
+            </div>
+          </div>
+
+          <!-- Remember Me & Forgot Password Row -->
+          <div class="flex items-center justify-between pt-1">
+            <label class="flex items-center space-x-2 cursor-pointer">
+              <input type="checkbox" checked="" class="w-4 h-4 rounded text-brand border-border focus:ring-brand/30 focus:ring-offset-0 transition">
+              <span class="text-xs text-content-secondary font-medium select-none">Ghi nhớ đăng nhập</span>
+            </label>
+            <a href="#" class="text-xs font-semibold text-brand hover:text-brand-hover hover:underline transition-colors">
+              Quên mật khẩu?
+            </a>
+          </div>
+
+          <!-- Submit Button -->
+          <div class="pt-2">
+            <button type="submit" class="w-full h-11 bg-brand hover:bg-brand-hover active:bg-[#0f4070] text-white font-medium text-sm rounded-lg shadow-sm hover:shadow transition duration-150 flex items-center justify-center space-x-2 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand">
+              <span>Đăng nhập</span>
+              <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+              </svg>
+            </button>
+          </div>
+
+        </form>
+
+        <!-- SSO or Company Directory Hint -->
+        <div class="mt-6 pt-5 border-t border-border text-center">
+          <p class="text-xs text-content-muted">
+            Gặp sự cố khi đăng nhập? Liên hệ <a href="#" class="text-brand font-medium hover:underline">Bộ phận CNTT</a> (Hotline: 1900 6868)
+          </p>
+        </div>
+
+        <!-- Security Badge -->
+        <div class="mt-4 flex items-center justify-center space-x-1.5 text-[11px] text-content-muted">
+          <svg class="w-3.5 h-3.5 text-emerald-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+          </svg>
+          <span>Bảo mật kết nối SSL 256-bit chuẩn Doanh nghiệp</span>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
+
+
+
+</body></html>

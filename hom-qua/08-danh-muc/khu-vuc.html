@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Danh mục Khu vực — HRM</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="../shared/tw-config.js"></script>
+<link rel="stylesheet" href="../shared/nav.css"/>
+<link rel="stylesheet" href="../shared/fix.css"/>
+</head>
+<body class="bg-background font-body-md text-on-surface antialiased">
+<aside id="app-sidebar" data-mode="fixed" data-old-w="256"></aside>
+<div class="pl-64"><div id="page-root"></div></div>
+<script>
+window.HRM_PAGE = {
+  search: "Tìm kiếm hồ sơ, nhân sự, danh mục...",
+  breadcrumb: ["Danh mục", "Khu vực"],
+  title: "Danh mục Khu vực",
+  desc: "Quản lý danh mục khu vực làm việc theo từng đơn vị trực thuộc, phục vụ phân vùng chấm công, bố trí nhân sự và quản lý tác nghiệp tại các tòa nhà, dự án.",
+  stats: [
+    { label: "Tổng khu vực", value: "36", sub: "khu vực quản lý", icon: "map", tone: "primary" },
+    { label: "Theo đơn vị", value: "08", sub: "đơn vị trực thuộc", icon: "apartment", tone: "info" },
+    { label: "Đang dùng", value: "33", sub: "khu vực hoạt động", icon: "check_circle", tone: "success" },
+    { label: "Ngừng dùng", value: "03", sub: "tạm ngưng", icon: "pause_circle", tone: "danger" }
+  ],
+  filters: [
+    { label: "Tìm kiếm", type: "search", placeholder: "Tìm theo mã, tên khu vực...", width: "w-72" },
+    { label: "Đơn vị", type: "select", options: ["Tất cả đơn vị", "BQL Tòa nhà Keangnam", "BQL Tòa Handico", "TTTM Indochina"] }
+  ],
+  gear: true,
+  headerActions: [
+    { label: "Xuất file Excel", icon: "file_download" },
+    { label: "+ Thêm khu vực mới", icon: "add", primary: true }
+  ],
+  columns: [
+    { title: "STT", field: "stt", align: "center", width: 60 },
+    { title: "Mã", field: "ma", kind: "link" },
+    { title: "Tên", field: "ten", kind: "strong" },
+    { title: "Đơn vị", field: "donVi" },
+    { title: "Trạng thái", field: "trangThai", kind: "toggle", align: "center" },
+    { title: "Thao tác", field: "", kind: "actions", align: "center" }
+  ],
+  rows: [
+    { stt: 1, ma: "KV01", ten: "Khu vực Sảnh chính & Lễ tân", donVi: "BQL Tòa nhà Keangnam", trangThai: true },
+    { stt: 2, ma: "KV02", ten: "Khu vực Hầm để xe B1-B3", donVi: "BQL Tòa nhà Keangnam", trangThai: true },
+    { stt: 3, ma: "KV03", ten: "Khu vực Văn phòng cho thuê", donVi: "BQL Tòa Handico", trangThai: true },
+    { stt: 4, ma: "KV04", ten: "Khu vực Trung tâm thương mại", donVi: "TTTM Indochina", trangThai: true },
+    { stt: 5, ma: "KV05", ten: "Khu vực Kỹ thuật & Tầng mái", donVi: "BQL Tòa Handico", trangThai: true },
+    { stt: 6, ma: "KV06", ten: "Khu vực Cảnh quan ngoài trời", donVi: "BQL Tòa nhà Keangnam", trangThai: false }
+  ],
+  form: {
+    title: "THÊM KHU VỰC", saveLabel: "Lưu dữ liệu", wide: false,
+    sections: [ { fields: [
+      { label: "Mã", type: "text", required: true, span: 1, hint: "Tối đa 10 ký tự" },
+      { label: "Tên", type: "text", required: true, span: 3, hint: "Tối đa 50 ký tự" },
+      { label: "Vị trí", type: "number", span: 1 },
+      { label: "Công ty", type: "select", required: true, span: 3, options: ["", "Công ty Cổ phần PMC"] },
+      { label: "Đơn vị", type: "select", required: true, span: 4, options: ["", "BQL Tòa nhà Keangnam", "BQL Tòa Handico", "TTTM Indochina"] }
+    ] } ]
+  },
+  total: 36
+};
+</script>
+<script src="../shared/page.js"></script>
+<script src="../shared/nav.js"></script>
+</body>
+</html>
