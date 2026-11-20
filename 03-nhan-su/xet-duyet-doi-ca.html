@@ -893,4 +893,18 @@
       }
     });
   }
-</script></main></div><script src="../shared/nav.js"></script></body></html>
+</script><!--PMC-ADD-START-->
+<div class="fixed inset-0 z-50 hidden items-center justify-center bg-inverse-surface/40 backdrop-blur-xs" id="xdTuChoiModal" data-pmc-modal>
+<div class="bg-surface-container-lowest w-full max-w-2xl rounded-2xl shadow-xl overflow-hidden flex flex-col m-4 max-h-[90vh]">
+<div class="px-space-lg py-space-md bg-surface-container-low flex items-center justify-between shrink-0"><div class="flex items-center gap-2"><div class="w-8 h-8 rounded-lg bg-primary-container text-on-primary flex items-center justify-center"><span class="material-symbols-outlined text-[20px]">comment</span></div><div><h3 class="font-headline-sm text-headline-sm text-on-surface font-bold">Lý do từ chối xét duyệt</h3><span class="font-caption text-caption text-on-surface-variant">Nhập lý do để thông báo tới người gửi yêu cầu</span></div></div>
+<button class="w-8 h-8 rounded-lg flex items-center justify-center text-outline hover:text-on-surface hover:bg-surface-container transition-colors" onclick="pmcClose('xdTuChoiModal')" type="button"><span class="material-symbols-outlined text-[20px]">close</span></button></div>
+<div class="p-space-lg flex flex-col gap-space-md overflow-y-auto"><div class="flex flex-col gap-1.5"><label class="font-label-md text-label-md text-on-surface font-medium">Lý do từ chối</label><textarea class="w-full p-3 bg-surface-container-low rounded-lg font-body-md text-body-md text-on-surface focus:outline-none focus:ring-2 focus:ring-primary-container resize-none" rows="4" maxlength="500" placeholder="Nhập lý do.."></textarea></div></div>
+<div class="px-space-lg py-space-md border-t border-surface-container flex items-center justify-end gap-space-xs shrink-0"><button class="h-[38px] px-4 bg-surface-container hover:bg-surface-container-high text-on-surface font-label-md text-label-md rounded-lg transition-colors" onclick="pmcClose('xdTuChoiModal')" type="button">Thoát</button><button class="h-[38px] px-5 bg-primary-container hover:bg-primary text-on-primary font-label-md text-label-md rounded-lg shadow-sm transition-colors flex items-center gap-1.5" onclick="pmcClose('xdTuChoiModal')" type="button"><span class="material-symbols-outlined text-[18px]">save</span><span>OK</span></button></div>
+</div></div>
+<script>
+function pmcOpen(id){var m=document.getElementById(id);if(m){m.classList.remove('hidden');m.classList.add('flex');}}
+function pmcClose(id){var m=document.getElementById(id);if(m){m.classList.add('hidden');m.classList.remove('flex');}}
+document.addEventListener('keydown',function(ev){if(ev.key==='Escape'){document.querySelectorAll('[data-pmc-modal]').forEach(function(m){pmcClose(m.id)})}});
+function pmcBind(sel,id){document.querySelectorAll(sel).forEach(function(b){b.addEventListener('click',function(ev){ev.preventDefault();pmcOpen(id)})})}
+pmcBind('button[title="Từ chối yêu cầu"]','xdTuChoiModal');pmcBind('#btn-batch-reject','xdTuChoiModal');</script>
+<!--PMC-ADD-END--></main></div><script src="../shared/nav.js"></script></body></html>

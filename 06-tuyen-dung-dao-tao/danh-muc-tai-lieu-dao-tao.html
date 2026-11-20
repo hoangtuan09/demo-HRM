@@ -52,7 +52,18 @@ window.HRM_PAGE = {
     { stt: 5, ten: "Sổ tay vận hành toà nhà thương mại", lop: "Chuyển đổi số BQL", dang: "PDF" }
   ],
   total: 184,
-  toolbar: []
+  toolbar: [],
+  form: {
+    title: "THÊM TÀI LIỆU ĐÀO TẠO MỚI", saveLabel: "Lưu dữ liệu", wide: false,
+    sections: [
+      { title: "Thông tin tài liệu", fields: [
+        { label: "Lớp đào tạo", type: "select", required: true, options: ["Chọn lớp đào tạo", "Lớp An toàn PCCC K12", "Lớp Vận hành MEP K05", "Lớp Sơ cấp cứu K03"], span: 2 },
+        { label: "Tên tài liệu", type: "text", required: true, span: 2 },
+        { label: "Tệp tài liệu", type: "file", span: 3, hint: "Chấp nhận: .xlsx, .xls, .doc, .docx, .ppt, .pptx, .txt, .pdf" },
+        { label: "Vị trí", type: "number", span: 1 }
+      ] }
+    ]
+  }
 };
 </script>
 <script src="../shared/page.js"></script>

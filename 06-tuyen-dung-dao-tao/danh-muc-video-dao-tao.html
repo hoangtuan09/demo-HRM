@@ -54,7 +54,18 @@ window.HRM_PAGE = {
     { stt: 5, video: "Xem video", ten: "Quy tắc ứng xử và văn hoá PMC", lop: "Hội nhập nhân viên mới", donVi: "Khối Văn phòng", pb: "Phòng Nhân sự" }
   ],
   total: 126,
-  toolbar: []
+  toolbar: [],
+  form: {
+    title: "THÊM VIDEO ĐÀO TẠO MỚI", saveLabel: "Lưu dữ liệu", wide: false,
+    sections: [
+      { title: "Thông tin video", fields: [
+        { label: "Tên", type: "text", required: true, span: 4 },
+        { label: "Lớp đào tạo", type: "select", required: true, options: ["Chọn lớp đào tạo", "Lớp An toàn PCCC K12", "Lớp Vận hành MEP K05", "Lớp Sơ cấp cứu K03"], span: 4 },
+        { label: "Video URL", type: "text", required: true, span: 4, placeholder: "https://..." },
+        { label: "Ảnh đại diện video", type: "file", span: 4 }
+      ] }
+    ]
+  }
 };
 </script>
 <script src="../shared/page.js"></script>

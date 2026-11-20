@@ -730,6 +730,11 @@
 </div>
 </div>
 </div>
+<!-- Bo phan / Chuc vu (view goc _ThayDoiGTGC: readonly) -->
+<div class="grid grid-cols-2 gap-4">
+<div class="flex flex-col gap-1.5"><label class="font-label-md text-label-md text-on-surface">Bộ phận</label><input class="w-full h-[38px] px-3 text-body-md font-body-md bg-surface-container-low rounded-lg text-on-surface focus:outline-none focus:bg-surface-container-lowest focus:ring-2 focus:ring-primary-container/20 opacity-70" readonly type="text" value="Tổ Kỹ thuật tòa nhà"/></div>
+<div class="flex flex-col gap-1.5"><label class="font-label-md text-label-md text-on-surface">Chức vụ</label><input class="w-full h-[38px] px-3 text-body-md font-body-md bg-surface-container-low rounded-lg text-on-surface focus:outline-none focus:bg-surface-container-lowest focus:ring-2 focus:ring-primary-container/20 opacity-70" readonly type="text" value="Trưởng phòng Kỹ thuật"/></div>
+</div>
 <!-- Section 2: Thông tin Người phụ thuộc -->
 <div class="space-y-space-md">
 <span class="font-label-md text-label-md font-semibold text-on-surface uppercase tracking-wide flex items-center gap-2">
@@ -761,6 +766,8 @@
 <span class="material-symbols-outlined absolute right-2.5 top-1/2 -translate-y-1/2 text-outline text-[18px] pointer-events-none">expand_more</span>
 </div>
 </div>
+<!-- Loai giay to (view goc: LoaiGiayTo) -->
+<div class="flex flex-col gap-1.5"><label class="font-label-md text-label-md text-on-surface">Loại giấy tờ <span class="text-error">*</span></label><select class="w-full h-[38px] px-3 text-body-md font-body-md bg-surface-container-low rounded-lg text-on-surface focus:outline-none focus:bg-surface-container-lowest focus:ring-2 focus:ring-primary-container/20"><option selected>Căn cước công dân</option><option>Giấy khai sinh</option><option>Hộ chiếu</option><option>Chứng minh nhân dân</option></select></div>
 <!-- Grid: Ngày tháng năm sinh & Số CCCD/Giấy khai sinh -->
 <div class="grid grid-cols-1 sm:grid-cols-2 gap-space-md">
 <div class="space-y-1.5">
@@ -786,6 +793,8 @@
 </label>
 <input class="w-full h-[38px] px-3 rounded-lg bg-surface-container-lowest text-on-surface placeholder:text-outline font-mono-num text-body-md shadow-sm focus:outline-none focus:ring-2 focus:ring-primary-container/20" placeholder="Để trống nếu đăng ký cấp mới lần đầu" type="text"/>
 </div>
+<!-- Tru gia canh (view goc: cot Tru gia canh - tickCross) -->
+<label class="flex items-center gap-2 cursor-pointer select-none font-body-md text-body-md text-on-surface"><input class="w-4 h-4 rounded accent-[#1967b2]" type="checkbox" checked/><span>Tính giảm trừ gia cảnh cho người phụ thuộc này</span></label>
 <!-- Thời gian tính giảm trừ: Từ tháng -> Đến tháng -->
 <div class="space-y-1.5">
 <label class="font-label-sm text-label-sm text-on-surface font-medium">

@@ -87,6 +87,7 @@
 </label>
 <div class="relative">
 <select class="w-full h-[40px] px-3 pr-9 bg-surface-container-low text-on-surface font-body-md text-body-md rounded-lg appearance-none cursor-pointer focus:outline-none focus:ring-2 focus:ring-primary-container">
+<option value="">--Chọn bảng--</option>
 <option selected="" value="hr_profile">Hồ sơ nhân sự mới (Thông tin chung &amp; CCCD)</option>
 <option value="labor_contract">Hợp đồng lao động &amp; Phụ lục</option>
 <option value="timesheet">Bảng chấm công tháng (Máy quẹt &amp; Vân tay)</option>
@@ -94,6 +95,15 @@
 <option value="org_unit">Danh mục Phòng ban &amp; Chức danh</option>
 </select>
 <span class="material-symbols-outlined absolute right-3 top-2.5 text-secondary pointer-events-none text-[20px]">expand_more</span>
+</div>
+<div class="mt-space-md flex flex-col gap-space-sm">
+<input class="w-full px-3 py-2 bg-surface-container-low text-on-surface font-body-md text-body-md rounded-lg file:mr-3 file:rounded-md file:border-0 file:bg-primary-container file:px-3 file:py-1 file:text-on-primary" name="file" required type="file"/>
+<div class="relative"><select class="w-full h-[40px] px-3 pr-9 bg-surface-container-low text-on-surface font-body-md text-body-md rounded-lg appearance-none cursor-pointer focus:outline-none focus:ring-2 focus:ring-primary-container" id="sheet" name="sheet"><option>Data_NhanSu</option><option>Danh_Muc</option><option>Sheet3</option></select><span class="material-symbols-outlined absolute right-3 top-2.5 text-secondary pointer-events-none text-[20px]">expand_more</span></div>
+<div class="flex items-center gap-space-sm">
+<button class="h-[38px] px-space-lg rounded-lg bg-primary-container text-on-primary hover:bg-primary shadow-sm font-label-md text-label-md font-semibold" onclick="setImportMode(0)" type="button">Thêm mới</button>
+<button class="h-[38px] px-space-lg rounded-lg bg-surface-container-high text-on-surface hover:bg-surface-container-highest shadow-sm font-label-md text-label-md font-semibold" onclick="setImportMode(1)" type="button">Cập nhật</button>
+</div>
+<div class="hidden px-3 py-2 rounded-lg bg-error-container text-error font-caption text-caption" id="errorDiv">Bạn chưa tải file!</div>
 </div>
 <!-- Quick Template Download & Rule card -->
 <div class="mt-space-md pt-space-md bg-surface-container-low/50 rounded-lg p-space-md flex flex-col gap-space-sm">
@@ -186,6 +196,25 @@
 </div>
 </div>
 </div>
+<!-- Ánh xạ cột (ImportExcel/MapColumns.cshtml) -->
+<div class="bg-surface-container-lowest rounded-lg shadow-sm p-space-lg mb-space-lg" id="mapping-card">
+<div id="map-insert">
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-semibold mb-space-md">Chọn cột trong Excel (Data_NhanSu) với cột trong bảng NS_NhanSu</h3>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-md"><div class="grid grid-cols-12 items-center gap-2"><label class="col-span-4 font-label-md text-label-md text-on-surface font-semibold">MaNhanSu:</label><div class="col-span-8"><select class="w-full h-[38px] px-3 bg-surface-container-low text-on-surface font-body-md text-body-md rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-container"><option value="">--Chọn cột Excel tương ứng--</option><option>Mã NV</option><option>Họ và tên</option><option>Ngày sinh</option><option>Số CCCD</option><option>Phòng ban</option><option>Chức danh</option></select></div></div><div class="grid grid-cols-12 items-center gap-2"><label class="col-span-4 font-label-md text-label-md text-on-surface font-semibold">HoTen:</label><div class="col-span-8"><select class="w-full h-[38px] px-3 bg-surface-container-low text-on-surface font-body-md text-body-md rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-container"><option value="">--Chọn cột Excel tương ứng--</option><option>Mã NV</option><option>Họ và tên</option><option>Ngày sinh</option><option>Số CCCD</option><option>Phòng ban</option><option>Chức danh</option></select></div></div><div class="grid grid-cols-12 items-center gap-2"><label class="col-span-4 font-label-md text-label-md text-on-surface font-semibold">NgaySinh:</label><div class="col-span-8"><select class="w-full h-[38px] px-3 bg-surface-container-low text-on-surface font-body-md text-body-md rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-container"><option value="">--Chọn cột Excel tương ứng--</option><option>Mã NV</option><option>Họ và tên</option><option>Ngày sinh</option><option>Số CCCD</option><option>Phòng ban</option><option>Chức danh</option></select></div></div><div class="grid grid-cols-12 items-center gap-2"><label class="col-span-4 font-label-md text-label-md text-on-surface font-semibold">SoCCCD:</label><div class="col-span-8"><select class="w-full h-[38px] px-3 bg-surface-container-low text-on-surface font-body-md text-body-md rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-container"><option value="">--Chọn cột Excel tương ứng--</option><option>Mã NV</option><option>Họ và tên</option><option>Ngày sinh</option><option>Số CCCD</option><option>Phòng ban</option><option>Chức danh</option></select></div></div><div class="grid grid-cols-12 items-center gap-2"><label class="col-span-4 font-label-md text-label-md text-on-surface font-semibold">PhongBan:</label><div class="col-span-8"><select class="w-full h-[38px] px-3 bg-surface-container-low text-on-surface font-body-md text-body-md rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-container"><option value="">--Chọn cột Excel tương ứng--</option><option>Mã NV</option><option>Họ và tên</option><option>Ngày sinh</option><option>Số CCCD</option><option>Phòng ban</option><option>Chức danh</option></select></div></div><div class="grid grid-cols-12 items-center gap-2"><label class="col-span-4 font-label-md text-label-md text-on-surface font-semibold">ChucDanh:</label><div class="col-span-8"><select class="w-full h-[38px] px-3 bg-surface-container-low text-on-surface font-body-md text-body-md rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-container"><option value="">--Chọn cột Excel tương ứng--</option><option>Mã NV</option><option>Họ và tên</option><option>Ngày sinh</option><option>Số CCCD</option><option>Phòng ban</option><option>Chức danh</option></select></div></div></div>
+<div class="mt-space-md"><button class="h-[38px] px-space-lg rounded-lg bg-primary-container text-on-primary hover:bg-primary shadow-sm font-label-md text-label-md font-semibold" type="button">Import</button></div>
+</div>
+<div class="hidden" id="map-update">
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-semibold mb-space-md">Chọn key và cột cần cập nhật dữ liệu cho bảng NS_NhanSu</h3>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-lg">
+<div class="flex flex-col gap-space-sm"><label class="font-label-md text-label-md text-on-surface font-semibold">Chọn điều kiện để cập nhật:</label><select class="w-full h-[38px] px-3 bg-surface-container-low rounded-lg" id="tableColumnsKey"><option value="">--Chọn cột điều kiện Table--</option><option>MaNhanSu</option><option>HoTen</option><option>NgaySinh</option><option>SoCCCD</option><option>PhongBan</option><option>ChucDanh</option></select><select class="w-full h-[38px] px-3 bg-surface-container-low text-on-surface font-body-md text-body-md rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-container" id="excelColumnsKey"><option value="">--Chọn cột điều kiện Excel--</option><option>Mã NV</option><option>Họ và tên</option><option>Ngày sinh</option><option>Số CCCD</option><option>Phòng ban</option><option>Chức danh</option></select></div>
+<div class="flex flex-col gap-space-sm"><label class="font-label-md text-label-md text-on-surface font-semibold">Chọn cột update trong Table:</label><select class="w-full h-[38px] px-3 bg-surface-container-low rounded-lg" id="tableColumnsUpdate"><option value="">--Chọn cột update trong Table--</option><option>MaNhanSu</option><option>HoTen</option><option>NgaySinh</option><option>SoCCCD</option><option>PhongBan</option><option>ChucDanh</option></select><select class="w-full h-[38px] px-3 bg-surface-container-low text-on-surface font-body-md text-body-md rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-container" id="excelColumnsUpdate"><option value="">--Chọn cột update trong Excel--</option><option>Mã NV</option><option>Họ và tên</option><option>Ngày sinh</option><option>Số CCCD</option><option>Phòng ban</option><option>Chức danh</option></select></div>
+</div>
+<div class="mt-space-md"><button class="h-[38px] px-space-lg rounded-lg bg-primary-container text-on-primary hover:bg-primary shadow-sm font-label-md text-label-md font-semibold" type="button">Update</button></div>
+</div>
+</div>
+<script>
+function setImportMode(m){document.getElementById('map-insert').classList.toggle('hidden',m===1);document.getElementById('map-update').classList.toggle('hidden',m===0);}
+</script>
 <!-- Bảng Kết quả kiểm tra dữ liệu đối soát trước khi nạp (Data Validation Preview) -->
 <div class="bg-surface-container-lowest rounded-lg shadow-sm flex flex-col mb-space-lg overflow-hidden">
 <!-- Card Header & Metric KPI Chips -->

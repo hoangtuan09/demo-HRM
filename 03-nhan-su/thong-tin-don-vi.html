@@ -19,7 +19,7 @@
 </div>
 </div>
 <!-- Right Header Actions -->
-<div class="flex items-center gap-space-sm shrink-0">
+<div class="flex items-center gap-space-sm shrink-0"><button class="h-[38px] px-space-md bg-surface-container-lowest hover:bg-surface-container-low text-on-surface transition-colors rounded-lg flex items-center gap-2 shadow-sm font-label-md text-label-md" onclick="pmcOpen('donViModal')" type="button"><span class="material-symbols-outlined text-[18px] text-secondary">add_business</span><span>Thêm đơn vị trực thuộc</span></button>
 <button class="h-[38px] px-4 rounded-lg bg-surface-container-lowest text-on-surface font-label-md text-label-md shadow-sm hover:bg-surface-container-low transition-colors flex items-center gap-2" type="button">
 <span class="material-symbols-outlined text-[18px] text-secondary">print</span>
 <span>In lý lịch pháp lý</span>
@@ -164,8 +164,13 @@
 </div>
 <!-- Entity Code / System Identifier -->
 <div class="flex flex-col gap-1.5">
-<label class="font-label-md text-label-md font-medium text-on-surface">Mã định danh nội bộ hệ thống</label>
-<input class="h-[38px] px-3.5 bg-surface-container-low text-secondary font-mono-num text-mono-num rounded-lg cursor-not-allowed" readonly="" type="text" value="ENT-PMC-HQ"/>
+<label class="font-label-md text-label-md font-medium text-on-surface">Mã <span class="text-error">*</span></label>
+<input class="h-[38px] px-3.5 bg-surface-container-lowest text-on-surface font-mono-num text-mono-num rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-primary-container" maxlength="10" required="" type="text" value="PMC-HQ"/>
+</div>
+<div class="flex flex-col gap-1.5">
+<label class="font-label-md text-label-md font-medium text-on-surface">Vị trí</label>
+<input class="h-[38px] px-3.5 bg-surface-container-lowest text-on-surface font-mono-num text-mono-num rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-primary-container" max="32767" min="0" type="number" value="1"/>
+<span class="font-caption text-caption text-secondary">Số nguyên dương &lt; 32767, dùng để sắp xếp danh sách</span>
 </div>
 </div>
 </div>
@@ -356,4 +361,18 @@
       }
     })();
   </script>
-</div></main></div><script src="../shared/nav.js"></script></body></html>
+</div><!--PMC-ADD-START-->
+<div class="fixed inset-0 z-50 hidden items-center justify-center bg-inverse-surface/40 backdrop-blur-xs" id="donViModal" data-pmc-modal>
+<div class="bg-surface-container-lowest w-full max-w-2xl rounded-2xl shadow-xl overflow-hidden flex flex-col m-4 max-h-[90vh]">
+<div class="px-space-lg py-space-md bg-surface-container-low flex items-center justify-between shrink-0"><div class="flex items-center gap-2"><div class="w-8 h-8 rounded-lg bg-primary-container text-on-primary flex items-center justify-center"><span class="material-symbols-outlined text-[20px]">add_business</span></div><div><h3 class="font-headline-sm text-headline-sm text-on-surface font-bold">Thêm mới đơn vị</h3><span class="font-caption text-caption text-on-surface-variant">Đơn vị trực thuộc công ty (Mã, Tên, Điện thoại, Vị trí, Công ty, Địa chỉ)</span></div></div>
+<button class="w-8 h-8 rounded-lg flex items-center justify-center text-outline hover:text-on-surface hover:bg-surface-container transition-colors" onclick="pmcClose('donViModal')" type="button"><span class="material-symbols-outlined text-[20px]">close</span></button></div>
+<div class="p-space-lg flex flex-col gap-space-md overflow-y-auto"><div class="flex flex-col gap-space-md"><div class="grid grid-cols-1 md:grid-cols-2 gap-space-md"><div class="flex flex-col gap-1.5"><label class="font-label-md text-label-md text-on-surface font-medium">Mã <span class="text-error">*</span></label><input class="w-full h-[38px] px-3 bg-surface-container-low rounded-lg font-body-md text-body-md text-on-surface focus:outline-none focus:ring-2 focus:ring-primary-container transition-all" type="text" placeholder="VD: PMC-HN01" value="PMC-HN01" maxlength="15" required/></div><div class="flex flex-col gap-1.5"><label class="font-label-md text-label-md text-on-surface font-medium">Tên <span class="text-error">*</span></label><input class="w-full h-[38px] px-3 bg-surface-container-low rounded-lg font-body-md text-body-md text-on-surface focus:outline-none focus:ring-2 focus:ring-primary-container transition-all" type="text" value="Chi nhánh Hà Nội" maxlength="100" required/></div><div class="flex flex-col gap-1.5"><label class="font-label-md text-label-md text-on-surface font-medium">Điện thoại <span class="text-error">*</span></label><input class="w-full h-[38px] px-3 bg-surface-container-low rounded-lg font-body-md text-body-md text-on-surface focus:outline-none focus:ring-2 focus:ring-primary-container transition-all" type="text" value="024 3773 8989" maxlength="20" required/></div><div class="flex flex-col gap-1.5"><label class="font-label-md text-label-md text-on-surface font-medium">Vị trí</label><input class="w-full h-[38px] px-3 bg-surface-container-low rounded-lg font-body-md text-body-md text-on-surface focus:outline-none focus:ring-2 focus:ring-primary-container transition-all font-mono-num" type="number" value="1" min="0"/></div><div class="flex flex-col gap-1.5 md:col-span-2"><label class="font-label-md text-label-md text-on-surface font-medium">Công ty <span class="text-error">*</span></label><div class="relative"><select class="w-full h-[38px] px-3 bg-surface-container-low rounded-lg font-body-md text-body-md text-on-surface focus:outline-none focus:ring-2 focus:ring-primary-container transition-all pr-8 appearance-none cursor-pointer"><option value="Công ty CP Quản lý và Khai thác tòa nhà VNPT (PMC)">Công ty CP Quản lý và Khai thác tòa nhà VNPT (PMC)</option></select><span class="material-symbols-outlined absolute right-2.5 top-1/2 -translate-y-1/2 text-secondary pointer-events-none text-[18px]">expand_more</span></div></div><div class="flex flex-col gap-1.5 md:col-span-2"><label class="font-label-md text-label-md text-on-surface font-medium">Địa chỉ</label><input class="w-full h-[38px] px-3 bg-surface-container-low rounded-lg font-body-md text-body-md text-on-surface focus:outline-none focus:ring-2 focus:ring-primary-container transition-all" type="text" value="Tầng 21, Keangnam Landmark 72, Phạm Hùng, Nam Từ Liêm, Hà Nội" maxlength="100"/></div></div></div></div>
+<div class="px-space-lg py-space-md border-t border-surface-container flex items-center justify-end gap-space-xs shrink-0"><button class="h-[38px] px-4 bg-surface-container hover:bg-surface-container-high text-on-surface font-label-md text-label-md rounded-lg transition-colors" onclick="pmcClose('donViModal')" type="button">Thoát</button><button class="h-[38px] px-5 bg-primary-container hover:bg-primary text-on-primary font-label-md text-label-md rounded-lg shadow-sm transition-colors flex items-center gap-1.5" onclick="pmcClose('donViModal')" type="button"><span class="material-symbols-outlined text-[18px]">save</span><span>Lưu dữ liệu</span></button></div>
+</div></div>
+<script>
+function pmcOpen(id){var m=document.getElementById(id);if(m){m.classList.remove('hidden');m.classList.add('flex');}}
+function pmcClose(id){var m=document.getElementById(id);if(m){m.classList.add('hidden');m.classList.remove('flex');}}
+document.addEventListener('keydown',function(ev){if(ev.key==='Escape'){document.querySelectorAll('[data-pmc-modal]').forEach(function(m){pmcClose(m.id)})}});
+function pmcBind(sel,id){document.querySelectorAll(sel).forEach(function(b){b.addEventListener('click',function(ev){ev.preventDefault();pmcOpen(id)})})}
+</script>
+<!--PMC-ADD-END--></main></div><script src="../shared/nav.js"></script></body></html>

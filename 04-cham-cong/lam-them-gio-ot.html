@@ -766,17 +766,23 @@
 </select>
 </div>
 </div>
+<div class="flex justify-end -mt-2"><button class="text-primary hover:underline font-label-sm text-label-sm flex items-center gap-1" data-open-modal="mdlLoaiOT" type="button"><span class="material-symbols-outlined text-[14px]">tune</span>Quản lý danh mục loại làm thêm</button></div>
+<!-- Ca lam viec (view goc: DK_CaLamViec *) -->
+<div class="flex flex-col gap-1.5">
+<label class="font-label-md text-label-md text-on-surface font-medium">Ca làm việc <span class="text-error">*</span></label>
+<select class="w-full h-[38px] px-3 text-body-md font-body-md bg-surface-container-low rounded-lg text-on-surface focus:outline-none focus:bg-surface-container-lowest focus:ring-2 focus:ring-primary-container/20"><option selected>Ca hành chính (08:00 - 17:00)</option><option>Ca sáng (06:00 - 14:00)</option><option>Ca chiều (14:00 - 22:00)</option><option>Ca đêm (22:00 - 06:00)</option></select>
+</div>
 <!-- Time Range & Break Time -->
 <div class="grid grid-cols-3 gap-3">
 <div class="flex flex-col gap-1.5">
 <label class="font-label-md text-label-md text-on-surface font-medium">
-              Từ giờ <span class="text-error">*</span>
+              Giờ vào <span class="text-error">*</span>
 </label>
 <input class="h-10 px-3 bg-surface-container-low rounded-lg font-body-md text-body-md text-on-surface focus:outline-none focus:ring-2 focus:ring-primary" id="inputTimeFrom" type="time" value="18:00"/>
 </div>
 <div class="flex flex-col gap-1.5">
 <label class="font-label-md text-label-md text-on-surface font-medium">
-              Đến giờ <span class="text-error">*</span>
+              Giờ ra <span class="text-error">*</span>
 </label>
 <input class="h-10 px-3 bg-surface-container-low rounded-lg font-body-md text-body-md text-on-surface focus:outline-none focus:ring-2 focus:ring-primary" id="inputTimeTo" type="time" value="22:00"/>
 </div>
@@ -789,6 +795,11 @@
 <span class="absolute right-2.5 top-2.5 font-caption text-caption text-outline">p</span>
 </div>
 </div>
+</div>
+<!-- Gio thuc te (view goc: txtTuGioTT / txtDenGioTT) -->
+<div class="grid grid-cols-2 gap-3">
+<div class="flex flex-col gap-1.5"><label class="font-label-md text-label-md text-on-surface font-medium">Giờ vào thực tế</label><input class="w-full h-[38px] px-3 text-body-md font-body-md bg-surface-container-low rounded-lg text-on-surface focus:outline-none focus:bg-surface-container-lowest focus:ring-2 focus:ring-primary-container/20" type="time" value="18:05"/></div>
+<div class="flex flex-col gap-1.5"><label class="font-label-md text-label-md text-on-surface font-medium">Giờ ra thực tế</label><input class="w-full h-[38px] px-3 text-body-md font-body-md bg-surface-container-low rounded-lg text-on-surface focus:outline-none focus:bg-surface-container-lowest focus:ring-2 focus:ring-primary-container/20" type="time" value="22:10"/></div>
 </div>
 <!-- Auto Calculation Card -->
 <div class="p-3.5 rounded-xl bg-surface-container-low flex items-center justify-between">
@@ -844,6 +855,7 @@
 <textarea class="p-3 bg-surface-container-low rounded-lg font-body-md text-body-md text-on-surface placeholder:text-outline focus:outline-none focus:ring-2 focus:ring-primary" placeholder="Ghi rõ sự cố, vị trí sự cố, mã tài sản hoặc hạng mục phát sinh ngoài giờ cần xử lý..." rows="3"></textarea>
 <span class="font-caption text-caption text-outline">Ghi chú rõ mã vé sự cố (Ticket ID) nếu có.</span>
 </div>
+<div class="flex flex-col gap-1.5"><label class="font-label-md text-label-md text-on-surface font-medium">Ghi chú</label><textarea class="w-full p-3 text-body-md font-body-md bg-surface-container-low rounded-lg text-on-surface focus:outline-none focus:bg-surface-container-lowest focus:ring-2 focus:ring-primary-container/20 resize-none" rows="2" placeholder="Ghi chú thêm (tối đa 200 ký tự)"></textarea></div>
 </form>
 <!-- Drawer Footer Actions -->
 <div class="px-6 py-4 bg-surface-container-low flex items-center justify-end gap-3 shrink-0">
@@ -914,4 +926,36 @@
       }
     })();
   </script>
-</div></main></div><script src="../shared/nav.js"></script></body></html>
+</div></main></div><!-- Modal: Loại làm thêm giờ -->
+<div class="mdl-ov fixed inset-0 z-[70] hidden items-center justify-center bg-inverse-surface/40 backdrop-blur-[2px] p-4" id="mdlLoaiOT">
+<div class="w-full max-w-lg max-h-[90vh] bg-surface-container-lowest rounded-xl shadow-2xl flex flex-col">
+<div class="px-6 py-4 bg-surface-container-low rounded-t-xl flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="w-9 h-9 rounded-lg bg-primary-container/10 text-primary-container flex items-center justify-center"><span class="material-symbols-outlined text-[22px]">tune</span></div>
+<div class="flex flex-col"><h2 class="font-headline-md text-headline-md text-on-surface">Loại làm thêm giờ</h2><span class="font-caption text-caption text-on-surface-variant">Danh mục hệ số làm thêm</span></div>
+</div>
+<button class="p-1.5 rounded-lg text-outline hover:text-on-surface hover:bg-surface-container-high transition-colors" data-close-modal="mdlLoaiOT" type="button"><span class="material-symbols-outlined text-[22px]">close</span></button>
+</div>
+<div class="flex-1 overflow-y-auto px-6 py-5 flex flex-col gap-4">
+<div class="flex flex-col gap-1.5"><label class="font-label-md text-label-md text-on-surface">Mã <span class="text-error">*</span></label><input class="w-full h-[38px] px-3 text-body-md font-body-md bg-surface-container-low rounded-lg text-on-surface focus:outline-none focus:bg-surface-container-lowest focus:ring-2 focus:ring-primary-container/20" type="text" value="OT150" placeholder="Tối đa 10 ký tự" maxlength="10"/></div>
+<div class="flex flex-col gap-1.5"><label class="font-label-md text-label-md text-on-surface">Tên <span class="text-error">*</span></label><input class="w-full h-[38px] px-3 text-body-md font-body-md bg-surface-container-low rounded-lg text-on-surface focus:outline-none focus:bg-surface-container-lowest focus:ring-2 focus:ring-primary-container/20" type="text" value="OT ngày thường" maxlength="50"/></div>
+<div class="flex flex-col gap-1.5"><label class="font-label-md text-label-md text-on-surface">Hệ số <span class="text-error">*</span></label><input class="w-full h-[38px] px-3 text-body-md font-body-md bg-surface-container-low rounded-lg text-on-surface focus:outline-none focus:bg-surface-container-lowest focus:ring-2 focus:ring-primary-container/20" type="number" value="1.5" min="0" max="99.9" step="0.1"/></div>
+</div>
+<div class="px-6 py-4 bg-surface-container-low rounded-b-xl flex items-center justify-end gap-3">
+<button class="px-4 py-2 bg-surface-container-lowest text-on-surface font-label-md text-label-md rounded-lg shadow-sm hover:bg-surface-container-high transition-colors" data-close-modal="mdlLoaiOT" type="button">Thoát</button>
+<button class="px-5 py-2 bg-primary-container text-on-primary font-label-md text-label-md rounded-lg shadow-sm hover:opacity-95 transition-all" data-close-modal="mdlLoaiOT" type="button">Lưu dữ liệu</button>
+</div>
+</div>
+</div>
+<script>
+(function(){
+  function m(id,o){var e=document.getElementById(id);if(!e)return;e.classList.toggle('hidden',!o);e.classList.toggle('flex',o);}
+  document.addEventListener('click',function(ev){var t=ev.target.closest('[data-open-modal],[data-close-modal]');if(!t)return;ev.preventDefault();if(t.dataset.openModal)m(t.dataset.openModal,true);else m(t.dataset.closeModal,false);});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')document.querySelectorAll('.mdl-ov.flex').forEach(function(x){m(x.id,false);});});
+  function find(t){return Array.prototype.find.call(document.querySelectorAll('button'),function(b){return b.textContent.replace(/\s+/g,' ').indexOf(t)>-1&&!b.closest('.mdl-ov');});}
+  [].forEach(function(p){var b=find(p[0]);if(b)b.setAttribute('data-open-modal',p[1]);});
+  [].forEach(function(p){var r=find(p[0]);if(!r)return;var c=r.cloneNode(false);c.removeAttribute('onclick');c.removeAttribute('id');c.removeAttribute('title');c.setAttribute('type','button');c.setAttribute('data-open-modal',p[3]);c.innerHTML='<span class="material-symbols-outlined text-[18px]">'+p[2]+'</span><span>'+p[1]+'</span>';r.parentNode.insertBefore(c,r);});
+  
+})();
+</script>
+<script src="../shared/nav.js"></script></body></html>

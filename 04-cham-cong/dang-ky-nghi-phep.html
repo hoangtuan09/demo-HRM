@@ -586,6 +586,8 @@
 <span class="material-symbols-outlined absolute right-3 top-2.5 text-outline text-[18px]">person_search</span>
 </div>
 </div>
+<!-- Ngay dang ky (view goc: txtNgayDK) -->
+<div class="flex flex-col gap-1.5"><label class="font-label-md text-label-md text-on-surface">Ngày đăng ký <span class="text-error">*</span></label><input class="w-full h-[38px] px-3 text-body-md font-body-md bg-surface-container-low rounded-lg text-on-surface focus:outline-none focus:bg-surface-container-lowest focus:ring-2 focus:ring-primary-container/20" type="date" value="2026-02-23"/></div>
 <!-- Loai nghi Field -->
 <div class="flex flex-col gap-1.5">
 <label class="font-label-md text-label-md text-on-surface">Loại nghỉ <span class="text-error">*</span></label>
@@ -597,6 +599,7 @@
 <option value="funeral">Việc riêng hưởng lương (Tang chế)</option>
 <option value="unpaid">Nghỉ việc riêng không hưởng lương</option>
 <option value="comp">Nghỉ bù làm thêm giờ / Trực lễ</option>
+<option value="maternity">Nghỉ thai sản (Nghỉ sinh)</option>
 </select>
 <span class="material-symbols-outlined absolute right-2.5 top-2.5 text-outline text-[18px] pointer-events-none">expand_more</span>
 </div>
@@ -627,6 +630,8 @@
 </div>
 </div>
 </div>
+<!-- Ngay sinh con (view goc CC_NghiSinh: txtNgaySinhCon) - chi hien khi chon Nghi thai san -->
+<div class="hidden flex-col gap-1.5" id="fldNgaySinhCon"><label class="font-label-md text-label-md text-on-surface">Ngày sinh con</label><input class="w-full h-[38px] px-3 text-body-md font-body-md bg-surface-container-low rounded-lg text-on-surface focus:outline-none focus:bg-surface-container-lowest focus:ring-2 focus:ring-primary-container/20" type="date"/><span class="font-caption text-caption text-outline">Chỉ áp dụng khi đăng ký nghỉ thai sản.</span></div>
 <!-- Calculation info card -->
 <div class="p-3.5 bg-surface-container-low rounded-xl flex items-center justify-between">
 <div class="flex flex-col">
@@ -640,9 +645,18 @@
 </div>
 <!-- Ly do xin nghi -->
 <div class="flex flex-col gap-1.5">
-<label class="font-label-md text-label-md text-on-surface">Lý do nghỉ phép <span class="text-error">*</span></label>
+<label class="font-label-md text-label-md text-on-surface">Lý do nghỉ phép</label>
 <textarea class="w-full p-3 text-body-md font-body-md bg-surface-container-low rounded-lg text-on-surface focus:outline-none focus:bg-surface-container-lowest focus:ring-2 focus:ring-primary-container/20 resize-none" placeholder="Nhập lý do chi tiết..." rows="3">Giải quyết việc gia đình đột xuất tại quê nhà Thái Bình</textarea>
 </div>
+<!-- Chi tiet nghi theo ngay (view goc: bang Ngay / Ca nghi / So luong / Ghi chu / Xoa) -->
+<div class="flex flex-col gap-1.5"><label class="font-label-md text-label-md text-on-surface">Chi tiết ngày nghỉ</label>
+<div class="rounded-lg overflow-x-auto bg-surface-container-low">
+<table class="w-full text-left text-body-sm font-body-sm">
+<thead class="bg-surface-container-high text-on-surface-variant font-label-md text-label-md"><tr><th class="px-3 py-2 w-12">STT</th><th class="px-3 py-2">Ngày</th><th class="px-3 py-2">Ca nghỉ</th><th class="px-3 py-2 text-right">Số lượng</th><th class="px-3 py-2">Ghi chú</th><th class="px-3 py-2 w-12 text-center">Xóa</th></tr></thead>
+<tbody class="text-on-surface">
+<tr><td class="px-3 py-2">1</td><td class="px-3 py-2">24/02/2026</td><td class="px-3 py-2"><select class="h-8 px-2 bg-surface-container-lowest rounded text-body-sm"><option>Ca hành chính</option><option>Ca sáng</option><option>Ca chiều</option></select></td><td class="px-3 py-2 text-right">1</td><td class="px-3 py-2"><input class="h-8 w-full px-2 bg-surface-container-lowest rounded text-body-sm" type="text" value="Việc gia đình"/></td><td class="px-3 py-2 text-center"><span class="material-symbols-outlined text-[18px] text-error cursor-pointer">close</span></td></tr>
+<tr><td class="px-3 py-2">2</td><td class="px-3 py-2">25/02/2026</td><td class="px-3 py-2"><select class="h-8 px-2 bg-surface-container-lowest rounded text-body-sm"><option>Ca hành chính</option><option selected>Ca sáng</option><option>Ca chiều</option></select></td><td class="px-3 py-2 text-right">0.5</td><td class="px-3 py-2"><input class="h-8 w-full px-2 bg-surface-container-lowest rounded text-body-sm" type="text" value=""/></td><td class="px-3 py-2 text-center"><span class="material-symbols-outlined text-[18px] text-error cursor-pointer">close</span></td></tr>
+</tbody></table></div></div>
 <!-- Nguoi duyet & Ban giao cong viec -->
 <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
 <div class="flex flex-col gap-1.5">
@@ -733,4 +747,15 @@
       });
     }
   })();
-</script></main></div><script src="../shared/nav.js"></script></body></html>
+</script></main></div><script>
+(function(){
+  function m(id,o){var e=document.getElementById(id);if(!e)return;e.classList.toggle('hidden',!o);e.classList.toggle('flex',o);}
+  document.addEventListener('click',function(ev){var t=ev.target.closest('[data-open-modal],[data-close-modal]');if(!t)return;ev.preventDefault();if(t.dataset.openModal)m(t.dataset.openModal,true);else m(t.dataset.closeModal,false);});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')document.querySelectorAll('.mdl-ov.flex').forEach(function(x){m(x.id,false);});});
+  function find(t){return Array.prototype.find.call(document.querySelectorAll('button'),function(b){return b.textContent.replace(/\s+/g,' ').indexOf(t)>-1&&!b.closest('.mdl-ov');});}
+  [].forEach(function(p){var b=find(p[0]);if(b)b.setAttribute('data-open-modal',p[1]);});
+  [].forEach(function(p){var r=find(p[0]);if(!r)return;var c=r.cloneNode(false);c.removeAttribute('onclick');c.removeAttribute('id');c.removeAttribute('title');c.setAttribute('type','button');c.setAttribute('data-open-modal',p[3]);c.innerHTML='<span class="material-symbols-outlined text-[18px]">'+p[2]+'</span><span>'+p[1]+'</span>';r.parentNode.insertBefore(c,r);});
+  var sl=document.querySelector('option[value="maternity"]');if(sl){var st=sl.parentNode,f=document.getElementById('fldNgaySinhCon');st.addEventListener('change',function(){var on=st.value==='maternity';f.classList.toggle('hidden',!on);f.classList.toggle('flex',on);});}
+})();
+</script>
+<script src="../shared/nav.js"></script></body></html>

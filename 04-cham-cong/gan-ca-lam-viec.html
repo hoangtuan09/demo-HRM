@@ -140,6 +140,7 @@
 <input class="w-4 h-4 rounded text-primary focus:ring-0 cursor-pointer" id="checkAllLeft" type="checkbox"/>
 <span class="font-label-sm text-label-sm text-on-surface-variant whitespace-nowrap">Chọn tất cả</span>
 </label>
+<label class="flex items-center gap-2 cursor-pointer select-none bg-surface-container-lowest px-3 h-[36px] rounded-lg"><input class="w-4 h-4 rounded text-primary focus:ring-0 cursor-pointer" id="chkChuaThuocNhom" type="checkbox"/><span class="font-label-sm text-label-sm text-on-surface-variant whitespace-nowrap">Chưa thuộc nhóm</span></label>
 </div>
 </div>
 <!-- Action sub-filter tab -->
@@ -355,6 +356,11 @@
 <!-- Quota Progress Indicator -->
 <div class="w-full bg-surface-container-highest rounded-full h-1.5 overflow-hidden">
 <div class="bg-primary h-1.5 rounded-full" style="width: 88.9%;"></div>
+</div>
+<!-- Loai gan ca (view goc: rdoPhongban / rdoNhansu) -->
+<div class="flex items-center gap-5 font-body-sm text-body-sm text-on-surface">
+<label class="flex items-center gap-2 cursor-pointer"><input checked="" class="w-4 h-4 accent-[#1967b2]" name="loaiGanCa" type="radio"/><span>Ca Phòng ban/Dự án</span></label>
+<label class="flex items-center gap-2 cursor-pointer"><input class="w-4 h-4 accent-[#1967b2]" name="loaiGanCa" type="radio"/><span>Ca nhân sự</span></label>
 </div>
 <!-- Search & Mass Select Control -->
 <div class="flex items-center gap-3">

@@ -51,7 +51,22 @@ window.HRM_PAGE = {
     { stt: 5, ma: "KH005", ten: "Kỹ năng chăm sóc khách hàng cư dân", chungChi: "Không cấp chứng chỉ" }
   ],
   total: 36,
-  toolbar: []
+  toolbar: [],
+  form: {
+    title: "THÊM KHÓA ĐÀO TẠO MỚI", saveLabel: "Lưu dữ liệu", wide: false,
+    sections: [
+      { title: "Thông tin khóa đào tạo", fields: [
+        { label: "Mã", type: "text", required: true, span: 1, hint: "Tối đa 10 ký tự" },
+        { label: "Tên", type: "text", required: true, span: 3 }
+      ] },
+      { title: "Chứng chỉ (chọn nhiều)", fields: [
+        { label: "An toàn PCCC", type: "checkbox", span: 1 },
+        { label: "Vận hành MEP", type: "checkbox", span: 1 },
+        { label: "Sơ cấp cứu", type: "checkbox", span: 1 },
+        { label: "Quản lý toà nhà", type: "checkbox", span: 1 }
+      ] }
+    ]
+  }
 };
 </script>
 <script src="../shared/page.js"></script>

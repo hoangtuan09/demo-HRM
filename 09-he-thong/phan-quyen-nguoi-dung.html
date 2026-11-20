@@ -300,7 +300,7 @@
 <button class="tab-pill-btn w-full flex items-center gap-space-sm px-space-md py-2.5 rounded-lg text-left transition-all duration-150 text-secondary hover:bg-surface-container-high hover:text-on-surface group relative" id="tab-btn-5" onclick="switchTab(5)" type="button">
 <span class="material-symbols-outlined text-[20px] text-outline group-hover:text-primary transition-colors">assessment</span>
 <div class="flex flex-col min-w-0">
-<span class="font-body-md-medium text-body-md text-on-surface truncate leading-tight font-medium">Phân quyền báo cáo</span>
+<span class="font-body-md-medium text-body-md text-on-surface truncate leading-tight font-medium">Phân quyền báo cáo, quyết định</span>
 <span class="font-caption text-caption text-outline truncate text-[11px]">Biểu mẫu &amp; quyết định số</span>
 </div>
 <div class="active-indicator hidden absolute left-0 top-1.5 bottom-1.5 w-1 rounded-r-full bg-primary"></div>
@@ -690,7 +690,7 @@
 <div class="flex items-center justify-between mb-space-sm">
 <div class="flex items-center gap-2">
 <span class="w-2.5 h-2.5 rounded-full bg-emerald-600"></span>
-<span class="font-body-md-medium text-body-md text-on-surface font-semibold">Nhân sự thuộc nhóm này</span>
+<span class="font-body-md-medium text-body-md text-on-surface font-semibold">Danh sách nhân sự thuộc nhóm</span>
 </div>
 <span class="px-2 py-0.5 rounded text-label-sm font-label-sm bg-surface-container font-semibold text-primary" id="assigned-count">12 nhân sự</span>
 </div>
@@ -698,6 +698,7 @@
 <span class="material-symbols-outlined absolute left-2.5 top-1/2 -translate-y-1/2 text-outline text-[18px]">search</span>
 <input class="w-full h-9 pl-9 pr-3 rounded-lg bg-surface-container-lowest font-body-sm text-body-sm text-on-surface placeholder:text-outline focus:outline-none focus:ring-1 focus:ring-primary shadow-sm" placeholder="Tìm kiếm theo mã, họ tên..." type="text"/>
 </div>
+<div class="flex items-center gap-2 mb-space-sm font-caption text-caption text-secondary"><label>Hiển thị</label><select class="h-8 px-2 rounded-lg bg-surface-container-lowest font-body-sm text-body-sm text-on-surface shadow-sm"><option value="20" selected>20</option><option value="50">50</option><option value="100">100</option><option value="1">Tất cả</option></select></div>
 <!-- Assigned List Items -->
 <div class="flex-1 overflow-y-auto space-y-1.5 pr-1" id="assigned-users-list">
 <div class="p-2.5 rounded-lg bg-surface-container-lowest hover:bg-surface-container-high transition-colors flex items-center justify-between shadow-sm cursor-pointer border-l-2 border-primary">
@@ -766,7 +767,7 @@
 <div class="flex items-center justify-between mb-space-sm">
 <div class="flex items-center gap-2">
 <span class="w-2.5 h-2.5 rounded-full bg-outline"></span>
-<span class="font-body-md-medium text-body-md text-on-surface font-semibold">Nhân sự chưa thuộc nhóm này</span>
+<span class="font-body-md-medium text-body-md text-on-surface font-semibold">Danh sách nhân sự không thuộc nhóm này</span>
 </div>
 <span class="px-2 py-0.5 rounded text-label-sm font-label-sm bg-surface-container font-semibold text-secondary">236 nhân sự</span>
 </div>
@@ -774,6 +775,7 @@
 <span class="material-symbols-outlined absolute left-2.5 top-1/2 -translate-y-1/2 text-outline text-[18px]">search</span>
 <input class="w-full h-9 pl-9 pr-3 rounded-lg bg-surface-container-lowest font-body-sm text-body-sm text-on-surface placeholder:text-outline focus:outline-none focus:ring-1 focus:ring-primary shadow-sm" placeholder="Tìm kiếm theo mã, họ tên..." type="text"/>
 </div>
+<div class="flex items-center gap-2 mb-space-sm font-caption text-caption text-secondary"><label>Hiển thị</label><select class="h-8 px-2 rounded-lg bg-surface-container-lowest font-body-sm text-body-sm text-on-surface shadow-sm"><option value="20" selected>20</option><option value="50">50</option><option value="100">100</option><option value="1">Tất cả</option></select><label class="flex items-center gap-1.5 ml-3 cursor-pointer"><input class="w-4 h-4 rounded accent-primary" type="checkbox"/>Chưa thuộc nhóm</label></div>
 <!-- Unassigned List Items -->
 <div class="flex-1 overflow-y-auto space-y-1.5 pr-1">
 <div class="p-2.5 rounded-lg bg-surface-container-lowest hover:bg-surface-container-high transition-colors flex items-center justify-between shadow-sm cursor-pointer">
@@ -844,54 +846,42 @@
 <thead>
 <tr class="h-10 bg-surface-container-low text-secondary font-label-sm text-label-sm">
 <th class="w-16 px-space-md text-center">STT</th>
-<th class="px-space-md">Mã đơn vị</th>
-<th class="px-space-md">Tên hiển thị đơn vị thành viên</th>
-<th class="px-space-md">Loại hình</th>
-<th class="w-32 px-space-md text-center">Quyền truy cập</th>
+<th class="px-space-md">Tên hiển thị</th>
+<th class="w-32 px-space-md text-center">Quyền</th>
 </tr>
 </thead>
 <tbody class="divide-y divide-surface-container font-body-md text-body-md">
 <tr class="h-12 hover:bg-surface-container-low/70 transition-colors">
 <td class="text-center font-mono-num text-outline">01</td>
-<td class="px-space-md font-mono-num font-semibold text-primary">PMC-HQ</td>
 <td class="px-space-md font-medium text-on-surface">Công ty CP Quản lý và Khai thác tòa nhà VNPT (PMC) (Trụ sở chính)</td>
-<td class="px-space-md text-secondary">Văn phòng Tổng</td>
 <td class="px-space-md text-center">
 <input checked="" class="w-4 h-4 rounded text-primary accent-primary cursor-pointer" type="checkbox"/>
 </td>
 </tr>
 <tr class="h-12 hover:bg-surface-container-low/70 transition-colors bg-primary/5">
 <td class="text-center font-mono-num text-outline">02</td>
-<td class="px-space-md font-mono-num font-semibold text-primary">PMC-ENG</td>
 <td class="px-space-md font-medium text-on-surface">Khối Kỹ thuật &amp; Bảo dưỡng Trung tâm</td>
-<td class="px-space-md text-secondary">Khối chức năng</td>
 <td class="px-space-md text-center">
 <input checked="" class="w-4 h-4 rounded text-primary accent-primary cursor-pointer" type="checkbox"/>
 </td>
 </tr>
 <tr class="h-12 hover:bg-surface-container-low/70 transition-colors">
 <td class="text-center font-mono-num text-outline">03</td>
-<td class="px-space-md font-mono-num font-semibold text-primary">PMC-BMS</td>
 <td class="px-space-md font-medium text-on-surface">Khối Vận hành Tòa nhà Cao ốc</td>
-<td class="px-space-md text-secondary">Vận hành dự án</td>
 <td class="px-space-md text-center">
 <input checked="" class="w-4 h-4 rounded text-primary accent-primary cursor-pointer" type="checkbox"/>
 </td>
 </tr>
 <tr class="h-12 hover:bg-surface-container-low/70 transition-colors">
 <td class="text-center font-mono-num text-outline">04</td>
-<td class="px-space-md font-mono-num font-semibold text-primary">PMC-HCM</td>
 <td class="px-space-md font-medium text-on-surface">Chi nhánh PMC TP. Hồ Chí Minh</td>
-<td class="px-space-md text-secondary">Chi nhánh miền Nam</td>
 <td class="px-space-md text-center">
 <input class="w-4 h-4 rounded text-primary accent-primary cursor-pointer" type="checkbox"/>
 </td>
 </tr>
 <tr class="h-12 hover:bg-surface-container-low/70 transition-colors">
 <td class="text-center font-mono-num text-outline">05</td>
-<td class="px-space-md font-mono-num font-semibold text-primary">PMC-DNA</td>
 <td class="px-space-md font-medium text-on-surface">Văn phòng Đại diện Miền Trung (Đà Nẵng)</td>
-<td class="px-space-md text-secondary">Văn phòng vệ tinh</td>
 <td class="px-space-md text-center">
 <input class="w-4 h-4 rounded text-primary accent-primary cursor-pointer" type="checkbox"/>
 </td>
@@ -907,9 +897,9 @@
 <h3 class="font-headline-sm text-headline-sm text-on-surface font-semibold">Phân quyền Dữ liệu Danh mục gốc</h3>
 <p class="font-caption text-caption text-outline">Cấp phát chi tiết các quyền Cấm, Thêm Mới, Sửa, Xóa và Xuất dữ liệu bảng từ điển.</p>
 </div>
-<button class="h-10 px-space-md rounded-lg bg-surface-container-low hover:bg-surface-container-high text-primary font-label-md text-label-md font-semibold flex items-center gap-1.5 transition-colors shadow-sm" type="button">
+<button class="h-10 px-space-md rounded-lg bg-surface-container-low hover:bg-surface-container-high text-primary font-label-md text-label-md font-semibold flex items-center gap-1.5 transition-colors shadow-sm" type="button" onclick="openDmModal(false)">
 <span class="material-symbols-outlined text-[18px]">add</span>
-<span>Thêm danh mục kiểm soát</span>
+<span>Thêm mới</span>
 </button>
 </div>
 <!-- Categories Matrix Table -->
@@ -923,7 +913,7 @@
 <th class="w-20 px-space-sm text-center">Mới</th>
 <th class="w-20 px-space-sm text-center">Sửa</th>
 <th class="w-20 px-space-sm text-center">Xóa</th>
-<th class="w-28 px-space-sm text-center">Xuất DL</th>
+<th class="w-28 px-space-sm text-center">Xuất dữ liệu</th>
 <th class="w-28 px-space-sm text-center">Chỉnh sửa</th>
 </tr>
 </thead>
@@ -937,6 +927,7 @@
 <td class="text-center"><input class="w-4 h-4 rounded accent-primary cursor-pointer" type="checkbox"/></td>
 <td class="text-center"><input checked="" class="w-4 h-4 rounded accent-primary cursor-pointer" type="checkbox"/></td>
 <td class="text-center"><input checked="" class="w-4 h-4 rounded accent-primary cursor-pointer" type="checkbox"/></td>
+<td class="text-center"><button class="text-warning pr-2" title="Sửa" type="button" onclick="openDmModal(true)"><span class="material-symbols-outlined text-[18px]">edit</span></button><button class="text-error" title="Xóa" type="button"><span class="material-symbols-outlined text-[18px]">delete</span></button></td>
 </tr>
 <tr class="h-12 hover:bg-surface-container-low/70 transition-colors">
 <td class="text-center font-mono-num text-outline">02</td>
@@ -947,6 +938,7 @@
 <td class="text-center"><input class="w-4 h-4 rounded accent-primary cursor-pointer" type="checkbox"/></td>
 <td class="text-center"><input checked="" class="w-4 h-4 rounded accent-primary cursor-pointer" type="checkbox"/></td>
 <td class="text-center"><input checked="" class="w-4 h-4 rounded accent-primary cursor-pointer" type="checkbox"/></td>
+<td class="text-center"><button class="text-warning pr-2" title="Sửa" type="button" onclick="openDmModal(true)"><span class="material-symbols-outlined text-[18px]">edit</span></button><button class="text-error" title="Xóa" type="button"><span class="material-symbols-outlined text-[18px]">delete</span></button></td>
 </tr>
 <tr class="h-12 hover:bg-surface-container-low/70 transition-colors">
 <td class="text-center font-mono-num text-outline">03</td>
@@ -957,6 +949,7 @@
 <td class="text-center"><input checked="" class="w-4 h-4 rounded accent-primary cursor-pointer" type="checkbox"/></td>
 <td class="text-center"><input checked="" class="w-4 h-4 rounded accent-primary cursor-pointer" type="checkbox"/></td>
 <td class="text-center"><input checked="" class="w-4 h-4 rounded accent-primary cursor-pointer" type="checkbox"/></td>
+<td class="text-center"><button class="text-warning pr-2" title="Sửa" type="button" onclick="openDmModal(true)"><span class="material-symbols-outlined text-[18px]">edit</span></button><button class="text-error" title="Xóa" type="button"><span class="material-symbols-outlined text-[18px]">delete</span></button></td>
 </tr>
 <tr class="h-12 hover:bg-surface-container-low/70 transition-colors">
 <td class="text-center font-mono-num text-outline">04</td>
@@ -967,6 +960,7 @@
 <td class="text-center"><input class="w-4 h-4 rounded opacity-40 cursor-not-allowed" disabled="" type="checkbox"/></td>
 <td class="text-center"><input class="w-4 h-4 rounded opacity-40 cursor-not-allowed" disabled="" type="checkbox"/></td>
 <td class="text-center"><input class="w-4 h-4 rounded opacity-40 cursor-not-allowed" disabled="" type="checkbox"/></td>
+<td class="text-center"><button class="text-warning pr-2" title="Sửa" type="button" onclick="openDmModal(true)"><span class="material-symbols-outlined text-[18px]">edit</span></button><button class="text-error" title="Xóa" type="button"><span class="material-symbols-outlined text-[18px]">delete</span></button></td>
 </tr>
 <tr class="h-12 hover:bg-surface-container-low/70 transition-colors">
 <td class="text-center font-mono-num text-outline">05</td>
@@ -977,6 +971,7 @@
 <td class="text-center"><input class="w-4 h-4 rounded accent-primary cursor-pointer" type="checkbox"/></td>
 <td class="text-center"><input checked="" class="w-4 h-4 rounded accent-primary cursor-pointer" type="checkbox"/></td>
 <td class="text-center"><input checked="" class="w-4 h-4 rounded accent-primary cursor-pointer" type="checkbox"/></td>
+<td class="text-center"><button class="text-warning pr-2" title="Sửa" type="button" onclick="openDmModal(true)"><span class="material-symbols-outlined text-[18px]">edit</span></button><button class="text-error" title="Xóa" type="button"><span class="material-symbols-outlined text-[18px]">delete</span></button></td>
 </tr>
 </tbody>
 </table>
@@ -990,6 +985,7 @@
 <p class="font-caption text-caption text-outline">Phân bổ quyền xuất file Excel, xem bảng biểu phân tích và ký số mẫu biểu.</p>
 </div>
 <div class="flex items-center gap-2">
+<button class="h-9 px-space-md rounded-lg bg-surface-container-low hover:bg-surface-container-high text-primary font-label-md text-label-md font-semibold flex items-center gap-1.5" type="button" onclick="openBcModal(false)"><span class="material-symbols-outlined text-[18px]">add</span><span>Thêm mới</span></button>
 <span class="font-label-sm text-label-sm text-secondary">Lọc phân nhóm:</span>
 <select class="h-9 px-2.5 rounded-lg bg-surface-container-low font-body-sm text-body-sm text-on-surface">
 <option>Tất cả nhóm báo cáo</option>
@@ -1009,7 +1005,7 @@
 <th class="px-space-md min-w-[240px]">Tên mẫu báo cáo / Quyết định</th>
 <th class="w-24 px-space-sm text-center">Thêm</th>
 <th class="w-24 px-space-sm text-center">Xem</th>
-<th class="w-24 px-space-sm text-center">Xuất file</th>
+<th class="w-24 px-space-sm text-center">Xuất</th>
 <th class="w-28 px-space-sm text-center">Chỉnh sửa</th>
 </tr>
 </thead>
@@ -1022,6 +1018,7 @@
 <td class="text-center"><input checked="" class="w-4 h-4 rounded accent-primary cursor-pointer" type="checkbox"/></td>
 <td class="text-center"><input checked="" class="w-4 h-4 rounded accent-primary cursor-pointer" type="checkbox"/></td>
 <td class="text-center"><input checked="" class="w-4 h-4 rounded accent-primary cursor-pointer" type="checkbox"/></td>
+<td class="text-center"><button class="text-warning pr-2" title="Sửa" type="button" onclick="openBcModal(true)"><span class="material-symbols-outlined text-[18px]">edit</span></button><button class="text-error" title="Xóa" type="button"><span class="material-symbols-outlined text-[18px]">delete</span></button></td>
 </tr>
 <tr class="h-12 hover:bg-surface-container-low/70 transition-colors">
 <td class="text-center font-mono-num text-outline">02</td>
@@ -1031,6 +1028,7 @@
 <td class="text-center"><input checked="" class="w-4 h-4 rounded accent-primary cursor-pointer" type="checkbox"/></td>
 <td class="text-center"><input checked="" class="w-4 h-4 rounded accent-primary cursor-pointer" type="checkbox"/></td>
 <td class="text-center"><input class="w-4 h-4 rounded accent-primary cursor-pointer" type="checkbox"/></td>
+<td class="text-center"><button class="text-warning pr-2" title="Sửa" type="button" onclick="openBcModal(true)"><span class="material-symbols-outlined text-[18px]">edit</span></button><button class="text-error" title="Xóa" type="button"><span class="material-symbols-outlined text-[18px]">delete</span></button></td>
 </tr>
 <tr class="h-12 hover:bg-surface-container-low/70 transition-colors">
 <td class="text-center font-mono-num text-outline">03</td>
@@ -1040,6 +1038,7 @@
 <td class="text-center"><input checked="" class="w-4 h-4 rounded accent-primary cursor-pointer" type="checkbox"/></td>
 <td class="text-center"><input checked="" class="w-4 h-4 rounded accent-primary cursor-pointer" type="checkbox"/></td>
 <td class="text-center"><input class="w-4 h-4 rounded accent-primary cursor-pointer" type="checkbox"/></td>
+<td class="text-center"><button class="text-warning pr-2" title="Sửa" type="button" onclick="openBcModal(true)"><span class="material-symbols-outlined text-[18px]">edit</span></button><button class="text-error" title="Xóa" type="button"><span class="material-symbols-outlined text-[18px]">delete</span></button></td>
 </tr>
 <tr class="h-12 hover:bg-surface-container-low/70 transition-colors">
 <td class="text-center font-mono-num text-outline">04</td>
@@ -1049,6 +1048,7 @@
 <td class="text-center"><input checked="" class="w-4 h-4 rounded accent-primary cursor-pointer" type="checkbox"/></td>
 <td class="text-center"><input checked="" class="w-4 h-4 rounded accent-primary cursor-pointer" type="checkbox"/></td>
 <td class="text-center"><input checked="" class="w-4 h-4 rounded accent-primary cursor-pointer" type="checkbox"/></td>
+<td class="text-center"><button class="text-warning pr-2" title="Sửa" type="button" onclick="openBcModal(true)"><span class="material-symbols-outlined text-[18px]">edit</span></button><button class="text-error" title="Xóa" type="button"><span class="material-symbols-outlined text-[18px]">delete</span></button></td>
 </tr>
 <tr class="h-12 hover:bg-surface-container-low/70 transition-colors">
 <td class="text-center font-mono-num text-outline">05</td>
@@ -1058,6 +1058,7 @@
 <td class="text-center"><input class="w-4 h-4 rounded opacity-40 cursor-not-allowed" disabled="" type="checkbox"/></td>
 <td class="text-center"><input class="w-4 h-4 rounded opacity-40 cursor-not-allowed" disabled="" type="checkbox"/></td>
 <td class="text-center"><input class="w-4 h-4 rounded opacity-40 cursor-not-allowed" disabled="" type="checkbox"/></td>
+<td class="text-center"><button class="text-warning pr-2" title="Sửa" type="button" onclick="openBcModal(true)"><span class="material-symbols-outlined text-[18px]">edit</span></button><button class="text-error" title="Xóa" type="button"><span class="material-symbols-outlined text-[18px]">delete</span></button></td>
 </tr>
 </tbody>
 </table>
@@ -1093,7 +1094,7 @@
 <div class="px-space-lg py-space-md bg-surface-container-low flex items-center justify-between">
 <div class="flex items-center gap-2">
 <span class="material-symbols-outlined text-primary">add_moderator</span>
-<h4 class="font-headline-sm text-headline-sm font-semibold text-on-surface">Thêm nhóm người dùng mới</h4>
+<h4 class="font-headline-sm text-headline-sm font-semibold text-on-surface" id="group-modal-title">Thêm nhóm người dùng mới</h4>
 </div>
 <button class="w-8 h-8 rounded-lg flex items-center justify-center text-outline hover:text-on-surface hover:bg-surface-container" onclick="closeAddGroupModal()" type="button">
 <span class="material-symbols-outlined text-[20px]">close</span>
@@ -1101,29 +1102,39 @@
 </div>
 <div class="p-space-lg space-y-space-md">
 <div>
-<label class="font-label-md text-label-md text-secondary font-medium block mb-1">Mã nhóm quyền <span class="text-error">*</span></label>
-<input class="w-full h-10 px-3 rounded-lg bg-surface-container-low font-body-md text-body-md text-on-surface focus:outline-none focus:ring-2 focus:ring-primary/20" placeholder="VD: GRP_VANHANH_01" type="text"/>
-</div>
-<div>
-<label class="font-label-md text-label-md text-secondary font-medium block mb-1">Tên nhóm người dùng <span class="text-error">*</span></label>
-<input class="w-full h-10 px-3 rounded-lg bg-surface-container-low font-body-md text-body-md text-on-surface focus:outline-none focus:ring-2 focus:ring-primary/20" placeholder="VD: Trưởng ca Vận hành ME" type="text"/>
-</div>
-<div>
-<label class="font-label-md text-label-md text-secondary font-medium block mb-1">Sao chép quyền từ nhóm mẫu</label>
-<select class="w-full h-10 px-3 rounded-lg bg-surface-container-low font-body-md text-body-md text-on-surface focus:outline-none focus:ring-2 focus:ring-primary/20">
-<option>-- Để trống (tạo nhóm trắng) --</option>
-<option>Trưởng phòng / Quản lý khối kỹ thuật</option>
-<option>Tổ trưởng Vận hành</option>
-<option>Nhân viên tiêu chuẩn</option>
-</select>
+<label class="font-label-md text-label-md text-secondary font-medium block mb-1">Tên <span class="text-error">*</span></label>
+<input class="w-full h-10 px-3 rounded-lg bg-surface-container-low font-body-md text-body-md text-on-surface focus:outline-none focus:ring-2 focus:ring-primary/20" maxlength="50" id="group-name" placeholder="VD: Trưởng ca Vận hành ME" type="text"/>
+<p class="text-error text-[12px] mt-1 hidden" id="group-name-err">Tên không được để trống</p>
 </div>
 </div>
 <div class="px-space-lg py-space-md bg-surface-container-low flex items-center justify-end gap-space-sm">
-<button class="h-10 px-space-md rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface font-label-md text-label-md font-medium" onclick="closeAddGroupModal()" type="button">Hủy</button>
-<button class="h-10 px-space-lg rounded-lg bg-primary hover:bg-[#124E88] text-on-primary font-label-md text-label-md font-semibold" onclick="submitNewGroup()" type="button">Tạo nhóm</button>
+<button class="h-10 px-space-md rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface font-label-md text-label-md font-medium" onclick="closeAddGroupModal()" type="button">Thoát</button>
+<button class="h-10 px-space-lg rounded-lg bg-primary hover:bg-[#124E88] text-on-primary font-label-md text-label-md font-semibold" onclick="submitNewGroup()" type="button">Lưu dữ liệu</button>
 </div>
 </div>
 </div>
+<div class="fixed inset-0 z-50 bg-black/40 backdrop-blur-sm hidden items-center justify-center p-4" id="modal-dm">
+<div class="bg-surface-container-lowest rounded-2xl shadow-2xl w-full max-w-xl overflow-hidden animate-fadeIn">
+<div class="px-space-lg py-space-md bg-surface-container-low flex items-center justify-between"><h4 class="font-headline-sm text-headline-sm font-semibold text-on-surface" id="modal-dm-title">Thêm danh mục kiểm soát</h4>
+<button class="w-8 h-8 rounded-lg flex items-center justify-center text-outline hover:bg-surface-container" onclick="closeM('modal-dm')" type="button"><span class="material-symbols-outlined text-[20px]">close</span></button></div>
+<div class="p-space-lg grid grid-cols-1 md:grid-cols-2 gap-space-md"><div class=""><label class="font-label-md text-label-md text-secondary font-medium block mb-1">Bí danh <span class="text-error">*</span></label><input class="w-full h-10 px-3 rounded-lg bg-surface-container-low font-body-md text-body-md text-on-surface focus:outline-none focus:ring-2 focus:ring-primary/20" id="dm-bidanh" maxlength="50" placeholder="VD: PhongBan" type="text"/></div><div class=""><label class="font-label-md text-label-md text-secondary font-medium block mb-1">Tên bảng <span class="text-error">*</span></label><input class="w-full h-10 px-3 rounded-lg bg-surface-container-low font-body-md text-body-md text-on-surface focus:outline-none focus:ring-2 focus:ring-primary/20" id="dm-tenbang" maxlength="50" placeholder="VD: KN_PhongBan" type="text"/></div><div class=""><label class="font-label-md text-label-md text-secondary font-medium block mb-1">Tên hiển thị <span class="text-error">*</span></label><input class="w-full h-10 px-3 rounded-lg bg-surface-container-low font-body-md text-body-md text-on-surface focus:outline-none focus:ring-2 focus:ring-primary/20" id="dm-ten" maxlength="100" placeholder="VD: Danh mục Phòng ban / Khối ban" type="text"/></div><div class=""><label class="font-label-md text-label-md text-secondary font-medium block mb-1">Vị trí</label><input class="w-full h-10 px-3 rounded-lg bg-surface-container-low font-body-md text-body-md text-on-surface focus:outline-none focus:ring-2 focus:ring-primary/20" id="dm-vitri" min="0" max="32767" placeholder="VD: 1" type="number"/></div><div class=""><label class="font-label-md text-label-md text-secondary font-medium block mb-1">Trường khóa <span class="text-error">*</span></label><input class="w-full h-10 px-3 rounded-lg bg-surface-container-low font-body-md text-body-md text-on-surface focus:outline-none focus:ring-2 focus:ring-primary/20" id="dm-khoa" maxlength="50" placeholder="VD: ID" type="text"/></div><div class=""><label class="font-label-md text-label-md text-secondary font-medium block mb-1">Trường sắp xếp <span class="text-error">*</span></label><input class="w-full h-10 px-3 rounded-lg bg-surface-container-low font-body-md text-body-md text-on-surface focus:outline-none focus:ring-2 focus:ring-primary/20" id="dm-sapxep" maxlength="255" placeholder="VD: ViTri, Ten" type="text"/></div><div class="md:col-span-2"><label class="font-label-md text-label-md text-secondary font-medium block mb-1">Điều kiện</label><input class="w-full h-10 px-3 rounded-lg bg-surface-container-low font-body-md text-body-md text-on-surface focus:outline-none focus:ring-2 focus:ring-primary/20" id="dm-dk"  placeholder="VD: TrangThai = 1" type="text"/></div></div>
+<div class="px-space-lg py-space-md bg-surface-container-low flex items-center justify-end gap-space-sm">
+<button class="h-10 px-space-lg rounded-lg bg-primary hover:bg-[#124E88] text-on-primary font-label-md text-label-md font-semibold" onclick="closeM('modal-dm');showToast('Đã lưu dữ liệu')" type="button">Lưu dữ liệu</button>
+<button class="h-10 px-space-md rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface font-label-md text-label-md font-medium" onclick="closeM('modal-dm')" type="button">Thoát</button></div></div></div>
+<div class="fixed inset-0 z-50 bg-black/40 backdrop-blur-sm hidden items-center justify-center p-4" id="modal-bc">
+<div class="bg-surface-container-lowest rounded-2xl shadow-2xl w-full max-w-xl overflow-hidden animate-fadeIn">
+<div class="px-space-lg py-space-md bg-surface-container-low flex items-center justify-between"><h4 class="font-headline-sm text-headline-sm font-semibold text-on-surface" id="modal-bc-title">Thêm báo cáo, quyết định</h4>
+<button class="w-8 h-8 rounded-lg flex items-center justify-center text-outline hover:bg-surface-container" onclick="closeM('modal-bc')" type="button"><span class="material-symbols-outlined text-[20px]">close</span></button></div>
+<div class="p-space-lg grid grid-cols-1 md:grid-cols-2 gap-space-md"><div class=""><label class="font-label-md text-label-md text-secondary font-medium block mb-1">Mã <span class="text-error">*</span></label><input class="w-full h-10 px-3 rounded-lg bg-surface-container-low font-body-md text-body-md text-on-surface focus:outline-none focus:ring-2 focus:ring-primary/20" id="bc-ma" maxlength="30" placeholder="VD: BC-CC-01" type="text"/></div><div><label class="font-label-md text-label-md text-secondary font-medium block mb-1">Nhóm cha <span class="text-error">*</span></label><select class="w-full h-10 px-3 rounded-lg bg-surface-container-low font-body-md text-body-md text-on-surface"><option>Báo cáo Chấm công - Ca kíp</option><option>Báo cáo Nhân sự - Biến động</option><option>Báo cáo Quyết định khen thưởng</option></select></div><div class="md:col-span-2"><label class="font-label-md text-label-md text-secondary font-medium block mb-1">Tên <span class="text-error">*</span></label><input class="w-full h-10 px-3 rounded-lg bg-surface-container-low font-body-md text-body-md text-on-surface focus:outline-none focus:ring-2 focus:ring-primary/20" id="bc-ten" maxlength="100" placeholder="VD: Báo cáo tổng hợp chấm công tháng theo khối" type="text"/></div></div>
+<div class="px-space-lg py-space-md bg-surface-container-low flex items-center justify-end gap-space-sm">
+<button class="h-10 px-space-lg rounded-lg bg-primary hover:bg-[#124E88] text-on-primary font-label-md text-label-md font-semibold" onclick="closeM('modal-bc');showToast('Đã lưu dữ liệu')" type="button">Lưu dữ liệu</button>
+<button class="h-10 px-space-md rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface font-label-md text-label-md font-medium" onclick="closeM('modal-bc')" type="button">Thoát</button></div></div></div>
+<script>
+function closeM(id){var m=document.getElementById(id);m.classList.add('hidden');m.classList.remove('flex');}
+function openM(id){var m=document.getElementById(id);m.classList.remove('hidden');m.classList.add('flex');}
+function openDmModal(edit){document.getElementById('modal-dm-title').innerText=edit?'Sửa danh mục kiểm soát':'Thêm danh mục kiểm soát';openM('modal-dm');}
+function openBcModal(edit){document.getElementById('modal-bc-title').innerText=edit?'Sửa báo cáo, quyết định':'Thêm báo cáo, quyết định';openM('modal-bc');}
+</script>
 <!-- SCRIPT FOR TAB INTERACTION & TOAST NOTIFICATION -->
 <script>
     function switchTab(tabIndex) {
@@ -1236,7 +1247,10 @@
 
     // Modal helpers
     function openAddGroupModal() {
-      toggleGroupMenu();
+      var gm=document.getElementById('group-actions-menu'); if(gm) gm.classList.add('hidden');
+      document.getElementById('group-modal-title').innerText = 'Thêm nhóm người dùng mới';
+      document.getElementById('group-name').value = '';
+      document.getElementById('group-name-err').classList.add('hidden');
       const modal = document.getElementById('modal-add-group');
       if (modal) {
         modal.classList.remove('hidden');
@@ -1253,16 +1267,15 @@
     }
 
     function submitNewGroup() {
+      if (!document.getElementById('group-name').value.trim()) { document.getElementById('group-name-err').classList.remove('hidden'); return; }
       closeAddGroupModal();
       showToast("Đã khởi tạo nhóm người dùng mới thành công!");
     }
 
     function openEditGroupModal() {
-      toggleGroupMenu();
-      const name = prompt("Nhập tên mới cho nhóm người dùng:", "Trưởng phòng / Quản lý khối kỹ thuật");
-      if (name) {
-        showToast("Đã cập nhật tên nhóm: " + name);
-      }
+      openAddGroupModal();
+      document.getElementById('group-modal-title').innerText = 'Sửa nhóm người dùng';
+      document.getElementById('group-name').value = 'Trưởng phòng / Quản lý khối kỹ thuật';
     }
 
     function confirmDeleteGroup() {

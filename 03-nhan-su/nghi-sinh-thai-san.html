@@ -634,7 +634,7 @@
 </div>
 <p class="font-caption text-caption text-outline">Hệ thống lọc tự động danh sách CBNV nữ đóng BHXH đủ 6 tháng trong 12 tháng gần nhất.</p>
 </div>
-<!-- Grid Ngày dự sinh & Ngày sinh thực tế -->
+<div class="flex flex-col gap-space-md"><div class="flex items-center gap-2 pt-space-sm"><span class="font-label-sm text-label-sm text-primary uppercase tracking-wider font-semibold whitespace-nowrap">Thông tin nhân sự (tự điền theo mã nhân sự)</span><div class="flex-1 h-px bg-surface-container-high"></div></div><div class="grid grid-cols-1 md:grid-cols-2 gap-space-md"><div class="flex flex-col gap-1.5"><label class="font-label-md text-label-md text-on-surface font-medium">Họ tên</label><input class="w-full h-[38px] px-3 bg-surface-container-low rounded-lg font-body-md text-body-md text-on-surface focus:outline-none focus:ring-2 focus:ring-primary-container transition-all opacity-70 cursor-not-allowed" type="text" value="Nguyễn Thị Mai" readonly/></div><div class="flex flex-col gap-1.5"><label class="font-label-md text-label-md text-on-surface font-medium">Ngày sinh</label><input class="w-full h-[38px] px-3 bg-surface-container-low rounded-lg font-body-md text-body-md text-on-surface focus:outline-none focus:ring-2 focus:ring-primary-container transition-all opacity-70 cursor-not-allowed" type="date" value="1994-03-20" readonly disabled/></div><div class="flex flex-col gap-1.5"><label class="font-label-md text-label-md text-on-surface font-medium">Giới tính</label><div class="relative"><select class="w-full h-[38px] px-3 bg-surface-container-low rounded-lg font-body-md text-body-md text-on-surface focus:outline-none focus:ring-2 focus:ring-primary-container transition-all pr-8 appearance-none cursor-pointer opacity-70 cursor-not-allowed" disabled><option value="Nam">Nam</option><option value="Nữ" selected>Nữ</option><option value="Khác">Khác</option></select><span class="material-symbols-outlined absolute right-2.5 top-1/2 -translate-y-1/2 text-secondary pointer-events-none text-[18px]">expand_more</span></div></div><div class="flex flex-col gap-1.5"><label class="font-label-md text-label-md text-on-surface font-medium">Đơn vị</label><input class="w-full h-[38px] px-3 bg-surface-container-low rounded-lg font-body-md text-body-md text-on-surface focus:outline-none focus:ring-2 focus:ring-primary-container transition-all opacity-70 cursor-not-allowed" type="text" value="Khối Quản trị &amp; Hỗ trợ Hội sở" readonly/></div><div class="flex flex-col gap-1.5"><label class="font-label-md text-label-md text-on-surface font-medium">Phòng ban/Dự án</label><input class="w-full h-[38px] px-3 bg-surface-container-low rounded-lg font-body-md text-body-md text-on-surface focus:outline-none focus:ring-2 focus:ring-primary-container transition-all opacity-70 cursor-not-allowed" type="text" value="Phòng Hành chính - Nhân sự" readonly/></div><div class="flex flex-col gap-1.5"><label class="font-label-md text-label-md text-on-surface font-medium">Bộ phận</label><input class="w-full h-[38px] px-3 bg-surface-container-low rounded-lg font-body-md text-body-md text-on-surface focus:outline-none focus:ring-2 focus:ring-primary-container transition-all opacity-70 cursor-not-allowed" type="text" value="Tổ Tiền lương &amp; BHXH" readonly/></div><div class="flex flex-col gap-1.5"><label class="font-label-md text-label-md text-on-surface font-medium">Chức vụ</label><input class="w-full h-[38px] px-3 bg-surface-container-low rounded-lg font-body-md text-body-md text-on-surface focus:outline-none focus:ring-2 focus:ring-primary-container transition-all opacity-70 cursor-not-allowed" type="text" value="Chuyên viên C&amp;B" readonly/></div></div></div><!-- Grid Ngày dự sinh & Ngày sinh thực tế -->
 <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
 <div class="space-y-1.5">
 <label class="block font-label-md text-label-md text-on-surface font-semibold">
@@ -722,7 +722,7 @@
 </div>
 </div>
 </div>
-<!-- Ghi chú bổ sung -->
+<div class="flex flex-col gap-space-md"><div class="grid grid-cols-1 md:grid-cols-2 gap-space-md"><div class="flex flex-col gap-1.5"><label class="font-label-md text-label-md text-on-surface font-medium">Ngày đăng ký</label><input class="w-full h-[38px] px-3 bg-surface-container-low rounded-lg font-body-md text-body-md text-on-surface focus:outline-none focus:ring-2 focus:ring-primary-container transition-all" type="date" value="2026-04-10"/></div><div class="flex flex-col gap-1.5 md:col-span-2"><label class="font-label-md text-label-md text-on-surface font-medium">Lý do</label><textarea class="w-full p-3 bg-surface-container-low rounded-lg font-body-md text-body-md text-on-surface focus:outline-none focus:ring-2 focus:ring-primary-container resize-none" rows="3" maxlength="100">Nghỉ thai sản sinh con lần 2.</textarea></div></div></div><!-- Ghi chú bổ sung -->
 <div class="space-y-1.5">
 <label class="block font-label-md text-label-md text-on-surface font-semibold">
           Ghi chú &amp; Lưu ý C&amp;B
@@ -802,4 +802,12 @@
       toggleDrawer(false);
     }
   </script>
-</div></main></div><script src="../shared/nav.js"></script></body></html>
+</div><!--PMC-ADD-START-->
+
+<script>
+function pmcOpen(id){var m=document.getElementById(id);if(m){m.classList.remove('hidden');m.classList.add('flex');}}
+function pmcClose(id){var m=document.getElementById(id);if(m){m.classList.add('hidden');m.classList.remove('flex');}}
+document.addEventListener('keydown',function(ev){if(ev.key==='Escape'){document.querySelectorAll('[data-pmc-modal]').forEach(function(m){pmcClose(m.id)})}});
+function pmcBind(sel,id){document.querySelectorAll(sel).forEach(function(b){b.addEventListener('click',function(ev){ev.preventDefault();pmcOpen(id)})})}
+</script>
+<!--PMC-ADD-END--></main></div><script src="../shared/nav.js"></script></body></html>

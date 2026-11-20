@@ -59,7 +59,36 @@ window.HRM_PAGE = {
     { stt: 5, ma: "CC0005", ten: "Chứng chỉ An toàn điện", maNS: "NV0177", nhanSu: "Bùi Văn Phong", donVi: "BQL Tòa Handico", duAn: "Handico Tower", ngayCap: "12/09/2022", thoiHan: "24 tháng", noiLuuTru: "Tổ Cơ điện" }
   ],
   total: 312,
-  toolbar: []
+  toolbar: [],
+  form: {
+    title: "THÊM CHỨNG CHỈ ĐÀO TẠO MỚI", saveLabel: "Lưu dữ liệu",
+    sections: [
+      { title: "Thông tin nhân sự", fields: [
+        { label: "Mã nhân sự", type: "text", required: true, span: 1 },
+        { label: "Họ tên", type: "text", span: 1, hint: "Tự động hiển thị theo mã nhân sự" },
+        { label: "Ngày sinh", type: "text", span: 1 },
+        { label: "Giới tính", type: "text", span: 1 },
+        { label: "Đơn vị", type: "select", options: ["BQL Tòa nhà Keangnam", "BQL Tòa Handico", "TTTM Indochina"], span: 1 },
+        { label: "Phòng ban/Dự án", type: "select", options: ["Chọn phòng ban/dự án"], span: 1 },
+        { label: "Bộ phận", type: "select", options: ["Chọn bộ phận"], span: 1 },
+        { label: "Chức vụ", type: "select", options: ["Chọn chức vụ"], span: 1 }
+      ] },
+      { title: "Thông tin chứng chỉ đào tạo", fields: [
+        { label: "Mã", type: "text", required: true, span: 1 },
+        { label: "Tên văn bằng", type: "select", required: true, options: ["An toàn PCCC", "Vận hành MEP", "Sơ cấp cứu", "Quản lý toà nhà"], span: 1 },
+        { label: "Đơn vị", type: "select", options: ["Chọn đơn vị", "BQL Tòa nhà Keangnam", "BQL Tòa Handico", "TTTM Indochina"], span: 1 },
+        { label: "Dự án", type: "select", options: ["Chọn dự án"], span: 1 },
+        { label: "Lớp đào tạo", type: "select", options: ["Chọn lớp đào tạo"], span: 2 },
+        { label: "Số văn bằng chứng chỉ", type: "text", required: true, span: 1 },
+        { label: "Ngày cấp", type: "date", required: true, span: 1 },
+        { label: "Thời hạn (tháng)", type: "number", required: true, span: 1, hint: "Trong khoảng 0 - 32767" },
+        { label: "Nơi lưu trữ", type: "text", span: 2 },
+        { label: "Ngày vào sổ", type: "date", span: 1 },
+        { label: "Người ký", type: "text", span: 1 },
+        { label: "Ghi chú", type: "textarea", span: 4 }
+      ] }
+    ]
+  }
 };
 </script>
 <script src="../shared/page.js"></script>

@@ -94,12 +94,9 @@
 <div class="md:col-span-2">
 <div class="relative">
 <select class="w-full h-[38px] px-3 pr-8 bg-surface-container-low rounded-lg font-body-md text-body-md text-on-surface focus:outline-none appearance-none cursor-pointer">
-<option value="">Loại thông báo: Tất cả</option>
-<option value="company">Toàn công ty</option>
-<option value="policy">Chính sách / Nội quy</option>
-<option value="holiday">Nghỉ lễ &amp; Sự kiện</option>
-<option value="urgent">Khẩn cấp / An toàn</option>
-<option value="payroll">Lương &amp; Đãi ngộ</option>
+<option value="TatCa">Loại: Tất cả</option>
+<option value="Chung">Chung</option>
+<option value="DaoTao">Đào tạo</option>
 </select>
 <span class="material-symbols-outlined absolute right-2.5 top-2.5 text-secondary text-[18px] pointer-events-none">expand_more</span>
 </div>
@@ -661,6 +658,23 @@
 </div>
 </div>
 </div>
+<!-- DANH SÁCH NHÂN SỰ NHẬN THÔNG BÁO (Shared/_ListTokenNhanSu.cshtml) -->
+<div class="bg-surface-container-lowest rounded-xl shadow-sm p-space-md mt-space-md">
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-semibold mb-space-sm">Danh sách nhân sự nhận thông báo</h3>
+<div class="grid grid-cols-1 md:grid-cols-4 gap-space-sm mb-space-md">
+<div><label class="font-label-md text-label-md text-secondary font-medium block mb-1">Tìm kiếm</label><input class="w-full h-[38px] px-3 bg-surface-container-low rounded-lg font-body-md text-body-md text-on-surface focus:outline-none" id="txtSearchToken" name="search" placeholder="Tìm kiếm" type="text"/></div>
+<div><label class="font-label-md text-label-md text-secondary font-medium block mb-1">Loại</label><select class="w-full h-[38px] px-3 bg-surface-container-low rounded-lg font-body-md text-body-md text-on-surface focus:outline-none" id="sl_DieuKien"><option value="2">Toàn bộ</option><option value="0">Chưa gửi</option><option value="1">Đã gửi</option></select></div>
+<div><label class="font-label-md text-label-md text-secondary font-medium block mb-1">Đơn vị</label><select class="w-full h-[38px] px-3 bg-surface-container-low rounded-lg font-body-md text-body-md text-on-surface focus:outline-none"><option>Tất cả</option><option>Công ty CP Quản lý và Khai thác tòa nhà VNPT (PMC)</option><option>Chi nhánh PMC TP. Hồ Chí Minh</option></select></div>
+<div><label class="font-label-md text-label-md text-secondary font-medium block mb-1">Phòng ban/Dự án</label><select class="w-full h-[38px] px-3 bg-surface-container-low rounded-lg font-body-md text-body-md text-on-surface focus:outline-none"><option>Tất cả</option><option>Phòng Kỹ thuật</option><option>Phòng Hành chính - Nhân sự</option><option>Dự án Tòa nhà VNPT Tower</option></select></div>
+<div><label class="font-label-md text-label-md text-secondary font-medium block mb-1">Chức vụ</label><select class="w-full h-[38px] px-3 bg-surface-container-low rounded-lg font-body-md text-body-md text-on-surface focus:outline-none"><option>Tất cả</option><option>Trưởng phòng</option><option>Chuyên viên</option><option>Nhân viên kỹ thuật</option></select></div>
+</div>
+<div class="overflow-x-auto"><table class="w-full text-left border-collapse"><thead><tr class="h-10 bg-surface-container-low text-secondary font-label-sm text-label-sm"><th class="px-space-md w-12 text-center">STT</th><th class="px-space-md">Mã nhân sự</th><th class="px-space-md">Họ tên</th><th class="px-space-md">Phòng ban/Dự án</th><th class="px-space-md">Chức vụ</th><th class="px-space-md">Trạng thái gửi</th></tr></thead>
+<tbody class="divide-y divide-surface-container font-body-md text-body-md">
+<tr class="h-11"><td class="text-center text-outline">1</td><td class="px-space-md font-mono-num">PMC-0102</td><td class="px-space-md">Nguyễn Văn An</td><td class="px-space-md">Phòng Kỹ thuật</td><td class="px-space-md">Trưởng phòng</td><td class="px-space-md text-primary">Đã gửi</td></tr>
+<tr class="h-11"><td class="text-center text-outline">2</td><td class="px-space-md font-mono-num">PMC-0108</td><td class="px-space-md">Trần Văn Bình</td><td class="px-space-md">Phòng Kỹ thuật</td><td class="px-space-md">Nhân viên kỹ thuật</td><td class="px-space-md text-primary">Đã gửi</td></tr>
+<tr class="h-11"><td class="text-center text-outline">3</td><td class="px-space-md font-mono-num">PMC-0201</td><td class="px-space-md">Đỗ Thu Hà</td><td class="px-space-md">Phòng Hành chính - Nhân sự</td><td class="px-space-md">Chuyên viên</td><td class="px-space-md text-secondary">Chưa gửi</td></tr>
+</tbody></table></div>
+</div>
 <!-- SLIDE-OVER DRAWER (SOẠN THÔNG BÁO MỚI) -->
 <div class="fixed inset-0 bg-on-surface/40 backdrop-blur-sm z-50 hidden transition-opacity" id="drawer-backdrop">
 <div class="absolute right-0 top-0 bottom-0 w-full max-w-2xl bg-surface-container-lowest shadow-2xl flex flex-col transform translate-x-full transition-transform duration-300 ease-out" id="drawer-panel">
@@ -671,199 +685,42 @@
 <span class="material-symbols-outlined text-[20px]">mark_email_unread</span>
 </div>
 <div class="flex flex-col">
-<h2 class="font-headline-md text-headline-md text-on-surface">Soạn thông báo mới</h2>
-<span class="font-caption text-caption text-secondary">Phát hành nội dung truyền thông nội bộ đa nền tảng</span>
+<h2 class="font-headline-md text-headline-md text-on-surface">Thông báo</h2>
+<span class="font-caption text-caption text-secondary">Soạn nội dung và gửi thông báo đến nhân viên</span>
 </div>
 </div>
 <button class="w-8 h-8 rounded-lg text-secondary hover:text-on-surface hover:bg-surface-container-low flex items-center justify-center transition-colors" id="close-drawer-btn">
 <span class="material-symbols-outlined text-[20px]">close</span>
 </button>
 </div>
-<!-- Drawer Body (Scrollable Form) -->
-<div class="p-space-lg overflow-y-auto flex-1 flex flex-col gap-space-md">
-<!-- Form Field: Tiêu đề -->
+<!-- Drawer Body (Scrollable Form) - theo ThongBao/_Edit.cshtml -->
+<form class="p-space-lg overflow-y-auto flex-1 flex flex-col gap-space-md" id="frmThongBao" onsubmit="return false">
 <div class="flex flex-col gap-1.5">
-<label class="font-label-md text-label-md text-on-surface font-semibold flex items-center gap-1">
-<span>Tiêu đề thông báo</span>
-<span class="text-error">*</span>
-</label>
-<input class="w-full h-[40px] px-3.5 bg-surface-container-low rounded-lg font-body-md text-body-md text-on-surface placeholder:text-secondary focus:outline-none focus:bg-surface-container-lowest shadow-sm" placeholder="Nhập tiêu đề thông báo ngắn gọn, rõ ràng..." type="text"/>
-<span class="font-caption text-caption text-secondary">Khuyên dùng tối đa 120 ký tự để hiển thị tốt trên thông báo đẩy điện thoại.</span>
-</div>
-<!-- Form Field: Loại thông báo & Mức độ ưu tiên -->
-<div class="grid grid-cols-1 sm:grid-cols-2 gap-space-md">
-<div class="flex flex-col gap-1.5">
-<label class="font-label-md text-label-md text-on-surface font-semibold flex items-center gap-1">
-<span>Phân loại thông báo</span>
-<span class="text-error">*</span>
-</label>
+<label class="font-label-md text-label-md text-on-surface font-semibold" for="sl_Loai">Loại</label>
 <div class="relative">
-<select class="w-full h-[38px] px-3 pr-8 bg-surface-container-low rounded-lg font-body-md text-body-md text-on-surface focus:outline-none appearance-none cursor-pointer">
-<option value="company">Toàn công ty</option>
-<option value="policy">Chính sách / Nội quy</option>
-<option value="holiday">Nghỉ lễ &amp; Sự kiện</option>
-<option value="payroll">Tiền lương &amp; Phúc lợi</option>
-<option value="urgent">Khẩn cấp / An toàn lao động</option>
+<select class="w-full h-[38px] px-3 pr-8 bg-surface-container-low rounded-lg font-body-md text-body-md text-on-surface focus:outline-none appearance-none cursor-pointer" id="sl_Loai" name="Loai">
+<option value="Chung" selected>Thông báo chung</option>
+<option value="DaoTao">Thông báo đào tạo</option>
 </select>
 <span class="material-symbols-outlined absolute right-2.5 top-2.5 text-secondary text-[18px] pointer-events-none">expand_more</span>
 </div>
 </div>
 <div class="flex flex-col gap-1.5">
-<label class="font-label-md text-label-md text-on-surface font-semibold">Mức độ ưu tiên</label>
-<div class="flex items-center gap-2">
-<label class="flex-1 flex items-center justify-center gap-1.5 h-[38px] rounded-lg bg-surface-container-low text-on-surface font-label-md text-label-md cursor-pointer hover:bg-surface-container has-[:checked]:bg-secondary-container has-[:checked]:text-primary transition-all">
-<input checked="" class="hidden" name="priority" type="radio" value="normal"/>
-<span>Bình thường</span>
-</label>
-<label class="flex-1 flex items-center justify-center gap-1.5 h-[38px] rounded-lg bg-surface-container-low text-on-surface font-label-md text-label-md cursor-pointer hover:bg-surface-container has-[:checked]:bg-[#FEF3C7] has-[:checked]:text-[#B45309] transition-all">
-<input class="hidden" name="priority" type="radio" value="important"/>
-<span>Quan trọng</span>
-</label>
-<label class="flex-1 flex items-center justify-center gap-1.5 h-[38px] rounded-lg bg-surface-container-low text-on-surface font-label-md text-label-md cursor-pointer hover:bg-surface-container has-[:checked]:bg-[#FEE2E2] has-[:checked]:text-error transition-all">
-<input class="hidden" name="priority" type="radio" value="urgent"/>
-<span>Khẩn cấp</span>
-</label>
+<label class="font-label-md text-label-md text-on-surface font-semibold flex items-center gap-1" for="txtTieuDe"><span>Tiêu đề</span><span class="text-error">*</span></label>
+<input class="w-full px-3.5 bg-surface-container-low rounded-lg font-body-md text-body-md text-on-surface placeholder:text-secondary focus:outline-none focus:bg-surface-container-lowest shadow-sm h-[40px]" id="txtTieuDe" maxlength="100" name="TieuDe" placeholder="VD: Thông báo lịch nghỉ lễ Quốc khánh 2/9" required type="text"/>
+<span class="font-caption text-caption text-error hidden" id="err-tieude">Tiêu đề không được để trống</span>
 </div>
-</div>
-</div>
-<!-- Form Field: Đối tượng nhận -->
 <div class="flex flex-col gap-1.5">
-<label class="font-label-md text-label-md text-on-surface font-semibold flex items-center justify-between">
-<span class="flex items-center gap-1">
-<span>Đối tượng tiếp nhận thông báo</span>
-<span class="text-error">*</span>
-</span>
-<span class="font-caption text-caption text-primary cursor-pointer hover:underline">Chọn nhanh tất cả</span>
-</label>
-<div class="bg-surface-container-low p-3 rounded-lg flex flex-col gap-2.5">
-<div class="flex flex-wrap gap-2">
-<span class="inline-flex items-center gap-1.5 px-3 py-1 bg-surface-container-lowest rounded-full font-label-sm text-label-sm text-primary font-medium shadow-sm">
-<span>Toàn bộ Cán bộ nhân viên (1,450)</span>
-<span class="material-symbols-outlined text-[14px] cursor-pointer hover:text-error">close</span>
-</span>
-<span class="inline-flex items-center gap-1.5 px-3 py-1 bg-surface-container-lowest rounded-full font-label-sm text-label-sm text-on-surface font-medium shadow-sm">
-<span>Khối Văn phòng Trụ sở</span>
-<span class="material-symbols-outlined text-[14px] cursor-pointer hover:text-error">close</span>
-</span>
+<label class="font-label-md text-label-md text-on-surface font-semibold" for="txtNoiDung">Nội dung</label>
+<textarea class="w-full px-3.5 bg-surface-container-low rounded-lg font-body-md text-body-md text-on-surface placeholder:text-secondary focus:outline-none focus:bg-surface-container-lowest shadow-sm p-3 resize-none" id="txtNoiDung" maxlength="200" name="NoiDung" placeholder="VD: Toàn thể CBNV nghỉ lễ từ 30/08 đến hết 02/09; bộ phận trực vận hành theo lịch phân công." rows="4"></textarea>
+<span class="font-caption text-caption text-secondary">Tối đa 200 ký tự.</span>
 </div>
-<div class="flex items-center gap-2 pt-1 text-secondary font-caption text-caption">
-<span class="material-symbols-outlined text-[16px]">info</span>
-<span>Có thể lọc chi tiết theo: Phòng ban, Chức danh, Dự án vận hành, hoặc Chi nhánh vùng miền.</span>
-</div>
-</div>
-</div>
-<!-- Form Field: Kênh gửi đa nền tảng -->
-<div class="flex flex-col gap-1.5">
-<label class="font-label-md text-label-md text-on-surface font-semibold">Kênh phân phối thông báo</label>
-<div class="grid grid-cols-1 sm:grid-cols-3 gap-2.5">
-<!-- Channel 1 -->
-<label class="p-3 rounded-lg bg-surface-container-low flex items-start gap-2.5 cursor-pointer hover:bg-surface-container transition-all">
-<input checked="" class="mt-0.5 rounded text-primary-container focus:ring-primary-container w-4 h-4 cursor-pointer" type="checkbox"/>
-<div class="flex flex-col">
-<span class="font-body-md-medium text-body-md-medium text-on-surface">App &amp; Web Nội bộ</span>
-<span class="font-caption text-caption text-secondary">Thông báo chuông real-time</span>
-</div>
-</label>
-<!-- Channel 2 -->
-<label class="p-3 rounded-lg bg-surface-container-low flex items-start gap-2.5 cursor-pointer hover:bg-surface-container transition-all">
-<input checked="" class="mt-0.5 rounded text-primary-container focus:ring-primary-container w-4 h-4 cursor-pointer" type="checkbox"/>
-<div class="flex flex-col">
-<span class="font-body-md-medium text-body-md-medium text-on-surface">Email công vụ</span>
-<span class="font-caption text-caption text-secondary">Gửi hộp thư @pmc.com.vn</span>
-</div>
-</label>
-<!-- Channel 3 -->
-<label class="p-3 rounded-lg bg-surface-container-low flex items-start gap-2.5 cursor-pointer hover:bg-surface-container transition-all">
-<input class="mt-0.5 rounded text-primary-container focus:ring-primary-container w-4 h-4 cursor-pointer" type="checkbox"/>
-<div class="flex flex-col">
-<span class="font-body-md-medium text-body-md-medium text-on-surface">Zalo ZNS Official</span>
-<span class="font-caption text-caption text-secondary">Tin nhắn OA doanh nghiệp</span>
-</div>
-</label>
-</div>
-</div>
-<!-- Form Field: Nội dung (WYSIWYG Mockup) -->
-<div class="flex flex-col gap-1.5">
-<label class="font-label-md text-label-md text-on-surface font-semibold flex items-center gap-1">
-<span>Nội dung chi tiết</span>
-<span class="text-error">*</span>
-</label>
-<div class="rounded-lg bg-surface-container-lowest shadow-sm flex flex-col overflow-hidden">
-<!-- Editor Toolbar -->
-<div class="px-2.5 py-1.5 bg-surface-container-low flex flex-wrap items-center gap-1 text-secondary">
-<button class="p-1 rounded hover:bg-surface-container hover:text-on-surface" title="Đậm (Ctrl+B)" type="button">
-<span class="material-symbols-outlined text-[18px]">format_bold</span>
-</button>
-<button class="p-1 rounded hover:bg-surface-container hover:text-on-surface" title="Nghiêng (Ctrl+I)" type="button">
-<span class="material-symbols-outlined text-[18px]">format_italic</span>
-</button>
-<button class="p-1 rounded hover:bg-surface-container hover:text-on-surface" title="Gạch chân" type="button">
-<span class="material-symbols-outlined text-[18px]">format_underlined</span>
-</button>
-<div class="w-px h-4 bg-surface-container-highest my-auto mx-1"></div>
-<button class="p-1 rounded hover:bg-surface-container hover:text-on-surface" title="Danh sách số" type="button">
-<span class="material-symbols-outlined text-[18px]">format_list_numbered</span>
-</button>
-<button class="p-1 rounded hover:bg-surface-container hover:text-on-surface" title="Danh sách chấm" type="button">
-<span class="material-symbols-outlined text-[18px]">format_list_bulleted</span>
-</button>
-<div class="w-px h-4 bg-surface-container-highest my-auto mx-1"></div>
-<button class="p-1 rounded hover:bg-surface-container hover:text-on-surface" title="Chèn liên kết" type="button">
-<span class="material-symbols-outlined text-[18px]">link</span>
-</button>
-<button class="p-1 rounded hover:bg-surface-container hover:text-on-surface" title="Chèn hình ảnh" type="button">
-<span class="material-symbols-outlined text-[18px]">image</span>
-</button>
-<button class="p-1 rounded hover:bg-surface-container hover:text-on-surface" title="Bảng biểu" type="button">
-<span class="material-symbols-outlined text-[18px]">table_chart</span>
-</button>
-</div>
-<!-- Editor Content Area -->
-<textarea class="w-full p-3 font-body-md text-body-md text-on-surface focus:outline-none resize-none bg-surface-container-lowest" placeholder="Nhập nội dung đầy đủ của thông báo tại đây. Hỗ trợ định dạng văn bản nâng cao, bảng biểu và ký điện tử..." rows="6"></textarea>
-</div>
-</div>
-<!-- Form Field: Đính kèm tệp tin -->
-<div class="flex flex-col gap-1.5">
-<label class="font-label-md text-label-md text-on-surface font-semibold">Tài liệu đính kèm (PDF, DOCX, XLSX)</label>
-<div class="p-4 rounded-lg bg-surface-container-low flex flex-col items-center justify-center gap-2 cursor-pointer hover:bg-surface-container transition-colors">
-<span class="material-symbols-outlined text-[32px] text-primary">cloud_upload</span>
-<div class="flex items-center gap-1 font-body-md text-body-md text-on-surface">
-<span class="font-semibold text-primary">Bấm để tải tệp lên</span>
-<span class="text-secondary">hoặc kéo thả tài liệu vào đây</span>
-</div>
-<span class="font-caption text-caption text-secondary">Dung lượng tối đa 25MB / mỗi tệp tin đính kèm</span>
-</div>
-</div>
-<!-- Form Field: Tùy chọn phát hành -->
-<div class="p-3.5 rounded-lg bg-surface-container-low flex flex-col gap-2.5">
-<span class="font-label-md text-label-md text-on-surface font-semibold">Thời điểm phát hành</span>
-<div class="flex items-center gap-6">
-<label class="flex items-center gap-2 cursor-pointer font-body-md text-body-md text-on-surface">
-<input checked="" class="text-primary-container focus:ring-primary-container" name="send_mode" type="radio" value="now"/>
-<span>Gửi ngay lập tức</span>
-</label>
-<label class="flex items-center gap-2 cursor-pointer font-body-md text-body-md text-on-surface">
-<input class="text-primary-container focus:ring-primary-container" name="send_mode" type="radio" value="schedule"/>
-<span>Lên lịch phát hành sau</span>
-</label>
-</div>
-</div>
-</div>
+</form>
 <!-- Drawer Footer Action Bar -->
-<div class="px-space-lg py-3.5 bg-surface-container-lowest shrink-0 flex items-center justify-between">
-<button class="px-4 h-[38px] rounded-lg bg-surface-container-high hover:bg-surface-container-highest text-on-surface font-label-md text-label-md transition-colors" id="cancel-drawer-btn" type="button">
-          Hủy bỏ
-        </button>
-<div class="flex items-center gap-2.5">
-<button class="px-4 h-[38px] rounded-lg bg-surface-container-low hover:bg-surface-container text-on-surface font-label-md text-label-md transition-colors flex items-center gap-1.5" type="button">
-<span class="material-symbols-outlined text-[18px] text-secondary">save</span>
-<span>Lưu bản nháp</span>
-</button>
-<button class="px-5 h-[38px] rounded-lg bg-primary-container text-on-primary font-label-md text-label-md shadow-sm hover:bg-primary transition-all flex items-center gap-2 font-medium" type="button">
-<span class="material-symbols-outlined text-[18px]">send</span>
-<span>Phát hành thông báo</span>
-</button>
-</div>
+<div class="px-space-lg py-3.5 bg-surface-container-lowest shrink-0 flex items-center justify-end gap-2.5">
+<button class="px-4 h-[38px] rounded-lg bg-surface-container-high hover:bg-surface-container-highest text-on-surface font-label-md text-label-md transition-colors" id="cancel-drawer-btn" type="button">Thoát</button>
+<button class="px-4 h-[38px] rounded-lg bg-surface-container-low hover:bg-surface-container text-on-surface font-label-md text-label-md transition-colors flex items-center gap-1.5" onclick="if(!document.getElementById('txtTieuDe').value.trim()){document.getElementById('err-tieude').classList.remove('hidden');}else{document.getElementById('err-tieude').classList.add('hidden');document.getElementById('cancel-drawer-btn').click();}" type="button"><span class="material-symbols-outlined text-[18px] text-secondary">save</span><span>Lưu dữ liệu</span></button>
+<button class="px-5 h-[38px] rounded-lg bg-primary-container text-on-primary font-label-md text-label-md shadow-sm hover:bg-primary transition-all flex items-center gap-2 font-medium" title="Gửi toàn bộ nhân viên" type="button"><span class="material-symbols-outlined text-[18px]">send</span><span>Gửi thông báo</span></button>
 </div>
 </div>
 </div>

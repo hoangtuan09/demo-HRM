@@ -15,11 +15,10 @@
 <span class="text-on-surface font-body-md-medium">Nội dung đào tạo chức vụ</span>
 </nav>
 <!-- Title & Action Cluster -->
-<div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
+<div class="flex flex-col gap-4">
 <div>
 <div class="flex items-center gap-2.5">
 <h1 class="font-headline-lg text-headline-lg text-on-surface tracking-tight">Khung Ma trận Đào tạo theo Vị trí Chức danh</h1>
-<span class="px-2.5 py-0.5 rounded-full bg-secondary-container text-on-secondary-container font-label-sm text-label-sm">Archetype E: Core Competency</span>
 </div>
 <p class="font-body-md text-body-md text-on-surface-variant mt-1 max-w-4xl">
             Thiết lập và gán các chương trình đào tạo bắt buộc, bồi dưỡng định kỳ và lộ trình thăng tiến cho từng nhóm vị trí công tác tại PMC.
@@ -27,6 +26,8 @@
 </div>
 <!-- Action Buttons -->
 <div class="flex items-center flex-wrap gap-2.5 shrink-0">
+<button type="button" data-hrmx-open="m-nd" class="inline-flex items-center gap-2 h-[38px] px-3.5 rounded-lg bg-surface-container-lowest text-on-surface hover:bg-surface-container shadow-sm font-label-md text-label-md transition-colors"><span class="material-symbols-outlined text-[18px] text-secondary">library_add</span><span>Thêm nội dung đào tạo</span></button>
+<button type="button" data-hrmx-open="m-cvnd" class="inline-flex items-center gap-2 h-[38px] px-3.5 rounded-lg bg-surface-container-lowest text-on-surface hover:bg-surface-container shadow-sm font-label-md text-label-md transition-colors"><span class="material-symbols-outlined text-[18px] text-secondary">assignment_add</span><span>Gán nội dung cho chức vụ</span></button>
 <button class="inline-flex items-center gap-1.5 h-[38px] px-3.5 bg-surface-container-low text-on-surface hover:bg-surface-container-high rounded-lg font-label-md text-label-md transition-colors shadow-sm" type="button">
 <span class="material-symbols-outlined text-[18px] text-on-surface-variant">download</span>
 <span>Xuất ma trận (Excel/PDF)</span>
@@ -591,4 +592,41 @@
       });
     }
   });
-</script></main></div><script src="../shared/nav.js"></script></body></html>
+</script><div id="m-nd" data-hrmx-modal class="hidden fixed inset-0 z-[80] items-center justify-center p-4 bg-[#0F172A]/50 backdrop-blur-[2px]">
+<div class="w-full max-w-3xl max-h-[92vh] flex flex-col bg-surface-container-lowest rounded-xl shadow-2xl overflow-hidden">
+<div class="flex items-start justify-between px-6 py-4 bg-surface-container-low"><div><h2 class="font-headline-md text-headline-md text-on-surface uppercase tracking-tight">Nội dung đào tạo</h2><p class="font-caption text-caption text-on-surface-variant mt-0.5">Thêm mới nội dung đào tạo</p></div>
+<button type="button" data-hrmx-close class="w-8 h-8 inline-flex items-center justify-center rounded-lg text-on-surface-variant hover:bg-surface-container-high"><span class="material-symbols-outlined text-[20px]">close</span></button></div>
+<div class="flex-1 overflow-y-auto px-6 py-5 flex flex-col gap-5"><div class="grid grid-cols-1 sm:grid-cols-4 gap-x-4 gap-y-4"><div class="col-span-1 sm:col-span-1 flex flex-col gap-1.5"><label class="font-label-md text-label-md text-on-surface">Mã <span class="text-error">*</span></label><input type="text" class="w-full h-10 px-3 bg-surface-container-low rounded-lg font-body-md text-body-md text-on-surface placeholder:text-outline focus:outline-none focus:bg-surface-container-lowest focus:ring-2 focus:ring-primary/20 transition-all" value="" placeholder=""/><span class="font-caption text-caption text-on-surface-variant">Tối đa 10 ký tự</span></div><div class="col-span-1 sm:col-span-3 flex flex-col gap-1.5"><label class="font-label-md text-label-md text-on-surface">Tên <span class="text-error">*</span></label><input type="text" class="w-full h-10 px-3 bg-surface-container-low rounded-lg font-body-md text-body-md text-on-surface placeholder:text-outline focus:outline-none focus:bg-surface-container-lowest focus:ring-2 focus:ring-primary/20 transition-all" value="" placeholder=""/></div><div class="col-span-1 sm:col-span-1 flex flex-col gap-1.5"><label class="font-label-md text-label-md text-on-surface">Thời hạn (ngày)</label><input type="text" class="w-full h-10 px-3 bg-surface-container-low rounded-lg font-body-md text-body-md text-on-surface placeholder:text-outline focus:outline-none focus:bg-surface-container-lowest focus:ring-2 focus:ring-primary/20 transition-all font-mono-num" value="" placeholder=""/></div><div class="col-span-1 sm:col-span-3 flex flex-col gap-1.5"><label class="font-label-md text-label-md text-on-surface">Mức độ <span class="text-error">*</span></label><div class="relative"><select class="w-full h-10 px-3 bg-surface-container-low rounded-lg font-body-md text-body-md text-on-surface placeholder:text-outline focus:outline-none focus:bg-surface-container-lowest focus:ring-2 focus:ring-primary/20 transition-all appearance-none pr-8 cursor-pointer"><option>Toàn bộ...</option><option>Đào tạo chung</option><option>Chuyên môn cơ bản</option><option>Chuyên môn nâng cao</option><option>Quản lý</option><option>Lãnh đạo</option></select><span class="material-symbols-outlined absolute right-2.5 top-1/2 -translate-y-1/2 text-outline pointer-events-none text-[18px]">expand_more</span></div></div><div class="col-span-1 sm:col-span-2 flex flex-col gap-1.5"><label class="font-label-md text-label-md text-on-surface">Tài liệu</label><div class="flex items-center gap-2"><button type="button" class="h-10 px-3 rounded-lg bg-surface-container-low hover:bg-surface-container text-on-surface font-label-md text-label-md inline-flex items-center gap-1.5"><span class="material-symbols-outlined text-[18px] text-secondary">upload_file</span>Chọn tệp</button><span class="font-caption text-caption text-on-surface-variant">Chưa chọn tệp nào</span></div></div><div class="col-span-1 sm:col-span-2 flex flex-col gap-1.5"><label class="font-label-md text-label-md text-on-surface">Tags</label><input type="text" class="w-full h-10 px-3 bg-surface-container-low rounded-lg font-body-md text-body-md text-on-surface placeholder:text-outline focus:outline-none focus:bg-surface-container-lowest focus:ring-2 focus:ring-primary/20 transition-all" value="" placeholder=""/></div><div class="col-span-1 sm:col-span-4 flex flex-col gap-1.5"><label class="font-label-md text-label-md text-on-surface">Ghi chú</label><textarea rows="3" class="w-full px-3 bg-surface-container-low rounded-lg font-body-md text-body-md text-on-surface placeholder:text-outline focus:outline-none focus:bg-surface-container-lowest focus:ring-2 focus:ring-primary/20 transition-all py-2 resize-none" placeholder=""></textarea><span class="font-caption text-caption text-on-surface-variant">Tối đa 500 ký tự</span></div></div></div>
+<div class="flex items-center justify-end gap-2 px-6 py-4 bg-surface-container-low"><button type="button" data-hrmx-close class="h-[38px] px-5 rounded-lg bg-surface-container-lowest hover:bg-surface-container text-on-surface font-label-md text-label-md shadow-sm transition-colors">Thoát</button>
+<button type="button" data-hrmx-close class="h-[38px] px-6 rounded-lg bg-primary-container hover:bg-primary text-on-primary font-label-md text-label-md shadow-sm inline-flex items-center gap-1.5 transition-colors"><span class="material-symbols-outlined text-[18px]">save</span>Lưu dữ liệu</button></div></div></div>
+<div id="m-cvnd" data-hrmx-modal class="hidden fixed inset-0 z-[80] items-center justify-center p-4 bg-[#0F172A]/50 backdrop-blur-[2px]">
+<div class="w-full max-w-2xl max-h-[92vh] flex flex-col bg-surface-container-lowest rounded-xl shadow-2xl overflow-hidden">
+<div class="flex items-start justify-between px-6 py-4 bg-surface-container-low"><div><h2 class="font-headline-md text-headline-md text-on-surface uppercase tracking-tight">Gán nội dung đào tạo cho chức vụ</h2><p class="font-caption text-caption text-on-surface-variant mt-0.5">Thêm mới</p></div>
+<button type="button" data-hrmx-close class="w-8 h-8 inline-flex items-center justify-center rounded-lg text-on-surface-variant hover:bg-surface-container-high"><span class="material-symbols-outlined text-[20px]">close</span></button></div>
+<div class="flex-1 overflow-y-auto px-6 py-5 flex flex-col gap-5"><div class="grid grid-cols-1 sm:grid-cols-4 gap-x-4 gap-y-4"><div class="col-span-1 sm:col-span-2 flex flex-col gap-1.5"><label class="font-label-md text-label-md text-on-surface">Chức vụ <span class="text-error">*</span></label><div class="relative"><select class="w-full h-10 px-3 bg-surface-container-low rounded-lg font-body-md text-body-md text-on-surface placeholder:text-outline focus:outline-none focus:bg-surface-container-lowest focus:ring-2 focus:ring-primary/20 transition-all appearance-none pr-8 cursor-pointer"><option>Chọn chức vụ</option><option>Kỹ sư trưởng MEP</option><option>Trưởng ca vận hành</option><option>Nhân viên lễ tân</option></select><span class="material-symbols-outlined absolute right-2.5 top-1/2 -translate-y-1/2 text-outline pointer-events-none text-[18px]">expand_more</span></div></div><div class="col-span-1 sm:col-span-2 flex flex-col gap-1.5"><label class="font-label-md text-label-md text-on-surface">Nội dung đào tạo <span class="text-error">*</span></label><div class="relative"><select class="w-full h-10 px-3 bg-surface-container-low rounded-lg font-body-md text-body-md text-on-surface placeholder:text-outline focus:outline-none focus:bg-surface-container-lowest focus:ring-2 focus:ring-primary/20 transition-all appearance-none pr-8 cursor-pointer"><option>Chọn nội dung đào tạo</option><option>An toàn PCCC</option><option>Vận hành BMS &amp; HVAC</option><option>Giao tiếp cư dân</option></select><span class="material-symbols-outlined absolute right-2.5 top-1/2 -translate-y-1/2 text-outline pointer-events-none text-[18px]">expand_more</span></div></div><div class="col-span-1 sm:col-span-1 flex flex-col gap-1.5"><label class="font-label-md text-label-md text-on-surface">Vị trí</label><input type="text" class="w-full h-10 px-3 bg-surface-container-low rounded-lg font-body-md text-body-md text-on-surface placeholder:text-outline focus:outline-none focus:bg-surface-container-lowest focus:ring-2 focus:ring-primary/20 transition-all font-mono-num" value="" placeholder=""/><span class="font-caption text-caption text-on-surface-variant">Thứ tự hiển thị (tối đa 4 ký tự)</span></div></div></div>
+<div class="flex items-center justify-end gap-2 px-6 py-4 bg-surface-container-low"><button type="button" data-hrmx-close class="h-[38px] px-5 rounded-lg bg-surface-container-lowest hover:bg-surface-container text-on-surface font-label-md text-label-md shadow-sm transition-colors">Thoát</button>
+<button type="button" data-hrmx-close class="h-[38px] px-6 rounded-lg bg-primary-container hover:bg-primary text-on-primary font-label-md text-label-md shadow-sm inline-flex items-center gap-1.5 transition-colors"><span class="material-symbols-outlined text-[18px]">save</span>Lưu dữ liệu</button></div></div></div>
+<script>
+(function(){
+  function $(i){return document.getElementById(i);}
+  function open(id){var m=$(id);if(m){m.classList.remove('hidden');m.classList.add('flex');}}
+  function close(m){m.classList.add('hidden');m.classList.remove('flex');}
+  document.addEventListener('click',function(e){
+    var t=e.target;if(!t.closest)return;
+    var c=t.closest('[data-hrmx-close]');if(c){var m=c.closest('[data-hrmx-modal]');if(m)close(m);return;}
+    if(t.hasAttribute&&t.hasAttribute('data-hrmx-modal')){close(t);return;}
+    var o=t.closest('[data-hrmx-open]');if(o){open(o.getAttribute('data-hrmx-open'));return;}
+    var tb=t.closest('[data-hrmx-tab]');if(tb){var g=tb.closest('[data-hrmx-tabs]');var k=tb.getAttribute('data-hrmx-tab');
+      g.querySelectorAll('[data-hrmx-tab]').forEach(function(b){var on=b===tb;b.classList.toggle('text-primary',on);b.classList.toggle('border-primary',on);b.classList.toggle('text-on-surface-variant',!on);b.classList.toggle('border-transparent',!on);});
+      g.querySelectorAll('[data-hrmx-pane]').forEach(function(p){p.classList.toggle('hidden',p.getAttribute('data-hrmx-pane')!==k);});}
+  });
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')document.querySelectorAll('[data-hrmx-modal]:not(.hidden)').forEach(close);});
+  var W=[];
+  W.forEach(function(w){document.querySelectorAll('button').forEach(function(b){
+    if(b.closest('[data-hrmx-modal]'))return;
+    var s=w.title?(b.getAttribute('title')||''):(b.textContent||'').replace(/\s+/g,' ');
+    if(new RegExp(w.re,'i').test(s))b.addEventListener('click',function(){open(w.id);});
+  });});
+})();
+</script>
+</main></div><script src="../shared/nav.js"></script></body></html>

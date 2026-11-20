@@ -509,4 +509,37 @@
       }
     });
   });
-</script></main></div><script src="../shared/nav.js"></script></body></html>
+</script></main></div><!-- Modal: Thêm mới tham số lương -->
+<div class="mdl-ov fixed inset-0 z-[70] hidden items-center justify-center bg-inverse-surface/40 backdrop-blur-[2px] p-4" id="mdlThamSoLuong">
+<div class="w-full max-w-md max-h-[90vh] bg-surface-container-lowest rounded-xl shadow-2xl flex flex-col">
+<div class="px-6 py-4 bg-surface-container-low rounded-t-xl flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="w-9 h-9 rounded-lg bg-primary-container/10 text-primary-container flex items-center justify-center"><span class="material-symbols-outlined text-[22px]">tune</span></div>
+<div class="flex flex-col"><h2 class="font-headline-md text-headline-md text-on-surface">Thêm mới tham số lương</h2><span class="font-caption text-caption text-on-surface-variant">Khai báo tham số dùng trong công thức lương</span></div>
+</div>
+<button class="p-1.5 rounded-lg text-outline hover:text-on-surface hover:bg-surface-container-high transition-colors" data-close-modal="mdlThamSoLuong" type="button"><span class="material-symbols-outlined text-[22px]">close</span></button>
+</div>
+<div class="flex-1 overflow-y-auto px-6 py-5 flex flex-col gap-4">
+<div class="flex flex-col gap-1.5"><label class="font-label-md text-label-md text-on-surface">Mã <span class="text-error">*</span></label><input class="w-full h-[38px] px-3 text-body-md font-body-md bg-surface-container-low rounded-lg text-on-surface focus:outline-none focus:bg-surface-container-lowest focus:ring-2 focus:ring-primary-container/20" type="text" value="LCS" placeholder="Tối đa 10 ký tự" maxlength="10"/></div>
+<div class="flex flex-col gap-1.5"><label class="font-label-md text-label-md text-on-surface">Giá trị <span class="text-error">*</span></label><input class="w-full h-[38px] px-3 text-body-md font-body-md bg-surface-container-low rounded-lg text-on-surface focus:outline-none focus:bg-surface-container-lowest focus:ring-2 focus:ring-primary-container/20" type="text" value="2.340.000" maxlength="200"/></div>
+<div class="flex flex-col gap-1.5"><label class="font-label-md text-label-md text-on-surface">Diễn giải <span class="text-error">*</span></label><input class="w-full h-[38px] px-3 text-body-md font-body-md bg-surface-container-low rounded-lg text-on-surface focus:outline-none focus:bg-surface-container-lowest focus:ring-2 focus:ring-primary-container/20" type="text" value="Mức lương cơ sở" maxlength="100"/></div>
+<div class="flex flex-col gap-1.5"><label class="font-label-md text-label-md text-on-surface">Vị trí</label><input class="w-full h-[38px] px-3 text-body-md font-body-md bg-surface-container-low rounded-lg text-on-surface focus:outline-none focus:bg-surface-container-lowest focus:ring-2 focus:ring-primary-container/20" type="number" value="1" min="0" max="32767"/></div>
+</div>
+<div class="px-6 py-4 bg-surface-container-low rounded-b-xl flex items-center justify-end gap-3">
+<button class="px-4 py-2 bg-surface-container-lowest text-on-surface font-label-md text-label-md rounded-lg shadow-sm hover:bg-surface-container-high transition-colors" data-close-modal="mdlThamSoLuong" type="button">Thoát</button>
+<button class="px-5 py-2 bg-primary-container text-on-primary font-label-md text-label-md rounded-lg shadow-sm hover:opacity-95 transition-all" data-close-modal="mdlThamSoLuong" type="button">Lưu dữ liệu</button>
+</div>
+</div>
+</div>
+<script>
+(function(){
+  function m(id,o){var e=document.getElementById(id);if(!e)return;e.classList.toggle('hidden',!o);e.classList.toggle('flex',o);}
+  document.addEventListener('click',function(ev){var t=ev.target.closest('[data-open-modal],[data-close-modal]');if(!t)return;ev.preventDefault();if(t.dataset.openModal)m(t.dataset.openModal,true);else m(t.dataset.closeModal,false);});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')document.querySelectorAll('.mdl-ov.flex').forEach(function(x){m(x.id,false);});});
+  function find(t){return Array.prototype.find.call(document.querySelectorAll('button'),function(b){return b.textContent.replace(/\s+/g,' ').indexOf(t)>-1&&!b.closest('.mdl-ov');});}
+  [].forEach(function(p){var b=find(p[0]);if(b)b.setAttribute('data-open-modal',p[1]);});
+  [["Lịch sử cập nhật","Thêm tham số","add","mdlThamSoLuong"]].forEach(function(p){var r=find(p[0]);if(!r)return;var c=r.cloneNode(false);c.removeAttribute('onclick');c.removeAttribute('id');c.removeAttribute('title');c.setAttribute('type','button');c.setAttribute('data-open-modal',p[3]);c.innerHTML='<span class="material-symbols-outlined text-[18px]">'+p[2]+'</span><span>'+p[1]+'</span>';r.parentNode.insertBefore(c,r);});
+  
+})();
+</script>
+<script src="../shared/nav.js"></script></body></html>

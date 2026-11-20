@@ -55,6 +55,16 @@ window.HRM_PAGE = {
     { stt: 5, ma: "BV005", ten: "Bệnh viện E", thanhPho: "Hà Nội", tuyen: "Trung ương", diaChi: "89 Trần Cung, Cầu Giấy, Hà Nội", trangThai: true },
     { stt: 6, ma: "BV006", ten: "Trung tâm Y tế huyện Gia Lâm", thanhPho: "Hà Nội", tuyen: "Huyện", diaChi: "TT Trâu Quỳ, Gia Lâm, Hà Nội", trangThai: false }
   ],
+  form: {
+    title: "THÊM BỆNH VIỆN KCB", saveLabel: "Lưu dữ liệu", wide: false,
+    sections: [ { fields: [
+      { label: "Mã", type: "text", required: true, span: 1, hint: "Tối đa 10 ký tự" },
+      { label: "Tên", type: "text", required: true, span: 3, hint: "Tối đa 100 ký tự" },
+      { label: "Thành phố", type: "select", required: true, span: 1, options: ["", "Hà Nội", "TP. Hồ Chí Minh", "Thanh Hóa", "Đà Nẵng"] },
+      { label: "Tuyến", type: "text", span: 3, hint: "Tối đa 50 ký tự" },
+      { label: "Địa chỉ", type: "text", span: 4, hint: "Tối đa 100 ký tự" }
+    ] } ]
+  },
   total: 48
 };
 </script>

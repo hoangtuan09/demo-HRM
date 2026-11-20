@@ -53,6 +53,16 @@ window.HRM_PAGE = {
     { stt: 5, ma: "KV05", ten: "Khu vực Kỹ thuật & Tầng mái", donVi: "BQL Tòa Handico", trangThai: true },
     { stt: 6, ma: "KV06", ten: "Khu vực Cảnh quan ngoài trời", donVi: "BQL Tòa nhà Keangnam", trangThai: false }
   ],
+  form: {
+    title: "THÊM KHU VỰC", saveLabel: "Lưu dữ liệu", wide: false,
+    sections: [ { fields: [
+      { label: "Mã", type: "text", required: true, span: 1, hint: "Tối đa 10 ký tự" },
+      { label: "Tên", type: "text", required: true, span: 3, hint: "Tối đa 50 ký tự" },
+      { label: "Vị trí", type: "number", span: 1 },
+      { label: "Công ty", type: "select", required: true, span: 3, options: ["", "Công ty Cổ phần PMC"] },
+      { label: "Đơn vị", type: "select", required: true, span: 4, options: ["", "BQL Tòa nhà Keangnam", "BQL Tòa Handico", "TTTM Indochina"] }
+    ] } ]
+  },
   total: 36
 };
 </script>

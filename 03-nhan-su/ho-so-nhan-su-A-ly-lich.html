@@ -57,6 +57,17 @@
     ::-webkit-scrollbar-thumb:hover {
       background: #94A3B8;
     }
+      .tab-pane {
+      display: none;
+      animation: fadeIn 0.2s ease-in-out;
+    }
+    .tab-pane.active {
+      display: block;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(4px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
   </style>
 <link rel="stylesheet" href="../shared/fix.css"/></head>
 <body class="min-h-screen flex items-center justify-center p-3 md:p-6 bg-slate-900/60 backdrop-blur-sm"><a class="hrm-back" href="../index.html">&#8592; Thư viện</a>
@@ -107,18 +118,18 @@
           <div class="px-2.5 py-1 text-[11px] font-bold uppercase tracking-wider text-slate-400">Danh mục hồ sơ</div>
 
           <!-- Tab 1: Lý lịch (Active) -->
-          <button class="w-full text-left px-3 py-2 rounded-lg text-[13px] font-semibold flex items-center justify-between transition-all bg-primary-light text-primary border-l-4 border-primary shadow-xs">
+          <button data-tab="tab-ly-lich" class="tab-btn w-full text-left px-3 py-2 rounded-lg text-[13px] font-semibold flex items-center justify-between transition-all bg-primary-light text-primary border-l-4 border-primary shadow-xs">
             <span class="flex items-center gap-2 truncate">
               <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H5a2 2 0 00-2 2v9a2 2 0 002 2h14a2 2 0 002-2V8a2 2 0 00-2-2h-5m-4 0V5a2 2 0 114 0v1m-4 0a2 2 0 104 0m-5 8a2 2 0 100-4 2 2 0 000 4zm0 0c1.306 0 2.417.835 2.83 2M9 14a3.001 3.001 0 00-2.83 2M15 11h3m-3 4h2"/>
               </svg>
               Lý lịch
             </span>
-            <span class="w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0"></span>
+            <span class="tab-indicator w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0"></span>
           </button>
 
           <!-- Tab 2: VBCCCN -->
-          <button class="w-full text-left px-3 py-2 rounded-lg text-[13px] font-medium text-slate-600 hover:text-slate-900 hover:bg-slate-200/60 transition-all flex items-center justify-between">
+          <button data-tab="tab-vbcccn" class="tab-btn w-full text-left px-3 py-2 rounded-lg text-[13px] font-medium text-slate-600 hover:text-slate-900 hover:bg-slate-200/60 transition-all flex items-center justify-between">
             <span class="flex items-center gap-2 truncate">
               <svg class="w-4 h-4 flex-shrink-0 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5z"/>
@@ -130,7 +141,7 @@
           </button>
 
           <!-- Tab 3: Thông tin -->
-          <button class="w-full text-left px-3 py-2 rounded-lg text-[13px] font-medium text-slate-600 hover:text-slate-900 hover:bg-slate-200/60 transition-all flex items-center justify-between">
+          <button data-tab="tab-thong-tin" class="tab-btn w-full text-left px-3 py-2 rounded-lg text-[13px] font-medium text-slate-600 hover:text-slate-900 hover:bg-slate-200/60 transition-all flex items-center justify-between">
             <span class="flex items-center gap-2 truncate">
               <svg class="w-4 h-4 flex-shrink-0 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
@@ -140,7 +151,7 @@
           </button>
 
           <!-- Tab 4: Bảo hiểm -->
-          <button class="w-full text-left px-3 py-2 rounded-lg text-[13px] font-medium text-slate-600 hover:text-slate-900 hover:bg-slate-200/60 transition-all flex items-center justify-between">
+          <button data-tab="tab-bao-hiem" class="tab-btn w-full text-left px-3 py-2 rounded-lg text-[13px] font-medium text-slate-600 hover:text-slate-900 hover:bg-slate-200/60 transition-all flex items-center justify-between">
             <span class="flex items-center gap-2 truncate">
               <svg class="w-4 h-4 flex-shrink-0 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
@@ -150,7 +161,7 @@
           </button>
 
           <!-- Tab 5: Chuyên ngành -->
-          <button class="w-full text-left px-3 py-2 rounded-lg text-[13px] font-medium text-slate-600 hover:text-slate-900 hover:bg-slate-200/60 transition-all flex items-center justify-between">
+          <button data-tab="tab-chuyen-nganh" class="tab-btn w-full text-left px-3 py-2 rounded-lg text-[13px] font-medium text-slate-600 hover:text-slate-900 hover:bg-slate-200/60 transition-all flex items-center justify-between">
             <span class="flex items-center gap-2 truncate">
               <svg class="w-4 h-4 flex-shrink-0 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/>
@@ -160,7 +171,7 @@
           </button>
 
           <!-- Tab 6: Quan hệ gia đình -->
-          <button class="w-full text-left px-3 py-2 rounded-lg text-[13px] font-medium text-slate-600 hover:text-slate-900 hover:bg-slate-200/60 transition-all flex items-center justify-between">
+          <button data-tab="tab-gia-dinh" class="tab-btn w-full text-left px-3 py-2 rounded-lg text-[13px] font-medium text-slate-600 hover:text-slate-900 hover:bg-slate-200/60 transition-all flex items-center justify-between">
             <span class="flex items-center gap-2 truncate">
               <svg class="w-4 h-4 flex-shrink-0 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
@@ -171,7 +182,7 @@
           </button>
 
           <!-- Tab 7: Quá trình lương (Quyền lương) -->
-          <button class="w-full text-left px-3 py-2 rounded-lg text-[13px] font-medium text-slate-600 hover:text-slate-900 hover:bg-slate-200/60 transition-all flex items-center justify-between group">
+          <button data-tab="tab-luong" class="tab-btn w-full text-left px-3 py-2 rounded-lg text-[13px] font-medium text-slate-600 hover:text-slate-900 hover:bg-slate-200/60 transition-all flex items-center justify-between group">
             <span class="flex items-center gap-2 truncate">
               <svg class="w-4 h-4 flex-shrink-0 text-amber-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
@@ -182,7 +193,7 @@
           </button>
 
           <!-- Tab 8: Quá trình công tác -->
-          <button class="w-full text-left px-3 py-2 rounded-lg text-[13px] font-medium text-slate-600 hover:text-slate-900 hover:bg-slate-200/60 transition-all flex items-center justify-between">
+          <button data-tab="tab-cong-tac" class="tab-btn w-full text-left px-3 py-2 rounded-lg text-[13px] font-medium text-slate-600 hover:text-slate-900 hover:bg-slate-200/60 transition-all flex items-center justify-between">
             <span class="flex items-center gap-2 truncate">
               <svg class="w-4 h-4 flex-shrink-0 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
@@ -192,7 +203,7 @@
           </button>
 
           <!-- Tab 9: Khen thưởng -->
-          <button class="w-full text-left px-3 py-2 rounded-lg text-[13px] font-medium text-slate-600 hover:text-slate-900 hover:bg-slate-200/60 transition-all flex items-center justify-between">
+          <button data-tab="tab-khen-thuong" class="tab-btn w-full text-left px-3 py-2 rounded-lg text-[13px] font-medium text-slate-600 hover:text-slate-900 hover:bg-slate-200/60 transition-all flex items-center justify-between">
             <span class="flex items-center gap-2 truncate">
               <svg class="w-4 h-4 flex-shrink-0 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/>
@@ -202,7 +213,7 @@
           </button>
 
           <!-- Tab 10: Kỷ luật -->
-          <button class="w-full text-left px-3 py-2 rounded-lg text-[13px] font-medium text-slate-600 hover:text-slate-900 hover:bg-slate-200/60 transition-all flex items-center justify-between">
+          <button data-tab="tab-ky-luat" class="tab-btn w-full text-left px-3 py-2 rounded-lg text-[13px] font-medium text-slate-600 hover:text-slate-900 hover:bg-slate-200/60 transition-all flex items-center justify-between">
             <span class="flex items-center gap-2 truncate">
               <svg class="w-4 h-4 flex-shrink-0 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/>
@@ -212,7 +223,7 @@
           </button>
 
           <!-- Tab 11: Kiêm nhiệm -->
-          <button class="w-full text-left px-3 py-2 rounded-lg text-[13px] font-medium text-slate-600 hover:text-slate-900 hover:bg-slate-200/60 transition-all flex items-center justify-between">
+          <button data-tab="tab-kiem-nhiem" class="tab-btn w-full text-left px-3 py-2 rounded-lg text-[13px] font-medium text-slate-600 hover:text-slate-900 hover:bg-slate-200/60 transition-all flex items-center justify-between">
             <span class="flex items-center gap-2 truncate">
               <svg class="w-4 h-4 flex-shrink-0 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"/>
@@ -222,7 +233,7 @@
           </button>
 
           <!-- Tab 12: Thử thách -->
-          <button class="w-full text-left px-3 py-2 rounded-lg text-[13px] font-medium text-slate-600 hover:text-slate-900 hover:bg-slate-200/60 transition-all flex items-center justify-between">
+          <button data-tab="tab-thu-thach" class="tab-btn w-full text-left px-3 py-2 rounded-lg text-[13px] font-medium text-slate-600 hover:text-slate-900 hover:bg-slate-200/60 transition-all flex items-center justify-between">
             <span class="flex items-center gap-2 truncate">
               <svg class="w-4 h-4 flex-shrink-0 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/>
@@ -232,7 +243,7 @@
           </button>
 
           <!-- Tab 13: Hồ sơ đính kèm -->
-          <button class="w-full text-left px-3 py-2 rounded-lg text-[13px] font-medium text-slate-600 hover:text-slate-900 hover:bg-slate-200/60 transition-all flex items-center justify-between">
+          <button data-tab="tab-dinh-kem" class="tab-btn w-full text-left px-3 py-2 rounded-lg text-[13px] font-medium text-slate-600 hover:text-slate-900 hover:bg-slate-200/60 transition-all flex items-center justify-between">
             <span class="flex items-center gap-2 truncate">
               <svg class="w-4 h-4 flex-shrink-0 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.172 7l-6.586 6.586a2 2 0 102.828 2.828l6.414-6.586a4 4 0 00-5.656-5.656l-6.415 6.585a6 6 0 108.486 8.486L20.5 13"/>
@@ -250,6 +261,7 @@
 
       <!-- RIGHT SCROLLABLE CONTENT: FORM ACTIVE TAB "LÝ LỊCH" -->
       <main class="flex-1 overflow-y-auto bg-white p-5 md:p-7">
+<div class="tab-pane active" id="tab-ly-lich">
         
         <!-- Tab Content Header -->
         <div class="flex items-center justify-between pb-4 mb-5 border-b border-slate-100">
@@ -634,7 +646,7 @@
               <div class="col-span-12 sm:col-span-6 flex items-center pt-5">
                 <label class="inline-flex items-center gap-2 text-[13px] text-slate-700 cursor-pointer">
                   <input type="checkbox" class="w-4 h-4 rounded text-primary border-slate-300 focus:ring-primary">
-                  <span class="font-medium">Người nước ngoài (Foreign employee)</span>
+                  <span class="font-medium">Người nước ngoài</span>
                 </label>
               </div>
 
@@ -658,7 +670,7 @@
               <div class="col-span-12 sm:col-span-3">
                 <label class="inline-flex items-center gap-2 text-[13px] font-semibold text-slate-800 cursor-pointer">
                   <input type="checkbox" checked class="w-4 h-4 rounded text-primary border-slate-300 focus:ring-primary">
-                  <span>Đoàn viên TNCS</span>
+                  <span>Đoàn viên</span>
                 </label>
               </div>
 
@@ -728,7 +740,236 @@
 
         </form>
 
-      </main>
+      </div>
+<!-- tab-vbcccn -->
+<div class="tab-pane" id="tab-vbcccn">
+<div class="flex items-center justify-between pb-4 mb-5 border-b border-slate-100">
+<div>
+<h2 class="text-lg font-bold text-heading flex items-center gap-2"><span class="w-2.5 h-2.5 rounded-full bg-primary inline-block"></span>Văn bằng chứng chỉ</h2>
+<p class="text-xs text-muted mt-0.5">Danh sách văn bằng, chứng chỉ của nhân sự (nhấn "Sửa" để mở form chi tiết)</p>
+</div>
+
+</div><div class="overflow-x-auto border border-border rounded-lg mb-6"><table class="w-full text-left text-xs"><thead class="bg-slate-50 border-b border-border text-slate-600 font-semibold"><tr><th class="py-3 px-3">STT</th><th class="py-3 px-3 whitespace-nowrap">Mã chứng chỉ</th><th class="py-3 px-3 whitespace-nowrap">Tên chứng chỉ</th><th class="py-3 px-3 whitespace-nowrap">Đơn vị</th><th class="py-3 px-3 whitespace-nowrap">Số chứng nhận</th><th class="py-3 px-3 whitespace-nowrap">Ngày cấp</th><th class="py-3 px-3 whitespace-nowrap">Thời hạn</th><th class="py-3 px-3 whitespace-nowrap">Nơi lưu trữ</th><th class="py-3 px-3 text-center whitespace-nowrap">Chỉnh sửa</th></tr></thead><tbody class="divide-y divide-border text-slate-700">
+<tr class="hover:bg-slate-50/70"><td class="py-3 px-3 text-slate-400">1</td><td class="py-3 px-3 whitespace-nowrap">CC-0012</td><td class="py-3 px-3 whitespace-nowrap">Chứng chỉ nghiệp vụ quản lý vận hành nhà chung cư</td><td class="py-3 px-3 whitespace-nowrap">Bộ Xây dựng</td><td class="py-3 px-3 whitespace-nowrap">0123/QLVH-2019</td><td class="py-3 px-3 whitespace-nowrap">15/03/2019</td><td class="py-3 px-3 whitespace-nowrap">Không thời hạn</td><td class="py-3 px-3 whitespace-nowrap">Tủ hồ sơ A2-05</td><td class="py-3 px-3 text-center whitespace-nowrap"><button type="button" onclick="openFrm('frm-vbcc')" class="text-slate-500 hover:text-primary font-medium mr-2">Sửa</button><button type="button" class="text-red-500 hover:text-red-700 font-medium">Xoá</button></td></tr>
+<tr class="hover:bg-slate-50/70"><td class="py-3 px-3 text-slate-400">2</td><td class="py-3 px-3 whitespace-nowrap">CC-0034</td><td class="py-3 px-3 whitespace-nowrap">Chứng chỉ Quản trị cơ sở vật chất (FMP)</td><td class="py-3 px-3 whitespace-nowrap">IFMA (Hoa Kỳ)</td><td class="py-3 px-3 whitespace-nowrap">FMP-2021-88123</td><td class="py-3 px-3 whitespace-nowrap">15/09/2021</td><td class="py-3 px-3 whitespace-nowrap">15/09/2026</td><td class="py-3 px-3 whitespace-nowrap">Tủ hồ sơ A2-07</td><td class="py-3 px-3 text-center whitespace-nowrap"><button type="button" onclick="openFrm('frm-vbcc')" class="text-slate-500 hover:text-primary font-medium mr-2">Sửa</button><button type="button" class="text-red-500 hover:text-red-700 font-medium">Xoá</button></td></tr>
+</tbody></table></div>
+</div>
+<!-- tab-thong-tin -->
+<div class="tab-pane" id="tab-thong-tin">
+<div class="flex items-center justify-between pb-4 mb-5 border-b border-slate-100">
+<div>
+<h2 class="text-lg font-bold text-heading flex items-center gap-2"><span class="w-2.5 h-2.5 rounded-full bg-primary inline-block"></span>Thông tin</h2>
+<p class="text-xs text-muted mt-0.5">Thông tin công tác, hợp đồng lao động, thuế - ngân hàng và bảo hiểm xã hội</p>
+</div>
+
+</div><div class="space-y-5 text-sm">
+<div class="text-[12px] font-bold uppercase tracking-wider text-primary mb-2.5 mt-1">Cơ cấu tổ chức &amp; chức danh</div>
+<div class="grid grid-cols-12 gap-x-3.5 gap-y-3.5 ">
+<div class="col-span-12 sm:col-span-3"><label class="block text-[13px] font-medium text-slate-700 mb-1">Công ty <span class="text-red-500">*</span></label><select class="w-full h-[38px] px-2.5 border border-border rounded-lg text-slate-800 bg-white focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all"><option value="">...</option><option selected>Công ty CP Quản lý và Khai thác tòa nhà VNPT (PMC)</option></select></div>
+<div class="col-span-12 sm:col-span-3"><label class="block text-[13px] font-medium text-slate-700 mb-1">Đơn vị <span class="text-red-500">*</span></label><select class="w-full h-[38px] px-2.5 border border-border rounded-lg text-slate-800 bg-white focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all"><option value="">...</option><option selected>Khối Vận hành Dự án Miền Bắc</option><option>Khối Vận hành Dự án Miền Nam</option><option>Khối Văn phòng</option></select></div>
+<div class="col-span-12 sm:col-span-3"><label class="block text-[13px] font-medium text-slate-700 mb-1">Phòng ban/Dự án</label><select class="w-full h-[38px] px-2.5 border border-border rounded-lg text-slate-800 bg-white focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all"><option value="">...</option><option selected>Ban Quản lý Tòa nhà Keangnam</option><option>Ban Quản lý Sky City Tower</option><option>Phòng Kỹ thuật</option></select></div>
+<div class="col-span-12 sm:col-span-3"><label class="block text-[13px] font-medium text-slate-700 mb-1">Bộ phận</label><select class="w-full h-[38px] px-2.5 border border-border rounded-lg text-slate-800 bg-white focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all"><option value="">...</option><option selected>Tổ Kỹ thuật Cơ điện</option><option>Tổ Bảo vệ - PCCC</option><option>Tổ Vệ sinh môi trường</option></select></div>
+<div class="col-span-12 sm:col-span-3"><label class="block text-[13px] font-medium text-slate-700 mb-1">Nhóm dự án</label><select class="w-full h-[38px] px-2.5 border border-border rounded-lg text-slate-800 bg-white focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all"><option value="">...</option><option selected>Nhóm dự án Tòa nhà hạng A</option><option>Nhóm dự án Khu đô thị</option></select></div>
+<div class="col-span-12 sm:col-span-3"><label class="block text-[13px] font-medium text-slate-700 mb-1">Chức vụ</label><select class="w-full h-[38px] px-2.5 border border-border rounded-lg text-slate-800 bg-white focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all"><option value="">...</option><option selected>Trưởng phòng Kỹ thuật</option><option>Phó phòng Kỹ thuật</option><option>Kỹ sư trưởng dự án</option><option>Chuyên viên</option></select></div>
+<div class="col-span-12 sm:col-span-3"><label class="block text-[13px] font-medium text-slate-700 mb-1">Nghề nghiệp</label><select class="w-full h-[38px] px-2.5 border border-border rounded-lg text-slate-800 bg-white focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all"><option value="">...</option><option selected>Kỹ sư Cơ điện</option><option>Kỹ sư Xây dựng</option><option>Chuyên viên Hành chính</option></select></div>
+<div class="col-span-12 sm:col-span-3"><label class="block text-[13px] font-medium text-slate-700 mb-1">Năm kinh nghiệm</label><select class="w-full h-[38px] px-2.5 border border-border rounded-lg text-slate-800 bg-white focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all"><option>Không có</option><option selected>12</option><option>10</option><option>5</option></select><p class="text-[11px] text-slate-400 mt-1">(12 năm kinh nghiệm)</p></div>
+<div class="col-span-12 sm:col-span-6"><label class="block text-[13px] font-medium text-slate-700 mb-1">Kiêm nhiệm</label><input class="w-full h-[38px] px-3 border border-border rounded-lg text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all" type="text" value="Phó Trưởng ban An toàn Cơ điện"/></div>
+</div>
+<div class="text-[12px] font-bold uppercase tracking-wider text-primary mb-2.5 mt-1">Thời gian làm việc</div>
+<div class="grid grid-cols-12 gap-x-3.5 gap-y-3.5 ">
+<div class="col-span-12 sm:col-span-3"><label class="block text-[13px] font-medium text-slate-700 mb-1">Ngày vào làm việc <span class="text-red-500">*</span></label><div class="relative"><input class="w-full h-[38px] px-3 border border-border rounded-lg text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all pr-9" placeholder="__/__/____" type="text" value="01/06/2018"/><span class="absolute right-2.5 top-[11px] text-slate-400 pointer-events-none"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg></span></div></div>
+<div class="col-span-12 sm:col-span-3"><label class="block text-[13px] font-medium text-slate-700 mb-1">Ngày hết thử việc</label><div class="relative"><input class="w-full h-[38px] px-3 border border-border rounded-lg text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all pr-9" placeholder="__/__/____" type="text" value="31/07/2018"/><span class="absolute right-2.5 top-[11px] text-slate-400 pointer-events-none"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg></span></div></div>
+<div class="col-span-12 sm:col-span-3"><label class="block text-[13px] font-medium text-slate-700 mb-1">Ngày chính thức</label><div class="relative"><input class="w-full h-[38px] px-3 border border-border rounded-lg text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all pr-9" placeholder="__/__/____" type="text" value="01/08/2018"/><span class="absolute right-2.5 top-[11px] text-slate-400 pointer-events-none"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg></span></div></div>
+</div>
+<div class="text-[12px] font-bold uppercase tracking-wider text-primary mb-2.5 mt-1">Hợp đồng lao động</div>
+<div class="grid grid-cols-12 gap-x-3.5 gap-y-3.5 ">
+<div class="col-span-12 sm:col-span-3"><label class="block text-[13px] font-medium text-slate-700 mb-1">Hợp đồng lao động</label><select class="w-full h-[38px] px-2.5 border border-border rounded-lg text-slate-800 bg-white focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all"><option value="">...</option><option selected>HĐ Không xác định thời hạn</option><option>HĐ Xác định thời hạn (1-3 năm)</option><option>Hợp đồng thử việc</option></select></div>
+<div class="col-span-12 sm:col-span-3"><label class="block text-[13px] font-medium text-slate-700 mb-1">Số hợp đồng</label><input class="w-full h-[38px] px-3 border border-border rounded-lg text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all" type="text" value="HĐLĐ-2018/PMC/088"/></div>
+<div class="col-span-12 sm:col-span-3"><label class="block text-[13px] font-medium text-slate-700 mb-1">Ngày ký hợp đồng</label><div class="relative"><input class="w-full h-[38px] px-3 border border-border rounded-lg text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all pr-9" placeholder="__/__/____" type="text" value="01/08/2018"/><span class="absolute right-2.5 top-[11px] text-slate-400 pointer-events-none"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg></span></div></div>
+<div class="col-span-12 sm:col-span-3"><label class="block text-[13px] font-medium text-slate-700 mb-1">Đối tượng</label><select class="w-full h-[38px] px-2.5 border border-border rounded-lg text-slate-800 bg-white focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all"><option value="">...</option><option selected>Lao động trực tiếp</option><option>Lao động gián tiếp</option><option>Quản lý</option></select></div>
+</div>
+<div class="text-[12px] font-bold uppercase tracking-wider text-primary mb-2.5 mt-1">Thuế &amp; ngân hàng</div>
+<div class="grid grid-cols-12 gap-x-3.5 gap-y-3.5 ">
+<div class="col-span-12 sm:col-span-3"><label class="block text-[13px] font-medium text-slate-700 mb-1">Mã số thuế</label><input class="w-full h-[38px] px-3 border border-border rounded-lg text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all" type="text" value="8034567891"/></div>
+<div class="col-span-12 sm:col-span-4"><label class="block text-[13px] font-medium text-slate-700 mb-1">Tài khoản ngân hàng</label><input class="w-full h-[38px] px-3 border border-border rounded-lg text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all" type="text" value="19034567890123"/></div>
+<div class="col-span-12 sm:col-span-5"><div class="flex items-center justify-between"><label class="block text-[13px] font-medium text-slate-700 mb-1">Ngân hàng</label><a href="#" class="text-[12px] text-primary hover:underline -mt-1">+ thêm mới</a></div><select class="w-full h-[38px] px-2.5 border border-border rounded-lg text-slate-800 bg-white focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all"><option>Techcombank - CN Hà Thành</option><option>Vietcombank - CN Thăng Long</option><option>BIDV - CN Đống Đa</option></select></div>
+</div>
+<div class="text-[12px] font-bold uppercase tracking-wider text-primary mb-2.5 mt-1">Bảo hiểm xã hội &amp; chứng nhận</div>
+<div class="grid grid-cols-12 gap-x-3.5 gap-y-3.5 ">
+<div class="col-span-12 sm:col-span-3 flex items-center pt-5"><label class="inline-flex items-center gap-2 text-[13px] text-slate-700 cursor-pointer"><input class="w-4 h-4 rounded text-primary border-slate-300 focus:ring-primary" type="checkbox" checked/><span class="font-medium">Đóng BHXH</span></label></div>
+<div class="col-span-12 sm:col-span-3"><label class="block text-[13px] font-medium text-slate-700 mb-1">Số BHXH</label><input class="w-full h-[38px] px-3 border border-border rounded-lg text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all" type="text" value="0115123456"/></div>
+<div class="col-span-12 sm:col-span-3"><label class="block text-[13px] font-medium text-slate-700 mb-1">Ngày tham gia</label><div class="relative"><input class="w-full h-[38px] px-3 border border-border rounded-lg text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all pr-9" placeholder="__/__/____" type="text" value="01/08/2018"/><span class="absolute right-2.5 top-[11px] text-slate-400 pointer-events-none"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg></span></div></div>
+<div class="col-span-12 sm:col-span-4 flex items-center "><label class="inline-flex items-center gap-2 text-[13px] text-slate-700 cursor-pointer"><input class="w-4 h-4 rounded text-primary border-slate-300 focus:ring-primary" type="checkbox" checked/><span class="font-medium">An toàn, Vệ sinh lao động</span></label></div>
+<div class="col-span-12 sm:col-span-4 flex items-center "><label class="inline-flex items-center gap-2 text-[13px] text-slate-700 cursor-pointer"><input class="w-4 h-4 rounded text-primary border-slate-300 focus:ring-primary" type="checkbox" checked/><span class="font-medium">Quản lý vận hành nhà chung cư</span></label></div>
+<div class="col-span-12 sm:col-span-4 flex items-center "><label class="inline-flex items-center gap-2 text-[13px] text-slate-700 cursor-pointer"><input class="w-4 h-4 rounded text-primary border-slate-300 focus:ring-primary" type="checkbox" checked/><span class="font-medium">Phòng cháy chữa cháy, cứu nạn cứu hộ</span></label></div>
+</div>
+</div>
+</div>
+<!-- tab-bao-hiem -->
+<div class="tab-pane" id="tab-bao-hiem">
+<div class="flex items-center justify-between pb-4 mb-5 border-b border-slate-100">
+<div>
+<h2 class="text-lg font-bold text-heading flex items-center gap-2"><span class="w-2.5 h-2.5 rounded-full bg-primary inline-block"></span>Bảo hiểm</h2>
+<p class="text-xs text-muted mt-0.5">Quá trình tham gia bảo hiểm y tế (BHYT) của nhân sự</p>
+</div>
+<button type="button" onclick="openFrm('frm-bhyt')" title="Thêm" class="h-9 px-3.5 bg-primary text-white text-xs font-semibold rounded-lg flex items-center gap-1.5 hover:bg-primary-hover shadow-xs transition-colors flex-shrink-0"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M12 4v16m8-8H4" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>Thêm</button>
+</div><div class="overflow-x-auto border border-border rounded-lg mb-6"><table class="w-full text-left text-xs"><thead class="bg-slate-50 border-b border-border text-slate-600 font-semibold"><tr><th class="py-3 px-3">STT</th><th class="py-3 px-3 whitespace-nowrap">Mã</th><th class="py-3 px-3 whitespace-nowrap">Từ ngày</th><th class="py-3 px-3 whitespace-nowrap">Đến ngày</th><th class="py-3 px-3 whitespace-nowrap">Năm liên tục</th><th class="py-3 px-3 whitespace-nowrap">Bệnh viện</th><th class="py-3 px-3 whitespace-nowrap">Ngày cấp</th><th class="py-3 px-3 text-center whitespace-nowrap">Chỉnh sửa</th></tr></thead><tbody class="divide-y divide-border text-slate-700">
+<tr class="hover:bg-slate-50/70"><td class="py-3 px-3 text-slate-400">1</td><td class="py-3 px-3 whitespace-nowrap">DN4010115123456</td><td class="py-3 px-3 whitespace-nowrap">01/01/2026</td><td class="py-3 px-3 whitespace-nowrap">31/12/2026</td><td class="py-3 px-3 whitespace-nowrap">8</td><td class="py-3 px-3 whitespace-nowrap">Bệnh viện E Trung ương</td><td class="py-3 px-3 whitespace-nowrap">20/12/2025</td><td class="py-3 px-3 text-center whitespace-nowrap"><button type="button" onclick="openFrm('frm-bhyt')" class="text-slate-500 hover:text-primary font-medium mr-2">Sửa</button><button type="button" class="text-red-500 hover:text-red-700 font-medium">Xoá</button></td></tr>
+<tr class="hover:bg-slate-50/70"><td class="py-3 px-3 text-slate-400">2</td><td class="py-3 px-3 whitespace-nowrap">DN4010115123456</td><td class="py-3 px-3 whitespace-nowrap">01/01/2025</td><td class="py-3 px-3 whitespace-nowrap">31/12/2025</td><td class="py-3 px-3 whitespace-nowrap">7</td><td class="py-3 px-3 whitespace-nowrap">Bệnh viện E Trung ương</td><td class="py-3 px-3 whitespace-nowrap">18/12/2024</td><td class="py-3 px-3 text-center whitespace-nowrap"><button type="button" onclick="openFrm('frm-bhyt')" class="text-slate-500 hover:text-primary font-medium mr-2">Sửa</button><button type="button" class="text-red-500 hover:text-red-700 font-medium">Xoá</button></td></tr>
+</tbody></table></div>
+</div>
+<!-- tab-chuyen-nganh -->
+<div class="tab-pane" id="tab-chuyen-nganh">
+<div class="flex items-center justify-between pb-4 mb-5 border-b border-slate-100">
+<div>
+<h2 class="text-lg font-bold text-heading flex items-center gap-2"><span class="w-2.5 h-2.5 rounded-full bg-primary inline-block"></span>Chuyên ngành</h2>
+<p class="text-xs text-muted mt-0.5">Quá trình học vấn, chuyên ngành đào tạo của nhân sự</p>
+</div>
+<button type="button" onclick="openFrm('frm-hv')" title="Thêm" class="h-9 px-3.5 bg-primary text-white text-xs font-semibold rounded-lg flex items-center gap-1.5 hover:bg-primary-hover shadow-xs transition-colors flex-shrink-0"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M12 4v16m8-8H4" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>Thêm</button>
+</div><div class="overflow-x-auto border border-border rounded-lg mb-6"><table class="w-full text-left text-xs"><thead class="bg-slate-50 border-b border-border text-slate-600 font-semibold"><tr><th class="py-3 px-3">STT</th><th class="py-3 px-3 whitespace-nowrap">Học vấn</th><th class="py-3 px-3 whitespace-nowrap">Trường đào tạo</th><th class="py-3 px-3 whitespace-nowrap">Học vị</th><th class="py-3 px-3 whitespace-nowrap">Hệ đào tạo</th><th class="py-3 px-3 whitespace-nowrap">Chuyên ngành</th><th class="py-3 px-3 whitespace-nowrap">Loại bằng</th><th class="py-3 px-3 whitespace-nowrap">Năm tốt nghiệp</th><th class="py-3 px-3 text-center whitespace-nowrap">Chỉnh sửa</th></tr></thead><tbody class="divide-y divide-border text-slate-700">
+<tr class="hover:bg-slate-50/70"><td class="py-3 px-3 text-slate-400">1</td><td class="py-3 px-3 whitespace-nowrap">Đại học</td><td class="py-3 px-3 whitespace-nowrap">Đại học Bách Khoa Hà Nội</td><td class="py-3 px-3 whitespace-nowrap">Kỹ sư</td><td class="py-3 px-3 whitespace-nowrap">Chính quy</td><td class="py-3 px-3 whitespace-nowrap">Kỹ thuật Điều khiển &amp; Tự động hoá</td><td class="py-3 px-3 whitespace-nowrap">Giỏi</td><td class="py-3 px-3 whitespace-nowrap">2010</td><td class="py-3 px-3 text-center whitespace-nowrap"><button type="button" onclick="openFrm('frm-hv')" class="text-slate-500 hover:text-primary font-medium mr-2">Sửa</button><button type="button" class="text-red-500 hover:text-red-700 font-medium">Xoá</button></td></tr>
+<tr class="hover:bg-slate-50/70"><td class="py-3 px-3 text-slate-400">2</td><td class="py-3 px-3 whitespace-nowrap">Đại học</td><td class="py-3 px-3 whitespace-nowrap">Học viện Cán bộ quản lý xây dựng và đô thị</td><td class="py-3 px-3 whitespace-nowrap">Cử nhân</td><td class="py-3 px-3 whitespace-nowrap">Liên thông</td><td class="py-3 px-3 whitespace-nowrap">Quản lý vận hành tòa nhà</td><td class="py-3 px-3 whitespace-nowrap">Xuất sắc</td><td class="py-3 px-3 whitespace-nowrap">2017</td><td class="py-3 px-3 text-center whitespace-nowrap"><button type="button" onclick="openFrm('frm-hv')" class="text-slate-500 hover:text-primary font-medium mr-2">Sửa</button><button type="button" class="text-red-500 hover:text-red-700 font-medium">Xoá</button></td></tr>
+</tbody></table></div>
+</div>
+<!-- tab-gia-dinh -->
+<div class="tab-pane" id="tab-gia-dinh">
+<div class="flex items-center justify-between pb-4 mb-5 border-b border-slate-100">
+<div>
+<h2 class="text-lg font-bold text-heading flex items-center gap-2"><span class="w-2.5 h-2.5 rounded-full bg-primary inline-block"></span>Quan hệ gia đình</h2>
+<p class="text-xs text-muted mt-0.5">Danh sách thân nhân và người phụ thuộc (khấu trừ gia cảnh)</p>
+</div>
+<button type="button" onclick="openFrm('frm-qh')" title="Thêm" class="h-9 px-3.5 bg-primary text-white text-xs font-semibold rounded-lg flex items-center gap-1.5 hover:bg-primary-hover shadow-xs transition-colors flex-shrink-0"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M12 4v16m8-8H4" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>Thêm</button>
+</div><div class="overflow-x-auto border border-border rounded-lg mb-6"><table class="w-full text-left text-xs"><thead class="bg-slate-50 border-b border-border text-slate-600 font-semibold"><tr><th class="py-3 px-3">STT</th><th class="py-3 px-3 whitespace-nowrap">Quan hệ</th><th class="py-3 px-3 whitespace-nowrap">Họ và tên</th><th class="py-3 px-3 whitespace-nowrap">Số CMT</th><th class="py-3 px-3 whitespace-nowrap">Ngày sinh</th><th class="py-3 px-3 whitespace-nowrap">Địa chỉ</th><th class="py-3 px-3 whitespace-nowrap">Nghề nghiệp</th><th class="py-3 px-3 whitespace-nowrap">Khấu trừ gia cảnh</th><th class="py-3 px-3 text-center whitespace-nowrap">Chỉnh sửa</th></tr></thead><tbody class="divide-y divide-border text-slate-700">
+<tr class="hover:bg-slate-50/70"><td class="py-3 px-3 text-slate-400">1</td><td class="py-3 px-3 whitespace-nowrap">Vợ</td><td class="py-3 px-3 whitespace-nowrap">Trần Thị Bích Ngọc</td><td class="py-3 px-3 whitespace-nowrap">001190005432</td><td class="py-3 px-3 whitespace-nowrap">22/10/1990</td><td class="py-3 px-3 whitespace-nowrap">Số 25, Ngõ 120 Hoàng Quốc Việt, Hà Nội</td><td class="py-3 px-3 whitespace-nowrap">Giáo viên</td><td class="py-3 px-3 whitespace-nowrap">Không</td><td class="py-3 px-3 text-center whitespace-nowrap"><button type="button" onclick="openFrm('frm-qh')" class="text-slate-500 hover:text-primary font-medium mr-2">Sửa</button><button type="button" class="text-red-500 hover:text-red-700 font-medium">Xoá</button></td></tr>
+<tr class="hover:bg-slate-50/70"><td class="py-3 px-3 text-slate-400">2</td><td class="py-3 px-3 whitespace-nowrap">Con trai</td><td class="py-3 px-3 whitespace-nowrap">Nguyễn Minh Quân</td><td class="py-3 px-3 whitespace-nowrap">KS-HN-2016-0421</td><td class="py-3 px-3 whitespace-nowrap">14/05/2016</td><td class="py-3 px-3 whitespace-nowrap">Số 25, Ngõ 120 Hoàng Quốc Việt, Hà Nội</td><td class="py-3 px-3 whitespace-nowrap">Học sinh</td><td class="py-3 px-3 whitespace-nowrap">Có</td><td class="py-3 px-3 text-center whitespace-nowrap"><button type="button" onclick="openFrm('frm-qh')" class="text-slate-500 hover:text-primary font-medium mr-2">Sửa</button><button type="button" class="text-red-500 hover:text-red-700 font-medium">Xoá</button></td></tr>
+<tr class="hover:bg-slate-50/70"><td class="py-3 px-3 text-slate-400">3</td><td class="py-3 px-3 whitespace-nowrap">Con gái</td><td class="py-3 px-3 whitespace-nowrap">Nguyễn Hà Linh</td><td class="py-3 px-3 whitespace-nowrap">KS-HN-2020-0982</td><td class="py-3 px-3 whitespace-nowrap">08/11/2020</td><td class="py-3 px-3 whitespace-nowrap">Số 25, Ngõ 120 Hoàng Quốc Việt, Hà Nội</td><td class="py-3 px-3 whitespace-nowrap">Mầm non</td><td class="py-3 px-3 whitespace-nowrap">Có</td><td class="py-3 px-3 text-center whitespace-nowrap"><button type="button" onclick="openFrm('frm-qh')" class="text-slate-500 hover:text-primary font-medium mr-2">Sửa</button><button type="button" class="text-red-500 hover:text-red-700 font-medium">Xoá</button></td></tr>
+</tbody></table></div>
+</div>
+<!-- tab-luong -->
+<div class="tab-pane" id="tab-luong">
+<div class="flex items-center justify-between pb-4 mb-5 border-b border-slate-100">
+<div>
+<h2 class="text-lg font-bold text-heading flex items-center gap-2"><span class="w-2.5 h-2.5 rounded-full bg-primary inline-block"></span>Quá trình lương</h2>
+<p class="text-xs text-muted mt-0.5">Thông tin lương hiện hành và lịch sử quá trình lương (yêu cầu quyền xem thông tin lương)</p>
+</div>
+<span class="text-[10px] text-amber-600 bg-amber-50 border border-amber-200 px-1.5 py-0.5 rounded flex-shrink-0">🔒 Quyền thông tin lương</span>
+</div><div class="space-y-5 text-sm">
+<div class="grid grid-cols-12 gap-x-3.5 gap-y-3.5 ">
+<div class="col-span-12 sm:col-span-3"><label class="block text-[13px] font-medium text-slate-700 mb-1">Ngạch lương</label><select class="w-full h-[38px] px-2.5 border border-border rounded-lg text-slate-800 bg-white focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all"><option value="">...</option><option selected>Chuyên viên cấp cao</option><option>Chuyên viên chính</option><option>Chuyên viên</option></select></div>
+<div class="col-span-12 sm:col-span-3"><label class="block text-[13px] font-medium text-slate-700 mb-1">Bậc lương</label><input class="w-full h-[38px] px-3 border border-border rounded-lg text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all" type="number" value="4"/></div>
+<div class="col-span-12 sm:col-span-3"><label class="block text-[13px] font-medium text-slate-700 mb-1">Hệ số lương</label><input class="w-full h-[38px] px-3 border border-border rounded-lg text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all" type="number" value="4.20"/></div>
+<div class="col-span-12 sm:col-span-3"><label class="block text-[13px] font-medium text-slate-700 mb-1">Hệ số lương bảo hiểm</label><input class="w-full h-[38px] px-3 border border-border rounded-lg text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all" type="number" value="3.80"/></div>
+<div class="col-span-12 sm:col-span-3"><label class="block text-[13px] font-medium text-slate-700 mb-1">Lương cơ bản</label><input class="w-full h-[38px] px-3 border border-border rounded-lg text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all" type="text" value="18.500.000"/></div>
+<div class="col-span-12 sm:col-span-3"><label class="block text-[13px] font-medium text-slate-700 mb-1">Mức lương</label><input class="w-full h-[38px] px-3 border border-border rounded-lg text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all" type="text" value="28.000.000"/></div>
+<div class="col-span-12 sm:col-span-3"><label class="block text-[13px] font-medium text-slate-700 mb-1">Lương NET</label><input class="w-full h-[38px] px-3 border border-border rounded-lg text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all" type="text" value="28.000.000"/></div>
+<div class="col-span-12 sm:col-span-3"><label class="block text-[13px] font-medium text-slate-700 mb-1">Lương BHXH</label><input class="w-full h-[38px] px-3 border border-border rounded-lg text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all" type="text" value="18.500.000"/></div>
+<div class="col-span-12 sm:col-span-3"><label class="block text-[13px] font-medium text-slate-700 mb-1">Lương thử việc</label><input class="w-full h-[38px] px-3 border border-border rounded-lg text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all" type="text" value="12.000.000"/></div>
+<div class="col-span-12 sm:col-span-3"><label class="block text-[13px] font-medium text-slate-700 mb-1">Phụ cấp lương</label><input class="w-full h-[38px] px-3 border border-border rounded-lg text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all" type="text" value="1.500.000"/></div>
+<div class="col-span-12 sm:col-span-3"><label class="block text-[13px] font-medium text-slate-700 mb-1">Phụ cấp ăn trưa</label><input class="w-full h-[38px] px-3 border border-border rounded-lg text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all" type="text" value="730.000"/></div>
+<div class="col-span-12 sm:col-span-3"><label class="block text-[13px] font-medium text-slate-700 mb-1">Phụ cấp xăng xe</label><input class="w-full h-[38px] px-3 border border-border rounded-lg text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all" type="text" value="1.000.000"/></div>
+<div class="col-span-12 sm:col-span-3"><label class="block text-[13px] font-medium text-slate-700 mb-1">Phụ cấp điện thoại</label><input class="w-full h-[38px] px-3 border border-border rounded-lg text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all" type="text" value="500.000"/></div>
+<div class="col-span-12 sm:col-span-3"><label class="block text-[13px] font-medium text-slate-700 mb-1">Phụ cấp độc hại</label><input class="w-full h-[38px] px-3 border border-border rounded-lg text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all" type="text" value="0"/></div>
+<div class="col-span-12 sm:col-span-3"><label class="block text-[13px] font-medium text-slate-700 mb-1">Phụ cấp chức vụ</label><input class="w-full h-[38px] px-3 border border-border rounded-lg text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all" type="text" value="2.000.000"/></div>
+<div class="col-span-12 sm:col-span-3"><label class="block text-[13px] font-medium text-slate-700 mb-1">Phụ cấp trách nhiệm</label><input class="w-full h-[38px] px-3 border border-border rounded-lg text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all" type="text" value="3.500.000"/></div>
+<div class="col-span-12 sm:col-span-3"><label class="block text-[13px] font-medium text-slate-700 mb-1">Phụ cấp khác</label><input class="w-full h-[38px] px-3 border border-border rounded-lg text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all" type="text" value="0"/></div>
+<div class="col-span-12 sm:col-span-3"><label class="block text-[13px] font-medium text-slate-700 mb-1">Thưởng năng suất lao động</label><input class="w-full h-[38px] px-3 border border-border rounded-lg text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all bg-slate-100 cursor-not-allowed" type="text" value="2.500.000" readonly/></div>
+<div class="col-span-12 sm:col-span-3 flex items-end justify-end"><button type="button" onclick="openFrm('frm-qtl')" title="Thêm" class="h-9 px-3.5 bg-primary text-white text-xs font-semibold rounded-lg flex items-center gap-1.5 hover:bg-primary-hover shadow-xs transition-colors flex-shrink-0"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M12 4v16m8-8H4" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>Thêm</button></div>
+</div>
+<div class="overflow-x-auto border border-border rounded-lg mb-6"><table class="w-full text-left text-xs"><thead class="bg-slate-50 border-b border-border text-slate-600 font-semibold"><tr class="border-b border-border text-center text-primary"><th colspan="1" class="py-2 px-3 bg-primary-light/60 border-r border-white"></th><th colspan="3" class="py-2 px-3 bg-primary-light/60 border-r border-white">Hợp đồng</th><th colspan="6" class="py-2 px-3 bg-primary-light/60 border-r border-white">Lương</th><th colspan="6" class="py-2 px-3 bg-primary-light/60 border-r border-white">Lương/Phụ cấp</th><th colspan="1" class="py-2 px-3 bg-primary-light/60 border-r border-white"></th></tr><tr><th class="py-3 px-3">STT</th><th class="py-3 px-3 whitespace-nowrap">Loại HĐ</th><th class="py-3 px-3 whitespace-nowrap">Số HĐ</th><th class="py-3 px-3 whitespace-nowrap">Ngày HĐ</th><th class="py-3 px-3 whitespace-nowrap">Ngạch lương</th><th class="py-3 px-3 whitespace-nowrap">Bậc</th><th class="py-3 px-3 whitespace-nowrap">HSL</th><th class="py-3 px-3 whitespace-nowrap">Lương cơ bản</th><th class="py-3 px-3 whitespace-nowrap">Mức lương</th><th class="py-3 px-3 whitespace-nowrap">Lương NET</th><th class="py-3 px-3 whitespace-nowrap">Phụ cấp ăn trưa</th><th class="py-3 px-3 whitespace-nowrap">Phụ cấp xăng xe</th><th class="py-3 px-3 whitespace-nowrap">Phụ cấp điện thoại</th><th class="py-3 px-3 whitespace-nowrap">Phụ cấp trách nhiệm</th><th class="py-3 px-3 whitespace-nowrap">Phụ cấp lương</th><th class="py-3 px-3 whitespace-nowrap">Phụ cấp khác</th><th class="py-3 px-3 text-center whitespace-nowrap">Chỉnh sửa</th></tr></thead><tbody class="divide-y divide-border text-slate-700">
+<tr class="hover:bg-slate-50/70"><td class="py-3 px-3 text-slate-400">1</td><td class="py-3 px-3 whitespace-nowrap">HĐ Không xác định thời hạn</td><td class="py-3 px-3 whitespace-nowrap">HĐLĐ-2018/PMC/088</td><td class="py-3 px-3 whitespace-nowrap">01/08/2018</td><td class="py-3 px-3 whitespace-nowrap">Chuyên viên cấp cao</td><td class="py-3 px-3 whitespace-nowrap">4</td><td class="py-3 px-3 whitespace-nowrap">4.20</td><td class="py-3 px-3 whitespace-nowrap">18.500.000</td><td class="py-3 px-3 whitespace-nowrap">28.000.000</td><td class="py-3 px-3 whitespace-nowrap">28.000.000</td><td class="py-3 px-3 whitespace-nowrap">730.000</td><td class="py-3 px-3 whitespace-nowrap">1.000.000</td><td class="py-3 px-3 whitespace-nowrap">500.000</td><td class="py-3 px-3 whitespace-nowrap">3.500.000</td><td class="py-3 px-3 whitespace-nowrap">1.500.000</td><td class="py-3 px-3 whitespace-nowrap">0</td><td class="py-3 px-3 text-center whitespace-nowrap"><button type="button" onclick="openFrm('frm-qtl')" class="text-slate-500 hover:text-primary font-medium mr-2">Sửa</button><button type="button" class="text-red-500 hover:text-red-700 font-medium">Xoá</button></td></tr>
+<tr class="hover:bg-slate-50/70"><td class="py-3 px-3 text-slate-400">2</td><td class="py-3 px-3 whitespace-nowrap">HĐ Xác định thời hạn (1-3 năm)</td><td class="py-3 px-3 whitespace-nowrap">HĐLĐ-2015/PMC/021</td><td class="py-3 px-3 whitespace-nowrap">01/06/2015</td><td class="py-3 px-3 whitespace-nowrap">Chuyên viên chính</td><td class="py-3 px-3 whitespace-nowrap">3</td><td class="py-3 px-3 whitespace-nowrap">3.66</td><td class="py-3 px-3 whitespace-nowrap">15.000.000</td><td class="py-3 px-3 whitespace-nowrap">24.500.000</td><td class="py-3 px-3 whitespace-nowrap">24.500.000</td><td class="py-3 px-3 whitespace-nowrap">730.000</td><td class="py-3 px-3 whitespace-nowrap">800.000</td><td class="py-3 px-3 whitespace-nowrap">500.000</td><td class="py-3 px-3 whitespace-nowrap">2.500.000</td><td class="py-3 px-3 whitespace-nowrap">1.000.000</td><td class="py-3 px-3 whitespace-nowrap">0</td><td class="py-3 px-3 text-center whitespace-nowrap"><button type="button" onclick="openFrm('frm-qtl')" class="text-slate-500 hover:text-primary font-medium mr-2">Sửa</button><button type="button" class="text-red-500 hover:text-red-700 font-medium">Xoá</button></td></tr>
+</tbody></table></div>
+</div>
+</div>
+<!-- tab-cong-tac -->
+<div class="tab-pane" id="tab-cong-tac">
+<div class="flex items-center justify-between pb-4 mb-5 border-b border-slate-100">
+<div>
+<h2 class="text-lg font-bold text-heading flex items-center gap-2"><span class="w-2.5 h-2.5 rounded-full bg-primary inline-block"></span>Quá trình công tác</h2>
+<p class="text-xs text-muted mt-0.5">Quá trình công tác trước khi vào công ty và tại công ty</p>
+</div>
+
+</div><div class="flex items-center gap-3 mb-3"><button type="button" onclick="openFrm('frm-qtctt')" title="Thêm" class="h-9 px-3.5 bg-primary text-white text-xs font-semibold rounded-lg flex items-center gap-1.5 hover:bg-primary-hover shadow-xs transition-colors flex-shrink-0"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M12 4v16m8-8H4" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>Thêm</button><span class="font-semibold text-sm text-slate-800">Trước khi vào công ty</span></div>
+<div class="overflow-x-auto border border-border rounded-lg mb-6"><table class="w-full text-left text-xs"><thead class="bg-slate-50 border-b border-border text-slate-600 font-semibold"><tr><th class="py-3 px-3">STT</th><th class="py-3 px-3 whitespace-nowrap">Từ ngày</th><th class="py-3 px-3 whitespace-nowrap">Đến ngày</th><th class="py-3 px-3 whitespace-nowrap">Đơn vị</th><th class="py-3 px-3 whitespace-nowrap">Chức vụ</th><th class="py-3 px-3 whitespace-nowrap">Kiêm nhiệm</th><th class="py-3 px-3 text-center whitespace-nowrap">Chỉnh sửa</th></tr></thead><tbody class="divide-y divide-border text-slate-700">
+<tr class="hover:bg-slate-50/70"><td class="py-3 px-3 text-slate-400">1</td><td class="py-3 px-3 whitespace-nowrap">01/09/2010</td><td class="py-3 px-3 whitespace-nowrap">31/12/2014</td><td class="py-3 px-3 whitespace-nowrap">Vingroup (Vinhomes)</td><td class="py-3 px-3 whitespace-nowrap">Kỹ sư Cơ điện toà nhà</td><td class="py-3 px-3 whitespace-nowrap"></td><td class="py-3 px-3 text-center whitespace-nowrap"><button type="button" onclick="openFrm('frm-qtctt')" class="text-slate-500 hover:text-primary font-medium mr-2">Sửa</button><button type="button" class="text-red-500 hover:text-red-700 font-medium">Xoá</button></td></tr>
+<tr class="hover:bg-slate-50/70"><td class="py-3 px-3 text-slate-400">2</td><td class="py-3 px-3 whitespace-nowrap">01/01/2015</td><td class="py-3 px-3 whitespace-nowrap">31/05/2018</td><td class="py-3 px-3 whitespace-nowrap">Savills Việt Nam</td><td class="py-3 px-3 whitespace-nowrap">Phó ban Kỹ thuật Cụm</td><td class="py-3 px-3 whitespace-nowrap">Phụ trách PCCC</td><td class="py-3 px-3 text-center whitespace-nowrap"><button type="button" onclick="openFrm('frm-qtctt')" class="text-slate-500 hover:text-primary font-medium mr-2">Sửa</button><button type="button" class="text-red-500 hover:text-red-700 font-medium">Xoá</button></td></tr>
+</tbody></table></div>
+<div class="flex items-center gap-3 mb-3"><button type="button" onclick="openFrm('frm-qtct')" title="Thêm" class="h-9 px-3.5 bg-primary text-white text-xs font-semibold rounded-lg flex items-center gap-1.5 hover:bg-primary-hover shadow-xs transition-colors flex-shrink-0"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M12 4v16m8-8H4" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>Thêm</button><span class="font-semibold text-sm text-slate-800">Tại công ty</span></div>
+<div class="overflow-x-auto border border-border rounded-lg mb-6"><table class="w-full text-left text-xs"><thead class="bg-slate-50 border-b border-border text-slate-600 font-semibold"><tr><th class="py-3 px-3">STT</th><th class="py-3 px-3 whitespace-nowrap">Từ ngày</th><th class="py-3 px-3 whitespace-nowrap">Đến ngày</th><th class="py-3 px-3 whitespace-nowrap">Đơn vị</th><th class="py-3 px-3 whitespace-nowrap">Phòng ban/Dự án</th><th class="py-3 px-3 whitespace-nowrap">Tổ công tác</th><th class="py-3 px-3 whitespace-nowrap">Chức vụ</th><th class="py-3 px-3 whitespace-nowrap">Kiêm nhiệm</th><th class="py-3 px-3 whitespace-nowrap">Loại quyết định</th><th class="py-3 px-3 text-center whitespace-nowrap">Chỉnh sửa</th></tr></thead><tbody class="divide-y divide-border text-slate-700">
+<tr class="hover:bg-slate-50/70"><td class="py-3 px-3 text-slate-400">1</td><td class="py-3 px-3 whitespace-nowrap">01/06/2018</td><td class="py-3 px-3 whitespace-nowrap">31/05/2024</td><td class="py-3 px-3 whitespace-nowrap">Khối Vận hành Dự án Miền Bắc</td><td class="py-3 px-3 whitespace-nowrap">Ban Quản lý Sky City Tower</td><td class="py-3 px-3 whitespace-nowrap">Tổ Kỹ thuật Cơ điện</td><td class="py-3 px-3 whitespace-nowrap">Kỹ sư trưởng dự án</td><td class="py-3 px-3 whitespace-nowrap"></td><td class="py-3 px-3 whitespace-nowrap">Tiếp nhận</td><td class="py-3 px-3 text-center whitespace-nowrap"><button type="button" onclick="openFrm('frm-qtct')" class="text-slate-500 hover:text-primary font-medium mr-2">Sửa</button><button type="button" class="text-red-500 hover:text-red-700 font-medium">Xoá</button></td></tr>
+<tr class="hover:bg-slate-50/70"><td class="py-3 px-3 text-slate-400">2</td><td class="py-3 px-3 whitespace-nowrap">01/06/2024</td><td class="py-3 px-3 whitespace-nowrap">Nay</td><td class="py-3 px-3 whitespace-nowrap">Khối Vận hành Dự án Miền Bắc</td><td class="py-3 px-3 whitespace-nowrap">Ban Quản lý Tòa nhà Keangnam</td><td class="py-3 px-3 whitespace-nowrap">Tổ Kỹ thuật Cơ điện</td><td class="py-3 px-3 whitespace-nowrap">Trưởng phòng Kỹ thuật</td><td class="py-3 px-3 whitespace-nowrap">Phó Trưởng ban An toàn Cơ điện</td><td class="py-3 px-3 whitespace-nowrap">Bổ nhiệm</td><td class="py-3 px-3 text-center whitespace-nowrap"><button type="button" onclick="openFrm('frm-qtct')" class="text-slate-500 hover:text-primary font-medium mr-2">Sửa</button><button type="button" class="text-red-500 hover:text-red-700 font-medium">Xoá</button></td></tr>
+</tbody></table></div>
+</div>
+<!-- tab-khen-thuong -->
+<div class="tab-pane" id="tab-khen-thuong">
+<div class="flex items-center justify-between pb-4 mb-5 border-b border-slate-100">
+<div>
+<h2 class="text-lg font-bold text-heading flex items-center gap-2"><span class="w-2.5 h-2.5 rounded-full bg-primary inline-block"></span>Khen thưởng</h2>
+<p class="text-xs text-muted mt-0.5">Danh sách quyết định khen thưởng của nhân sự</p>
+</div>
+<button type="button" onclick="openFrm('frm-kt')" title="Thêm" class="h-9 px-3.5 bg-primary text-white text-xs font-semibold rounded-lg flex items-center gap-1.5 hover:bg-primary-hover shadow-xs transition-colors flex-shrink-0"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M12 4v16m8-8H4" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>Thêm</button>
+</div><div class="overflow-x-auto border border-border rounded-lg mb-6"><table class="w-full text-left text-xs"><thead class="bg-slate-50 border-b border-border text-slate-600 font-semibold"><tr><th class="py-3 px-3">STT</th><th class="py-3 px-3 whitespace-nowrap">Số quyết định</th><th class="py-3 px-3 whitespace-nowrap">Ngày quyết định</th><th class="py-3 px-3 whitespace-nowrap">Ngày hiệu lực</th><th class="py-3 px-3 whitespace-nowrap">Hình thức</th><th class="py-3 px-3 whitespace-nowrap">Danh hiệu</th><th class="py-3 px-3 whitespace-nowrap">Số tiền</th><th class="py-3 px-3 whitespace-nowrap">Nội dung</th><th class="py-3 px-3 whitespace-nowrap">Người ký</th><th class="py-3 px-3 whitespace-nowrap">Cấp quyết định</th><th class="py-3 px-3 text-center whitespace-nowrap">Chỉnh sửa</th></tr></thead><tbody class="divide-y divide-border text-slate-700">
+<tr class="hover:bg-slate-50/70"><td class="py-3 px-3 text-slate-400">1</td><td class="py-3 px-3 whitespace-nowrap">KT-2025/PMC/01</td><td class="py-3 px-3 whitespace-nowrap">15/01/2026</td><td class="py-3 px-3 whitespace-nowrap">20/01/2026</td><td class="py-3 px-3 whitespace-nowrap">Bằng khen</td><td class="py-3 px-3 whitespace-nowrap">Chiến sĩ thi đua cấp Công ty</td><td class="py-3 px-3 whitespace-nowrap">5.000.000</td><td class="py-3 px-3 whitespace-nowrap">Hoàn thành xuất sắc nhiệm vụ năm 2025</td><td class="py-3 px-3 whitespace-nowrap">Nguyễn Hoàng Long</td><td class="py-3 px-3 whitespace-nowrap">Công ty</td><td class="py-3 px-3 text-center whitespace-nowrap"><button type="button" onclick="openFrm('frm-kt')" class="text-slate-500 hover:text-primary font-medium mr-2">Sửa</button><button type="button" class="text-red-500 hover:text-red-700 font-medium">Xoá</button></td></tr>
+<tr class="hover:bg-slate-50/70"><td class="py-3 px-3 text-slate-400">2</td><td class="py-3 px-3 whitespace-nowrap">KT-2024/PMC/45</td><td class="py-3 px-3 whitespace-nowrap">10/12/2024</td><td class="py-3 px-3 whitespace-nowrap">15/12/2024</td><td class="py-3 px-3 whitespace-nowrap">Giấy khen</td><td class="py-3 px-3 whitespace-nowrap">Sáng kiến tiết kiệm điện Chiller</td><td class="py-3 px-3 whitespace-nowrap">10.000.000</td><td class="py-3 px-3 whitespace-nowrap">Sáng kiến giảm 12% điện năng hệ thống Chiller</td><td class="py-3 px-3 whitespace-nowrap">Trần Hải Nam</td><td class="py-3 px-3 whitespace-nowrap">Tập đoàn</td><td class="py-3 px-3 text-center whitespace-nowrap"><button type="button" onclick="openFrm('frm-kt')" class="text-slate-500 hover:text-primary font-medium mr-2">Sửa</button><button type="button" class="text-red-500 hover:text-red-700 font-medium">Xoá</button></td></tr>
+</tbody></table></div>
+</div>
+<!-- tab-ky-luat -->
+<div class="tab-pane" id="tab-ky-luat">
+<div class="flex items-center justify-between pb-4 mb-5 border-b border-slate-100">
+<div>
+<h2 class="text-lg font-bold text-heading flex items-center gap-2"><span class="w-2.5 h-2.5 rounded-full bg-primary inline-block"></span>Kỷ luật</h2>
+<p class="text-xs text-muted mt-0.5">Danh sách quyết định kỷ luật của nhân sự</p>
+</div>
+<button type="button" onclick="openFrm('frm-kl')" title="Thêm" class="h-9 px-3.5 bg-primary text-white text-xs font-semibold rounded-lg flex items-center gap-1.5 hover:bg-primary-hover shadow-xs transition-colors flex-shrink-0"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M12 4v16m8-8H4" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>Thêm</button>
+</div><div class="overflow-x-auto border border-border rounded-lg mb-6"><table class="w-full text-left text-xs"><thead class="bg-slate-50 border-b border-border text-slate-600 font-semibold"><tr><th class="py-3 px-3">STT</th><th class="py-3 px-3 whitespace-nowrap">Số quyết định</th><th class="py-3 px-3 whitespace-nowrap">Ngày quyết định</th><th class="py-3 px-3 whitespace-nowrap">Ngày hiệu lực</th><th class="py-3 px-3 whitespace-nowrap">Hình thức</th><th class="py-3 px-3 whitespace-nowrap">Nội dung</th><th class="py-3 px-3 whitespace-nowrap">Người ký</th><th class="py-3 px-3 whitespace-nowrap">Cấp quyết định</th><th class="py-3 px-3 text-center whitespace-nowrap">Chỉnh sửa</th></tr></thead><tbody class="divide-y divide-border text-slate-700">
+<tr class="hover:bg-slate-50/70"><td class="py-3 px-3 text-slate-400">1</td><td class="py-3 px-3 whitespace-nowrap">KL-2019/PMC/07</td><td class="py-3 px-3 whitespace-nowrap">05/03/2019</td><td class="py-3 px-3 whitespace-nowrap">10/03/2019</td><td class="py-3 px-3 whitespace-nowrap">Khiển trách</td><td class="py-3 px-3 whitespace-nowrap">Vi phạm quy trình bàn giao ca trực kỹ thuật</td><td class="py-3 px-3 whitespace-nowrap">Nguyễn Hoàng Long</td><td class="py-3 px-3 whitespace-nowrap">Đơn vị</td><td class="py-3 px-3 text-center whitespace-nowrap"><button type="button" onclick="openFrm('frm-kl')" class="text-slate-500 hover:text-primary font-medium mr-2">Sửa</button><button type="button" class="text-red-500 hover:text-red-700 font-medium">Xoá</button></td></tr>
+</tbody></table></div>
+</div>
+<!-- tab-kiem-nhiem -->
+<div class="tab-pane" id="tab-kiem-nhiem">
+<div class="flex items-center justify-between pb-4 mb-5 border-b border-slate-100">
+<div>
+<h2 class="text-lg font-bold text-heading flex items-center gap-2"><span class="w-2.5 h-2.5 rounded-full bg-primary inline-block"></span>Kiêm nhiệm</h2>
+<p class="text-xs text-muted mt-0.5">Các vị trí kiêm nhiệm của nhân sự</p>
+</div>
+<button type="button" onclick="openFrm('frm-kn')" title="Thêm" class="h-9 px-3.5 bg-primary text-white text-xs font-semibold rounded-lg flex items-center gap-1.5 hover:bg-primary-hover shadow-xs transition-colors flex-shrink-0"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M12 4v16m8-8H4" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>Thêm</button>
+</div><div class="overflow-x-auto border border-border rounded-lg mb-6"><table class="w-full text-left text-xs"><thead class="bg-slate-50 border-b border-border text-slate-600 font-semibold"><tr><th class="py-3 px-3">STT</th><th class="py-3 px-3 whitespace-nowrap">Đơn vị</th><th class="py-3 px-3 whitespace-nowrap">Phòng ban/Dự án</th><th class="py-3 px-3 whitespace-nowrap">Chức vụ</th><th class="py-3 px-3 whitespace-nowrap">Nhiệm kỳ</th><th class="py-3 px-3 whitespace-nowrap">Thời gian bổ nhiệm</th><th class="py-3 px-3 text-center whitespace-nowrap">Chỉnh sửa</th></tr></thead><tbody class="divide-y divide-border text-slate-700">
+<tr class="hover:bg-slate-50/70"><td class="py-3 px-3 text-slate-400">1</td><td class="py-3 px-3 whitespace-nowrap">Khối Vận hành Dự án Miền Bắc</td><td class="py-3 px-3 whitespace-nowrap">Ban Chỉ đạo An toàn &amp; PCCC Tòa nhà</td><td class="py-3 px-3 whitespace-nowrap">Phó Trưởng ban An toàn Cơ điện</td><td class="py-3 px-3 whitespace-nowrap">2024 - 2027</td><td class="py-3 px-3 whitespace-nowrap">01/06/2024</td><td class="py-3 px-3 text-center whitespace-nowrap"><button type="button" onclick="openFrm('frm-kn')" class="text-slate-500 hover:text-primary font-medium mr-2">Sửa</button><button type="button" class="text-red-500 hover:text-red-700 font-medium">Xoá</button></td></tr>
+</tbody></table></div>
+</div>
+<!-- tab-thu-thach -->
+<div class="tab-pane" id="tab-thu-thach">
+<div class="flex items-center justify-between pb-4 mb-5 border-b border-slate-100">
+<div>
+<h2 class="text-lg font-bold text-heading flex items-center gap-2"><span class="w-2.5 h-2.5 rounded-full bg-primary inline-block"></span>Thử thách</h2>
+<p class="text-xs text-muted mt-0.5">Quá trình thử thách của nhân sự (chỉ xem)</p>
+</div>
+<span class="text-xs px-2.5 py-1 rounded bg-slate-100 text-slate-600 font-medium">Chỉ xem</span>
+</div><div class="overflow-x-auto border border-border rounded-lg mb-6"><table class="w-full text-left text-xs"><thead class="bg-slate-50 border-b border-border text-slate-600 font-semibold"><tr><th class="py-3 px-3">STT</th><th class="py-3 px-3 whitespace-nowrap">Từ ngày</th><th class="py-3 px-3 whitespace-nowrap">Đến ngày</th><th class="py-3 px-3 whitespace-nowrap">Đơn vị</th><th class="py-3 px-3 whitespace-nowrap">Phòng ban/Dự án</th><th class="py-3 px-3 whitespace-nowrap">Chức vụ</th><th class="py-3 px-3 whitespace-nowrap">Đánh giá</th></tr></thead><tbody class="divide-y divide-border text-slate-700">
+<tr class="hover:bg-slate-50/70"><td class="py-3 px-3 text-slate-400">1</td><td class="py-3 px-3 whitespace-nowrap">01/03/2024</td><td class="py-3 px-3 whitespace-nowrap">31/05/2024</td><td class="py-3 px-3 whitespace-nowrap">Khối Vận hành Dự án Miền Bắc</td><td class="py-3 px-3 whitespace-nowrap">Ban Quản lý Tòa nhà Keangnam</td><td class="py-3 px-3 whitespace-nowrap">Trưởng phòng Kỹ thuật</td><td class="py-3 px-3 whitespace-nowrap">Đạt 120% chỉ tiêu KPI tối ưu điện năng</td></tr>
+<tr class="hover:bg-slate-50/70"><td class="py-3 px-3 text-slate-400">2</td><td class="py-3 px-3 whitespace-nowrap">01/06/2018</td><td class="py-3 px-3 whitespace-nowrap">31/07/2018</td><td class="py-3 px-3 whitespace-nowrap">Khối Vận hành Dự án Miền Bắc</td><td class="py-3 px-3 whitespace-nowrap">Ban Quản lý Sky City Tower</td><td class="py-3 px-3 whitespace-nowrap">Kỹ sư trưởng dự án</td><td class="py-3 px-3 whitespace-nowrap">Nắm bắt quy trình ISO nhanh chóng</td></tr>
+</tbody></table></div>
+</div>
+<!-- tab-dinh-kem -->
+<div class="tab-pane" id="tab-dinh-kem">
+<div class="flex items-center justify-between pb-4 mb-5 border-b border-slate-100">
+<div>
+<h2 class="text-lg font-bold text-heading flex items-center gap-2"><span class="w-2.5 h-2.5 rounded-full bg-primary inline-block"></span>Hồ sơ đính kèm</h2>
+<p class="text-xs text-muted mt-0.5">Tình trạng hồ sơ và danh mục tài liệu đính kèm</p>
+</div>
+
+</div><div class="grid grid-cols-12 gap-3.5 mb-4 text-sm">
+<div class="col-span-12 sm:col-span-3 flex items-center "><label class="inline-flex items-center gap-2 text-[13px] text-slate-700 cursor-pointer"><input class="w-4 h-4 rounded text-primary border-slate-300 focus:ring-primary" type="checkbox" checked/><span class="font-medium">Sơ yếu lý lịch</span></label></div><div class="col-span-12 sm:col-span-3 flex items-center "><label class="inline-flex items-center gap-2 text-[13px] text-slate-700 cursor-pointer"><input class="w-4 h-4 rounded text-primary border-slate-300 focus:ring-primary" type="checkbox" checked/><span class="font-medium">Giấy khám sức khỏe</span></label></div><div class="col-span-12 sm:col-span-3 flex items-center "><label class="inline-flex items-center gap-2 text-[13px] text-slate-700 cursor-pointer"><input class="w-4 h-4 rounded text-primary border-slate-300 focus:ring-primary" type="checkbox"/><span class="font-medium">Giấy khai sinh</span></label></div><div class="col-span-12 sm:col-span-3 flex items-center "><label class="inline-flex items-center gap-2 text-[13px] text-slate-700 cursor-pointer"><input class="w-4 h-4 rounded text-primary border-slate-300 focus:ring-primary" type="checkbox" checked/><span class="font-medium">Hồ sơ</span></label></div>
+</div>
+<div class="mb-3"><button type="button" onclick="openFrm('frm-tl')" title="Thêm" class="h-9 px-3.5 bg-primary text-white text-xs font-semibold rounded-lg flex items-center gap-1.5 hover:bg-primary-hover shadow-xs transition-colors flex-shrink-0"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M12 4v16m8-8H4" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>Thêm</button></div>
+<div class="overflow-x-auto border border-border rounded-lg mb-6"><table class="w-full text-left text-xs"><thead class="bg-slate-50 border-b border-border text-slate-600 font-semibold"><tr><th class="py-3 px-3">STT</th><th class="py-3 px-3 whitespace-nowrap">Tên tài liệu</th><th class="py-3 px-3 whitespace-nowrap">Định dạng</th><th class="py-3 px-3 whitespace-nowrap">Kích thước</th><th class="py-3 px-3 text-center whitespace-nowrap">Chỉnh sửa</th></tr></thead><tbody class="divide-y divide-border text-slate-700">
+<tr class="hover:bg-slate-50/70"><td class="py-3 px-3 text-slate-400">1</td><td class="py-3 px-3 whitespace-nowrap">HopDongLaoDong_NguyenVanAn.pdf</td><td class="py-3 px-3 whitespace-nowrap">PDF</td><td class="py-3 px-3 whitespace-nowrap">3.4 MB</td><td class="py-3 px-3 text-center whitespace-nowrap"><button type="button" onclick="openFrm('frm-tl')" class="text-slate-500 hover:text-primary font-medium mr-2">Sửa</button><button type="button" class="text-red-500 hover:text-red-700 font-medium">Xoá</button></td></tr>
+<tr class="hover:bg-slate-50/70"><td class="py-3 px-3 text-slate-400">2</td><td class="py-3 px-3 whitespace-nowrap">BangTotNghiep_DHBK_NguyenVanAn.pdf</td><td class="py-3 px-3 whitespace-nowrap">PDF</td><td class="py-3 px-3 whitespace-nowrap">2.1 MB</td><td class="py-3 px-3 text-center whitespace-nowrap"><button type="button" onclick="openFrm('frm-tl')" class="text-slate-500 hover:text-primary font-medium mr-2">Sửa</button><button type="button" class="text-red-500 hover:text-red-700 font-medium">Xoá</button></td></tr>
+<tr class="hover:bg-slate-50/70"><td class="py-3 px-3 text-slate-400">3</td><td class="py-3 px-3 whitespace-nowrap">ChungChi_FMP_International_2021.pdf</td><td class="py-3 px-3 whitespace-nowrap">PDF</td><td class="py-3 px-3 whitespace-nowrap">1.8 MB</td><td class="py-3 px-3 text-center whitespace-nowrap"><button type="button" onclick="openFrm('frm-tl')" class="text-slate-500 hover:text-primary font-medium mr-2">Sửa</button><button type="button" class="text-red-500 hover:text-red-700 font-medium">Xoá</button></td></tr>
+<tr class="hover:bg-slate-50/70"><td class="py-3 px-3 text-slate-400">4</td><td class="py-3 px-3 whitespace-nowrap">GiayKhamSucKhoe_2026.jpg</td><td class="py-3 px-3 whitespace-nowrap">JPG</td><td class="py-3 px-3 whitespace-nowrap">3.2 MB</td><td class="py-3 px-3 text-center whitespace-nowrap"><button type="button" onclick="openFrm('frm-tl')" class="text-slate-500 hover:text-primary font-medium mr-2">Sửa</button><button type="button" class="text-red-500 hover:text-red-700 font-medium">Xoá</button></td></tr>
+</tbody></table></div>
+</div>
+</main>
 
     </div>
 
@@ -773,5 +1014,352 @@
 
   </div>
 
+<!-- SUB-FORMS (modal con) -->
+<div id="frm-vbcc" class="frm-modal hidden fixed inset-0 z-50 bg-slate-900/60 items-center justify-center p-4">
+<div class="bg-white rounded-xl shadow-2xl border border-slate-200 w-full max-w-3xl max-h-[90vh] flex flex-col overflow-hidden">
+<div class="h-12 px-5 border-b border-border bg-slate-50 flex items-center justify-between flex-shrink-0">
+<h3 class="text-sm font-bold uppercase tracking-wide text-slate-800 flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-primary inline-block"></span>Văn bằng chứng chỉ</h3>
+<button type="button" onclick="closeFrm('frm-vbcc')" class="w-7 h-7 rounded-lg flex items-center justify-center text-slate-400 hover:text-slate-700 hover:bg-slate-200" title="Đóng">&times;</button>
+</div>
+<div class="p-5 overflow-y-auto text-sm">
+<div class="grid grid-cols-12 gap-x-3.5 gap-y-3.5 ">
+<div class="col-span-12 sm:col-span-6"><label class="block text-[13px] font-medium text-slate-700 mb-1">Hệ đào tạo</label><select class="w-full h-[38px] px-2.5 border border-border rounded-lg text-slate-800 bg-white focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all"><option value="">...</option><option selected>Chính quy</option><option>Tại chức</option><option>Liên thông</option><option>Từ xa</option><option>Quốc tế</option></select></div>
+<div class="col-span-12 sm:col-span-6"><label class="block text-[13px] font-medium text-slate-700 mb-1">Quốc gia</label><select class="w-full h-[38px] px-2.5 border border-border rounded-lg text-slate-800 bg-white focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all"><option value="">...</option><option selected>Việt Nam</option><option>Hoa Kỳ</option><option>Nhật Bản</option><option>Singapore</option></select></div>
+<div class="col-span-12 sm:col-span-6"><label class="block text-[13px] font-medium text-slate-700 mb-1">Trường <span class="text-red-500">*</span></label><select class="w-full h-[38px] px-2.5 border border-border rounded-lg text-slate-800 bg-white focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all"><option value="">...</option><option selected>Đại học Bách Khoa Hà Nội</option><option>Đại học Xây dựng Hà Nội</option><option>Học viện Cán bộ quản lý xây dựng và đô thị</option></select></div>
+<div class="col-span-12 sm:col-span-6"><label class="block text-[13px] font-medium text-slate-700 mb-1">Chuyên ngành <span class="text-red-500">*</span></label><select class="w-full h-[38px] px-2.5 border border-border rounded-lg text-slate-800 bg-white focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all"><option value="">...</option><option selected>Kỹ thuật Điều khiển &amp; Tự động hoá</option><option>Quản lý vận hành tòa nhà</option><option>Điện - Điện tử</option></select></div>
+<div class="col-span-12 sm:col-span-3"><label class="block text-[13px] font-medium text-slate-700 mb-1">Học vấn <span class="text-red-500">*</span></label><select class="w-full h-[38px] px-2.5 border border-border rounded-lg text-slate-800 bg-white focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all"><option value="">...</option><option selected>Đại học</option><option>Thạc sĩ</option><option>Cao đẳng</option><option>Trung cấp</option></select></div>
+<div class="col-span-12 sm:col-span-3"><label class="block text-[13px] font-medium text-slate-700 mb-1">Loại bằng</label><select class="w-full h-[38px] px-2.5 border border-border rounded-lg text-slate-800 bg-white focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all"><option value="">...</option><option selected>Giỏi</option><option>Khá</option><option>Xuất sắc</option><option>Trung bình khá</option></select></div>
+<div class="col-span-12 sm:col-span-3"><label class="block text-[13px] font-medium text-slate-700 mb-1">Học vị <span class="text-red-500">*</span></label><select class="w-full h-[38px] px-2.5 border border-border rounded-lg text-slate-800 bg-white focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all"><option value="">...</option><option selected>Kỹ sư</option><option>Cử nhân</option><option>Thạc sĩ</option><option>Tiến sĩ</option></select></div>
+<div class="col-span-12 sm:col-span-3"><label class="block text-[13px] font-medium text-slate-700 mb-1">Năm tốt nghiệp</label><input class="w-full h-[38px] px-3 border border-border rounded-lg text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all" type="number" value="2010"/></div>
+</div>
+</div>
+<div class="h-14 px-5 bg-slate-50 border-t border-border flex items-center justify-end gap-2 flex-shrink-0">
+<button type="button" onclick="closeFrm('frm-vbcc')" class="h-9 px-4 text-xs font-semibold text-slate-600 hover:bg-slate-200 rounded-lg">Thoát</button>
+<button type="button" onclick="closeFrm('frm-vbcc')" class="h-9 px-5 text-xs font-semibold text-white bg-primary hover:bg-primary-hover rounded-lg shadow-sm">Lưu dữ liệu</button>
+</div>
+</div>
+</div>
+<div id="frm-hv" class="frm-modal hidden fixed inset-0 z-50 bg-slate-900/60 items-center justify-center p-4">
+<div class="bg-white rounded-xl shadow-2xl border border-slate-200 w-full max-w-3xl max-h-[90vh] flex flex-col overflow-hidden">
+<div class="h-12 px-5 border-b border-border bg-slate-50 flex items-center justify-between flex-shrink-0">
+<h3 class="text-sm font-bold uppercase tracking-wide text-slate-800 flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-primary inline-block"></span>Học vấn</h3>
+<button type="button" onclick="closeFrm('frm-hv')" class="w-7 h-7 rounded-lg flex items-center justify-center text-slate-400 hover:text-slate-700 hover:bg-slate-200" title="Đóng">&times;</button>
+</div>
+<div class="p-5 overflow-y-auto text-sm">
+<div class="grid grid-cols-12 gap-x-3.5 gap-y-3.5 ">
+<div class="col-span-12 sm:col-span-6"><label class="block text-[13px] font-medium text-slate-700 mb-1">Hệ đào tạo</label><select class="w-full h-[38px] px-2.5 border border-border rounded-lg text-slate-800 bg-white focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all"><option value="">...</option><option selected>Chính quy</option><option>Tại chức</option><option>Liên thông</option><option>Từ xa</option><option>Quốc tế</option></select></div>
+<div class="col-span-12 sm:col-span-6"><label class="block text-[13px] font-medium text-slate-700 mb-1">Quốc gia</label><select class="w-full h-[38px] px-2.5 border border-border rounded-lg text-slate-800 bg-white focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all"><option value="">...</option><option selected>Việt Nam</option><option>Hoa Kỳ</option><option>Nhật Bản</option><option>Singapore</option></select></div>
+<div class="col-span-12 sm:col-span-6"><label class="block text-[13px] font-medium text-slate-700 mb-1">Trường <span class="text-red-500">*</span></label><select class="w-full h-[38px] px-2.5 border border-border rounded-lg text-slate-800 bg-white focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all"><option value="">...</option><option selected>Đại học Bách Khoa Hà Nội</option><option>Đại học Xây dựng Hà Nội</option><option>Học viện Cán bộ quản lý xây dựng và đô thị</option></select></div>
+<div class="col-span-12 sm:col-span-6"><label class="block text-[13px] font-medium text-slate-700 mb-1">Chuyên ngành <span class="text-red-500">*</span></label><select class="w-full h-[38px] px-2.5 border border-border rounded-lg text-slate-800 bg-white focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all"><option value="">...</option><option selected>Kỹ thuật Điều khiển &amp; Tự động hoá</option><option>Quản lý vận hành tòa nhà</option><option>Điện - Điện tử</option></select></div>
+<div class="col-span-12 sm:col-span-3"><label class="block text-[13px] font-medium text-slate-700 mb-1">Học vấn <span class="text-red-500">*</span></label><select class="w-full h-[38px] px-2.5 border border-border rounded-lg text-slate-800 bg-white focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all"><option value="">...</option><option selected>Đại học</option><option>Thạc sĩ</option><option>Cao đẳng</option><option>Trung cấp</option></select></div>
+<div class="col-span-12 sm:col-span-3"><label class="block text-[13px] font-medium text-slate-700 mb-1">Loại bằng</label><select class="w-full h-[38px] px-2.5 border border-border rounded-lg text-slate-800 bg-white focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all"><option value="">...</option><option selected>Giỏi</option><option>Khá</option><option>Xuất sắc</option><option>Trung bình khá</option></select></div>
+<div class="col-span-12 sm:col-span-3"><label class="block text-[13px] font-medium text-slate-700 mb-1">Học vị <span class="text-red-500">*</span></label><select class="w-full h-[38px] px-2.5 border border-border rounded-lg text-slate-800 bg-white focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all"><option value="">...</option><option selected>Kỹ sư</option><option>Cử nhân</option><option>Thạc sĩ</option><option>Tiến sĩ</option></select></div>
+<div class="col-span-12 sm:col-span-3"><label class="block text-[13px] font-medium text-slate-700 mb-1">Năm tốt nghiệp</label><input class="w-full h-[38px] px-3 border border-border rounded-lg text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all" type="number" value="2010"/></div>
+</div>
+</div>
+<div class="h-14 px-5 bg-slate-50 border-t border-border flex items-center justify-end gap-2 flex-shrink-0">
+<button type="button" onclick="closeFrm('frm-hv')" class="h-9 px-4 text-xs font-semibold text-slate-600 hover:bg-slate-200 rounded-lg">Thoát</button>
+<button type="button" onclick="closeFrm('frm-hv')" class="h-9 px-5 text-xs font-semibold text-white bg-primary hover:bg-primary-hover rounded-lg shadow-sm">Lưu dữ liệu</button>
+</div>
+</div>
+</div>
+<div id="frm-bhyt" class="frm-modal hidden fixed inset-0 z-50 bg-slate-900/60 items-center justify-center p-4">
+<div class="bg-white rounded-xl shadow-2xl border border-slate-200 w-full max-w-2xl max-h-[90vh] flex flex-col overflow-hidden">
+<div class="h-12 px-5 border-b border-border bg-slate-50 flex items-center justify-between flex-shrink-0">
+<h3 class="text-sm font-bold uppercase tracking-wide text-slate-800 flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-primary inline-block"></span>Bảo hiểm y tế</h3>
+<button type="button" onclick="closeFrm('frm-bhyt')" class="w-7 h-7 rounded-lg flex items-center justify-center text-slate-400 hover:text-slate-700 hover:bg-slate-200" title="Đóng">&times;</button>
+</div>
+<div class="p-5 overflow-y-auto text-sm">
+<div class="grid grid-cols-12 gap-x-3.5 gap-y-3.5 ">
+<div class="col-span-12 sm:col-span-4"><label class="block text-[13px] font-medium text-slate-700 mb-1">Từ ngày</label><div class="relative"><input class="w-full h-[38px] px-3 border border-border rounded-lg text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all pr-9" placeholder="__/__/____" type="text" value="01/01/2026"/><span class="absolute right-2.5 top-[11px] text-slate-400 pointer-events-none"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg></span></div></div>
+<div class="col-span-12 sm:col-span-4"><label class="block text-[13px] font-medium text-slate-700 mb-1">Đến ngày</label><div class="relative"><input class="w-full h-[38px] px-3 border border-border rounded-lg text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all pr-9" placeholder="__/__/____" type="text" value="31/12/2026"/><span class="absolute right-2.5 top-[11px] text-slate-400 pointer-events-none"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg></span></div></div>
+<div class="col-span-12 sm:col-span-4"><label class="block text-[13px] font-medium text-slate-700 mb-1">Ngày cấp</label><div class="relative"><input class="w-full h-[38px] px-3 border border-border rounded-lg text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all pr-9" placeholder="__/__/____" type="text" value="20/12/2025"/><span class="absolute right-2.5 top-[11px] text-slate-400 pointer-events-none"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg></span></div></div>
+<div class="col-span-12 sm:col-span-6"><label class="block text-[13px] font-medium text-slate-700 mb-1">Mã <span class="text-red-500">*</span></label><input class="w-full h-[38px] px-3 border border-border rounded-lg text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all" type="text" value="DN4010115123456"/></div>
+<div class="col-span-12 sm:col-span-6"><label class="block text-[13px] font-medium text-slate-700 mb-1">Năm liên tục</label><input class="w-full h-[38px] px-3 border border-border rounded-lg text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all" type="number" value="8"/></div>
+<div class="col-span-12 sm:col-span-6"><label class="block text-[13px] font-medium text-slate-700 mb-1">Thành phố</label><select class="w-full h-[38px] px-2.5 border border-border rounded-lg text-slate-800 bg-white focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all"><option value="">...</option><option selected>Hà Nội</option><option>TP. Hồ Chí Minh</option><option>Đà Nẵng</option></select></div>
+<div class="col-span-12 sm:col-span-6"><label class="block text-[13px] font-medium text-slate-700 mb-1">Bệnh viện</label><select class="w-full h-[38px] px-2.5 border border-border rounded-lg text-slate-800 bg-white focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all"><option value="">...</option><option selected>Bệnh viện E Trung ương</option><option>Bệnh viện Bạch Mai</option><option>Bệnh viện Đa khoa Xanh Pôn</option></select></div>
+<div class="col-span-12 sm:col-span-12"><label class="block text-[13px] font-medium text-slate-700 mb-1">Ghi chú</label><textarea rows="3" class="w-full px-3 py-2 border border-border rounded-lg text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all">Đăng ký khám chữa bệnh ban đầu tại Bệnh viện E</textarea></div>
+</div>
+</div>
+<div class="h-14 px-5 bg-slate-50 border-t border-border flex items-center justify-end gap-2 flex-shrink-0">
+<button type="button" onclick="closeFrm('frm-bhyt')" class="h-9 px-4 text-xs font-semibold text-slate-600 hover:bg-slate-200 rounded-lg">Thoát</button>
+<button type="button" onclick="closeFrm('frm-bhyt')" class="h-9 px-5 text-xs font-semibold text-white bg-primary hover:bg-primary-hover rounded-lg shadow-sm">Lưu dữ liệu</button>
+</div>
+</div>
+</div>
+<div id="frm-qh" class="frm-modal hidden fixed inset-0 z-50 bg-slate-900/60 items-center justify-center p-4">
+<div class="bg-white rounded-xl shadow-2xl border border-slate-200 w-full max-w-3xl max-h-[90vh] flex flex-col overflow-hidden">
+<div class="h-12 px-5 border-b border-border bg-slate-50 flex items-center justify-between flex-shrink-0">
+<h3 class="text-sm font-bold uppercase tracking-wide text-slate-800 flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-primary inline-block"></span>Quan hệ gia đình</h3>
+<button type="button" onclick="closeFrm('frm-qh')" class="w-7 h-7 rounded-lg flex items-center justify-center text-slate-400 hover:text-slate-700 hover:bg-slate-200" title="Đóng">&times;</button>
+</div>
+<div class="p-5 overflow-y-auto text-sm">
+<div class="grid grid-cols-12 gap-x-3.5 gap-y-3.5 ">
+<div class="col-span-12 sm:col-span-4"><label class="block text-[13px] font-medium text-slate-700 mb-1">Quan hệ <span class="text-red-500">*</span></label><select class="w-full h-[38px] px-2.5 border border-border rounded-lg text-slate-800 bg-white focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all"><option value="">...</option><option selected>Vợ</option><option>Chồng</option><option>Con trai</option><option>Con gái</option><option>Bố</option><option>Mẹ</option></select></div>
+<div class="col-span-12 sm:col-span-5"><label class="block text-[13px] font-medium text-slate-700 mb-1">Họ và tên <span class="text-red-500">*</span></label><input class="w-full h-[38px] px-3 border border-border rounded-lg text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all" type="text" value="Trần Thị Bích Ngọc"/></div>
+<div class="col-span-12 sm:col-span-3"><label class="block text-[13px] font-medium text-slate-700 mb-1">Ngày sinh</label><div class="relative"><input class="w-full h-[38px] px-3 border border-border rounded-lg text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all pr-9" placeholder="__/__/____" type="text" value="22/10/1990"/><span class="absolute right-2.5 top-[11px] text-slate-400 pointer-events-none"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg></span></div></div>
+<div class="col-span-12 sm:col-span-8"><label class="block text-[13px] font-medium text-slate-700 mb-1">Địa chỉ</label><input class="w-full h-[38px] px-3 border border-border rounded-lg text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all" type="text" value="Số 25, Ngõ 120 Hoàng Quốc Việt, Hà Nội"/></div>
+<div class="col-span-12 sm:col-span-4"><label class="block text-[13px] font-medium text-slate-700 mb-1">Nghề nghiệp</label><input class="w-full h-[38px] px-3 border border-border rounded-lg text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all" type="text" value="Giáo viên"/></div>
+<div class="col-span-12 sm:col-span-4"><label class="block text-[13px] font-medium text-slate-700 mb-1">Mã số thuế</label><input class="w-full h-[38px] px-3 border border-border rounded-lg text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all" type="text" value="8034567999"/></div>
+<div class="col-span-12 sm:col-span-4"><label class="block text-[13px] font-medium text-slate-700 mb-1">Loại giấy tờ</label><select class="w-full h-[38px] px-2.5 border border-border rounded-lg text-slate-800 bg-white focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all"><option value="">...</option><option selected>Căn cước công dân</option><option>Giấy khai sinh</option><option>Hộ chiếu</option></select></div>
+<div class="col-span-12 sm:col-span-4"><label class="block text-[13px] font-medium text-slate-700 mb-1">Số giấy tờ</label><input class="w-full h-[38px] px-3 border border-border rounded-lg text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all" type="text" value="001190005432"/></div>
+<div class="col-span-12 sm:col-span-4"><label class="block text-[13px] font-medium text-slate-700 mb-1">Ngày cấp</label><div class="relative"><input class="w-full h-[38px] px-3 border border-border rounded-lg text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all pr-9" placeholder="__/__/____" type="text" value="12/04/2021"/><span class="absolute right-2.5 top-[11px] text-slate-400 pointer-events-none"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg></span></div></div>
+<div class="col-span-12 sm:col-span-8"><label class="block text-[13px] font-medium text-slate-700 mb-1">Địa chỉ giấy tờ</label><input class="w-full h-[38px] px-3 border border-border rounded-lg text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all" type="text" value="Cục Cảnh sát QLHC về trật tự xã hội"/></div>
+<div class="col-span-12 sm:col-span-12"><label class="block text-[13px] font-medium text-slate-700 mb-1">Ghi chú</label><input class="w-full h-[38px] px-3 border border-border rounded-lg text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all" type="text" value=""/></div>
+<div class="col-span-12 sm:col-span-12 flex items-center "><label class="inline-flex items-center gap-2 text-[13px] text-slate-700 cursor-pointer"><input class="w-4 h-4 rounded text-primary border-slate-300 focus:ring-primary" type="checkbox"/><span class="font-medium">Khấu trừ gia cảnh</span></label></div>
+</div>
+</div>
+<div class="h-14 px-5 bg-slate-50 border-t border-border flex items-center justify-end gap-2 flex-shrink-0">
+<button type="button" onclick="closeFrm('frm-qh')" class="h-9 px-4 text-xs font-semibold text-slate-600 hover:bg-slate-200 rounded-lg">Thoát</button>
+<button type="button" onclick="closeFrm('frm-qh')" class="h-9 px-5 text-xs font-semibold text-white bg-primary hover:bg-primary-hover rounded-lg shadow-sm">Lưu dữ liệu</button>
+</div>
+</div>
+</div>
+<div id="frm-qtctt" class="frm-modal hidden fixed inset-0 z-50 bg-slate-900/60 items-center justify-center p-4">
+<div class="bg-white rounded-xl shadow-2xl border border-slate-200 w-full max-w-2xl max-h-[90vh] flex flex-col overflow-hidden">
+<div class="h-12 px-5 border-b border-border bg-slate-50 flex items-center justify-between flex-shrink-0">
+<h3 class="text-sm font-bold uppercase tracking-wide text-slate-800 flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-primary inline-block"></span>Quá trình công tác trước đây</h3>
+<button type="button" onclick="closeFrm('frm-qtctt')" class="w-7 h-7 rounded-lg flex items-center justify-center text-slate-400 hover:text-slate-700 hover:bg-slate-200" title="Đóng">&times;</button>
+</div>
+<div class="p-5 overflow-y-auto text-sm">
+<div class="grid grid-cols-12 gap-x-3.5 gap-y-3.5 ">
+<div class="col-span-12 sm:col-span-4"><label class="block text-[13px] font-medium text-slate-700 mb-1">Từ ngày</label><div class="relative"><input class="w-full h-[38px] px-3 border border-border rounded-lg text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all pr-9" placeholder="__/__/____" type="text" value="01/01/2015"/><span class="absolute right-2.5 top-[11px] text-slate-400 pointer-events-none"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg></span></div></div>
+<div class="col-span-12 sm:col-span-4"><label class="block text-[13px] font-medium text-slate-700 mb-1">Đến ngày</label><div class="relative"><input class="w-full h-[38px] px-3 border border-border rounded-lg text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all pr-9" placeholder="__/__/____" type="text" value="31/05/2018"/><span class="absolute right-2.5 top-[11px] text-slate-400 pointer-events-none"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg></span></div></div>
+<div class="col-span-12 sm:col-span-4"><label class="block text-[13px] font-medium text-slate-700 mb-1">Mức lương</label><input class="w-full h-[38px] px-3 border border-border rounded-lg text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all" type="text" value="17.500.000"/></div>
+<div class="col-span-12 sm:col-span-6"><label class="block text-[13px] font-medium text-slate-700 mb-1">Đơn vị <span class="text-red-500">*</span></label><input class="w-full h-[38px] px-3 border border-border rounded-lg text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all" type="text" value="Savills Việt Nam"/></div>
+<div class="col-span-12 sm:col-span-6"><label class="block text-[13px] font-medium text-slate-700 mb-1">Phòng ban/Dự án</label><input class="w-full h-[38px] px-3 border border-border rounded-lg text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all" type="text" value="Ban Kỹ thuật Cụm"/></div>
+<div class="col-span-12 sm:col-span-6"><label class="block text-[13px] font-medium text-slate-700 mb-1">Chức vụ</label><input class="w-full h-[38px] px-3 border border-border rounded-lg text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all" type="text" value="Phó ban Kỹ thuật Cụm"/></div>
+<div class="col-span-12 sm:col-span-6"><label class="block text-[13px] font-medium text-slate-700 mb-1">Kiêm nhiệm</label><input class="w-full h-[38px] px-3 border border-border rounded-lg text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all" type="text" value=""/></div>
+<div class="col-span-12 sm:col-span-12"><label class="block text-[13px] font-medium text-slate-700 mb-1">Ghi chú</label><textarea rows="3" class="w-full px-3 py-2 border border-border rounded-lg text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all">Chuyển công tác sang PMC từ 06/2018</textarea></div>
+</div>
+</div>
+<div class="h-14 px-5 bg-slate-50 border-t border-border flex items-center justify-end gap-2 flex-shrink-0">
+<button type="button" onclick="closeFrm('frm-qtctt')" class="h-9 px-4 text-xs font-semibold text-slate-600 hover:bg-slate-200 rounded-lg">Thoát</button>
+<button type="button" onclick="closeFrm('frm-qtctt')" class="h-9 px-5 text-xs font-semibold text-white bg-primary hover:bg-primary-hover rounded-lg shadow-sm">Lưu dữ liệu</button>
+</div>
+</div>
+</div>
+<div id="frm-qtct" class="frm-modal hidden fixed inset-0 z-50 bg-slate-900/60 items-center justify-center p-4">
+<div class="bg-white rounded-xl shadow-2xl border border-slate-200 w-full max-w-3xl max-h-[90vh] flex flex-col overflow-hidden">
+<div class="h-12 px-5 border-b border-border bg-slate-50 flex items-center justify-between flex-shrink-0">
+<h3 class="text-sm font-bold uppercase tracking-wide text-slate-800 flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-primary inline-block"></span>Quá trình công tác</h3>
+<button type="button" onclick="closeFrm('frm-qtct')" class="w-7 h-7 rounded-lg flex items-center justify-center text-slate-400 hover:text-slate-700 hover:bg-slate-200" title="Đóng">&times;</button>
+</div>
+<div class="p-5 overflow-y-auto text-sm">
+<div class="grid grid-cols-12 gap-x-3.5 gap-y-3.5 ">
+<div class="col-span-12 sm:col-span-4"><label class="block text-[13px] font-medium text-slate-700 mb-1">Số quyết định <span class="text-red-500">*</span></label><input class="w-full h-[38px] px-3 border border-border rounded-lg text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all" type="text" value="PMC-QĐ-2024/098"/></div>
+<div class="col-span-12 sm:col-span-4"><label class="block text-[13px] font-medium text-slate-700 mb-1">Loại quyết định</label><select class="w-full h-[38px] px-2.5 border border-border rounded-lg text-slate-800 bg-white focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all"><option value="">...</option><option>Tiếp nhận</option><option selected>Bổ nhiệm</option><option>Điều động</option><option>Tăng lương</option><option>Miễn nhiệm</option></select></div>
+<div class="col-span-12 sm:col-span-4"><label class="block text-[13px] font-medium text-slate-700 mb-1">Ngày quyết định <span class="text-red-500">*</span></label><div class="relative"><input class="w-full h-[38px] px-3 border border-border rounded-lg text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all pr-9" placeholder="__/__/____" type="text" value="01/06/2024"/><span class="absolute right-2.5 top-[11px] text-slate-400 pointer-events-none"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg></span></div></div>
+<div class="col-span-12 sm:col-span-4"><label class="block text-[13px] font-medium text-slate-700 mb-1">Từ ngày</label><div class="relative"><input class="w-full h-[38px] px-3 border border-border rounded-lg text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all pr-9" placeholder="__/__/____" type="text" value="01/06/2024"/><span class="absolute right-2.5 top-[11px] text-slate-400 pointer-events-none"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg></span></div></div>
+<div class="col-span-12 sm:col-span-4"><label class="block text-[13px] font-medium text-slate-700 mb-1">Đến ngày</label><div class="relative"><input class="w-full h-[38px] px-3 border border-border rounded-lg text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all pr-9" placeholder="__/__/____" type="text" value=""/><span class="absolute right-2.5 top-[11px] text-slate-400 pointer-events-none"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg></span></div></div>
+<div class="col-span-12 sm:col-span-4"><label class="block text-[13px] font-medium text-slate-700 mb-1">Mức lương</label><input class="w-full h-[38px] px-3 border border-border rounded-lg text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all" type="text" value="28.000.000"/></div>
+<div class="col-span-12 sm:col-span-6"><label class="block text-[13px] font-medium text-slate-700 mb-1">Công ty</label><select class="w-full h-[38px] px-2.5 border border-border rounded-lg text-slate-800 bg-white focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all"><option value="">...</option><option selected>Công ty CP Quản lý và Khai thác tòa nhà VNPT (PMC)</option></select></div>
+<div class="col-span-12 sm:col-span-6"><label class="block text-[13px] font-medium text-slate-700 mb-1">Đơn vị</label><select class="w-full h-[38px] px-2.5 border border-border rounded-lg text-slate-800 bg-white focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all"><option value="">...</option><option selected>Khối Vận hành Dự án Miền Bắc</option><option>Khối Vận hành Dự án Miền Nam</option><option>Khối Văn phòng</option></select></div>
+<div class="col-span-12 sm:col-span-6"><label class="block text-[13px] font-medium text-slate-700 mb-1">Phòng ban/Dự án</label><select class="w-full h-[38px] px-2.5 border border-border rounded-lg text-slate-800 bg-white focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all"><option value="">...</option><option selected>Ban Quản lý Tòa nhà Keangnam</option><option>Ban Quản lý Sky City Tower</option><option>Phòng Kỹ thuật</option></select></div>
+<div class="col-span-12 sm:col-span-6"><label class="block text-[13px] font-medium text-slate-700 mb-1">Bộ phận</label><select class="w-full h-[38px] px-2.5 border border-border rounded-lg text-slate-800 bg-white focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all"><option value="">...</option><option selected>Tổ Kỹ thuật Cơ điện</option><option>Tổ Bảo vệ - PCCC</option><option>Tổ Vệ sinh môi trường</option></select></div>
+<div class="col-span-12 sm:col-span-6"><label class="block text-[13px] font-medium text-slate-700 mb-1">Chuyên ngành</label><select class="w-full h-[38px] px-2.5 border border-border rounded-lg text-slate-800 bg-white focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all"><option value="">...</option><option selected>Kỹ thuật Điều khiển &amp; Tự động hoá</option><option>Quản lý vận hành tòa nhà</option><option>Điện - Điện tử</option></select></div>
+<div class="col-span-12 sm:col-span-6"><label class="block text-[13px] font-medium text-slate-700 mb-1">Chức vụ</label><select class="w-full h-[38px] px-2.5 border border-border rounded-lg text-slate-800 bg-white focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all"><option value="">...</option><option selected>Trưởng phòng Kỹ thuật</option><option>Phó phòng Kỹ thuật</option><option>Kỹ sư trưởng dự án</option><option>Chuyên viên</option></select></div>
+<div class="col-span-12 sm:col-span-12"><label class="block text-[13px] font-medium text-slate-700 mb-1">Kiêm nhiệm</label><input class="w-full h-[38px] px-3 border border-border rounded-lg text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all" type="text" value="Phó Trưởng ban An toàn Cơ điện"/></div>
+<div class="col-span-12 sm:col-span-12"><label class="block text-[13px] font-medium text-slate-700 mb-1">Ghi chú</label><textarea rows="3" class="w-full px-3 py-2 border border-border rounded-lg text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all"></textarea></div>
+</div>
+</div>
+<div class="h-14 px-5 bg-slate-50 border-t border-border flex items-center justify-end gap-2 flex-shrink-0">
+<button type="button" onclick="closeFrm('frm-qtct')" class="h-9 px-4 text-xs font-semibold text-slate-600 hover:bg-slate-200 rounded-lg">Thoát</button>
+<button type="button" onclick="closeFrm('frm-qtct')" class="h-9 px-5 text-xs font-semibold text-white bg-primary hover:bg-primary-hover rounded-lg shadow-sm">Lưu dữ liệu</button>
+</div>
+</div>
+</div>
+<div id="frm-qtl" class="frm-modal hidden fixed inset-0 z-50 bg-slate-900/60 items-center justify-center p-4">
+<div class="bg-white rounded-xl shadow-2xl border border-slate-200 w-full max-w-4xl max-h-[90vh] flex flex-col overflow-hidden">
+<div class="h-12 px-5 border-b border-border bg-slate-50 flex items-center justify-between flex-shrink-0">
+<h3 class="text-sm font-bold uppercase tracking-wide text-slate-800 flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-primary inline-block"></span>Quá trình lương</h3>
+<button type="button" onclick="closeFrm('frm-qtl')" class="w-7 h-7 rounded-lg flex items-center justify-center text-slate-400 hover:text-slate-700 hover:bg-slate-200" title="Đóng">&times;</button>
+</div>
+<div class="p-5 overflow-y-auto text-sm">
+<div class="grid grid-cols-12 gap-x-3.5 gap-y-3.5 ">
+<div class="col-span-12 sm:col-span-4"><label class="block text-[13px] font-medium text-slate-700 mb-1">Số quyết định <span class="text-red-500">*</span></label><input class="w-full h-[38px] px-3 border border-border rounded-lg text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all" type="text" value="QĐ-TL-2026/012"/></div>
+<div class="col-span-12 sm:col-span-4"><label class="block text-[13px] font-medium text-slate-700 mb-1">Loại quyết định</label><select class="w-full h-[38px] px-2.5 border border-border rounded-lg text-slate-800 bg-white focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all"><option value="">...</option><option>Tiếp nhận</option><option>Bổ nhiệm</option><option>Điều động</option><option selected>Tăng lương</option><option>Miễn nhiệm</option></select></div>
+<div class="col-span-12 sm:col-span-4"><label class="block text-[13px] font-medium text-slate-700 mb-1">Ngày quyết định</label><div class="relative"><input class="w-full h-[38px] px-3 border border-border rounded-lg text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all pr-9" placeholder="__/__/____" type="text" value="28/12/2025"/><span class="absolute right-2.5 top-[11px] text-slate-400 pointer-events-none"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg></span></div></div>
+<div class="col-span-12 sm:col-span-4"><label class="block text-[13px] font-medium text-slate-700 mb-1">Từ ngày <span class="text-red-500">*</span></label><div class="relative"><input class="w-full h-[38px] px-3 border border-border rounded-lg text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all pr-9" placeholder="__/__/____" type="text" value="01/01/2026"/><span class="absolute right-2.5 top-[11px] text-slate-400 pointer-events-none"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg></span></div></div>
+<div class="col-span-12 sm:col-span-4"><label class="block text-[13px] font-medium text-slate-700 mb-1">Đến ngày <span class="text-red-500">*</span></label><div class="relative"><input class="w-full h-[38px] px-3 border border-border rounded-lg text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all pr-9" placeholder="__/__/____" type="text" value="31/12/2026"/><span class="absolute right-2.5 top-[11px] text-slate-400 pointer-events-none"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg></span></div></div>
+<div class="col-span-12 sm:col-span-4"><label class="block text-[13px] font-medium text-slate-700 mb-1">Loại hợp đồng</label><select class="w-full h-[38px] px-2.5 border border-border rounded-lg text-slate-800 bg-white focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all"><option value="">...</option><option selected>HĐ Không xác định thời hạn</option><option>HĐ Xác định thời hạn (1-3 năm)</option></select></div>
+<div class="col-span-12 sm:col-span-6"><label class="block text-[13px] font-medium text-slate-700 mb-1">Số hợp đồng</label><input class="w-full h-[38px] px-3 border border-border rounded-lg text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all" type="text" value="HĐLĐ-2018/PMC/088"/></div>
+<div class="col-span-12 sm:col-span-6"><label class="block text-[13px] font-medium text-slate-700 mb-1">Số phụ lục hợp đồng</label><input class="w-full h-[38px] px-3 border border-border rounded-lg text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all" type="text" value="PL-2026/012"/></div>
+<div class="col-span-12 sm:col-span-4"><label class="block text-[13px] font-medium text-slate-700 mb-1">Lương cơ bản</label><input class="w-full h-[38px] px-3 border border-border rounded-lg text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all" type="text" value="18.500.000"/></div>
+<div class="col-span-12 sm:col-span-4"><label class="block text-[13px] font-medium text-slate-700 mb-1">Mức lương</label><input class="w-full h-[38px] px-3 border border-border rounded-lg text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all" type="text" value="28.000.000"/></div>
+<div class="col-span-12 sm:col-span-4"><label class="block text-[13px] font-medium text-slate-700 mb-1">Lương NET</label><input class="w-full h-[38px] px-3 border border-border rounded-lg text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all" type="text" value="28.000.000"/></div>
+<div class="col-span-12 sm:col-span-4"><label class="block text-[13px] font-medium text-slate-700 mb-1">Ngạch lương</label><select class="w-full h-[38px] px-2.5 border border-border rounded-lg text-slate-800 bg-white focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all"><option value="">...</option><option selected>Chuyên viên cấp cao</option><option>Chuyên viên chính</option><option>Chuyên viên</option></select></div>
+<div class="col-span-12 sm:col-span-4"><label class="block text-[13px] font-medium text-slate-700 mb-1">Bậc lương</label><input class="w-full h-[38px] px-3 border border-border rounded-lg text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all" type="number" value="4"/></div>
+<div class="col-span-12 sm:col-span-4"><label class="block text-[13px] font-medium text-slate-700 mb-1">Hệ số lương</label><input class="w-full h-[38px] px-3 border border-border rounded-lg text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all" type="number" value="4.20"/></div>
+<div class="col-span-12 sm:col-span-4"><label class="block text-[13px] font-medium text-slate-700 mb-1">Phụ cấp ăn trưa</label><input class="w-full h-[38px] px-3 border border-border rounded-lg text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all" type="text" value="730.000"/></div>
+<div class="col-span-12 sm:col-span-4"><label class="block text-[13px] font-medium text-slate-700 mb-1">Phụ cấp xăng xe</label><input class="w-full h-[38px] px-3 border border-border rounded-lg text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all" type="text" value="1.000.000"/></div>
+<div class="col-span-12 sm:col-span-4"><label class="block text-[13px] font-medium text-slate-700 mb-1">Phụ cấp điện thoại</label><input class="w-full h-[38px] px-3 border border-border rounded-lg text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all" type="text" value="500.000"/></div>
+<div class="col-span-12 sm:col-span-4"><label class="block text-[13px] font-medium text-slate-700 mb-1">Phụ cấp lương</label><input class="w-full h-[38px] px-3 border border-border rounded-lg text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all" type="text" value="1.500.000"/></div>
+<div class="col-span-12 sm:col-span-4"><label class="block text-[13px] font-medium text-slate-700 mb-1">Phụ cấp trách nhiệm</label><input class="w-full h-[38px] px-3 border border-border rounded-lg text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all" type="text" value="3.500.000"/></div>
+<div class="col-span-12 sm:col-span-4"><label class="block text-[13px] font-medium text-slate-700 mb-1">Phụ cấp khác</label><input class="w-full h-[38px] px-3 border border-border rounded-lg text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all" type="text" value="0"/></div>
+<div class="col-span-12 sm:col-span-6"><label class="block text-[13px] font-medium text-slate-700 mb-1">Nội dung</label><textarea rows="3" class="w-full px-3 py-2 border border-border rounded-lg text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all">Tăng lương định kỳ năm 2026</textarea></div>
+<div class="col-span-12 sm:col-span-6"><label class="block text-[13px] font-medium text-slate-700 mb-1">Ghi chú</label><textarea rows="3" class="w-full px-3 py-2 border border-border rounded-lg text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all">Đánh giá xuất sắc KPI năm 2025</textarea></div>
+</div>
+</div>
+<div class="h-14 px-5 bg-slate-50 border-t border-border flex items-center justify-end gap-2 flex-shrink-0">
+<button type="button" onclick="closeFrm('frm-qtl')" class="h-9 px-4 text-xs font-semibold text-slate-600 hover:bg-slate-200 rounded-lg">Thoát</button>
+<button type="button" onclick="closeFrm('frm-qtl')" class="h-9 px-5 text-xs font-semibold text-white bg-primary hover:bg-primary-hover rounded-lg shadow-sm">Lưu dữ liệu</button>
+</div>
+</div>
+</div>
+<div id="frm-kt" class="frm-modal hidden fixed inset-0 z-50 bg-slate-900/60 items-center justify-center p-4">
+<div class="bg-white rounded-xl shadow-2xl border border-slate-200 w-full max-w-3xl max-h-[90vh] flex flex-col overflow-hidden">
+<div class="h-12 px-5 border-b border-border bg-slate-50 flex items-center justify-between flex-shrink-0">
+<h3 class="text-sm font-bold uppercase tracking-wide text-slate-800 flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-primary inline-block"></span>Khen thưởng</h3>
+<button type="button" onclick="closeFrm('frm-kt')" class="w-7 h-7 rounded-lg flex items-center justify-center text-slate-400 hover:text-slate-700 hover:bg-slate-200" title="Đóng">&times;</button>
+</div>
+<div class="p-5 overflow-y-auto text-sm">
+<div class="grid grid-cols-12 gap-x-3.5 gap-y-3.5 ">
+<div class="col-span-12 sm:col-span-4"><label class="block text-[13px] font-medium text-slate-700 mb-1">Số quyết định <span class="text-red-500">*</span></label><input class="w-full h-[38px] px-3 border border-border rounded-lg text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all" type="text" value="KT-2025/PMC/01"/></div>
+<div class="col-span-12 sm:col-span-4"><label class="block text-[13px] font-medium text-slate-700 mb-1">Ngày quyết định <span class="text-red-500">*</span></label><div class="relative"><input class="w-full h-[38px] px-3 border border-border rounded-lg text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all pr-9" placeholder="__/__/____" type="text" value="15/01/2026"/><span class="absolute right-2.5 top-[11px] text-slate-400 pointer-events-none"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg></span></div></div>
+<div class="col-span-12 sm:col-span-4"><label class="block text-[13px] font-medium text-slate-700 mb-1">Ngày hiệu lực</label><div class="relative"><input class="w-full h-[38px] px-3 border border-border rounded-lg text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all pr-9" placeholder="__/__/____" type="text" value="20/01/2026"/><span class="absolute right-2.5 top-[11px] text-slate-400 pointer-events-none"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg></span></div></div>
+<div class="col-span-12 sm:col-span-12"><label class="block text-[13px] font-medium text-slate-700 mb-1">Nội dung khen thưởng <span class="text-red-500">*</span></label><input class="w-full h-[38px] px-3 border border-border rounded-lg text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all" type="text" value="Hoàn thành xuất sắc nhiệm vụ năm 2025"/></div>
+<div class="col-span-12 sm:col-span-4"><label class="block text-[13px] font-medium text-slate-700 mb-1">Hình thức</label><select class="w-full h-[38px] px-2.5 border border-border rounded-lg text-slate-800 bg-white focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all"><option value="">...</option><option selected>Bằng khen</option><option>Giấy khen</option><option>Thưởng đột xuất</option></select></div>
+<div class="col-span-12 sm:col-span-4"><label class="block text-[13px] font-medium text-slate-700 mb-1">Danh hiệu</label><select class="w-full h-[38px] px-2.5 border border-border rounded-lg text-slate-800 bg-white focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all"><option value="">...</option><option selected>Chiến sĩ thi đua cấp Công ty</option><option>Lao động tiên tiến</option><option>Sáng kiến tiêu biểu</option></select></div>
+<div class="col-span-12 sm:col-span-4"><label class="block text-[13px] font-medium text-slate-700 mb-1">Cấp quyết định</label><select class="w-full h-[38px] px-2.5 border border-border rounded-lg text-slate-800 bg-white focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all"><option value="">...</option><option selected>Công ty</option><option>Đơn vị</option><option>Phòng ban/Dự án</option><option>Tập đoàn</option></select></div>
+<div class="col-span-12 sm:col-span-6"><label class="block text-[13px] font-medium text-slate-700 mb-1">Người ký</label><input class="w-full h-[38px] px-3 border border-border rounded-lg text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all" type="text" value="Nguyễn Hoàng Long"/></div>
+<div class="col-span-12 sm:col-span-6"><label class="block text-[13px] font-medium text-slate-700 mb-1">Số tiền</label><input class="w-full h-[38px] px-3 border border-border rounded-lg text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all" type="text" value="5.000.000"/></div>
+<div class="col-span-12 sm:col-span-12"><label class="block text-[13px] font-medium text-slate-700 mb-1">Ghi chú</label><textarea rows="3" class="w-full px-3 py-2 border border-border rounded-lg text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all"></textarea></div>
+</div>
+</div>
+<div class="h-14 px-5 bg-slate-50 border-t border-border flex items-center justify-end gap-2 flex-shrink-0">
+<button type="button" onclick="closeFrm('frm-kt')" class="h-9 px-4 text-xs font-semibold text-slate-600 hover:bg-slate-200 rounded-lg">Thoát</button>
+<button type="button" onclick="closeFrm('frm-kt')" class="h-9 px-5 text-xs font-semibold text-white bg-primary hover:bg-primary-hover rounded-lg shadow-sm">Lưu dữ liệu</button>
+</div>
+</div>
+</div>
+<div id="frm-kl" class="frm-modal hidden fixed inset-0 z-50 bg-slate-900/60 items-center justify-center p-4">
+<div class="bg-white rounded-xl shadow-2xl border border-slate-200 w-full max-w-3xl max-h-[90vh] flex flex-col overflow-hidden">
+<div class="h-12 px-5 border-b border-border bg-slate-50 flex items-center justify-between flex-shrink-0">
+<h3 class="text-sm font-bold uppercase tracking-wide text-slate-800 flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-primary inline-block"></span>Kỷ luật</h3>
+<button type="button" onclick="closeFrm('frm-kl')" class="w-7 h-7 rounded-lg flex items-center justify-center text-slate-400 hover:text-slate-700 hover:bg-slate-200" title="Đóng">&times;</button>
+</div>
+<div class="p-5 overflow-y-auto text-sm">
+<div class="grid grid-cols-12 gap-x-3.5 gap-y-3.5 ">
+<div class="col-span-12 sm:col-span-4"><label class="block text-[13px] font-medium text-slate-700 mb-1">Số quyết định <span class="text-red-500">*</span></label><input class="w-full h-[38px] px-3 border border-border rounded-lg text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all" type="text" value="KL-2019/PMC/07"/></div>
+<div class="col-span-12 sm:col-span-4"><label class="block text-[13px] font-medium text-slate-700 mb-1">Ngày quyết định <span class="text-red-500">*</span></label><div class="relative"><input class="w-full h-[38px] px-3 border border-border rounded-lg text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all pr-9" placeholder="__/__/____" type="text" value="05/03/2019"/><span class="absolute right-2.5 top-[11px] text-slate-400 pointer-events-none"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg></span></div></div>
+<div class="col-span-12 sm:col-span-4"><label class="block text-[13px] font-medium text-slate-700 mb-1">Ngày hiệu lực</label><div class="relative"><input class="w-full h-[38px] px-3 border border-border rounded-lg text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all pr-9" placeholder="__/__/____" type="text" value="10/03/2019"/><span class="absolute right-2.5 top-[11px] text-slate-400 pointer-events-none"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg></span></div></div>
+<div class="col-span-12 sm:col-span-12"><label class="block text-[13px] font-medium text-slate-700 mb-1">Nội dung kỷ luật <span class="text-red-500">*</span></label><input class="w-full h-[38px] px-3 border border-border rounded-lg text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all" type="text" value="Vi phạm quy trình bàn giao ca trực kỹ thuật"/></div>
+<div class="col-span-12 sm:col-span-4"><label class="block text-[13px] font-medium text-slate-700 mb-1">Hình thức</label><select class="w-full h-[38px] px-2.5 border border-border rounded-lg text-slate-800 bg-white focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all"><option value="">...</option><option selected>Khiển trách</option><option>Cảnh cáo</option><option>Hạ bậc lương</option><option>Sa thải</option></select></div>
+<div class="col-span-12 sm:col-span-4"><label class="block text-[13px] font-medium text-slate-700 mb-1">Cấp quyết định</label><select class="w-full h-[38px] px-2.5 border border-border rounded-lg text-slate-800 bg-white focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all"><option value="">...</option><option>Công ty</option><option selected>Đơn vị</option><option>Phòng ban/Dự án</option><option>Tập đoàn</option></select></div>
+<div class="col-span-12 sm:col-span-4"><label class="block text-[13px] font-medium text-slate-700 mb-1">Người ký</label><input class="w-full h-[38px] px-3 border border-border rounded-lg text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all" type="text" value="Nguyễn Hoàng Long"/></div>
+<div class="col-span-12 sm:col-span-6"><label class="block text-[13px] font-medium text-slate-700 mb-1">Số tiền</label><input class="w-full h-[38px] px-3 border border-border rounded-lg text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all" type="text" value="0"/></div>
+<div class="col-span-12 sm:col-span-6"><label class="block text-[13px] font-medium text-slate-700 mb-1">Thời gian (ngày)</label><input class="w-full h-[38px] px-3 border border-border rounded-lg text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all" type="number" value="180"/></div>
+<div class="col-span-12 sm:col-span-12"><label class="block text-[13px] font-medium text-slate-700 mb-1">Ghi chú</label><textarea rows="3" class="w-full px-3 py-2 border border-border rounded-lg text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all"></textarea></div>
+</div>
+</div>
+<div class="h-14 px-5 bg-slate-50 border-t border-border flex items-center justify-end gap-2 flex-shrink-0">
+<button type="button" onclick="closeFrm('frm-kl')" class="h-9 px-4 text-xs font-semibold text-slate-600 hover:bg-slate-200 rounded-lg">Thoát</button>
+<button type="button" onclick="closeFrm('frm-kl')" class="h-9 px-5 text-xs font-semibold text-white bg-primary hover:bg-primary-hover rounded-lg shadow-sm">Lưu dữ liệu</button>
+</div>
+</div>
+</div>
+<div id="frm-kn" class="frm-modal hidden fixed inset-0 z-50 bg-slate-900/60 items-center justify-center p-4">
+<div class="bg-white rounded-xl shadow-2xl border border-slate-200 w-full max-w-2xl max-h-[90vh] flex flex-col overflow-hidden">
+<div class="h-12 px-5 border-b border-border bg-slate-50 flex items-center justify-between flex-shrink-0">
+<h3 class="text-sm font-bold uppercase tracking-wide text-slate-800 flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-primary inline-block"></span>Kiêm nhiệm</h3>
+<button type="button" onclick="closeFrm('frm-kn')" class="w-7 h-7 rounded-lg flex items-center justify-center text-slate-400 hover:text-slate-700 hover:bg-slate-200" title="Đóng">&times;</button>
+</div>
+<div class="p-5 overflow-y-auto text-sm">
+<div class="grid grid-cols-12 gap-x-3.5 gap-y-3.5 ">
+<div class="col-span-12 sm:col-span-4"><label class="block text-[13px] font-medium text-slate-700 mb-1">Đơn vị <span class="text-red-500">*</span></label><select class="w-full h-[38px] px-2.5 border border-border rounded-lg text-slate-800 bg-white focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all"><option value="">...</option><option selected>Khối Vận hành Dự án Miền Bắc</option><option>Khối Vận hành Dự án Miền Nam</option><option>Khối Văn phòng</option></select></div>
+<div class="col-span-12 sm:col-span-4"><label class="block text-[13px] font-medium text-slate-700 mb-1">Phòng ban/Dự án <span class="text-red-500">*</span></label><select class="w-full h-[38px] px-2.5 border border-border rounded-lg text-slate-800 bg-white focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all"><option value="">...</option><option selected>Ban Chỉ đạo An toàn &amp; PCCC Tòa nhà</option><option>Ban Quản lý Tòa nhà Keangnam</option><option>Ban Quản lý Sky City Tower</option><option>Phòng Kỹ thuật</option></select></div>
+<div class="col-span-12 sm:col-span-4"><label class="block text-[13px] font-medium text-slate-700 mb-1">Chức vụ <span class="text-red-500">*</span></label><select class="w-full h-[38px] px-2.5 border border-border rounded-lg text-slate-800 bg-white focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all"><option value="">...</option><option selected>Phó Trưởng ban An toàn Cơ điện</option><option>Trưởng phòng Kỹ thuật</option><option>Phó phòng Kỹ thuật</option><option>Kỹ sư trưởng dự án</option><option>Chuyên viên</option></select></div>
+<div class="col-span-12 sm:col-span-4"><label class="block text-[13px] font-medium text-slate-700 mb-1">Nhiệm kỳ</label><input class="w-full h-[38px] px-3 border border-border rounded-lg text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all" type="text" value="2024 - 2027"/></div>
+<div class="col-span-12 sm:col-span-4"><label class="block text-[13px] font-medium text-slate-700 mb-1">Thời gian bổ nhiệm</label><input class="w-full h-[38px] px-3 border border-border rounded-lg text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all" type="text" value="01/06/2024"/></div>
+<div class="col-span-12 sm:col-span-4"><label class="block text-[13px] font-medium text-slate-700 mb-1">Ngày kết thúc</label><div class="relative"><input class="w-full h-[38px] px-3 border border-border rounded-lg text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all pr-9" placeholder="__/__/____" type="text" value="31/05/2027"/><span class="absolute right-2.5 top-[11px] text-slate-400 pointer-events-none"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg></span></div></div>
+</div>
+</div>
+<div class="h-14 px-5 bg-slate-50 border-t border-border flex items-center justify-end gap-2 flex-shrink-0">
+<button type="button" onclick="closeFrm('frm-kn')" class="h-9 px-4 text-xs font-semibold text-slate-600 hover:bg-slate-200 rounded-lg">Thoát</button>
+<button type="button" onclick="closeFrm('frm-kn')" class="h-9 px-5 text-xs font-semibold text-white bg-primary hover:bg-primary-hover rounded-lg shadow-sm">Lưu dữ liệu</button>
+</div>
+</div>
+</div>
+<div id="frm-tl" class="frm-modal hidden fixed inset-0 z-50 bg-slate-900/60 items-center justify-center p-4">
+<div class="bg-white rounded-xl shadow-2xl border border-slate-200 w-full max-w-xl max-h-[90vh] flex flex-col overflow-hidden">
+<div class="h-12 px-5 border-b border-border bg-slate-50 flex items-center justify-between flex-shrink-0">
+<h3 class="text-sm font-bold uppercase tracking-wide text-slate-800 flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-primary inline-block"></span>Tài liệu đính kèm</h3>
+<button type="button" onclick="closeFrm('frm-tl')" class="w-7 h-7 rounded-lg flex items-center justify-center text-slate-400 hover:text-slate-700 hover:bg-slate-200" title="Đóng">&times;</button>
+</div>
+<div class="p-5 overflow-y-auto text-sm">
+<div class="grid grid-cols-12 gap-x-3.5 gap-y-3.5 ">
+<div class="col-span-12 sm:col-span-12"><label class="block text-[13px] font-medium text-slate-700 mb-1">Tên tài liệu <span class="text-red-500">*</span></label><input class="w-full h-[38px] px-3 border border-border rounded-lg text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all" type="text" value="Chứng chỉ FMP - IFMA 2021"/></div>
+<div class="col-span-12"><label class="block text-[13px] font-medium text-slate-700 mb-1">Tệp tài liệu</label><div class="border-2 border-dashed border-slate-300 rounded-lg p-5 text-center bg-slate-50 hover:bg-primary-light/40 cursor-pointer"><div class="text-xs text-slate-500">Kéo thả tệp vào đây hoặc <span class="text-primary font-semibold">chọn tệp</span></div><div class="mt-2 text-xs text-slate-700 font-medium">ChungChi_FMP_International_2021.pdf <span class="text-slate-400">· PDF · 1.8 MB</span></div></div></div>
+</div>
+</div>
+<div class="h-14 px-5 bg-slate-50 border-t border-border flex items-center justify-end gap-2 flex-shrink-0">
+<button type="button" onclick="closeFrm('frm-tl')" class="h-9 px-4 text-xs font-semibold text-slate-600 hover:bg-slate-200 rounded-lg">Thoát</button>
+<button type="button" onclick="closeFrm('frm-tl')" class="h-9 px-5 text-xs font-semibold text-white bg-primary hover:bg-primary-hover rounded-lg shadow-sm">Lưu dữ liệu</button>
+</div>
+</div>
+</div>
+<script>
+function openFrm(id){var m=document.getElementById(id);if(m){m.classList.remove('hidden');m.classList.add('flex');}}
+function closeFrm(id){var m=document.getElementById(id);if(m){m.classList.remove('flex');m.classList.add('hidden');}}
+document.addEventListener('keydown',function(e){if(e.key==='Escape'){document.querySelectorAll('.frm-modal.flex').forEach(function(m){m.classList.remove('flex');m.classList.add('hidden');});}});
+</script>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const tabButtons = document.querySelectorAll('.tab-btn');
+      const tabPanes = document.querySelectorAll('.tab-pane');
+
+      tabButtons.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          e.preventDefault();
+          const targetId = btn.getAttribute('data-tab');
+
+          // Reset all tabs to inactive style
+          tabButtons.forEach(b => {
+            b.classList.remove('bg-primary-light', 'text-primary', 'border-l-4', 'border-primary', 'shadow-xs', 'font-semibold');
+            b.classList.add('text-slate-600', 'font-medium');
+            
+            // Icon color revert
+            const icon = b.querySelector('svg');
+            if (icon && !icon.classList.contains('text-amber-500')) {
+              icon.classList.remove('text-primary');
+              icon.classList.add('text-slate-400');
+            }
+
+            // Remove indicator dot if existing
+            const dot = b.querySelector('.tab-indicator');
+            if (dot) dot.remove();
+          });
+
+          // Set active state for clicked tab
+          btn.classList.add('bg-primary-light', 'text-primary', 'border-l-4', 'border-primary', 'shadow-xs', 'font-semibold');
+          btn.classList.remove('text-slate-600', 'font-medium', 'hover:bg-slate-200/60');
+          
+          const activeIcon = btn.querySelector('svg');
+          if (activeIcon && !activeIcon.classList.contains('text-amber-500')) {
+            activeIcon.classList.add('text-primary');
+            activeIcon.classList.remove('text-slate-400');
+          }
+
+          // Add active dot if no badge exists
+          if (!btn.querySelector('.tab-indicator') && !btn.querySelector('.bg-slate-200') && !btn.querySelector('.bg-amber-50')) {
+            const dot = document.createElement('span');
+            dot.className = 'tab-indicator w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0';
+            btn.appendChild(dot);
+          }
+
+          // Show corresponding pane with animation
+          tabPanes.forEach(pane => {
+            pane.classList.remove('active');
+          });
+
+          const targetPane = document.getElementById(targetId);
+          if (targetPane) {
+            targetPane.classList.add('active');
+          }
+        });
+      });
+    });
+  </script>
 </body>
 </html>

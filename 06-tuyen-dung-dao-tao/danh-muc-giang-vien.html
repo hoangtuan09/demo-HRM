@@ -57,7 +57,27 @@ window.HRM_PAGE = {
     { stt: 5, ma: "GV005", ten: "Hoàng Minh Tuấn", loai: "Nội bộ", ngaySinh: "07/07/1988", gioiTinh: "Nam", cccd: "001188003210", noiCT: "BQL Tòa nhà Keangnam", chucVu: "Kỹ sư trưởng MEP", trangThai: true }
   ],
   total: 48,
-  toolbar: []
+  toolbar: [],
+  form: {
+    title: "THÊM GIẢNG VIÊN MỚI", saveLabel: "Lưu dữ liệu", wide: false,
+    sections: [
+      { title: "Thông tin giảng viên", fields: [
+        { label: "Mã", type: "text", required: true, span: 1, hint: "Tối đa 10 ký tự" },
+        { label: "GV NB/ngoài", type: "select", options: ["Nội bộ", "Thuê ngoài"], span: 1 },
+        { label: "Họ đệm", type: "text", required: true, span: 1 },
+        { label: "Tên", type: "text", required: true, span: 1 },
+        { label: "Giới tính", type: "select", options: ["Nam", "Nữ"], span: 1 },
+        { label: "Ngày sinh", type: "date", span: 1 },
+        { label: "Điện thoại", type: "text", required: true, span: 1 },
+        { label: "CCCD", type: "text", required: true, span: 1 },
+        { label: "Ảnh đại diện", type: "file", span: 2 },
+        { label: "Chức vụ", type: "select", options: ["Trưởng phòng Đào tạo", "Chuyên viên đào tạo", "Giảng viên PCCC", "Kỹ sư trưởng MEP"], span: 2 },
+        { label: "Nơi công tác", type: "text", span: 4 },
+        { label: "Địa chỉ", type: "text", span: 4 },
+        { label: "Ghi chú", type: "textarea", span: 4 }
+      ] }
+    ]
+  }
 };
 </script>
 <script src="../shared/page.js"></script>

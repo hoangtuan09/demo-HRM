@@ -596,6 +596,26 @@
 </label>
 <input class="w-full h-[38px] px-3 rounded-lg bg-surface-container-low font-body-md text-body-md text-on-surface outline-none focus:bg-surface-container-lowest focus:ring-2 focus:ring-primary/20 transition-all" placeholder="Nhập tên chức danh chức vụ..." type="text" value="Phó Kỹ sư Trưởng MEP"/>
 </div>
+<!-- Phụ cấp (theo view gốc ChucVu/_Edit: PC_An, PC_DienThoai, PC_Xang) -->
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-space-md">
+<div>
+<label class="block font-label-md text-label-md text-on-surface font-medium mb-1">Phụ cấp ăn trưa</label>
+<input class="w-full h-[38px] px-3 rounded-lg bg-surface-container-low font-mono-num text-mono-num text-right text-on-surface outline-none focus:bg-surface-container-lowest focus:ring-2 focus:ring-primary/20 transition-all" placeholder="0" type="text" value="730.000"/>
+</div>
+<div>
+<label class="block font-label-md text-label-md text-on-surface font-medium mb-1">Phụ cấp điện thoại</label>
+<input class="w-full h-[38px] px-3 rounded-lg bg-surface-container-low font-mono-num text-mono-num text-right text-on-surface outline-none focus:bg-surface-container-lowest focus:ring-2 focus:ring-primary/20 transition-all" placeholder="0" type="text" value="500.000"/>
+</div>
+<div>
+<label class="block font-label-md text-label-md text-on-surface font-medium mb-1">Phụ cấp xăng xe</label>
+<input class="w-full h-[38px] px-3 rounded-lg bg-surface-container-low font-mono-num text-mono-num text-right text-on-surface outline-none focus:bg-surface-container-lowest focus:ring-2 focus:ring-primary/20 transition-all" placeholder="0" type="text" value="600.000"/>
+</div>
+</div>
+<!-- Loại chức vụ (checkbox: LanhDao, TruongPhong) -->
+<div class="flex items-center gap-space-lg bg-surface-container-low p-space-sm rounded-xl">
+<label class="flex items-center gap-2 cursor-pointer"><input class="w-4 h-4 accent-primary cursor-pointer" type="checkbox"/><span class="font-body-sm text-body-sm text-on-surface font-medium">Lãnh đạo</span></label>
+<label class="flex items-center gap-2 cursor-pointer"><input checked="" class="w-4 h-4 accent-primary cursor-pointer" type="checkbox"/><span class="font-body-sm text-body-sm text-on-surface font-medium">Trưởng phòng</span></label>
+</div>
 <!-- Nhóm chức vụ & Hệ số phụ cấp -->
 <div class="grid grid-cols-1 sm:grid-cols-2 gap-space-md">
 <div>

@@ -141,8 +141,58 @@
     root.innerHTML = header() +
       '<main class="relative pt-16 w-full min-h-screen bg-surface px-space-lg py-space-lg"><div class="flex flex-col w-full space-y-space-lg">' +
       pageHead() + stats() + filters() + table() + toolbar() +
-      '</div></main>';
+      '</div></main>' + formModal();
     document.title = (P.title || 'HRM') + ' — HRM';
+    bindForm();
+  }
+
+  /* ---------- Modal form Thêm/Sửa (khai báo qua P.form) ----------
+     P.form = { title:"Thêm ...", sections:[ { title:"...", fields:[
+         { label, type:"text|number|date|select|textarea|checkbox|password|file", required:true, options:[...], span:1..4, value:"...", hint:"..." } ] } ] } */
+  function field(f) {
+    var span = Math.max(1, Math.min(4, f.span || 1));
+    var col = ({ 1: 'md:col-span-1', 2: 'md:col-span-2', 3: 'md:col-span-3', 4: 'md:col-span-4' })[span];
+    var ctrl = 'w-full px-3 rounded-lg bg-surface-container-low border border-surface-container text-on-surface font-body-md text-body-md focus:outline-none focus:ring-2 focus:ring-primary/20 focus:bg-surface-container-lowest';
+    var lbl = '<label class="block font-label-md text-label-md text-on-surface-variant mb-1">' + esc(f.label) + (f.required ? ' <span class="text-error">*</span>' : '') + '</label>';
+    var inp;
+    if (f.type === 'checkbox') {
+      return '<div class="col-span-1 ' + col + ' flex items-center pt-5"><label class="inline-flex items-center gap-2 cursor-pointer"><input type="checkbox" class="w-4 h-4 rounded accent-[#1967B2]"' + (f.value ? ' checked' : '') + '/><span class="font-body-md text-body-md text-on-surface">' + esc(f.label) + '</span></label></div>';
+    } else if (f.type === 'textarea') inp = '<textarea rows="3" class="' + ctrl + ' py-2" placeholder="' + esc(f.placeholder || '') + '">' + esc(f.value || '') + '</textarea>';
+    else if (f.type === 'select') inp = '<select class="' + ctrl + ' h-[38px] cursor-pointer appearance-none pr-8">' + (f.options || ['']).map(function (o) { return '<option' + (o === f.value ? ' selected' : '') + '>' + esc(o) + '</option>'; }).join('') + '</select>';
+    else if (f.type === 'file') inp = '<div class="flex items-center gap-2"><button type="button" class="h-[38px] px-3 rounded-lg ' + SECBTN + ' font-label-md inline-flex items-center gap-1.5">' + icon('upload_file', 'text-[18px] text-secondary') + 'Chọn tệp</button><span class="font-caption text-caption text-on-surface-variant">' + esc(f.value || 'Chưa chọn tệp nào') + '</span></div>';
+    else inp = '<input type="' + (f.type === 'password' ? 'password' : f.type === 'date' ? 'text' : f.type === 'number' ? 'text' : 'text') + '" class="' + ctrl + ' h-[38px]" value="' + esc(f.value || '') + '" placeholder="' + esc(f.placeholder || (f.type === 'date' ? 'dd/mm/yyyy' : '')) + '"/>';
+    return '<div class="col-span-1 ' + col + '">' + lbl + inp + (f.hint ? '<p class="mt-1 font-caption text-caption text-on-surface-variant">' + esc(f.hint) + '</p>' : '') + '</div>';
+  }
+  function formModal() {
+    var F = P.form; if (!F) return '';
+    var secs = (F.sections || []).map(function (s) {
+      return (s.title ? '<div class="flex items-center gap-2 mt-2 mb-3"><span class="w-1 h-4 rounded bg-[#1967B2]"></span><h3 class="font-headline-sm text-headline-sm text-on-surface">' + esc(s.title) + '</h3></div>' : '') +
+        '<div class="grid grid-cols-1 md:grid-cols-4 gap-x-4 gap-y-3">' + (s.fields || []).map(field).join('') + '</div>';
+    }).join('');
+    return '<div id="hrm-form-modal" class="hidden fixed inset-0 z-[70] items-center justify-center p-4 bg-[#0F172A]/50 backdrop-blur-[2px]">' +
+      '<div class="w-full ' + (F.wide === false ? 'max-w-2xl' : 'max-w-5xl') + ' max-h-[92vh] flex flex-col bg-surface-container-lowest rounded-xl shadow-2xl overflow-hidden">' +
+      '<div class="flex items-center justify-between px-6 py-4 border-b border-surface-container"><h2 class="font-headline-md text-headline-md text-on-surface uppercase tracking-tight">' + esc(F.title || P.title) + '</h2>' +
+      '<button type="button" data-close-form class="w-8 h-8 inline-flex items-center justify-center rounded-lg text-on-surface-variant hover:bg-surface-container-high">' + icon('close', 'text-[20px]') + '</button></div>' +
+      '<div class="flex-1 overflow-y-auto px-6 py-5">' + secs + '</div>' +
+      '<div class="flex items-center justify-end gap-2 px-6 py-4 border-t border-surface-container">' +
+      '<button type="button" data-close-form class="h-[38px] px-space-lg rounded-lg ' + SECBTN + ' font-label-md">Thoát</button>' +
+      '<button type="button" data-close-form class="h-[38px] px-space-xl rounded-lg ' + PRIMARY + ' font-label-md inline-flex items-center gap-1.5">' + icon('save', 'text-[18px]') + (F.saveLabel || 'Lưu dữ liệu') + '</button></div></div></div>';
+  }
+  function bindForm() {
+    var m = document.getElementById('hrm-form-modal'); if (!m) return;
+    function open() { m.classList.remove('hidden'); m.classList.add('flex'); }
+    function close() { m.classList.add('hidden'); m.classList.remove('flex'); }
+    document.addEventListener('click', function (e) {
+      var t = e.target;
+      if (t.closest && t.closest('[data-close-form]')) { close(); return; }
+      if (t === m) { close(); return; }
+      var btn = t.closest ? t.closest('button') : null; if (!btn) return;
+      var txt = (btn.textContent || '').replace(/\s+/g, ' ').toLowerCase();
+      // mở form khi bấm nút "Thêm ... mới" (header) hoặc biểu tượng sửa/ thêm trên dòng
+      if (/thêm|tạo|đăng ký|soạn/.test(txt) && btn.closest('main') && !btn.closest('#hrm-form-modal')) { open(); return; }
+      if (btn.querySelector('.material-symbols-outlined') && /^edit$/.test((btn.querySelector('.material-symbols-outlined').textContent || '').trim())) { open(); }
+    });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape') close(); });
   }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', render); else render();
 })();

@@ -242,6 +242,27 @@
     }
   }
 
+  // Hàng tiêu đề trang có nhiều nút: cho phép xuống dòng, tránh tiêu đề bị ép thành cột hẹp
+  function fixHeaderRow() {
+    var h1 = document.querySelector('main h1');
+    if (!h1) return;
+    var node = h1, titleChild = null, row = null;
+    for (var i = 0; i < 6 && node.parentElement; i++) {
+      var p = node.parentElement, cs = getComputedStyle(p);
+      if (cs.display === 'flex' && cs.flexDirection === 'row' && p.children.length >= 2) {
+        var others = Array.prototype.filter.call(p.children, function (c) { return c !== node && !c.contains(h1); });
+        var hasBtns = others.some(function (c) { return c.querySelectorAll('button, a').length >= 2 || c.tagName === 'BUTTON'; });
+        if (hasBtns) { row = p; titleChild = node; break; }
+      }
+      node = p;
+      if (node.tagName === 'MAIN') break;
+    }
+    if (!row) return;
+    row.style.flexWrap = 'wrap';
+    titleChild.style.flex = '1 1 440px';
+    titleChild.style.minWidth = '320px';
+  }
+
   function burger(sb) {
     if (sb.getAttribute('data-mode') !== 'fixed') return;
     var b = document.createElement('button');
@@ -259,7 +280,7 @@
     burger(sb);
     var oldW = parseInt(sb.getAttribute('data-old-w'), 10);
     shiftOffsets(sb, oldW);
-    function layoutFixes() { shiftOffsets(sb, oldW); safe(fixTables); safe(fixTopGap); }
+    function layoutFixes() { shiftOffsets(sb, oldW); safe(fixTables); safe(fixHeaderRow); safe(fixTopGap); }
     window.addEventListener('load', function () { layoutFixes(); setTimeout(layoutFixes, 700); });
   }
 

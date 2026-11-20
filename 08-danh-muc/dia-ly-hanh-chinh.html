@@ -735,6 +735,23 @@
 <option value="xa">Xã / Phường / Thị trấn</option>
 </select>
 </div>
+<!-- Quận (view gốc DiaLy/_Edit_Phuong: chọn Quận khi thêm Phường/Xã) -->
+<div class="space-y-1">
+<label class="font-label-md text-label-md text-on-surface font-medium">Quận / Huyện <span class="text-error">*</span></label>
+<select class="w-full h-[38px] px-3 bg-surface-container-lowest rounded-lg font-body-md text-body-md text-on-surface border border-outline-variant/60 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all">
+<option value="">-- Chọn quận/huyện --</option>
+<option>Ba Đình</option>
+<option>Cầu Giấy</option>
+<option>Đống Đa</option>
+</select>
+<span class="font-caption text-caption text-outline">Chỉ bắt buộc khi cấp hành chính là Xã / Phường / Thị trấn.</span>
+</div>
+<!-- Vị trí (ViTri: có ở cả 3 form Thành phố / Quận / Phường) -->
+<div class="space-y-1">
+<label class="font-label-md text-label-md text-on-surface font-medium">Vị trí</label>
+<input class="w-full h-[38px] px-3 bg-surface-container-lowest rounded-lg font-body-md text-body-md text-on-surface border border-outline-variant/60 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all" maxlength="4" type="number" value="1"/>
+<span class="font-caption text-caption text-outline">Thứ tự hiển thị trong danh sách.</span>
+</div>
 <!-- Tên đơn vị hành chính -->
 <div class="md:col-span-2 space-y-1">
 <label class="font-label-md text-label-md text-on-surface font-medium">Tên đơn vị hành chính <span class="text-error">*</span></label>

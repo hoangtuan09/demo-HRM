@@ -54,6 +54,18 @@ window.HRM_PAGE = {
     { stt: 5, ma: "BL05", ten: "Thưởng hiệu suất KPI", luongDonVi: true, luongPhongBan: true, luongBoPhan: true, trangThai: true },
     { stt: 6, ma: "BL06", ten: "Phụ cấp độc hại kỹ thuật", luongDonVi: false, luongPhongBan: true, luongBoPhan: false, trangThai: false }
   ],
+  form: {
+    title: "THÊM BẢNG LƯƠNG", saveLabel: "Lưu dữ liệu", wide: false,
+    sections: [ { fields: [
+      { label: "Mã", type: "text", required: true, span: 1, hint: "Tối đa 50 ký tự" },
+      { label: "Tên", type: "text", required: true, span: 3, hint: "Tối đa 100 ký tự" },
+      { label: "Điều kiện", type: "text", span: 3, hint: "Tối đa 200 ký tự" },
+      { label: "Vị trí", type: "number", span: 1 },
+      { label: "Lương đơn vị", type: "checkbox", span: 1 },
+      { label: "Lương Phòng ban/Dự án", type: "checkbox", span: 2 },
+      { label: "Lương bộ phận", type: "checkbox", span: 1 }
+    ] } ]
+  },
   total: 14
 };
 </script>
